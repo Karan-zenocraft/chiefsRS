@@ -1,0 +1,73 @@
+<?php
+
+return [
+    'adminEmail' => 'admin@example.com',
+    'supportEmail' => 'support@example.com',
+    'user.passwordResetTokenExpire' => 3600,
+    'site_url' => stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'],
+    'login_url' => '/chiefsRS/backend/web/login',
+      'userroles' => [
+        'super_admin' => '1', 
+        'admin' => '2',
+        'manager' => '3',
+        'supervisor' => '4',
+        'customer' => '5',
+    ],
+    //get user rolename 
+    'userrole_name' => ['1' => 'Super Admin', '2' => 'Admin','3'=>'Manager','4'=>'SuperVisor','5'=>'Customer'],
+    'user_status' => array('1' => 'Active', '0' => 'In-Active'),
+    'super_admin_role_id' => '1',
+    'administrator_role_id' => '2',
+ 
+    'MonthsDropDown' => array( '1' => 'January','2'=>'February','3'=>'March','4'=>'April','5'=>'May','6'=>'June','7'=>'July','8'=>'August','9'=>'September','10'=>'October','11'=>'November','12'=>'December'),
+    'max_carry_forward_leaves' => '3',
+    'total_allowed_leaves_for_one_year' => '14',
+    'on_the_spot_leaves' => '2',
+    'assign_to_all'=>'1',
+    'HR_role_id' => '5',
+    'HR_admin_role_id' => '6',
+    'leave_balance_count' => '1',
+    'leave_type1' => array('0'=>'Casual Leave','1'=>'Sick Leave','2'=>'Emergency Leave'),
+    'sandwich_leave_status' => array('0'=>'No','1'=>'Yes'),
+    'QA_role_id' => '7',
+    'server_IP_address' => '119.160.193.114',
+    'upload_path'         => dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../frontend/web/uploads/projectdocs',
+    'date_format' => "d/m/Y" ,
+    'frontend_url' => "http://pms.inheritxserver.com/",
+    'backend_url' => "http://pmsadmin.inheritxserver.com/",
+    //THIS ARRAY DEFINES TASK TYPES NAME AND VALUE, USED FOR GETTING PERTICULAR TASKS TYPE VALUE//
+       'TASK_TYPE_VALUE' => array(
+        'Normal' => '1',
+        'CR' => '2',
+        'Bug' => '3',
+        'Feedback' => '4',
+        'Suggestions' => '5',
+        'Support' => '6',
+        'R&D' => '7',
+        'Knowledge Transfer' => '8',
+        'Estimation' => '9',
+        'Client Call'=> '10',
+        'Others' => '11',
+    ),
+    'ratingDropDown' => ['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10'],
+     /*'department' => array(
+        'PHP' =>  '1',
+        'iOS' => '2',
+        'QA' => '3',
+        'Sales' => '4',
+        'Management' => '5',
+        'Network Admin' => '6',
+        'Dot Net' => '7',
+        'Game' => '8',
+        'Design' => '9',
+        'Android' => '10',
+        'Sen7' => '11',
+        'HR' => '12',
+    ),*/
+    'cmsAdminEmail' => 'kavita@inheritx.com',
+    'PMName'        => 'Abhishek',
+    'base_path'     => __DIR__,
+    //'managersEmail' => 'managers@inheritx.com',
+
+
+];
