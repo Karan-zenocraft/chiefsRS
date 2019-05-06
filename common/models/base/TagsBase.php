@@ -27,7 +27,8 @@ return 'tags';
 public function rules()
 {
         return [
-            [['name', 'description'], 'required'],
+            [['name', 'description','status'], 'required'],
+             [['status'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];
@@ -42,6 +43,9 @@ return [
     'id' => 'ID',
     'name' => 'Name',
     'description' => 'Description',
+    'status' => 'Status',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
 ];
 }
 }
