@@ -29,18 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='col-md-5 col-sm-12'><div class='row1'>{summary}</div></div>\n<div class='col-md-7 col-sm-12'><div class='row'>{pager}</div></div>",
                 'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='margin-top-10'>{summary}</div>\n<div class='dataTables_paginate paging_bootstrap pagination'>{pager}</div>",
                 'columns' => [
-                    [
-                        'attribute' => 'first_name',
-                        'filterOptions' => ["style" => "width:10%;"],
-                        'headerOptions' => ["style" => "width:10%;"],
-                        'contentOptions' => ["style" => "width:10%;"],
-                    ],
-                    [
+              [
+                    'attribute' => 'fullName',
+                    'label' => 'Name',
+                    //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
+                    'format' => 'raw',
+                    'value' => function( $data ) {
+                        $ssText = (!empty($data->first_name) && !empty($data->last_name) ) ? $data->first_name." ".$data->last_name : "";
+                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox();']);
+                    }
+                ],
+                   /* [
                         'attribute' => 'last_name',
                         'filterOptions' => ["style" => "width:10%;"],
                         'headerOptions' => ["style" => "width:10%;"],
                         'contentOptions' => ["style" => "width:10%;"],
-                    ],
+                    ],*/
                     'email:email',
                     [
                         'attribute' => 'role_id',

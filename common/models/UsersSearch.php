@@ -12,6 +12,7 @@ use common\models\Users;
  */
 class UsersSearch extends Users
 {
+    public $fullName;
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class UsersSearch extends Users
     {
         return [
             [['id', 'role_id', 'status'], 'integer'],
-            [['email', 'password', 'first_name', 'last_name', 'address', 'created_at', 'updated_at'], 'safe'],
+            [['email', 'password', 'first_name', 'last_name', 'address', 'created_at', 'updated_at','fullName'], 'safe'],
         ];
     }
 
@@ -67,9 +68,13 @@ class UsersSearch extends Users
 
         $query->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'first_name', $this->first_name])
-            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            //->andFilterWhere(['like', 'name', $this->first_name." ".$this->last_name])
+            //->andFilterWhere(['like', 'last_name', $this->last_name])
             ->andFilterWhere(['like', 'address', $this->address]);
+
+              $query->andWhere('first_name LIKE "%' . $this->fullName . '%" ' .
+        'OR last_name LIKE "%' . $this->fullName . '%"'
+    );
 
         return $dataProvider;
     }

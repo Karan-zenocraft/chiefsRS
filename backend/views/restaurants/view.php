@@ -25,13 +25,19 @@ $this->title = "Restaurant Description : ".$model->name;
             'state',
             'country',
             'pincode',
-            'lattitude',
-            'longitude',
+            //'lattitude',
+           // 'longitude',
             'website',
             'contact_no',
             'email:email',
             'max_stay_time_after_reservation',
-            'status',
+            [
+                        'attribute' => 'status',
+                        'filter' => Yii::$app->params['status'],
+                        'value' => function($data) {
+                            return Yii::$app->params['status'][$data->status];
+                        },
+                ],
            // 'created_at',
             //'updated_at',
         ],

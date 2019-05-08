@@ -3,13 +3,13 @@
 namespace common\models;
 use Yii;
 
-class RestaurantsGallery extends \common\models\base\RestaurantsGalleryBase
+class RestaurantMenu extends \common\models\base\RestaurantMenuBase
 {
     public static function tableName()
 {
-return 'restaurant_gallery';
+return 'restaurant_menu';
 }
-  public function beforeSave($insert) {
+public function beforeSave($insert) {
         $user_id = Yii::$app->user->id;
         if ($this->isNewRecord) {
             $this->setAttribute('created_by',$user_id);
@@ -26,13 +26,13 @@ return 'restaurant_gallery';
 public function rules()
 {
         return [
-            [['image_title', 'image_description'], 'required'],
-            [['image_name'], 'image','extensions'=>'jpg, jpeg, gif, png'],
-            [['image_name'], 'image', 'skipOnEmpty'=>TRUE, 'extensions'=>'jpg, jpeg, gif, png', 'on'=>'update'],
-            [['restaurant_id', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['image_description'], 'string'],
+            [['name', 'description', 'menu_category_id', 'price'], 'required'],
+            [['menu_category_id', 'status'], 'integer'],
+            [['description'], 'string'],
+            [['price'], 'number'],
             [['restaurant_id', 'created_by', 'updated_by','created_at', 'updated_at'], 'safe'],
-            [['image_title'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
+            [['menu_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => MenuCategories::className(), 'targetAttribute' => ['menu_category_id' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
         ];
 }
@@ -45,16 +45,34 @@ public function attributeLabels()
 return [
     'id' => 'ID',
     'restaurant_id' => 'Restaurant ID',
-    'image_title' => 'Image Title',
-    'image_description' => 'Image Description',
-    'image_name' => 'Upload Image',
-    'status' => 'Status',
+    'name' => 'Name',
+    'description' => 'Description',
+    'menu_category_id' => 'Menu Category ID',
+    'price' => 'Price',
+    'photo' => 'Photo',
     'created_by' => 'Created By',
     'updated_by' => 'Updated By',
+    'status' => 'Status',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
 ];
 }
+
+    /**
+    * @return \yii\db\ActiveQuery
+    */
+    public function getCreatedBy()
+    {
+    return $this->hasOne(Users::className(), ['id' => 'created_by']);
+    }
+
+    /**
+    * @return \yii\db\ActiveQuery
+    */
+    public function getMenuCategory()
+    {
+    return $this->hasOne(MenuCategories::className(), ['id' => 'menu_category_id']);
+    }
 
     /**
     * @return \yii\db\ActiveQuery

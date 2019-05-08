@@ -73,6 +73,10 @@ return [
                 'create-restaurant-gallery/<rid>'=>'restaurants-gallery/create',
                 'update-restaurant-gallery/<id>/<rid>'=>'restaurants-gallery/update',
                 'delete-restaurant-gallery/<id>/<rid>'=>'restaurants-gallery/delete',
+                'manage-restaurants-menu/<rid>'=>'restaurant-menu/index',
+                'create-restaurant-menu/<rid>'=>'restaurant-menu/create',
+                'update-restaurant-menu/<id>/<rid>'=>'restaurant-menu/update',
+                'delete-restaurant-menu/<id>/<rid>'=>'restaurant-menu/delete',
 
             ]
         ],

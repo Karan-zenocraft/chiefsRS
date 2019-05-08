@@ -71,6 +71,7 @@ class UsersController extends AdminCoreController
      * @return mixed
      */
     public function actionView( $id ) {
+        $this->layout = 'popup';
         return $this->render( 'view', [
             'model' => $this->findModel( $id ),
             ] );

@@ -26,7 +26,7 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
             [['role_id', 'status'], 'integer'],
             [['role_id','email', 'password', 'first_name','last_name','address','status'], 'required','on'=>'create'],
             [['role_id','email','first_name','last_name','address','status'], 'required','on'=>'update'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at','name'], 'safe'],
             [['email'],'email'],
             ['email','validateEmail'],
             [['email','password', 'first_name', 'last_name'], 'string', 'max' => 255],
@@ -49,6 +49,9 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
    { 
    return $this->hasMany(UserProjects::className(), ['user_id' => 'id']); 
    } 
+   public function getFullName() {
+    return $this->first_name . ' ' . $this->last_name;
+}
 
     /** INCLUDE USER LOGIN VALIDATION FUNCTIONS* */
 
@@ -68,6 +71,7 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
             'address' => 'Address', 
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'fullName' => 'Name',
         ];
     }
 

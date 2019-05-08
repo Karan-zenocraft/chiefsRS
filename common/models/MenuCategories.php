@@ -1,6 +1,8 @@
 <?php
 
 namespace common\models;
+use yii\helpers\ArrayHelper;
+
 
 class MenuCategories extends \common\models\base\MenuCategoriesBase
 {
@@ -17,7 +19,10 @@ public function beforeSave($insert) {
 
         return parent::beforeSave($insert);
 }
-
+public static function MenuCategoriesDropdown(){
+        //->where(['status'=>Yii::$app->params['department_active_status']])
+        return ArrayHelper::map(MenuCategories::find()->orderBy('name')->asArray()->all(),'id','name');
+    }
 /**
 * @inheritdoc
 */

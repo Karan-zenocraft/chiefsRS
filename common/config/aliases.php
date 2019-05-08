@@ -48,6 +48,12 @@ Yii::setAlias('restaurant_gallery_update_message', 'Photo has been updated succe
 Yii::setAlias('restaurant_gallery_delete_message', 'Photo has been deleted successfully !');
 //END:  Restaurant Gallery message
 
+//START: Restaurant Menu message
+Yii::setAlias('restaurant_menu_add_message', 'Menu has been added successfully !');
+Yii::setAlias('restaurant_menu_update_message', 'Menu has been updated successfully !');
+Yii::setAlias('restaurant_menu_delete_message', 'Menu has been deleted successfully !');
+//END:  Restaurant Menu message
+
 //START: Page message
 Yii::setAlias('page_add_message', 'Page has been added successfully !');
 Yii::setAlias('page_update_message', 'Page has been updated successfully !');

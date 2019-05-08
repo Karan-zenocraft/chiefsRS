@@ -32,8 +32,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'id',
-            'name',
-            'description:ntext',
+           'name',
+              [
+                    'attribute' => 'description',
+                    //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
+                    'format' => 'raw',
+                    'value' => function( $data ) {
+                        $ssText = (!empty($data->description) ) ? $data->description : "";
+                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox();']);
+                    }
+                ],
+          //  'description:ntext',
             'address:ntext',
             //'city',
             //'state',
@@ -64,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'yii\grid\ActionColumn',
                         'headerOptions' => ["style" => "width:40%;"],
                         'contentOptions' => ["style" => "width:40%;"],
-                        'template' => '{update}{delete}{manage_gallery}',
+                        'template' => '{update}{delete}{manage_gallery}{manage_menu}',
                         'buttons' => [
                             'update' => function ($url, $model) {
                                 $flag = 1;
@@ -79,6 +88,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 $title = "Manage Gallery";
                                 $flag =2;
                                 $url = Yii::$app->urlManager->createUrl(['restaurants-gallery/index', 'rid' => $model->id]);
+                                return Common::template_view_gallery_button($url, $model,$title,$flag);
+                                
+                            },
+                            'manage_menu' => function ($url, $model) {
+                                $title = "Manage Menu";
+                                $flag =2;
+                                $url = Yii::$app->urlManager->createUrl(['restaurant-menu/index', 'rid' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                             },
