@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\components\AdminCoreController;
+use common\components\Common;
 
 /**
  * RestaurantsGalleryController implements the CRUD actions for RestaurantsGallery model.
@@ -37,7 +38,7 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionIndex()
     {
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "restaurants");
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
         $searchModel = new RestaurantsGallerySearch();
         $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams );
 
@@ -70,14 +71,31 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionCreate()
     {
         $model = new RestaurantsGallery();
-        $model->restaurant_id = $_GET['restaurant_id'];
+        $model->scenario = 'insert';
+        $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
+        $model->restaurant_id = $_GET['rid'];
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load(Yii::$app->request->post())) {
+            $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
+            if (!empty($file))
+                $model->image_name = $file;
+
+            if($model->save())
+            {
+            if (!empty($file))
+                $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $file);
+                Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_add_message' ) );
+                    return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+            }
+            return $this->render('create', ['model' => $model,'snRestaurantName' => $snRestaurantName]);
+        }else {
+                return $this->render('create', ['model' => $model,'snRestaurantName' => $snRestaurantName]);
+    }
 
         return $this->render('create', [
             'model' => $model,
+            'snRestaurantName' => $snRestaurantName,
         ]);
     }
 
@@ -91,13 +109,34 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'update';
+        $old_image = $model->image_name;
+         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
+        if ($model->load(Yii::$app->request->post())) {
+             $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
+      
+           if (!empty($file)){
+                 $delete = $model->oldAttributes['image_name'];
+                 $model->image_name= $file; 
+                 unlink(Yii::getAlias('@root') .'/uploads/'.$old_image);
+                 $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $file,false);
+                 $model->image_name = $file;
+                 $model->save();
+            }
+            else{
+                $model->image_name = $old_image;
+                $model->save(false);
+            }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_update_message' ) );
+            return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+        }else{
+            return $this->render('update', ['model' => $model,'snRestaurantName' => $snRestaurantName]);
         }
-
         return $this->render('update', [
             'model' => $model,
+            'snRestaurantName' => $snRestaurantName
         ]);
     }
 
@@ -110,9 +149,13 @@ class RestaurantsGalleryController extends AdminCoreController
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
         $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        if(file_exists(Yii::getAlias('@root') . '/uploads/'. $model->image_name))
+            unlink(Yii::getAlias('@root') . '/uploads/'. $model->image_name);
+            $model->delete(); 
+        Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_delete_message' ) );
+        return $this->redirect(['index','rid' => $model->restaurant_id]);
     }
 
     /**

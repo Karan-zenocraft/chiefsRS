@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                              'manage_gallery' => function ($url, $model) {
                                 $title = "Manage Gallery";
                                 $flag =2;
-                                $url = Yii::$app->urlManager->createUrl(['restaurents-gallery/index', 'rid' => $model->id]);
+                                $url = Yii::$app->urlManager->createUrl(['restaurants-gallery/index', 'rid' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                             },

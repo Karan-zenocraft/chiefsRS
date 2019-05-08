@@ -21,13 +21,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete",'onFocus'=>"geolocate()"]) ?>
+    <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete"]) ?>
 <table>
       <tr>
-        <td><?= $form->field($model, 'city')->textInput(['maxlength' => true,'id'=>"locality",'disabled'=>"true"]) ?></td>
+        <td><?= $form->field($model, 'city')->textInput(['maxlength' => true,'id'=>"city",'disabled'=>"true"]) ?></td>
         <td><?= $form->field($model, 'country')->textInput(['maxlength' => true,'id'=>"country",'disabled'=>"true"]) ?></td>
       <tr>
-         <td><?= $form->field($model, 'state')->textInput(['maxlength' => true,'id'=>"administrative_area_level_1",'disabled'=>"true"]) ?></td>
+         <td><?= $form->field($model, 'state')->textInput(['maxlength' => true,'id'=>"state",'disabled'=>"true"]) ?></td>
          <td><?= $form->field($model, 'pincode')->textInput(['id'=>"postal_code",'disabled'=>"true"]) ?></td>
       </tr>
       <tr>
@@ -58,76 +58,46 @@ use yii\widgets\ActiveForm;
     </div>
 </div>
 
-<script>
-// This sample uses the Autocomplete widget to help the user select a
-// place, then it retrieves the address components associated with that
-// place, and then it populates the form fields with those details.
-// This sample requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script
-// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+<script type="text/javascript">
+$(document).ready(function () {
+google.maps.event.addDomListener(window, 'load', function() 
+{
+   var places = new google.maps.places.Autocomplete(document
+           .getElementById('autocomplete'));
+       google.maps.event.addListener(places, 'place_changed', function() {
+       var place = places.getPlace();
+       var address = place.formatted_address;
+       var  value = address.split(",");
+       count=value.length;
+       country=value[count-1];
+       state=value[count-2];
+       city=value[count-3];
+       var z=state.split(" ");
+       document.getElementById("country").value = country;
+       var i =z.length;
+       document.getElementById("state").value = z[1];
+       if(i>2)
+       document.getElementById("postal_code").value = z[2];
+       document.getElementById("city").value = city;
+       var latitude = place.geometry.location.lat();
+       var longitude = place.geometry.location.lng();
+       var mesg = address;
+       document.getElementById("autocomplete").value = mesg;
+       var lati = latitude;
+       document.getElementById("lattitude").value = lati;
+       var longi = longitude;
+       document.getElementById("longitude").value = longi; 
+       document.getElementById("country").disabled = false; 
+       document.getElementById("state").disabled = false;           
+       document.getElementById("city").disabled = false;           
+       document.getElementById("postal_code").disabled = false;           
+       document.getElementById("lattitude").disabled = false;           
+       document.getElementById("longitude").disabled = false;           
 
-var placeSearch, autocomplete;
+   });
+});
 
-var componentForm = {
-//  street_number: 'short_name',
-  //route: 'long_name',
-  locality: 'long_name',
-  administrative_area_level_1: 'short_name',
-  country: 'long_name',
-  postal_code: 'short_name'
-};
-
-function initAutocomplete() {
-  // Create the autocomplete object, restricting the search predictions to
-  // geographical location types.
-  autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'), {types: ['geocode']});
-
-  // Avoid paying for data that you don't need by restricting the set of
-  // place fields that are returned to just the address components.
-  autocomplete.setFields(['address_component']);
-
-  // When the user selects an address from the drop-down, populate the
-  // address fields in the form.
-  autocomplete.addListener('place_changed', fillInAddress);
-}
-
-function fillInAddress() {
-  // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
-
-  for (var component in componentForm) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
-  }
-  // Get each component of the address from the place details,
-  // and then fill-in the corresponding field on the form.
-  for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
-    if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
-    }
-  }
-}
-
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      var circle = new google.maps.Circle(
-          {center: geolocation, radius: position.coords.accuracy});
-      autocomplete.setBounds(circle.getBounds());
-    });
-  }
-}
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl5jlvnxlXZw-9NUSwnXus4g9uTq3Od4c&libraries=places&callback=initAutocomplete"
-        async defer></script>
-
+});
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?components=country:USA&key=AIzaSyBvpANF446OIBFdLaqozAf-lheEZ__oVVg&libraries=places"></script>
+    

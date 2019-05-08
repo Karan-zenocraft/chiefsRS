@@ -4,15 +4,12 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\RestaurantsGallery */
-
-$this->title = 'Update Restaurants Gallery: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Restaurants Galleries', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = "Update Photo - ".$snRestaurantName;
+$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants', 'url' => ['restaurants/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Gallery', 'url' => ['restaurants-gallery/index','rid'=>$_GET['rid']]];
+$this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 ?>
-<div class="restaurants-gallery-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="restaurants-gallery-update email-format-create">
 
     <?= $this->render('_form', [
         'model' => $model,

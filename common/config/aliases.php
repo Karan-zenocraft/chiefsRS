@@ -4,6 +4,7 @@ Yii::setAlias('common', dirname(__DIR__));
 Yii::setAlias('frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('console', dirname(dirname(__DIR__)) . '/console');
+Yii::setAlias('@root', realpath(dirname(__FILE__).'/../../'));
 
 //START: site configuration
 Yii::setAlias('site_title', 'Chiefs RS');
@@ -23,23 +24,29 @@ Yii::setAlias('email_template_update_message', 'Template has been updated succes
 Yii::setAlias('email_template_delete_message', 'Template has been deleted successfully !');
 //END: Email template message
 
-//START: Project message
+//START: Tag message
 Yii::setAlias('tag_add_message', 'Tag has been added successfully !');
 Yii::setAlias('tag_update_message', 'Tag has been updated successfully !');
 Yii::setAlias('tag_delete_message', 'Tag has been deleted successfully !');
-//END:  Project message
+//END:  Tag message
 
-//START: Milestone message
+//START: Menu Category message
 Yii::setAlias('menu_category_add_message', 'Menu Category has been added successfully !');
 Yii::setAlias('menu_category_update_message', 'Menu Category has been updated successfully !');
 Yii::setAlias('menu_category_delete_message', 'Menu Category has been deleted successfully !');
-//END:  Milestone message
+//END:  Menu Category message
 
-//START: Task message
+//START: Restaurant message
 Yii::setAlias('restaurant_add_message', 'Restaurant has been added successfully !');
 Yii::setAlias('restaurant_update_message', 'Restaurant has been updated successfully !');
 Yii::setAlias('restaurant_delete_message', 'Restaurant has been deleted successfully !');
-//END:  Task message
+//END:  Restaurant message
+
+//START: Restaurant Gallery message
+Yii::setAlias('restaurant_gallery_add_message', 'Photo has been added successfully !');
+Yii::setAlias('restaurant_gallery_update_message', 'Photo has been updated successfully !');
+Yii::setAlias('restaurant_gallery_delete_message', 'Photo has been deleted successfully !');
+//END:  Restaurant Gallery message
 
 //START: Page message
 Yii::setAlias('page_add_message', 'Page has been added successfully !');

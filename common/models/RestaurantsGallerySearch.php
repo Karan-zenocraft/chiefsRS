@@ -75,7 +75,7 @@ class RestaurantsGallerySearch extends RestaurantsGallery
     }
 
      public function backendSearch( $params ) {
-        $query = RestaurantsGallery::find();
+        $query = RestaurantsGallery::find()->where(['restaurant_id'=>$_GET['rid']]);
 
         $dataProvider = new ActiveDataProvider( [
             'query' => $query,
@@ -88,17 +88,18 @@ class RestaurantsGallerySearch extends RestaurantsGallery
         }
 
         $query->andFilterWhere([
-            'restaurants.id' => $this->id,
-            'restaurants.restaurant_id' => $this->restaurant_id,
-            'restaurants.status' => $this->status,
-            'restaurants.created_by' => $this->created_by,
-            'restaurants.updated_by' => $this->updated_by,
-            'restaurants.created_at' => $this->created_at,
-            'restaurants.updated_at' => $this->updated_at,
+            'id' => $this->id,
+            'restaurant_id' => $this->restaurant_id,
+            'status' => $this->status,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere( ['like', 'name', $this->name] )
-        ->andFilterWhere( ['like', 'description', $this->description] );
+      $query->andFilterWhere(['like', 'image_title', $this->image_title])
+            ->andFilterWhere(['like', 'image_description', $this->image_description])
+            ->andFilterWhere(['like', 'image_name', $this->image_name]);
 
         return $dataProvider;
     }

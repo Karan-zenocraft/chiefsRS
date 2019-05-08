@@ -15,6 +15,7 @@ use common\models\Users;
 use common\models\LeaveQuota;
 use common\models\EmailFormat;
 use common\models\Projects;
+use common\models\Restaurants;
 class Common {
 
     /**
@@ -1102,18 +1103,11 @@ class Common {
 
     //GET NAME BY ID AND MODEL//
     public static function get_name_by_id( $id = '', $flag = '' ) {
-        if ( $flag == "projects" ) {
-            $snProjectDetails = Projects::find()->where( ['id'=>$id] )->one();
-        }
-        if ( $flag == "milestones" ) {
-            $snProjectDetails = Milestones::find()->where( ['id'=>$id] )->one();
-        }
-        if ( $flag == "tasks" ) {
-            $snProjectDetails = tasks::find()->where( ['id'=>$id] )->one();
-        }
-
-
-        return !empty( $snProjectDetails ) ? $snProjectDetails->name : '';
+        
+            if($flag == "Restaurants"){
+                $snRestaurantsDetail = Restaurants::find()->where( ['id'=>$id] )->one();
+            }
+            return !empty( $snRestaurantsDetail ) ? $snRestaurantsDetail->name : '';
     }
     //THIS FUNCTIONS FINDS ESTIMATED HOURS BY MILESTONE ID//
     public static function get_estimated_hours( $milestone_id, $flag='' ) {
