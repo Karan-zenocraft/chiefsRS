@@ -68,12 +68,11 @@ class UsersSearch extends Users
 
         $query->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'password', $this->password])
-            //->andFilterWhere(['like', 'name', $this->first_name." ".$this->last_name])
-            //->andFilterWhere(['like', 'last_name', $this->last_name])
             ->andFilterWhere(['like', 'address', $this->address]);
 
               $query->andWhere('first_name LIKE "%' . $this->fullName . '%" ' .
-        'OR last_name LIKE "%' . $this->fullName . '%"'
+        'OR last_name LIKE "%' . $this->fullName . '%"'. //This will filter when only last name is searched.
+        'OR CONCAT(first_name, " ", last_name) LIKE "%' . $this->fullName . '%"'
     );
 
         return $dataProvider;
