@@ -20,6 +20,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
+      <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?>
+
+
     <div class="form-group form-actions">
          <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
           <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->urlManager->createUrl(['tags/index']), ['class' => 'btn default']) ?>

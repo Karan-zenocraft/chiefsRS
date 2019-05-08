@@ -109,7 +109,10 @@ class TagsController extends AdminCoreController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $snDeleteStatus = $this->findModel( $id )->delete();
+        if ( !empty( $snDeleteStatus ) && $snDeleteStatus=='1' ) {
+            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@tag_delete_message' ) );
+        }
 
         return $this->redirect(['index']);
     }

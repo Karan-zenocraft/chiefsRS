@@ -31,7 +31,9 @@ CommonAppAsset::register($this);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="<?= \Yii::$app->urlManager->createUrl(['dashboard']); ?>">Chiefs RS Admin Panel</a>
+                    <a class="brand" href="<?= \Yii::$app->urlManager->createUrl(['dashboard']); ?>">
+                        <?= Html::img(Yii::$app->request->baseUrl.'/../../common/web/img/title-small.png',['width' => 70 ,'height' => 70])?>
+</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">

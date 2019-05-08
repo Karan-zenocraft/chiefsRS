@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'udokmeci\\yii2PhoneValidator' => array($vendorDir . '/udokmeci/yii2-phone-validator/src'),
+    'libphonenumber' => array($vendorDir . '/giggsey/libphonenumber-for-php/src'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),

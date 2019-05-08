@@ -22,6 +22,10 @@ $this->title = "Tag Description : ".$model->name;
             'id',
             'name',
             'description:ntext',
+             [
+                'label'=>'status',
+                'value' => Yii::$app->params['status'][$model->status],
+            ],
         ],
     ]) ?>
 

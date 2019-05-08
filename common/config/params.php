@@ -16,6 +16,7 @@ return [
     //get user rolename 
     'userrole_name' => ['1' => 'Super Admin', '2' => 'Admin','3'=>'Manager','4'=>'SuperVisor','5'=>'Customer'],
     'user_status' => array('1' => 'Active', '0' => 'In-Active'),
+    'status' => array('1' => 'Active', '0' => 'In-Active'),
     'super_admin_role_id' => '1',
     'administrator_role_id' => '2',
  

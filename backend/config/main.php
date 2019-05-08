@@ -61,6 +61,14 @@ return [
                 'create-tag'=>'tags/create',
                 'update-tag/<id>'=>'tags/update',
                 'delete-tag/<id>'=>'tags/delete',
+                'manage-menu-categories'=>'menu-categories/index',
+                'create-menu-category'=>'menu-categories/create',
+                'update-menu-category/<id>'=>'menu-categories/update',
+                'delete-menu-category/<id>'=>'menu-categories/delete',
+                'manage-restaurants'=>'restaurants/index',
+                'create-restaurant'=>'restaurants/create',
+                'update-restaurant/<id>'=>'restaurants/update',
+                'delete-restaurant/<id>'=>'restaurants/delete',
 
             ]
         ],

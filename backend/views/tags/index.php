@@ -39,6 +39,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox();']);
                     }
                 ],
+                 [
+                        'attribute' => 'status',
+                        'filter' => Yii::$app->params['status'],
+                        'filterOptions' => ["style" => "width:13%;"],
+                        'headerOptions' => ["style" => "width:13%;"],
+                        'contentOptions' => ["style" => "width:13%;"],
+                        'value' => function($data) {
+                            return Yii::$app->params['status'][$data->status];
+                        },
+                ],
 
             [
                         'header' => 'Actions',
@@ -53,11 +63,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             },
                             'delete' => function ($url, $model) {
                                 $flag = 1;
-                                $confirmmessage = "Are you sure you want to delete this user?";
+                                $confirmmessage = "Are you sure you want to delete this Tag?";
                                 return Common::template_delete_button($url, $model,$confirmmessage, $flag);
                             },
                         ]
-                    ],
+            ],
         ],
     ]); ?>
 

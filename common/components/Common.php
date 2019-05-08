@@ -243,7 +243,7 @@ class Common {
      * Set designing for view milestones button
      */
 
-    public static function template_view_milestones_button( $url, $model, $title, $flag = false ) {
+    public static function template_view_gallery_button( $url, $model, $title, $flag = false ) {
         if ( $flag == 1 ) {
             return Html::a( '<i class="icon-calendar icon-white"></i>', $url, [
                 'title' => Yii::t( 'yii', $title ),

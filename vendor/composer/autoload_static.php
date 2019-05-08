@@ -73,6 +73,10 @@ class ComposerStaticInit83b3e388956e0a8220bc97ae723690b2
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
             'Symfony\\Polyfill\\Iconv\\' => 23,
         ),
+        'G' => 
+        array (
+            'Giggsey\\Locale\\' => 15,
+        ),
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
@@ -248,6 +252,10 @@ class ComposerStaticInit83b3e388956e0a8220bc97ae723690b2
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
         ),
+        'Giggsey\\Locale\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/locale/src',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
@@ -255,6 +263,20 @@ class ComposerStaticInit83b3e388956e0a8220bc97ae723690b2
     );
 
     public static $prefixesPsr0 = array (
+        'u' => 
+        array (
+            'udokmeci\\yii2PhoneValidator' => 
+            array (
+                0 => __DIR__ . '/..' . '/udokmeci/yii2-phone-validator/src',
+            ),
+        ),
+        'l' => 
+        array (
+            'libphonenumber' => 
+            array (
+                0 => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src',
+            ),
+        ),
         'H' => 
         array (
             'HTMLPurifier' => 

@@ -30,15 +30,15 @@ Yii::setAlias('tag_delete_message', 'Tag has been deleted successfully !');
 //END:  Project message
 
 //START: Milestone message
-Yii::setAlias('milestone_add_message', 'Milestone has been added successfully !');
-Yii::setAlias('milestone_update_message', 'Milestone has been updated successfully !');
-Yii::setAlias('milestone_delete_message', 'Milestone has been deleted successfully !');
+Yii::setAlias('menu_category_add_message', 'Menu Category has been added successfully !');
+Yii::setAlias('menu_category_update_message', 'Menu Category has been updated successfully !');
+Yii::setAlias('menu_category_delete_message', 'Menu Category has been deleted successfully !');
 //END:  Milestone message
 
 //START: Task message
-Yii::setAlias('task_add_message', 'Task has been added successfully !');
-Yii::setAlias('task_update_message', 'Task has been updated successfully !');
-Yii::setAlias('task_delete_message', 'Task has been deleted successfully !');
+Yii::setAlias('restaurant_add_message', 'Restaurant has been added successfully !');
+Yii::setAlias('restaurant_update_message', 'Restaurant has been updated successfully !');
+Yii::setAlias('restaurant_delete_message', 'Restaurant has been deleted successfully !');
 //END:  Task message
 
 //START: Page message

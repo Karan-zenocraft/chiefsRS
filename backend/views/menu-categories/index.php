@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             },
                             'delete' => function ($url, $model) {
                                 $flag = 1;
-                                $confirmmessage = "Are you sure you want to delete this user?";
+                                $confirmmessage = "Are you sure you want to delete this Menu Category?";
                                 return Common::template_delete_button($url, $model,$confirmmessage, $flag);
                             },
                         ]
