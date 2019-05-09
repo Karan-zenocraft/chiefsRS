@@ -19,18 +19,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete"]) ?>
 <table>
       <tr>
         <td><?= $form->field($model, 'city')->textInput(['maxlength' => true,'id'=>"city",'disabled'=>"true"]) ?></td>
         <td><?= $form->field($model, 'country')->textInput(['maxlength' => true,'id'=>"country",'disabled'=>"true"]) ?></td>
-      <tr>
          <td><?= $form->field($model, 'state')->textInput(['maxlength' => true,'id'=>"state",'disabled'=>"true"]) ?></td>
-         <td><?= $form->field($model, 'pincode')->textInput(['id'=>"postal_code",'disabled'=>"true"]) ?></td>
       </tr>
       <tr>
+         <td><?= $form->field($model, 'pincode')->textInput(['id'=>"postal_code",'disabled'=>"true"]) ?></td>
           <td> <?= $form->field($model, 'lattitude')->textInput(['id'=>"lattitude",'disabled'=>"true"]) ?></td>
           <td> <?= $form->field($model, 'longitude')->textInput(['id'=>"longitude",'disabled'=>"true"]) ?></td>
       </tr>

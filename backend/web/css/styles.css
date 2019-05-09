@@ -366,3 +366,6 @@ table.table_class tbody {  }
 .row-fluid{
     padding-top: 15px;
 }
+.restaurants-form textarea input{
+    width: 21%;
+}

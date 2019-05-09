@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'yii\grid\ActionColumn',
                         'headerOptions' => ["style" => "width:40%;"],
                         'contentOptions' => ["style" => "width:40%;"],
-                        'template' => '{update}{delete}{manage_gallery}{manage_menu}',
+                        'template' => '{update}{manage_working_hours}{manage_gallery}{manage_menu}{manage_layout}{delete}',
                         'buttons' => [
                             'update' => function ($url, $model) {
                                 $flag = 1;
@@ -92,12 +92,27 @@ $this->params['breadcrumbs'][] = $this->title;
                                 
                             },
                             'manage_menu' => function ($url, $model) {
-                                $title = "Manage Menu";
+                                $title = "Manage Menu Items";
                                 $flag =2;
                                 $url = Yii::$app->urlManager->createUrl(['restaurant-menu/index', 'rid' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                             },
+                            'manage_working_hours' => function ($url, $model) {
+                                $title = "manage Restaurant's Working Hours";
+                                $flag =2;
+                                $url = Yii::$app->urlManager->createUrl(['restaurant-working-hours/index', 'rid' => $model->id]);
+                                return Common::template_view_gallery_button($url, $model,$title,$flag);
+                                
+                            },
+                             'manage_layout' => function ($url, $model) {
+                                $title = "manage Restaurant's Layout";
+                                $flag =2;
+                                $url = Yii::$app->urlManager->createUrl(['restaurant-layouts/index', 'rid' => $model->id]);
+                                return Common::template_view_gallery_button($url, $model,$title,$flag);
+                                
+                            },
+
                         ]
             ],
         ],

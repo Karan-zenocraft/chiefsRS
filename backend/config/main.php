@@ -77,6 +77,9 @@ return [
                 'create-restaurant-menu/<rid>'=>'restaurant-menu/create',
                 'update-restaurant-menu/<id>/<rid>'=>'restaurant-menu/update',
                 'delete-restaurant-menu/<id>/<rid>'=>'restaurant-menu/delete',
+                'update-restaurant-mealtimes/<id>/<rid>'=>'restaurant-meal-times/update',
+                'manage-restaurant-working-hours/<rid>'=>'restaurant-working-hours/index',
+                'update-restaurant-working-hours/<id>/<rid>'=>'restaurant-working-hours/update',
 
             ]
         ],

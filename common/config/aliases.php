@@ -53,6 +53,8 @@ Yii::setAlias('restaurant_menu_add_message', 'Menu has been added successfully !
 Yii::setAlias('restaurant_menu_update_message', 'Menu has been updated successfully !');
 Yii::setAlias('restaurant_menu_delete_message', 'Menu has been deleted successfully !');
 //END:  Restaurant Menu message
+Yii::setAlias('restaurant_mealtime_update_message', 'Meal Time has been updated successfully !');
+Yii::setAlias('restaurant_working_hours_update_message', "Restaurant's Working Hours has been updated successfully !");
 
 //START: Page message
 Yii::setAlias('page_add_message', 'Page has been added successfully !');

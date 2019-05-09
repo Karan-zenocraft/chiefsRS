@@ -20,6 +20,7 @@ return [
     'status' => array('1' => 'Active', '0' => 'In-Active'),
     'super_admin_role_id' => '1',
     'administrator_role_id' => '2',
+    'meal_times' => ['1'=>'BreakFast','2'=>"Lunch","3"=>"Dinner"],
  
     'MonthsDropDown' => array( '1' => 'January','2'=>'February','3'=>'March','4'=>'April','5'=>'May','6'=>'June','7'=>'July','8'=>'August','9'=>'September','10'=>'October','11'=>'November','12'=>'December'),
     'max_carry_forward_leaves' => '3',
