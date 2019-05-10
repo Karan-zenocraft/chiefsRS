@@ -16,14 +16,23 @@ use yii\widgets\ActiveForm;
 <div class="restaurants-form span12">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
-
-    <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete"]) ?>
 <table>
-      <tr>
+  <tr>
+    <td><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+</td>
+<td> <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></td>
+<td>  <?= $form->field($model, 'website')->textInput(['maxlength' => true]) ?></td>
+<td> <?= $form->field($model, 'contact_no')->textInput() ?></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
+    </td>
+  </tr>
+  
+ <tr>
+   <td> <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete"]) ?></td>
+     
         <td><?= $form->field($model, 'city')->textInput(['maxlength' => true,'id'=>"city",'disabled'=>"true"]) ?></td>
         <td><?= $form->field($model, 'country')->textInput(['maxlength' => true,'id'=>"country",'disabled'=>"true"]) ?></td>
          <td><?= $form->field($model, 'state')->textInput(['maxlength' => true,'id'=>"state",'disabled'=>"true"]) ?></td>
@@ -33,20 +42,12 @@ use yii\widgets\ActiveForm;
           <td> <?= $form->field($model, 'lattitude')->textInput(['id'=>"lattitude",'disabled'=>"true"]) ?></td>
           <td> <?= $form->field($model, 'longitude')->textInput(['id'=>"longitude",'disabled'=>"true"]) ?></td>
       </tr>
+      <tr>
+        <td> <?= $form->field($model, 'max_stay_time_after_reservation')->textInput(['placeholder'=>'Enter in minutes']) ?></td>
+        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></td>
+      </tr>
     </table>
-
-
-    <?= $form->field($model, 'website')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'contact_no')->textInput() ?>
-
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'max_stay_time_after_reservation')->textInput(['placeholder'=>'Enter in minutes']) ?>
-
-    <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?>
-
-
+    
     <div class="form-group form-actions">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
           <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->urlManager->createUrl(['restaurants/index']), ['class' => 'btn default']) ?>

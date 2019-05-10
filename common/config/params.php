@@ -21,6 +21,8 @@ return [
     'super_admin_role_id' => '1',
     'administrator_role_id' => '2',
     'meal_times' => ['1'=>'BreakFast','2'=>"Lunch","3"=>"Dinner"],
+    'week_days' => ["1"=>"Sunday","2"=>"Monday","3"=>"Tuesday","4"=>"Wednesday","5"=>"Thursday","6"=>"Friday","7"=>"Saturday"],
+    'restaurants_working_hours_status' => ["1"=>"Open","0"=>"Closed"],
  
     'MonthsDropDown' => array( '1' => 'January','2'=>'February','3'=>'March','4'=>'April','5'=>'May','6'=>'June','7'=>'July','8'=>'August','9'=>'September','10'=>'October','11'=>'November','12'=>'December'),
     'max_carry_forward_leaves' => '3',

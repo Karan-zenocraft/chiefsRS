@@ -1,4 +1,0 @@
-@CHARSET "UTF-8";
-.input-group-btn:not(:first-child):not(:last-child) .btn {
-	border-radius: 0;
-}

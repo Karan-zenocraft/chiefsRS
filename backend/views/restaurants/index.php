@@ -32,7 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'id',
-           'name',
+           [
+                        'attribute' => 'name',
+                      //  'filter' => Yii::$app->params['status'],
+                        'filterOptions' => ["style" => "width:16%;text-align:center;"],
+                        'headerOptions' => ["style" => "width:16%;text-align:center;"],
+                        'contentOptions' => ["style" => "width:16%;text-align:center;"],
+                        'value' => function($data) {
+                            return $data->name;
+                        },
+                ],
               [
                     'attribute' => 'description',
                     //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
@@ -43,14 +52,41 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 ],
           //  'description:ntext',
-            'address:ntext',
+                [
+                        'attribute' => 'address',
+                      //  'filter' => Yii::$app->params['status'],
+                        'filterOptions' => ["style" => "width:25%;text-align:center;"],
+                        'headerOptions' => ["style" => "width:25%;text-align:center;"],
+                        'contentOptions' => ["style" => "width:25%;text-align:center;"],
+                        'value' => function($data) {
+                            return $data->address;
+                        },
+                ],
             //'city',
             //'state',
-            'country',
+                [
+                        'attribute' => 'country',
+                      //  'filter' => Yii::$app->params['status'],
+                        'filterOptions' => ["style" => "width:10%;text-align:center;"],
+                        'headerOptions' => ["style" => "width:10%;text-align:center;"],
+                        'contentOptions' => ["style" => "width:10%;text-align:center;"],
+                        'value' => function($data) {
+                            return $data->country;
+                        },
+                ],
             //'pincode',
             //'lattitude',
             //'longitude',
-            'website',
+             [
+                        'attribute' => 'website',
+                      //  'filter' => Yii::$app->params['status'],
+                        'filterOptions' => ["style" => "width:10%;text-align:center;"],
+                        'headerOptions' => ["style" => "width:10%;text-align:center;"],
+                        'contentOptions' => ["style" => "width:10%;text-align:center;"],
+                        'value' => function($data) {
+                            return $data->website;
+                        },
+                ],
             'contact_no',
             //'email:email',
             'max_stay_time_after_reservation',

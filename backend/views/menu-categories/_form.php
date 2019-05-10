@@ -15,16 +15,19 @@ use yii\widgets\ActiveForm;
 <div class="menu-categories-form span12">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?>
+<table>
+<tr>
+    <td> <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></td>
+</tr>
+<tr>
+    <td><?= $form->field($model, 'description')->textarea(['rows' => 4,"style"=>"width:94%"]) ?></td>
+</tr>
+<tr><td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></td></tr>
+</table>
 
     <div class="form-group form-actions">
          <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-          <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->urlManager->createUrl(['menu-categories/index']), ['class' => 'btn default']) ?>
+          <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->urlManager->createUrl(['menu-categories/index']), ['class' => 'btn default','onClick' => 'parent.jQuery.colorbox.close();']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

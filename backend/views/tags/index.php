@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
         <div class="pull-right">   
-        <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Tag'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Tag'), ['create'], ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox();']) ?>
             <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['tags/index']), ['class' => 'btn btn-primary']) ?>
        </div>
     </div>
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'buttons' => [
                             'update' => function ($url, $model) {
                                 $flag = 1;
-                                return Common::template_update_button($url, $model, $flag);
+                                return Common::template_update_tag_button($url, $model, $flag);
                             },
                             'delete' => function ($url, $model) {
                                 $flag = 1;

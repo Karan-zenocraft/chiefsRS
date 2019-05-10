@@ -9,6 +9,7 @@ use yii\web\Controller;
 use backend\components\AdminCoreController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\components\Common;
 
 /**
  * MenuCategoriesController implements the CRUD actions for MenuCategories model.
@@ -66,13 +67,14 @@ class MenuCategoriesController extends AdminCoreController
      */
     public function actionCreate()
     {
+        $this->layout = 'popup';
         $model = new MenuCategories();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
              Yii::$app->session->setFlash( 'success', Yii::getAlias( '@menu_category_add_message' ) );
+            return Common::closeColorBox();
             return $this->redirect( ['menu-categories/index'] );
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -87,10 +89,13 @@ class MenuCategoriesController extends AdminCoreController
      */
     public function actionUpdate($id)
     {
+
+        $this->layout = 'popup';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
              Yii::$app->session->setFlash( 'success', Yii::getAlias( '@menu_category_update_message' ) );
+            return Common::closeColorBox();
             return $this->redirect( ['menu-categories/index'] );
         }
 

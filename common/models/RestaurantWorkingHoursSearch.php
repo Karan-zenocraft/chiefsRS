@@ -72,4 +72,38 @@ class RestaurantWorkingHoursSearch extends RestaurantWorkingHours
 
         return $dataProvider;
     }
+      public function backendsearch($params)
+    {
+        $query = RestaurantWorkingHours::find();
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'restaurant_id' => $this->restaurant_id,
+            'weekday' => $this->weekday,
+            'opening_time' => $this->opening_time,
+            'closing_time' => $this->closing_time,
+            'status' => $this->status,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
+
+        return $dataProvider;
+    }
 }

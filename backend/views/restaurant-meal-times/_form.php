@@ -20,13 +20,17 @@ use kartik\widgets\TimePicker;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php //echo $form->field($model, 'restaurant_id')->textInput() ?>
+<table>
+    <tr>
+        <td><?= $form->field($model, 'meal_type')->textInput(['value'=>Yii::$app->params['meal_times'][$model->meal_type],'disabled'=>true]) ?></td>
+        <td> <?= $form->field($model, 'start_time')->textInput() ?></td>
+        <td><?= $form->field($model, 'end_time')->textInput() ?>
+</td>
+    </tr>
 
-    <?= $form->field($model, 'meal_type')->textInput(['value'=>Yii::$app->params['meal_times'][$model->meal_type],'disabled'=>true]) ?>
-
-    <?= $form->field($model, 'start_time')->textInput() ?>
-
-    <?= $form->field($model, 'end_time')->textInput() ?>
-
+</table>
+   
+  
     <?php //echo $form->field($model, 'status')->textInput() ?>
 
     <?php //echo $form->field($model, 'created_by')->textInput() ?>

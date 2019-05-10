@@ -321,6 +321,19 @@ class Common {
             'class' => 'btn btn-primary'
             ] );
     }
+     public static function template_update_tag_button( $url, $model, $flag = false ) {
+        if ( $flag == 1 ) {
+            return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
+                'title' => Yii::t( 'yii', 'Edit' ),
+                'class' => 'btn btn-primary btn-small colorbox_popup',
+                'onclick' => 'javascript:openColorBox();'
+                ] );
+        }
+        return Html::a( '<i class="icon-pencil icon-white"></i> Edit', $url, [
+            'title' => Yii::t( 'yii', 'Edit' ),
+            'class' => 'btn btn-primary'
+            ] );
+    }
 
     /*
      * Set designing for Grideview delete button

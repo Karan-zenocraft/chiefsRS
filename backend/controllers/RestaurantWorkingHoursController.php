@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\components\AdminCoreController;
-
+use common\components\Common;
 
 /**
  * RestaurantWorkingHoursController implements the CRUD actions for RestaurantWorkingHours model.
@@ -37,12 +37,15 @@ class RestaurantWorkingHoursController extends AdminCoreController
      */
     public function actionIndex()
     {
+        $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
         $searchModel = new RestaurantWorkingHoursSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->backendsearch(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'snRestaurantName' => $snRestaurantName
         ]);
     }
 

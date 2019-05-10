@@ -10,9 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Restaurant Working Hours', 'url' =
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="restaurant-working-hours-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="restaurant-working-hours-update email-format-create">
 
     <?= $this->render('_form', [
         'model' => $model,

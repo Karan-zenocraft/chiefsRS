@@ -369,3 +369,13 @@ table.table_class tbody {  }
 .restaurants-form textarea input{
     width: 21%;
 }
+.users-form tr td{
+      padding-right: 10px;
+
+}
+.tags-form tr td{
+    padding-right: 10px;
+}
+.restaurants-form tr td{
+    padding-right: 10px;
+}
