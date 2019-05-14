@@ -246,24 +246,26 @@ class Common {
 
     public static function template_view_gallery_button( $url, $model, $title, $flag = false ) {
         if ( $flag == 1 ) {
-            return Html::a( '<i class="icon-calendar icon-white"></i>', $url, [
+            return Html::a( '<i class="icon-glass icon-white"></i>', $url, [
                 'title' => Yii::t( 'yii', $title ),
                 'class' => 'btn btn-primary btn-small',
                 //'target' => '_blanck'
                 ] );
         }
         if ( $flag == 2 ) {
-            return Html::a( '<i class="icon-folder-open icon-white"></i>', $url, [
+            return Html::a( '<i class="icon-camera icon-white"></i>', $url, [
                 'title' => Yii::t( 'yii', $title ),
                 'class' => 'btn btn-primary btn-small',
                 //'target' => '_blanck'
                 ] );
         }
-        return Html::a( '<i class="fa fa-external-link"></i>'.$title, $url, [
-            'title' => Yii::t( 'yii', $title ),
-            'class' => 'btn btn-primary',
-            //'target' => '_blanck'
-            ] );
+    if ( $flag == 3 ) {
+         return Html::a( '<i class="icon-picture icon-white"></i>', $url, [
+                'title' => Yii::t( 'yii', $title ),
+                'class' => 'btn btn-primary btn-small',
+                //'target' => '_blanck'
+                ] );
+        }
     }
     /*
      * Set designing for view tasks button
@@ -291,19 +293,14 @@ class Common {
      * Set designing for Grideview update permission button
      */
 
-    public static function template_update_permission_button( $url, $model, $flag = false ) {
-        if ( $flag == 1 ) {
-            return Html::a( '<i class="icon-check icon-white"></i> ', $url, [
-                'title' => Yii::t( 'yii', 'Edit Permission' ),
+    public static function template_update_permission_button( $url, $model,$flag) {
+      
+            return Html::a( '<i class="icon-time icon-white"></i> ', $url, [
+                'title' => Yii::t( 'yii', "Edit Restaurant's working Hours" ),
                 'class' => 'btn btn-primary btn-small colorbox_popup',
                 'onClick'=>'javascript:openColorBox(1024,700);',
                 ] );
-        }
-        return Html::a( '<i class="icon-pencil icon-white"></i> Edit Permission', $url, [
-            'title' => Yii::t( 'yii', 'Edit Permission' ),
-            'class' => 'btn btn-primary colorbox_popup',
-            'onClick'=>'javascript:openColorBox(1024,700);',
-            ] );
+    
     }
     /*
      * Set designing for Grideview update button

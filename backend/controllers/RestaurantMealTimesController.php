@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\components\AdminCoreController;
-
+use common\components\Common;
 /**
  * RestaurantMealTimesController implements the CRUD actions for RestaurantMealTimes model.
  */
@@ -85,11 +85,13 @@ class RestaurantMealTimesController extends AdminCoreController
      */
     public function actionUpdate($id)
     {
+        $this->layout = "popup";
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                
+
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_mealtime_update_message' ) );
+            return Common::closeColorBox();
             return $this->redirect(['restaurants/update', 'id' => $model->restaurant_id]);
         }
 

@@ -12,6 +12,8 @@ use yii\filters\VerbFilter;
 use common\models\RestaurantMealTimes;
 use yii\helpers\ArrayHelper;
 use common\models\RestaurantMealTimesSearch;
+use common\components\Common;
+use common\models\RestaurantWorkingHours;
 
 /**
  * RestaurantsController implements the CRUD actions for Restaurants model.
@@ -137,6 +139,48 @@ class RestaurantsController extends AdminCoreController
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_delete_message' ) );
         }
         return $this->redirect(['index']);
+    }
+
+    public function actionUpdateWorkinghours($rid){
+    
+    $this->layout = 'popup';
+    //GET PROJECT NAME BY PROJECT ID
+    $snRestaurantName = Restaurants::find()->where( "id=$rid" )->one();
+    $arrWeeks = Yii::$app->params['week_days'];
+    $week_days_hours_details = array();
+    foreach ( $arrWeeks as $key=>$week ) {
+      $weekDetails[$key] = $week;
+      $days = RestaurantWorkingHours::find()->where( ['restaurant_id' => $rid, 'weekday'=>$key] )->one();
+
+      if ( !empty( $days ) ) {
+        $week_days_hours_details[$key] = $days;
+      }else {
+        $week_days_hours_details[$key] = new RestaurantWorkingHours;
+      }
+    }
+      if (Yii::$app->request->post()){
+      $arrRequestFields = $_REQUEST['RestaurantWorkingHours'];
+      $postData = Yii::$app->request->post();
+      $postData = $postData['RestaurantWorkingHours'];
+      foreach ( $postData as $key => $value ) {
+          $week_days_hours_details[$key]->load( $value );
+          $week_days_hours_details[$key]['weekday'] = $key;
+          $week_days_hours_details[$key]['hours24'] = $value['hours24'];
+          $week_days_hours_details[$key]['restaurant_id'] = $rid;
+          $week_days_hours_details[$key]['opening_time'] = $value['opening_time'];
+          $week_days_hours_details[$key]['closing_time'] = $value['closing_time'];
+          $week_days_hours_details[$key]['status'] = $value['status'];
+          $week_days_hours_details[$key]->save();
+         
+      }
+      Yii::$app->session->setFlash( 'success', Yii::getAlias( '@user_permission_message' ) );
+      return Common::closeColorBox();
+    }
+      return $this->render( 'hours', [
+      'snRestaurantName' => $snRestaurantName->name,
+      'week_days_hours_details' => $week_days_hours_details,
+      'weekDetails' => $weekDetails
+      ] );
     }
 
     /**

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="restaurant-working-hours-create email-format-create">
 
     <?= $this->render('_form', [
-        'model' => $model,
+            'days' => $days,
     ]) ?>
 
 </div>

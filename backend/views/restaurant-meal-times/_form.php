@@ -2,14 +2,19 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+//use kartik\form\ActiveForm;
 use kartik\widgets\TimePicker;
-
+//use kartik\icons\FontAwesomeAsset;
+//use farystha\widgets\JqueryClockPicker;
 
 
 /* @var $this yii\web\View */
 /* @var $model common\models\RestaurantMealTimes */
 /* @var $form yii\widgets\ActiveForm */
+//FontAwesomeAsset::register($this);
+
 ?>
+
 <div class="email-format-index">
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
@@ -23,12 +28,28 @@ use kartik\widgets\TimePicker;
 <table>
     <tr>
         <td><?= $form->field($model, 'meal_type')->textInput(['value'=>Yii::$app->params['meal_times'][$model->meal_type],'disabled'=>true]) ?></td>
-        <td> <?= $form->field($model, 'start_time')->textInput() ?></td>
-        <td><?= $form->field($model, 'end_time')->textInput() ?>
-</td>
+        <td> 
+            <div class="input-group clockpicker">
+   <?= $form->field($model, 'start_time')->textInput(['class'=>'form-control','value'=>$model->start_time,'readonly'=>true]); ?>
+                 <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </td>
+
+            <?php //echo $form->field($model, 'start_time')->widget(TimePicker::classname(), []); ?></td>
+       <td> 
+            <div class="input-group clockpicker">
+   <?= $form->field($model, 'end_time')->textInput(['class'=>'form-control','value'=>$model->end_time,'readonly'=>true]); ?>
+                 <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </td>
     </tr>
 
 </table>
+
    
   
     <?php //echo $form->field($model, 'status')->textInput() ?>
@@ -43,7 +64,7 @@ use kartik\widgets\TimePicker;
 
     <div class="form-group form-actions">
          <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->urlManager->createUrl(['restaurants/update','id'=>$model->restaurant_id]), ['class' => 'btn default']) ?>
+        <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->urlManager->createUrl(['restaurants/update','id'=>$model->restaurant_id]), ['class' => 'btn default','onClick' => 'parent.jQuery.colorbox.close();']) ?>
 
     </div>
 
@@ -52,3 +73,15 @@ use kartik\widgets\TimePicker;
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+    jQuery(function($) {
+$('.clockpicker').clockpicker({
+    placement: 'bottom',
+    align: 'left',
+    donetext: 'Done',
+    'default': 'now',
+     donetext: 'Done'
+});
+});
+</script>

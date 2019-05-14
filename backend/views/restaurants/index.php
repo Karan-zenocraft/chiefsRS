@@ -129,21 +129,21 @@ $this->params['breadcrumbs'][] = $this->title;
                             },
                             'manage_menu' => function ($url, $model) {
                                 $title = "Manage Menu Items";
-                                $flag =2;
+                                $flag =1;
                                 $url = Yii::$app->urlManager->createUrl(['restaurant-menu/index', 'rid' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                             },
                             'manage_working_hours' => function ($url, $model) {
                                 $title = "manage Restaurant's Working Hours";
-                                $flag =2;
-                                $url = Yii::$app->urlManager->createUrl(['restaurant-working-hours/index', 'rid' => $model->id]);
-                                return Common::template_view_gallery_button($url, $model,$title,$flag);
+                                $flag =1;
+                                $url = Yii::$app->urlManager->createUrl(['restaurants/update-workinghours', 'rid' => $model->id]);
+                                return Common::template_update_permission_button($url, $model,$title,$flag);
                                 
                             },
                              'manage_layout' => function ($url, $model) {
                                 $title = "manage Restaurant's Layout";
-                                $flag =2;
+                                $flag =3;
                                 $url = Yii::$app->urlManager->createUrl(['restaurant-layouts/index', 'rid' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 

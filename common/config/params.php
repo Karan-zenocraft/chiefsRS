@@ -1,6 +1,8 @@
 <?php
 
 return [
+   //  'bsVersion' => '4.x',
+     'bsDependencyEnabled' => 'false',
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,

@@ -69,14 +69,24 @@ class RestaurantWorkingHoursController extends AdminCoreController
      */
     public function actionCreate()
     {
-        $model = new RestaurantWorkingHours();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $postData = Yii::$app->request->post();
+         $days = Yii::$app->params['week_days'];
+        if(Yii::$app->request->post()){
+             foreach ($days as $key => $value) { 
+                $model = new RestaurantWorkingHours();
+                $model->restaurant_id = $_GET['rid'];
+                $model->weekday = $key;
+                $model->opening_time = $postData['RestaurantWorkingHours']['opening_time'][$key];
+                $model->closing_time = $postData['RestaurantWorkingHours']['closing_time'][$key];
+                $model->status = $postData['RestaurantWorkingHours']['status'][$key];
+                $model->save();
+             }
         }
+            return $this->redirect(['index', 'rid' => $model->restaurant_id]);
 
         return $this->render('create', [
-            'model' => $model,
+            'days' => $days,
         ]);
     }
 

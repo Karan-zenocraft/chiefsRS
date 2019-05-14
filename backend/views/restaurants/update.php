@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = 'Update';
                         'buttons' => [
                             'update' => function ($url, $model) {
                               $url = Yii::$app->urlManager->createurl(['restaurant-meal-times/update', 'id' => $model->id, 'rid' => $model->restaurant_id]);
-                                return Common::template_update_button($url, $model);
+                                return Common::template_update_tag_button($url, $model,$flag=1);
                             },
                         ]
             ],
