@@ -45475,3 +45475,815 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1557822623.73
     'REQUEST_TIME' => 1557822623
 ]
+2019-05-14 10:15:59 [127.0.0.1][2][5nt5llnjn10t1g5g03bfltrqqq][error][Error] Error: Class 'Restaurants' not found in /var/www/html/chiefsRS/backend/views/site/index.php:22
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\SiteController))
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\SiteController))
+#4 /var/www/html/chiefsRS/backend/controllers/SiteController.php(40): yii\base\Controller->render('index')
+#5 [internal function]: backend\controllers\SiteController->actionIndex()
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#12 {main}
+2019-05-14 10:15:59 [127.0.0.1][2][5nt5llnjn10t1g5g03bfltrqqq][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => '5nt5llnjn10t1g5g03bfltrqqq'
+    '_csrf' => '5541624d100b2577cd0e617fe579e5c2b5a1ba0a09e0c2f89764bc92e7790850a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yaHWyMCLuHdPB3AURMXviNJuZsE53VTw\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/login'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=5nt5llnjn10t1g5g03bfltrqqq; _csrf=5541624d100b2577cd0e617fe579e5c2b5a1ba0a09e0c2f89764bc92e7790850a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yaHWyMCLuHdPB3AURMXviNJuZsE53VTw%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '59564'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557828959.6
+    'REQUEST_TIME' => 1557828959
+]
+2019-05-14 13:26:27 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][Error] Error: Class 'backend\controllers\Restaurants' not found in /var/www/html/chiefsRS/backend/controllers/UsersController.php:92
+Stack trace:
+#0 [internal function]: backend\controllers\UsersController->actionCreate()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#7 {main}
+2019-05-14 13:26:27 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-users'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '34180'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/create-user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/create-user'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557840387.155
+    'REQUEST_TIME' => 1557840387
+]
+2019-05-14 13:27:26 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][Error] Error: Class 'common\models\ArrayHelper' not found in /var/www/html/chiefsRS/common/models/Restaurants.php:29
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/controllers/UsersController.php(84): common\models\Restaurants::RestaurantsDropDown()
+#1 [internal function]: backend\controllers\UsersController->actionCreate()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-14 13:27:26 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-users'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '34184'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/create-user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/create-user'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557840446.55
+    'REQUEST_TIME' => 1557840446
+]
+2019-05-14 13:29:48 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][ArgumentCountError] ArgumentCountError: Too few arguments to function yii\widgets\ActiveField::dropDownList(), 0 passed in /var/www/html/chiefsRS/backend/views/users/_form.php on line 31 and at least 1 expected in /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/ActiveField.php:641
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/users/_form.php(31): yii\widgets\ActiveField->dropDownList()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#4 /var/www/html/chiefsRS/backend/views/users/create.php(20): yii\base\View->render('_form', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\UsersController))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('create', Array, Object(backend\controllers\UsersController))
+#9 /var/www/html/chiefsRS/backend/controllers/UsersController.php(112): yii\base\Controller->render('create', Array)
+#10 [internal function]: backend\controllers\UsersController->actionCreate()
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-14 13:29:48 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-users'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '34202'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/create-user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/create-user'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557840588.399
+    'REQUEST_TIME' => 1557840588
+]
+2019-05-14 13:30:03 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][ArgumentCountError] ArgumentCountError: Too few arguments to function yii\widgets\ActiveField::dropDownList(), 0 passed in /var/www/html/chiefsRS/backend/views/users/_form.php on line 31 and at least 1 expected in /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/ActiveField.php:641
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/users/_form.php(31): yii\widgets\ActiveField->dropDownList()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#4 /var/www/html/chiefsRS/backend/views/users/create.php(20): yii\base\View->render('_form', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\UsersController))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('create', Array, Object(backend\controllers\UsersController))
+#9 /var/www/html/chiefsRS/backend/controllers/UsersController.php(112): yii\base\Controller->render('create', Array)
+#10 [internal function]: backend\controllers\UsersController->actionCreate()
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-14 13:30:03 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-users'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '34204'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/create-user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/create-user'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557840603.689
+    'REQUEST_TIME' => 1557840603
+]
+2019-05-14 13:31:18 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\widgets\ActiveField::hidden() in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/users/_form.php(31): yii\base\Component->__call('hidden', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#4 /var/www/html/chiefsRS/backend/views/users/create.php(20): yii\base\View->render('_form', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\UsersController))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('create', Array, Object(backend\controllers\UsersController))
+#9 /var/www/html/chiefsRS/backend/controllers/UsersController.php(112): yii\base\Controller->render('create', Array)
+#10 [internal function]: backend\controllers\UsersController->actionCreate()
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-14 13:31:18 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-users'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '34232'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/create-user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/create-user'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557840678.049
+    'REQUEST_TIME' => 1557840678
+]
+2019-05-14 13:51:23 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: Restaurants in /var/www/html/chiefsRS/backend/views/users/_form.php:31
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/users/_form.php(31): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 31, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#4 /var/www/html/chiefsRS/backend/views/users/update.php(17): yii\base\View->render('_form', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\UsersController))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('update', Array, Object(backend\controllers\UsersController))
+#9 /var/www/html/chiefsRS/backend/controllers/UsersController.php(128): yii\base\Controller->render('update', Array)
+#10 [internal function]: backend\controllers\UsersController->actionUpdate('7')
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/update', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-14 13:51:23 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = [
+    'id' => '7'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-users'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '35780'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/update-user/7'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/update-user/7'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557841883.003
+    'REQUEST_TIME' => 1557841883
+]
+2019-05-14 14:21:34 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-layouts/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-14 14:21:34 [127.0.0.1][2][c1p60853lut5nhekejovpr5sov][info][application] $_GET = [
+    'rid' => '7'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'c1p60853lut5nhekejovpr5sov'
+    '_csrf' => '651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/dashboard'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=c1p60853lut5nhekejovpr5sov; _csrf=651ca627e8a50cae8501592759c91ef777941305eb2aa6aac3bd35402217a135a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nbWbaTTjYsk_rHXPHCdCeJoI8Bh62Wm3%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '36566'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layouts/index'
+    'REDIRECT_QUERY_STRING' => 'rid=7'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=7'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layouts/index?rid=7'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557843694.29
+    'REQUEST_TIME' => 1557843694
+]
+2019-05-15 11:47:06 [127.0.0.1][2][8vg1210c4irfgo664lggq8oap8][error][ParseError] ParseError: syntax error, unexpected '?>', expecting ',' or ')' in /var/www/html/chiefsRS/backend/views/tags/index.php:95
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#3 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#4 [internal function]: backend\controllers\TagsController->actionIndex()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-05-15 11:47:06 [127.0.0.1][2][8vg1210c4irfgo664lggq8oap8][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => '8vg1210c4irfgo664lggq8oap8'
+    '_csrf' => 'ad735096a7972dbcd1a46331a6fe6dec4570e4de33ecd24cdce0a692f3614ce8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"t4SR1Hh802QfQf-9f06KxrZnrSkO8ryp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=test&TagsSearch%5Bdescription%5D='
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=8vg1210c4irfgo664lggq8oap8; _csrf=ad735096a7972dbcd1a46331a6fe6dec4570e4de33ecd24cdce0a692f3614ce8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22t4SR1Hh802QfQf-9f06KxrZnrSkO8ryp%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '44000'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557920826.3
+    'REQUEST_TIME' => 1557920826
+]
+2019-05-15 11:54:35 [127.0.0.1][2][8vg1210c4irfgo664lggq8oap8][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\View::render_partial() in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/tags/index.php(93): yii\base\Component->__call('render_partial', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#5 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#6 [internal function]: backend\controllers\TagsController->actionIndex()
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-15 11:54:35 [127.0.0.1][2][8vg1210c4irfgo664lggq8oap8][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => '8vg1210c4irfgo664lggq8oap8'
+    '_csrf' => 'ad735096a7972dbcd1a46331a6fe6dec4570e4de33ecd24cdce0a692f3614ce8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"t4SR1Hh802QfQf-9f06KxrZnrSkO8ryp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=8vg1210c4irfgo664lggq8oap8; _csrf=ad735096a7972dbcd1a46331a6fe6dec4570e4de33ecd24cdce0a692f3614ce8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22t4SR1Hh802QfQf-9f06KxrZnrSkO8ryp%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '44248'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557921275.445
+    'REQUEST_TIME' => 1557921275
+]
+2019-05-15 12:03:26 [127.0.0.1][2][8vg1210c4irfgo664lggq8oap8][error][Error] Error: Class 'Modal' not found in /var/www/html/chiefsRS/backend/views/tags/index.php:25
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#4 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#5 [internal function]: backend\controllers\TagsController->actionIndex()
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#12 {main}
+2019-05-15 12:03:26 [127.0.0.1][2][8vg1210c4irfgo664lggq8oap8][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => '8vg1210c4irfgo664lggq8oap8'
+    '_csrf' => 'ad735096a7972dbcd1a46331a6fe6dec4570e4de33ecd24cdce0a692f3614ce8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"t4SR1Hh802QfQf-9f06KxrZnrSkO8ryp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=8vg1210c4irfgo664lggq8oap8; _csrf=ad735096a7972dbcd1a46331a6fe6dec4570e4de33ecd24cdce0a692f3614ce8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22t4SR1Hh802QfQf-9f06KxrZnrSkO8ryp%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '44968'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557921806.823
+    'REQUEST_TIME' => 1557921806
+]

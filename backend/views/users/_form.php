@@ -18,7 +18,7 @@ use yii\jui\DatePicker;
     <?php $form = ActiveForm::begin(); ?>
 <table>
     <tr>
-        <td><?= $form->field($model, 'role_id')->dropDownList($UserRolesDropdown) ?></td>
+        <td><?= $form->field($model, 'role_id')->dropDownList($UserRolesDropdown,['class'=>'roles']) ?></td>
         <td> <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?></td>
         <td>
     <?= $model->isNewRecord ? ($form->field($model, 'password')->passwordInput(['maxlength' => 255])) : '' ?>
@@ -28,6 +28,7 @@ use yii\jui\DatePicker;
       <tr>
         <td><?= $form->field($model, 'first_name')->textInput(['maxlength' => 255]) ?></td>
         <td><?= $form->field($model, 'last_name')->textInput(['maxlength' => 255]) ?></td>
+         <td><?= $form->field($model, 'restaurant_id')->dropDownList($Restaurants,['class'=>'restaurants']); ?></td>
     </tr>
         <tr><td><?= $form->field($model, 'address')->textArea(['maxlength' => 255]) ?></td>
         <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
@@ -46,3 +47,24 @@ use yii\jui\DatePicker;
 </div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){        
+    var role_id = $('.roles :selected').val();
+        if((role_id == "3") || (role_id == "4")){
+           $(".field-users-restaurant_id").show();
+        }else{
+           $(".field-users-restaurant_id").hide();
+        }
+         $('.roles').change(function() {
+        var key = $(this).val();
+        if((key == "3") || (key == "4")){
+           $(".field-users-restaurant_id").show();
+        }else{
+           $(".field-users-restaurant_id").hide();
+           
+        }
+       // if($('[$key]start_date'))
+    });
+
+     });
+</script>

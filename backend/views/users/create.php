@@ -17,5 +17,6 @@ $this->params['breadcrumbs'][] = 'Create';
     <?= $this->render('_form', [
         'model' => $model,
         'UserRolesDropdown' => $UserRolesDropdown,
+        'Restaurants' => $Restaurants
     ]) ?>
 </div>

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\components\Common;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\TagsSearch */
@@ -12,6 +13,10 @@ $this->title = 'Tags';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tags-index email-format-index">
+        <div class="block-content collapse in">
+<div class="tags-form span12">
+     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
         <div class="pull-right">   
@@ -19,9 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['tags/index']), ['class' => 'btn btn-primary']) ?>
        </div>
     </div>
+    
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
   <div class="block-content">
         <div class="goodtable">
+            <?php Pjax::begin(['id' => 'tags']) ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -70,6 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+    <?php Pjax::end() ?>
 
 
     </div>

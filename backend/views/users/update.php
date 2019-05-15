@@ -15,6 +15,8 @@ $this->params['breadcrumbs'][] = 'Update';
     <?= $this->render('_form', [
         'model' => $model,
         'UserRolesDropdown'=>$UserRolesDropdown,
+        'Restaurants' => $Restaurants
+
     ]) ?>
 
 </div>

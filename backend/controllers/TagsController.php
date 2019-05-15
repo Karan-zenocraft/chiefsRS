@@ -36,13 +36,32 @@ class TagsController extends AdminCoreController
      */
     public function actionIndex()
     {
-        $searchModel = new TagsSearch();
+           $searchModel = new TagsSearch();
+
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+
+        if (Yii::$app->request->isPjax) {
+
+            return $this->renderPartial('index', [
+
+                'searchModel' => $searchModel,
+
+                'dataProvider' => $dataProvider,
+
+            ]);
+
+        } else {
+
+            return $this->render('index', [
+
+                'searchModel' => $searchModel,
+
+                'dataProvider' => $dataProvider,
+
+            ]);
+
+        }
     }
 
     /**

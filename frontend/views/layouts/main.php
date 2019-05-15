@@ -40,10 +40,10 @@ CommonAppAsset::register( $this );
             $menuItems = [];
             if ( !Yii::$app->user->isGuest ) {
               $snUserRoleId = Common::get_user_role( Yii::$app->user->id );
-              if ( !empty( $snUserRoleId ) && $snUserRoleId != Yii::$app->params['userroles']['hr'] && $snUserRoleId != Yii::$app->params['userroles']['hr_admin'] && $snUserRoleId != Yii::$app->params['userroles']['sales_admin'] && $snUserRoleId != Yii::$app->params['userroles']['sales']) {
+              if ( !empty( $snUserRoleId ) && $snUserRoleId != "2") {
                 $menuItems = [
                 ['label' => 'Projects', 'url' => ['/users/my-projects']/*,'visible'=> $snUserRoleId != Yii::$app->params['userroles']['qa']*/],
-                ['label' => 'Need to QA', 'url' => ['users/milestones'],'visible'=> $snUserRoleId == Yii::$app->params['userroles']['qa']],
+                ['label' => 'Need to QA', 'url' => ['users/milestones'],'visible'=> $snUserRoleId == "2"],
                 ['label' => 'Timesheet', 'url' => ['/timesheet/index']],
                /* ['label' => 'Project Documents', 'url' => ['/project-documents/index']],*/
                // ['label' => 'Leaves', 'url' => ['/leaves/index']],

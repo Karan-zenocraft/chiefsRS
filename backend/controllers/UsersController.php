@@ -6,16 +6,8 @@ use Yii;
 use common\models\Users;
 use common\models\UsersSearch;
 use common\models\UserRoles;
-use common\models\Department;
-use common\models\Projects;
-use common\models\Milestones;
-use common\models\Tasks;
-use common\models\Timesheet;
-use common\models\ScoreCardSearch;
-use common\models\Technology;
-use common\models\UsersTechnicalSkills;
-use common\models\UserProjectsSearch;
 use yii\base\Model;
+use common\models\Restaurants;
 
 
 use yii\web\Controller;
@@ -89,6 +81,7 @@ class UsersController extends AdminCoreController
       //  $frontEndBaseUrl = str_replace( '/backend/web/dashboard', '/frontend/web/site/login', $backEndBaseUrl );
         $backendLoginURL = Yii::$app->params['site_url'].Yii::$app->params['login_url'];
         $model = new Users();
+        $Restaurants = Restaurants::RestaurantsDropDown();
         $model->setScenario( 'create' );
         $UserRolesDropdown = ArrayHelper::map( UserRoles::find()->where( "id !=" .Yii::$app->params['super_admin_role_id'] )->asArray()->all(), 'id', 'role_name' );
         if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
@@ -116,6 +109,7 @@ class UsersController extends AdminCoreController
             return $this->render( 'create', [
                 'model' => $model,
                 'UserRolesDropdown' => $UserRolesDropdown,
+                'Restaurants' => $Restaurants
                 ] );
         }
     }
@@ -123,6 +117,8 @@ class UsersController extends AdminCoreController
     public function actionUpdate( $id ) {
         $model = $this->findModel( $id );
         $model->setScenario( 'update' );
+        $Restaurants = Restaurants::RestaurantsDropDown();
+
         $UserRolesDropdown = ArrayHelper::map( UserRoles::find()->where( "id !=" .Yii::$app->params['super_admin_role_id'] )->asArray()->all(), 'id', 'role_name' );
 
         if ( $model->load( Yii::$app->request->post() ) && $model->save() ) {
@@ -132,6 +128,7 @@ class UsersController extends AdminCoreController
             return $this->render( 'update', [
                 'model' => $model,
                 'UserRolesDropdown'=>$UserRolesDropdown,
+                'Restaurants' => $Restaurants
                 ] );
         }
     }

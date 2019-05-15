@@ -173,7 +173,7 @@ class RestaurantsController extends AdminCoreController
           $week_days_hours_details[$key]->save();
          
       }
-      Yii::$app->session->setFlash( 'success', Yii::getAlias( '@user_permission_message' ) );
+      Yii::$app->session->setFlash( 'success', Yii::getAlias( '@hours_update_message' ) );
       return Common::closeColorBox();
     }
       return $this->render( 'hours', [
