@@ -1,6 +1,7 @@
 <?php
 Yii::setAlias('@common_base', '/chiefsRS/common/');
 Yii::setAlias('common', dirname(__DIR__));
+Yii::setAlias('api', dirname(dirname(__DIR__)) . '/api'); // add api alias
 Yii::setAlias('frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('console', dirname(dirname(__DIR__)) . '/console');
@@ -69,7 +70,7 @@ Yii::setAlias('user_delete_message', 'User has been deleted successfully !');
 //END:  User message
 
 //START: User message
-Yii::setAlias('user_permission_message', 'User Permission has been updated successfully.');
+Yii::setAlias('hours_update_message', "Restaurant's Hours has been updated successfully.");
 //END:  User message
 
 //START: Update status of task

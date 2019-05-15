@@ -2,6 +2,7 @@
 
 namespace common\models;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 class Restaurants extends \common\models\base\RestaurantsBase
 {
@@ -23,6 +24,10 @@ return 'restaurants';
         $this->setAttribute('updated_by',$user_id);
 
         return parent::beforeSave($insert);
+    }
+    public static function RestaurantsDropDown(){
+        //->where(['status'=>Yii::$app->params['department_active_status']])
+        return ArrayHelper::map(Restaurants::find()->where(['status'=>'1'])->orderBy('name')->asArray()->all(),'id','name');
     }
 public function rules()
 {

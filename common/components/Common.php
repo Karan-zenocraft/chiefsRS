@@ -1,5 +1,4 @@
 <?php
-
 namespace common\components;
 
 use common\models\Questions;
@@ -16,8 +15,10 @@ use common\models\LeaveQuota;
 use common\models\EmailFormat;
 use common\models\Projects;
 use common\models\Restaurants;
+use yii\helpers\Json;
 class Common {
 
+ public static $amPostData;
     /**
      * function: sendMail()
      * For send apple push notification.
@@ -298,7 +299,7 @@ class Common {
             return Html::a( '<i class="icon-time icon-white"></i> ', $url, [
                 'title' => Yii::t( 'yii', "Edit Restaurant's working Hours" ),
                 'class' => 'btn btn-primary btn-small colorbox_popup',
-                'onClick'=>'javascript:openColorBox(1024,700);',
+                'onClick'=>'javascript:openColorBox(1090,700);',
                 ] );
     
     }
@@ -323,7 +324,7 @@ class Common {
             return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
                 'title' => Yii::t( 'yii', 'Edit' ),
                 'class' => 'btn btn-primary btn-small colorbox_popup',
-                'onclick' => 'javascript:openColorBox();'
+                'onclick' => 'javascript:openColorBox(420,580);'
                 ] );
         }
         return Html::a( '<i class="icon-pencil icon-white"></i> Edit', $url, [
@@ -1338,10 +1339,233 @@ class Common {
 
         }
     }
+
+      public static function getApiHeader($ssStatus = 200)
+    {
+
+        $ssContentType = "application/json";
+        if (!empty($_REQUEST['id']) && $_SERVER['REQUEST_METHOD'] == 'GET')
+        {
+
+        }
+        elseif ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            $ssStatusHeader = 'HTTP/1.1 ' . $ssStatus . ' ';
+            header($ssStatusHeader);
+            header('Content-type: ' . $ssContentType);
+            $ssPostData     = file_get_contents("php://input");
+
+            if (!empty($ssPostData))
+            {
+                static::$amPostData = Json::decode($ssPostData);
+                if (empty(static::$amPostData))
+                {
+                    $amResponse = Common::errorResponse("You have passed null JSON");
+                    Common::encodeResponseJSON($amResponse);
+                }
+            }
+            else
+            {
+                static::$amPostData = Json::decode(Yii::$app->request->post("json"));
+                if (empty(static::$amPostData))
+                {
+                    static::$amPostData = Yii::$app->request->post();
+                }
+            }
+
+            return static::$amPostData;
+        }
+        else
+        {
+            $amResponse = Common::errorResponse("Request Type must be POST");
+            Common::encodeResponseJSON($amResponse);
+        }
+    }
     
+    public static function checkRequiredParams($amData, $amRequiredParams)
+    {
+        $amError = array();
+        if (empty($amData))
+        {
+            $amError['error'] = 'Invalid request parameters';
+        }
+        else
+        {
+            $amDataAll = $amData; // self::arrayFlatten($amData);
+            foreach ($amRequiredParams as $value)
+            {
+                if (!isset($amDataAll[$value]))
+                {
+                    $amError['error'] = $value . " can't be blank";
+                    return $amError;
+                }
+            }
+        }
+
+        return $amError;
+    }
+
+    public static function errorResponse($ssErrorMessage)
+    {
+        $amResponse = array('success' => 0, 'message' => $ssErrorMessage);
+        return $amResponse;
+    }
+
+      /**
+     * function: encodeResponseJSON()
+     * For generate random number
+     *
+     * @param array   $amResponse
+     * @return object JSON
+     */
+    public static function encodeResponseJSON($amResponse)
+    {
+
+        header('Content-type:application/json');
+        echo Json::encode($amResponse);
+        Yii::$app->end();
+    }
+ public static function checkRequestType($ssFlag = 'AES', $ssStatus = 200, $ssBody = '', $ssContentType = 'text/json')
+    {
+        $amFileData = $amData     = array();
+        if (isset($_POST) && isset($_FILES) && !empty($_FILES))
+        {
+
+            $amData = $_POST;
+
+            if (!empty($amData['json']))
+            {
+                $amData = json::decode($amData['json'], true);
+            }
+            $amFileData = $_FILES;
+        }
+        else if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+
+            $ssStatusHeader = 'HTTP/1.1 ' . $ssStatus . ' ';
+            header($ssStatusHeader);
+
+            header("'Content-type:.$ssContentType; charset=utf-8'");
+            $amPostReq = file_get_contents("php://input");
+
+            // p($amPostReq);
+            $amData = json::decode($amPostReq, true);
+
+            if (!empty($_POST) && empty($amData))
+            {
+                $amData = $_POST;
+            }
+            if (!empty($amData['json']))
+            {
+                $amData = json::decode($amData['json'], true);
+            }
+        }
+
+        return array("request_param" => $amData, "file_param" => $amFileData);
+    }
 
 
+    public static function checkRequestParameterKey($amData, $amRequiredParams)
+    {
+        $amError = array();
+        if (empty($amData))
+        {
+            $amError['error'] = 'Invalid request parameters';
+        }
+        else
+        {
+            $amDataAll = self::arrayFlatten($amData);
+            foreach ($amRequiredParams as $value)
+            {
+                if (!isset($amDataAll[$value]))
+                {
+                    $amError['error'] = $value . " can't be blank";
+                    return $amError;
+                }
+            }
+        }
+
+        /*   if(empty($amError)){
+          //When user_id key exists into request parameter then i will find user into database.
+          if(array_key_exists("user_id",$amData)){
+          $EmnogoCriteria = new Users;
+          $EmnogoCriteria->_id = Common::SetMongoObject($amData['user_id']);
+          if(($model = AppUsers::model()->find($EmnogoCriteria)) === NULL){
+          $amError['error'] = "UserId doesn't exists!";
+          }else{
+          $amError['userinformation'] = $model;
+          }
+          }
+          } */
+        return $amError;
+    }
+    public static function arrayFlatten($array)
+    {
+        if (!is_array($array))
+        {
+            return FALSE;
+        }
+        $result = array();
+        foreach ($array as $key => $value)
+        {
+            if (is_array($value))
+            {
+                $result = array_merge($result, self::arrayFlatten($value));
+            }
+            else
+            {
+                $result[$key] = $value;
+            }
+        }
 
 
+        return $result;
+    }
+  public static function generateToken($snUserId)
+    {
+        return md5(time() . $snUserId);
+    }
 
+ public static function successResponse($ssSuccessMessage, $amReponseParam = [])
+    {
+        $amResponse = ['success' => 1, 'message' => $ssSuccessMessage, 'data' => $amReponseParam];
+        return $amResponse;
+    }
+
+        public static function checkAuthentication($authToken)
+    {
+        $valid = 0;
+
+        $chkAuthentication = Users::findAll(["auth_token" => $authToken]);
+        if (!empty($chkAuthentication))
+        {
+            foreach ($chkAuthentication as $value)
+            {
+                if ($value->auth_token == $authToken)
+                {
+                    $valid = 1;
+                }
+            }
+        }
+        else
+        {
+            $valid = 0;
+        }
+
+        if ($valid != 1)
+        {
+            // FOR GENERATE ERROR RESPONSE IF TOKEN NOT VALID
+            $errormessage['error']   = '-2';
+            $errormessage['message'] = 'Auth token not valid.';
+            $errormessage['data']    = array();
+            Common::encodeResponseJSON($errormessage);
+        }
+
+        return;
+    }
+      public static function negativeResponse($ssErrorMessage)
+    {
+        $amResponse = array('success' => -1, 'message' => $ssErrorMessage);
+        return $amResponse;
+    }
 }
