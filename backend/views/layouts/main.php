@@ -26,14 +26,14 @@ CommonAppAsset::register($this);
         <?php $this->beginBody() ?>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="container-fluid">
+                <div class="container-fluid logo-container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="<?= \Yii::$app->urlManager->createUrl(['dashboard']); ?>">
-                        <?= Html::img(Yii::$app->request->baseUrl.'/../../common/web/img/title-small.png',['width' => 70 ,'height' => 70])?>
-</a>
+                    <a class="brand logo" href="<?= \Yii::$app->urlManager->createUrl(['dashboard']); ?>">
+                        <?= Html::img(Yii::$app->request->baseUrl.'/../../common/web/img/Chiefs_rs_logo.png')?>
+                    </a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">

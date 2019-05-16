@@ -13,33 +13,52 @@ $this->title = 'Tags';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tags-index email-format-index">
+    <div class="email-format-index">
+    <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">Search Here</div>
+    </div>
         <div class="block-content collapse in">
-<div class="tags-form span12">
-     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
-
+        <div class="tags-form span12">
+   
+     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"#", ['class' => 'btn btn-primary open_search']); ?>
+     <?php if(!empty($_REQUEST['TagsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+        <div class="tagss-serach">
+         <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div> 
+<?php }else{ ?>
+    <div class="tags-serach">
+         <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div>  
+    <?php } ?>
+</div>
+</div>
+</div>
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
         <div class="pull-right">   
-        <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Tag'), ['create'], ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox();']) ?>
-            <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['tags/index']), ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Tag'), ['create'], ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox(420,580);']) ?>
+            <?php //echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['tags/index']), ['class' => 'btn btn-primary']) ?>
        </div>
     </div>
     
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
   <div class="block-content">
         <div class="goodtable">
-            <?php Pjax::begin(['id' => 'tags']) ?>
+            <?php //Pjax::begin(['id' => 'tags']) ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => null,
          'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='margin-top-10'>{summary}</div>\n<div class='dataTables_paginate paging_bootstrap pagination'>{pager}</div>",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'name',
+            ["attribute"=>'name',
+             "filter" => false
+            ],
               [
                     'attribute' => 'description',
                     //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
+                    'filter' => false,
                     'format' => 'raw',
                     'value' => function( $data ) {
                         $ssText = (!empty($data->description) ) ? $data->description : "";
@@ -48,6 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                  [
                         'attribute' => 'status',
+                        'filter' => false,
                         'filter' => Yii::$app->params['status'],
                         'filterOptions' => ["style" => "width:13%;"],
                         'headerOptions' => ["style" => "width:13%;"],
@@ -77,10 +97,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-    <?php Pjax::end() ?>
+    <?php //Pjax::end() ?>
 
 
     </div>
     </div>
 </div>
 
+
+<script type="text/javascript">
+$( document ).ready(function() {  
+    $('.tags-serach').hide();
+        $('.open_search').click(function(){
+            $('.tags-serach').toggle();
+        });
+    });
+
+</script>

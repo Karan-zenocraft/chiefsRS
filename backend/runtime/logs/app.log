@@ -49397,3 +49397,754 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1557998834.185
     'REQUEST_TIME' => 1557998834
 ]
+2019-05-16 12:04:19 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][ParseError] ParseError: syntax error, unexpected ')', expecting ',' or ';' in /var/www/html/chiefsRS/backend/views/tags/index.php:19
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#3 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#4 [internal function]: backend\controllers\TagsController->actionIndex()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-05-16 12:04:19 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47008'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008259.752
+    'REQUEST_TIME' => 1558008259
+]
+2019-05-16 12:04:35 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined offset: 0 in /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php:99
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php(99): yii\base\ErrorHandler->handleError(8, 'Undefined offse...', '/var/www/html/c...', 99, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php(214): yii\helpers\BaseUrl::toRoute(Array, false)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseHtml.php(412): yii\helpers\BaseUrl::to(Array)
+#3 /var/www/html/chiefsRS/backend/views/tags/index.php(19): yii\helpers\BaseHtml::a('<i class="icon-...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#8 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#9 [internal function]: backend\controllers\TagsController->actionIndex()
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#16 {main}
+2019-05-16 12:04:35 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47044'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008275.838
+    'REQUEST_TIME' => 1558008275
+]
+2019-05-16 12:04:56 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined offset: 0 in /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php:99
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php(99): yii\base\ErrorHandler->handleError(8, 'Undefined offse...', '/var/www/html/c...', 99, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php(214): yii\helpers\BaseUrl::toRoute(Array, false)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseHtml.php(412): yii\helpers\BaseUrl::to(Array)
+#3 /var/www/html/chiefsRS/backend/views/tags/index.php(19): yii\helpers\BaseHtml::a('<i class="icon-...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#8 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#9 [internal function]: backend\controllers\TagsController->actionIndex()
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#16 {main}
+2019-05-16 12:04:56 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47076'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008296.331
+    'REQUEST_TIME' => 1558008296
+]
+2019-05-16 12:04:57 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined offset: 0 in /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php:99
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php(99): yii\base\ErrorHandler->handleError(8, 'Undefined offse...', '/var/www/html/c...', 99, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseUrl.php(214): yii\helpers\BaseUrl::toRoute(Array, false)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseHtml.php(412): yii\helpers\BaseUrl::to(Array)
+#3 /var/www/html/chiefsRS/backend/views/tags/index.php(19): yii\helpers\BaseHtml::a('<i class="icon-...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#8 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#9 [internal function]: backend\controllers\TagsController->actionIndex()
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#16 {main}
+2019-05-16 12:04:56 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47078'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008296.983
+    'REQUEST_TIME' => 1558008296
+]
+2019-05-16 12:05:09 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][ParseError] ParseError: syntax error, unexpected ')', expecting ',' or ';' in /var/www/html/chiefsRS/backend/views/tags/index.php:19
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#3 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#4 [internal function]: backend\controllers\TagsController->actionIndex()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-05-16 12:05:09 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47086'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008309.921
+    'REQUEST_TIME' => 1558008309
+]
+2019-05-16 12:05:21 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][ParseError] ParseError: syntax error, unexpected ')', expecting ',' or ';' in /var/www/html/chiefsRS/backend/views/tags/index.php:19
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#3 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#4 [internal function]: backend\controllers\TagsController->actionIndex()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-05-16 12:05:21 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47090'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008321.702
+    'REQUEST_TIME' => 1558008321
+]
+2019-05-16 12:05:22 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][ParseError] ParseError: syntax error, unexpected ')', expecting ',' or ';' in /var/www/html/chiefsRS/backend/views/tags/index.php:19
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#3 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#4 [internal function]: backend\controllers\TagsController->actionIndex()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-05-16 12:05:22 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=&TagsSearch%5Bdescription%5D=test12'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47094'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558008322.845
+    'REQUEST_TIME' => 1558008322
+]
+2019-05-16 12:18:03 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: TagsSearch in /var/www/html/chiefsRS/backend/views/tags/index.php:20
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/tags/index.php(20): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/var/www/html/c...', 20, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#5 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#6 [internal function]: backend\controllers\TagsController->actionIndex()
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 12:18:03 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=Test1222444&TagsSearch%5Bdescription%5D='
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '48454'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558009083.343
+    'REQUEST_TIME' => 1558009083
+]
+2019-05-16 13:41:49 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][ParseError] ParseError: syntax error, unexpected '=', expecting ']' in /var/www/html/chiefsRS/backend/views/tags/_search.php:26
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#2 /var/www/html/chiefsRS/backend/views/tags/index.php(26): yii\base\View->render('_search', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#7 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#8 [internal function]: backend\controllers\TagsController->actionIndex()
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#15 {main}
+2019-05-16 13:41:49 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '52626'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558014109.696
+    'REQUEST_TIME' => 1558014109
+]
+2019-05-16 13:43:53 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\base\ErrorException:2] yii\base\ErrorException: Illegal string offset 'type' in /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseHtml.php:524
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/helpers/BaseHtml.php(524): yii\base\ErrorHandler->handleError(2, 'Illegal string ...', '/var/www/html/c...', 524, Array)
+#1 /var/www/html/chiefsRS/backend/views/tags/_search.php(26): yii\helpers\BaseHtml::submitButton('<i class="icon-...', '#', Array)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#5 /var/www/html/chiefsRS/backend/views/tags/index.php(22): yii\base\View->render('_search', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\TagsController))
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\TagsController))
+#10 /var/www/html/chiefsRS/backend/controllers/TagsController.php(60): yii\base\Controller->render('index', Array)
+#11 [internal function]: backend\controllers\TagsController->actionIndex()
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('tags/index', Array)
+#16 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#18 {main}
+2019-05-16 13:43:53 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = [
+    'TagsSearch' => [
+        'name' => 'Test1222444'
+        'description' => ''
+    ]
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '52700'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/manage-tags'
+    'REDIRECT_QUERY_STRING' => 'TagsSearch%5Bname%5D=Test1222444&TagsSearch%5Bdescription%5D='
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'TagsSearch%5Bname%5D=Test1222444&TagsSearch%5Bdescription%5D='
+    'REQUEST_URI' => '/chiefsRS/backend/web/manage-tags?TagsSearch%5Bname%5D=Test1222444&TagsSearch%5Bdescription%5D='
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558014233.036
+    'REQUEST_TIME' => 1558014233
+]

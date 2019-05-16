@@ -12,6 +12,26 @@ $this->title = ' Manage Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="users-index email-format-index">
+        <div class="email-format-index">
+    <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">Search Here</div>
+    </div>
+        <div class="block-content collapse in">
+        <div class="tags-form span12">
+   
+     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"#", ['class' => 'btn btn-primary open_search']); ?>
+     <?php if(!empty($_REQUEST['UsersSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+        <div class="userss-serach">
+         <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div> 
+<?php }else{ ?>
+    <div class="users-serach">
+         <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div>  
+    <?php } ?>
+</div>
+</div>
+</div>
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
         <div class="pull-right">            
@@ -25,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?=
             GridView::widget([
                 'dataProvider' => $dataProvider,
-                'filterModel' => $searchModel,
+                'filterModel' => null,
                 //'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='col-md-5 col-sm-12'><div class='row1'>{summary}</div></div>\n<div class='col-md-7 col-sm-12'><div class='row'>{pager}</div></div>",
                 'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='margin-top-10'>{summary}</div>\n<div class='dataTables_paginate paging_bootstrap pagination'>{pager}</div>",
                 'columns' => [
@@ -98,3 +118,13 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+$( document ).ready(function() {  
+    $('.users-serach').hide();
+        $('.open_search').click(function(){
+            $('.users-serach').toggle();
+        });
+    });
+
+</script>

@@ -15,29 +15,28 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php //echo $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'role_id') ?>
+    <?php //echo $form->field($model, 'role_id') ?>
 
     <?= $form->field($model, 'email') ?>
 
-    <?= $form->field($model, 'password') ?>
+    <?php //echo $form->field($model, 'password') ?>
 
-    <?= $form->field($model, 'first_name') ?>
+    <?= $form->field($model, 'fullName') ?>
 
-    <?php // echo $form->field($model, 'last_name') ?>
+    <?php //$form->field($model, 'last_name') ?>
 
-    <?= $form->field($model, 'address') ?>
+    <?php //echo $form->field($model, 'address') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
-
+   <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?>
     <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+      <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['users/index',"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
