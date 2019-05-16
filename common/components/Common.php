@@ -16,6 +16,7 @@ use common\models\EmailFormat;
 use common\models\Projects;
 use common\models\Restaurants;
 use yii\helpers\Json;
+use common\models\RestaurantLayout;
 class Common {
 
  public static $amPostData;
@@ -267,6 +268,13 @@ class Common {
                 //'target' => '_blanck'
                 ] );
         }
+         if ( $flag == 4 ) {
+         return Html::a( '<i class="icon-list icon-white"></i>', $url, [
+                'title' => Yii::t( 'yii', $title ),
+                'class' => 'btn btn-primary btn-small',
+                //'target' => '_blanck'
+                ] );
+        }
     }
     /*
      * Set designing for view tasks button
@@ -299,7 +307,7 @@ class Common {
             return Html::a( '<i class="icon-time icon-white"></i> ', $url, [
                 'title' => Yii::t( 'yii', "Edit Restaurant's working Hours" ),
                 'class' => 'btn btn-primary btn-small colorbox_popup',
-                'onClick'=>'javascript:openColorBox(1090,700);',
+                'onClick'=>'javascript:openColorBox(1090,820);',
                 ] );
     
     }
@@ -325,6 +333,20 @@ class Common {
                 'title' => Yii::t( 'yii', 'Edit' ),
                 'class' => 'btn btn-primary btn-small colorbox_popup',
                 'onclick' => 'javascript:openColorBox(420,580);'
+                ] );
+        }
+          if ( $flag == 2 ) {
+            return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
+                'title' => Yii::t( 'yii', 'Edit' ),
+                'class' => 'btn btn-primary btn-small colorbox_popup',
+                'onclick' => 'javascript:openColorBox(420,400);'
+                ] );
+        }
+           if ( $flag == 3 ) {
+            return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
+                'title' => Yii::t( 'yii', 'Edit' ),
+                'class' => 'btn btn-primary btn-small colorbox_popup',
+                'onclick' => 'javascript:openColorBox(400,500);'
                 ] );
         }
         return Html::a( '<i class="icon-pencil icon-white"></i> Edit', $url, [
@@ -1117,6 +1139,10 @@ class Common {
         
             if($flag == "Restaurants"){
                 $snRestaurantsDetail = Restaurants::find()->where( ['id'=>$id] )->one();
+            }
+            if($flag == "RestaurantLayout"){
+                $snRestaurantsDetail = RestaurantLayout::find()->where( ['id'=>$id] )->one();
+                
             }
             return !empty( $snRestaurantsDetail ) ? $snRestaurantsDetail->name : '';
     }

@@ -25,30 +25,24 @@ use kartik\widgets\TimePicker;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php //echo $form->field($model, 'restaurant_id')->textInput() ?>
-<table>
-    <tr>
-        <td><?= $form->field($model, 'meal_type')->textInput(['value'=>Yii::$app->params['meal_times'][$model->meal_type],'disabled'=>true]) ?></td>
-        <td> 
+<?= $form->field($model, 'meal_type')->textInput(['value'=>Yii::$app->params['meal_times'][$model->meal_type],'disabled'=>true]) ?></td>
+       
             <div class="input-group clockpicker">
    <?= $form->field($model, 'start_time')->textInput(['class'=>'form-control','value'=>$model->start_time,'readonly'=>true]); ?>
                  <span class="input-group-addon">
                      <span class="glyphicon glyphicon-time"></span>
                 </span>
             </div>
-        </td>
+       
 
-            <?php //echo $form->field($model, 'start_time')->widget(TimePicker::classname(), []); ?></td>
-       <td> 
+            <?php //echo $form->field($model, 'start_time')->widget(TimePicker::classname(), []); ?>
             <div class="input-group clockpicker">
    <?= $form->field($model, 'end_time')->textInput(['class'=>'form-control','value'=>$model->end_time,'readonly'=>true]); ?>
                  <span class="input-group-addon">
                      <span class="glyphicon glyphicon-time"></span>
                 </span>
             </div>
-        </td>
-    </tr>
 
-</table>
 
    
   

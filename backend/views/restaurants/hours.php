@@ -12,6 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left users_permission_title"><?= Html::encode($this->title) ?></div>
     </div>
+
     <div class="portlet-body form block-content collapse in">
         <div class="users-form span12">
 

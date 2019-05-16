@@ -144,7 +144,7 @@ $this->params['breadcrumbs'][] = $this->title;
                              'manage_layout' => function ($url, $model) {
                                 $title = "manage Restaurant's Layout";
                                 $flag =3;
-                                $url = Yii::$app->urlManager->createUrl(['restaurant-layouts/index', 'rid' => $model->id]);
+                                $url = Yii::$app->urlManager->createUrl(['restaurant-layout/index', 'rid' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                             },

@@ -46287,3 +46287,3113 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1557921806.823
     'REQUEST_TIME' => 1557921806
 ]
+2019-05-16 06:01:21 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-layouts/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 06:01:21 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '7'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '36522'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layouts/index'
+    'REDIRECT_QUERY_STRING' => 'rid=7'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=7'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layouts/index?rid=7'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557986481.525
+    'REQUEST_TIME' => 1557986481
+]
+2019-05-16 06:20:22 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-layouts/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 06:20:22 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '36728'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layouts/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layouts/index?rid=8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557987622.596
+    'REQUEST_TIME' => 1557987622
+]
+2019-05-16 06:20:28 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][Error] Error: Class 'backend\controllers\Common' not found in /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php:40
+Stack trace:
+#0 [internal function]: backend\controllers\RestaurantLayoutController->actionIndex()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#7 {main}
+2019-05-16 06:20:28 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '36744'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557987628.821
+    'REQUEST_TIME' => 1557987628
+]
+2019-05-16 06:35:02 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1364 Field 'restaurant_id' doesn't have a default value in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_layo...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(78): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantLayoutController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1364 Field 'restaurant_id' doesn't have a default value
+The SQL being executed was: INSERT INTO `restaurant_layouts` (`name`, `status`, `created_at`, `updated_at`) VALUES ('Ground Floor', 1, '2019-05-16 06:35:02', '2019-05-16 06:35:02') in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `re...')
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_layo...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(78): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantLayoutController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'restaurant_id' doesn't have a default value
+)
+
+2019-05-16 06:35:02 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+]
+
+$_POST = [
+    '_csrf' => 'X620o3JxNaN4T6JSgNwp8DfYW-4bmE-ax9JMq-n_Ey1q_e7GGDh3m047-ybnu33Ifo8ov1DCKt2euh7cobp3ew=='
+    'RestaurantLayout' => [
+        'name' => 'Ground Floor'
+        'status' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/create?rid=8'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '169'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '36998'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/create'
+    'REDIRECT_QUERY_STRING' => 'rid=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'rid=8'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/create?rid=8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988502.645
+    'REQUEST_TIME' => 1557988502
+]
+2019-05-16 06:35:57 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1364 Field 'created_by' doesn't have a default value in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_layo...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(77): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantLayoutController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1364 Field 'created_by' doesn't have a default value
+The SQL being executed was: INSERT INTO `restaurant_layouts` (`restaurant_id`, `name`, `status`, `created_at`, `updated_at`) VALUES (8, '1st Floor', 1, '2019-05-16 06:35:57', '2019-05-16 06:35:57') in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `re...')
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_layo...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(77): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantLayoutController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'created_by' doesn't have a default value
+)
+
+2019-05-16 06:35:57 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+]
+
+$_POST = [
+    '_csrf' => 'nydekV8n_30PoA2mEOscbCjI667Nt0OK7NARPuzafaaqdwT0NW69RTnUVNJ3jEhUYZ-Y_4btJs21uENJpJ8Z8A=='
+    'RestaurantLayout' => [
+        'name' => '1st Floor'
+        'status' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/create?rid=8'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '166'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37006'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/create'
+    'REDIRECT_QUERY_STRING' => 'rid=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'rid=8'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/create?rid=8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988557.52
+    'REQUEST_TIME' => 1557988557
+]
+2019-05-16 06:40:50 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][Error] Error: Class 'Common' not found in /var/www/html/chiefsRS/backend/views/restaurant-layout/index.php:60
+Stack trace:
+#0 [internal function]: yii\base\View->{closure}('/chiefsRS/backe...', Object(common\models\RestaurantLayout), 1)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/ActionColumn.php(227): call_user_func(Object(Closure), '/chiefsRS/backe...', Object(common\models\RestaurantLayout), 1)
+#2 [internal function]: yii\grid\ActionColumn->yii\grid\{closure}(Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/ActionColumn.php(231): preg_replace_callback('/\\{([\\w\\-\\/]+)\\...', Object(Closure), '{update}{delete...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/Column.php(111): yii\grid\ActionColumn->renderDataCellContent(Object(common\models\RestaurantLayout), 1, 0)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(525): yii\grid\Column->renderDataCell(Object(common\models\RestaurantLayout), 1, 0)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(494): yii\grid\GridView->renderTableRow(Object(common\models\RestaurantLayout), 1, 0)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(358): yii\grid\GridView->renderTableBody()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/BaseListView.php(160): yii\grid\GridView->renderItems()
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(326): yii\widgets\BaseListView->renderSection('{items}')
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/BaseListView.php(135): yii\grid\GridView->renderSection('{items}')
+#11 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '<div class='tab...')
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(301): yii\widgets\BaseListView->run()
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Widget.php(140): yii\grid\GridView->run()
+#15 /var/www/html/chiefsRS/backend/views/restaurant-layout/index.php(66): yii\base\Widget::widget(Array)
+#16 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#17 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#18 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantLayoutController))
+#19 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\RestaurantLayoutController))
+#20 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(47): yii\base\Controller->render('index', Array)
+#21 [internal function]: backend\controllers\RestaurantLayoutController->actionIndex()
+#22 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#23 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#24 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#25 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#26 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#28 {main}
+2019-05-16 06:40:50 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37108'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988850.733
+    'REQUEST_TIME' => 1557988850
+]
+2019-05-16 06:41:23 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/views/restaurant-layout/update.php:17
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/restaurant-layout/update.php(17): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 17, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantLayoutController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('update', Array, Object(backend\controllers\RestaurantLayoutController))
+#5 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(108): yii\base\Controller->render('update', Array)
+#6 [internal function]: backend\controllers\RestaurantLayoutController->actionUpdate('1')
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 06:41:23 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'id' => '1'
+    '_pjax' => '#p0'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html, */*; q=0.01'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'HTTP_X_CSRF_TOKEN' => 'p_6VZypK-XoXzy-W9TmVm-756HS4M72D0Tfm5TRISB2Srs8CQAO7QiG7duKSXsGjp66bJfNp2MSIX7SSfA0sSw=='
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_X_PJAX' => 'true'
+    'HTTP_X_PJAX_CONTAINER' => '#p0'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37112'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/update'
+    'REDIRECT_QUERY_STRING' => 'id=1&_pjax=%23p0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=1&_pjax=%23p0'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/update?id=1&_pjax=%23p0'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988883.467
+    'REQUEST_TIME' => 1557988883
+]
+2019-05-16 06:41:23 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/views/restaurant-layout/update.php:17
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/restaurant-layout/update.php(17): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 17, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantLayoutController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('update', Array, Object(backend\controllers\RestaurantLayoutController))
+#5 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(108): yii\base\Controller->render('update', Array)
+#6 [internal function]: backend\controllers\RestaurantLayoutController->actionUpdate('1')
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 06:41:23 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'id' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37122'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/update'
+    'REDIRECT_QUERY_STRING' => 'id=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=1'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/update?id=1'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988883.537
+    'REQUEST_TIME' => 1557988883
+]
+2019-05-16 06:42:02 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php:109
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(109): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 109, Array)
+#1 [internal function]: backend\controllers\RestaurantLayoutController->actionUpdate('1')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 06:42:02 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'id' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37126'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/update'
+    'REDIRECT_QUERY_STRING' => 'id=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=1'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/update?id=1'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988922.572
+    'REQUEST_TIME' => 1557988922
+]
+2019-05-16 06:42:04 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php:109
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(109): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 109, Array)
+#1 [internal function]: backend\controllers\RestaurantLayoutController->actionUpdate('1')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 06:42:04 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'id' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-layout/index?rid=8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37128'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layout/update'
+    'REDIRECT_QUERY_STRING' => 'id=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=1'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layout/update?id=1'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557988924.078
+    'REQUEST_TIME' => 1557988924
+]
+2019-05-16 06:44:21 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-layouts/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 06:44:21 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37172'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-layouts/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-layouts/index?rid=8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557989061.396
+    'REQUEST_TIME' => 1557989061
+]
+2019-05-16 07:07:26 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php:107
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('backend\\control...')
+#1 [internal function]: spl_autoload_call('backend\\control...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(637): class_exists('backend\\control...')
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('restaurant-layo...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('update')
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 07:07:26 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '1'
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37780'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/update-restaurant-layout/1/8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/update-restaurant-layout/1/8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557990446.737
+    'REQUEST_TIME' => 1557990446
+]
+2019-05-16 07:07:36 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected 'return' (T_RETURN), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php:107
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('backend\\control...')
+#1 [internal function]: spl_autoload_call('backend\\control...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(637): class_exists('backend\\control...')
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('restaurant-layo...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('update')
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 07:07:36 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '1'
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37782'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/update-restaurant-layout/1/8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/update-restaurant-layout/1/8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557990456.068
+    'REQUEST_TIME' => 1557990456
+]
+2019-05-16 07:08:45 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/views/restaurant-layout/update.php:17
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/restaurant-layout/update.php(17): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 17, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantLayoutController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('update', Array, Object(backend\controllers\RestaurantLayoutController))
+#5 /var/www/html/chiefsRS/backend/controllers/RestaurantLayoutController.php(108): yii\base\Controller->render('update', Array)
+#6 [internal function]: backend\controllers\RestaurantLayoutController->actionUpdate('1')
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-layo...', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 07:08:45 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'id' => '1'
+    'rid' => '8'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '37784'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/update-restaurant-layout/1/8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/update-restaurant-layout/1/8'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557990525.23
+    'REQUEST_TIME' => 1557990525
+]
+2019-05-16 07:42:52 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:42:52 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39292'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992572.053
+    'REQUEST_TIME' => 1557992572
+]
+2019-05-16 07:42:54 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:42:54 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39296'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992574.903
+    'REQUEST_TIME' => 1557992574
+]
+2019-05-16 07:43:07 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:43:07 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39298'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992587.945
+    'REQUEST_TIME' => 1557992587
+]
+2019-05-16 07:43:15 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:43:15 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39304'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=1'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=1'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992595.491
+    'REQUEST_TIME' => 1557992595
+]
+2019-05-16 07:44:02 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:44:02 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39324'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992642.964
+    'REQUEST_TIME' => 1557992642
+]
+2019-05-16 07:44:05 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:44:05 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39324'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=1'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=1'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992645.825
+    'REQUEST_TIME' => 1557992645
+]
+2019-05-16 07:48:19 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "restaurant-tables/index". in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#2 {main}
+2019-05-16 07:48:19 [127.0.0.1][2][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39540'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557992899.416
+    'REQUEST_TIME' => 1557992899
+]
+2019-05-16 07:53:38 [127.0.0.1][-][-][error][Error] Error: Class 'common\models\RestaurantLayouts' not found in /var/www/html/chiefsRS/common/models/base/RestaurantTablesBase.php:52
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(464): common\models\base\RestaurantTablesBase->rules()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(420): yii\base\Model->createValidators()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(189): yii\base\Model->getValidators()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(795): yii\base\Model->scenarios()
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/generators/crud/default/views/_form.php(11): yii\base\Model->safeAttributes()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/Generator.php(317): yii\base\View->renderFile('/var/www/html/c...', Array, Object(yii\gii\generators\crud\Generator))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/generators/crud/Generator.php(188): yii\gii\Generator->render('views/_form.php')
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(61): yii\gii\generators\crud\Generator->generate()
+#10 [internal function]: yii\gii\controllers\DefaultController->actionView('crud')
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-16 07:53:38 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'crud'
+]
+
+$_POST = [
+    '_csrf' => 'PIbMdyHIgGOycdtfdfY318ODPXhNR1wLObYnoLW2zTQJ1pYSS4HCW4QFgisSkWPvitROKQYdOUxg3nXX_fOpYg=='
+    'Generator' => [
+        'modelClass' => 'common\\models\\RestaurantTables'
+        'searchModelClass' => 'common\\models\\RestaurantTablesSearch'
+        'controllerClass' => 'backend\\controllers\\RestaurantTablesController'
+        'viewPath' => ''
+        'baseControllerClass' => 'yii\\web\\Controller'
+        'indexWidgetType' => 'grid'
+        'enableI18N' => '0'
+        'enablePjax' => '0'
+        'messageCategory' => 'app'
+        'template' => 'default'
+    ]
+    'preview' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/gii/crud'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '565'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39614'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/gii/crud'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/gii/crud'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557993218.472
+    'REQUEST_TIME' => 1557993218
+]
+2019-05-16 07:53:55 [127.0.0.1][-][-][error][Error] Error: Class 'common\models\RestaurantLayouts' not found in /var/www/html/chiefsRS/common/models/base/RestaurantTablesBase.php:52
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(464): common\models\base\RestaurantTablesBase->rules()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(420): yii\base\Model->createValidators()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(189): yii\base\Model->getValidators()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(795): yii\base\Model->scenarios()
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/generators/crud/default/views/_form.php(11): yii\base\Model->safeAttributes()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/Generator.php(317): yii\base\View->renderFile('/var/www/html/c...', Array, Object(yii\gii\generators\crud\Generator))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/generators/crud/Generator.php(188): yii\gii\Generator->render('views/_form.php')
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(61): yii\gii\generators\crud\Generator->generate()
+#10 [internal function]: yii\gii\controllers\DefaultController->actionView('crud')
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-16 07:53:55 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'crud'
+]
+
+$_POST = [
+    '_csrf' => 'PIbMdyHIgGOycdtfdfY318ODPXhNR1wLObYnoLW2zTQJ1pYSS4HCW4QFgisSkWPvitROKQYdOUxg3nXX_fOpYg=='
+    'Generator' => [
+        'modelClass' => 'common\\models\\RestaurantTables'
+        'searchModelClass' => 'common\\models\\RestaurantTablesSearch'
+        'controllerClass' => 'backend\\controllers\\RestaurantTablesController'
+        'viewPath' => ''
+        'baseControllerClass' => 'yii\\web\\Controller'
+        'indexWidgetType' => 'grid'
+        'enableI18N' => '0'
+        'enablePjax' => '0'
+        'messageCategory' => 'app'
+        'template' => 'default'
+    ]
+    'preview' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/gii/crud'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '574'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39632'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/gii/crud'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/gii/crud'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557993235.487
+    'REQUEST_TIME' => 1557993235
+]
+2019-05-16 07:55:04 [127.0.0.1][-][-][error][Error] Error: Class 'common\models\base\RestaurantLayouts' not found in /var/www/html/chiefsRS/common/models/base/RestaurantTablesBase.php:52
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(464): common\models\base\RestaurantTablesBase->rules()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(420): yii\base\Model->createValidators()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(189): yii\base\Model->getValidators()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Model.php(795): yii\base\Model->scenarios()
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/generators/crud/default/views/_form.php(11): yii\base\Model->safeAttributes()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/Generator.php(317): yii\base\View->renderFile('/var/www/html/c...', Array, Object(yii\gii\generators\crud\Generator))
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/generators/crud/Generator.php(188): yii\gii\Generator->render('views/_form.php')
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(61): yii\gii\generators\crud\Generator->generate()
+#10 [internal function]: yii\gii\controllers\DefaultController->actionView('crud')
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#15 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#17 {main}
+2019-05-16 07:55:04 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'crud'
+]
+
+$_POST = [
+    '_csrf' => 'PIbMdyHIgGOycdtfdfY318ODPXhNR1wLObYnoLW2zTQJ1pYSS4HCW4QFgisSkWPvitROKQYdOUxg3nXX_fOpYg=='
+    'Generator' => [
+        'modelClass' => 'common\\models\\RestaurantTables'
+        'searchModelClass' => 'common\\models\\RestaurantTablesSearch'
+        'controllerClass' => 'backend\\controllers\\RestaurantTablesController'
+        'viewPath' => ''
+        'baseControllerClass' => 'yii\\web\\Controller'
+        'indexWidgetType' => 'grid'
+        'enableI18N' => '0'
+        'enablePjax' => '0'
+        'messageCategory' => 'app'
+        'template' => 'default'
+    ]
+    'preview' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/gii/crud'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '574'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39638'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/gii/crud'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/gii/crud'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557993304.496
+    'REQUEST_TIME' => 1557993304
+]
+2019-05-16 08:08:53 [127.0.0.1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/views/restaurant-tables/index.php:16
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/restaurant-tables/index.php(16): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 16, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantTablesController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\RestaurantTablesController))
+#5 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(43): yii\base\Controller->render('index', Array)
+#6 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 08:08:53 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39714'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994133.174
+    'REQUEST_TIME' => 1557994133
+]
+2019-05-16 08:09:57 [127.0.0.1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: snRestaurantName in /var/www/html/chiefsRS/backend/views/restaurant-tables/index.php:13
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/restaurant-tables/index.php(13): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 13, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantTablesController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\RestaurantTablesController))
+#5 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(43): yii\base\Controller->render('index', Array)
+#6 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 08:09:57 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39744'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994197.591
+    'REQUEST_TIME' => 1557994197
+]
+2019-05-16 08:11:43 [127.0.0.1][-][-][error][Error] Error: Class 'backend\controllers\Common' not found in /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php:39
+Stack trace:
+#0 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#7 {main}
+2019-05-16 08:11:43 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39750'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994303.234
+    'REQUEST_TIME' => 1557994303
+]
+2019-05-16 08:16:04 [127.0.0.1][-][-][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: common\models\RestaurantTablesSearch::backendsearch() in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(44): yii\base\Component->__call('backendsearch', Array)
+#1 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 08:16:04 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39802'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994564.398
+    'REQUEST_TIME' => 1557994564
+]
+2019-05-16 08:19:17 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected ''snLayoutName'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php:50
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('backend\\control...')
+#1 [internal function]: spl_autoload_call('backend\\control...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(637): class_exists('backend\\control...')
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('restaurant-tabl...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('index')
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 08:19:17 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39888'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994757.869
+    'REQUEST_TIME' => 1557994757
+]
+2019-05-16 08:19:28 [127.0.0.1][-][-][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: common\models\RestaurantTablesSearch::backendsearch() in /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(44): yii\base\Component->__call('backendsearch', Array)
+#1 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-16 08:19:28 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39892'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994768.343
+    'REQUEST_TIME' => 1557994768
+]
+2019-05-16 08:20:38 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected ',', expecting ']' in /var/www/html/chiefsRS/common/models/RestaurantTablesSearch.php:81
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('common\\models\\R...')
+#1 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(42): spl_autoload_call('common\\models\\R...')
+#2 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#9 {main}
+2019-05-16 08:20:38 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39910'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994838.054
+    'REQUEST_TIME' => 1557994838
+]
+2019-05-16 08:20:55 [127.0.0.1][-][-][error][yii\base\ErrorException:64] yii\base\ErrorException: Cannot redeclare common\models\RestaurantTablesSearch::search() in /var/www/html/chiefsRS/common/models/RestaurantTablesSearch.php:79
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-05-16 08:20:55 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39912'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557994855.176
+    'REQUEST_TIME' => 1557994855
+]
+2019-05-16 08:24:15 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected '?>' in /var/www/html/chiefsRS/backend/views/restaurant-tables/_form.php:19
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, NULL)
+#2 /var/www/html/chiefsRS/backend/views/restaurant-tables/create.php(17): yii\base\View->render('_form', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantTablesController))
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('create', Array, Object(backend\controllers\RestaurantTablesController))
+#7 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(81): yii\base\Controller->render('create', Array)
+#8 [internal function]: backend\controllers\RestaurantTablesController->actionCreate()
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#15 {main}
+2019-05-16 08:24:15 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '39980'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/create'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557995055.118
+    'REQUEST_TIME' => 1557995055
+]
+2019-05-16 09:14:35 [127.0.0.1][-][nrmciqmv4hvt4naht2uvm7qtpm][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property 'first_name' of non-object in /var/www/html/chiefsRS/backend/views/layouts/main.php:40
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/views/layouts/main.php(40): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/c...', 40, Array)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(399): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantTablesController))
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(385): yii\base\Controller->renderContent('<div class="res...')
+#5 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(50): yii\base\Controller->render('index', Array)
+#6 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#13 {main}
+2019-05-16 09:14:35 [127.0.0.1][-][nrmciqmv4hvt4naht2uvm7qtpm][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'nrmciqmv4hvt4naht2uvm7qtpm'
+    '_csrf' => 'f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5PZejIB86tYtggT8IWsQKZeGYhRwHEdV\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=nrmciqmv4hvt4naht2uvm7qtpm; _csrf=f6a4f6377b9d8c1603d02c13c0edc941b9c945024cc85a041b1bf453851c9cf8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225PZejIB86tYtggT8IWsQKZeGYhRwHEdV%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40166'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998075.125
+    'REQUEST_TIME' => 1557998075
+]
+2019-05-16 09:18:27 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected 'public' (T_PUBLIC), expecting ';' or '{' in /var/www/html/chiefsRS/common/models/RestaurantTables.php:29
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('common\\models\\R...')
+#1 /var/www/html/chiefsRS/common/models/RestaurantTablesSearch.php(12): spl_autoload_call('common\\models\\R...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/BaseYii.php(293): include('/var/www/html/c...')
+#3 [internal function]: yii\BaseYii::autoload('common\\models\\R...')
+#4 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(42): spl_autoload_call('common\\models\\R...')
+#5 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#12 {main}
+2019-05-16 09:18:27 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40234'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998307.621
+    'REQUEST_TIME' => 1557998307
+]
+2019-05-16 09:18:52 [127.0.0.1][-][-][error][yii\base\ErrorException:64] yii\base\ErrorException: Cannot redeclare common\models\RestaurantTables::beforeSave() in /var/www/html/chiefsRS/common/models/RestaurantTables.php:29
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-05-16 09:18:52 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40236'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998332.573
+    'REQUEST_TIME' => 1557998332
+]
+2019-05-16 09:19:39 [127.0.0.1][-][-][error][Error] Error: Class 'common\models\Yii' not found in /var/www/html/chiefsRS/common/models/RestaurantTables.php:16
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(596): common\models\RestaurantTables->beforeSave(true)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#3 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(77): yii\db\BaseActiveRecord->save()
+#4 [internal function]: backend\controllers\RestaurantTablesController->actionCreate()
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-05-16 09:19:39 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = [
+    '_csrf' => '3bq-r-bq6uZlg9TC55ginSMkWLDfepTlSjGZe4qC_QqFgubkh46Bkwz6noi-qRrxUxQxwO0e_8gfZNgOzrHPPA=='
+    'RestaurantTables' => [
+        'table_no' => '1'
+        'name' => 'Special table'
+        'min_capacity' => '6'
+        'max_capacity' => '10'
+        'status' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '278'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40272'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/create'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998379.941
+    'REQUEST_TIME' => 1557998379
+]
+2019-05-16 09:19:53 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1364 Field 'restaurant_id' doesn't have a default value in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_tabl...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(77): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantTablesController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1364 Field 'restaurant_id' doesn't have a default value
+The SQL being executed was: INSERT INTO `restaurant_tables` (`table_no`, `name`, `min_capacity`, `max_capacity`, `status`, `created_by`, `created_at`, `updated_at`, `updated_by`) VALUES (1, 'Special table', 6, 10, 1, 2, '2019-05-16 09:19:53', '2019-05-16 09:19:53', 2) in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `re...')
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_tabl...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(77): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantTablesController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'restaurant_id' doesn't have a default value
+)
+
+2019-05-16 09:19:53 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = [
+    '_csrf' => '3bq-r-bq6uZlg9TC55ginSMkWLDfepTlSjGZe4qC_QqFgubkh46Bkwz6noi-qRrxUxQxwO0e_8gfZNgOzrHPPA=='
+    'RestaurantTables' => [
+        'table_no' => '1'
+        'name' => 'Special table'
+        'min_capacity' => '6'
+        'max_capacity' => '10'
+        'status' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '278'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40278'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/create'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998393.436
+    'REQUEST_TIME' => 1557998393
+]
+2019-05-16 09:21:55 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1364 Field 'layout_id' doesn't have a default value in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_tabl...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(77): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantTablesController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1364 Field 'layout_id' doesn't have a default value
+The SQL being executed was: INSERT INTO `restaurant_tables` (`restaurant_id`, `table_no`, `name`, `min_capacity`, `max_capacity`, `status`, `created_by`, `created_at`, `updated_at`, `updated_by`) VALUES (8, 1, 'Special table', 6, 10, 1, 2, '2019-05-16 09:21:55', '2019-05-16 09:21:55', 2) in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `re...')
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `re...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('restaurant_tabl...', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(77): yii\db\BaseActiveRecord->save()
+#7 [internal function]: backend\controllers\RestaurantTablesController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'layout_id' doesn't have a default value
+)
+
+2019-05-16 09:21:55 [127.0.0.1][2][ofuj7omtp7n4fcvb3p07sr9hpt][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = [
+    '_csrf' => '3bq-r-bq6uZlg9TC55ginSMkWLDfepTlSjGZe4qC_QqFgubkh46Bkwz6noi-qRrxUxQxwO0e_8gfZNgOzrHPPA=='
+    'RestaurantTables' => [
+        'table_no' => '1'
+        'name' => 'Special table'
+        'min_capacity' => '6'
+        'max_capacity' => '10'
+        'status' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/manage-restaurants-layout/8'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '278'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40280'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/create'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/create?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998515.14
+    'REQUEST_TIME' => 1557998515
+]
+2019-05-16 09:27:14 [127.0.0.1][-][-][error][Error] Error: Class 'Common' not found in /var/www/html/chiefsRS/backend/views/restaurant-tables/index.php:68
+Stack trace:
+#0 [internal function]: yii\base\View->{closure}('/chiefsRS/backe...', Object(common\models\RestaurantTables), 1)
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/ActionColumn.php(227): call_user_func(Object(Closure), '/chiefsRS/backe...', Object(common\models\RestaurantTables), 1)
+#2 [internal function]: yii\grid\ActionColumn->yii\grid\{closure}(Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/ActionColumn.php(231): preg_replace_callback('/\\{([\\w\\-\\/]+)\\...', Object(Closure), '{update}{delete...')
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/Column.php(111): yii\grid\ActionColumn->renderDataCellContent(Object(common\models\RestaurantTables), 1, 0)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(525): yii\grid\Column->renderDataCell(Object(common\models\RestaurantTables), 1, 0)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(494): yii\grid\GridView->renderTableRow(Object(common\models\RestaurantTables), 1, 0)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(358): yii\grid\GridView->renderTableBody()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/BaseListView.php(160): yii\grid\GridView->renderItems()
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(326): yii\widgets\BaseListView->renderSection('{items}')
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/BaseListView.php(135): yii\grid\GridView->renderSection('{items}')
+#11 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/widgets/BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '<div class='tab...')
+#13 /var/www/html/chiefsRS/vendor/yiisoft/yii2/grid/GridView.php(301): yii\widgets\BaseListView->run()
+#14 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Widget.php(140): yii\grid\GridView->run()
+#15 /var/www/html/chiefsRS/backend/views/restaurant-tables/index.php(74): yii\base\Widget::widget(Array)
+#16 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/c...')
+#17 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/c...', Array)
+#18 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/c...', Array, Object(backend\controllers\RestaurantTablesController))
+#19 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(backend\controllers\RestaurantTablesController))
+#20 /var/www/html/chiefsRS/backend/controllers/RestaurantTablesController.php(50): yii\base\Controller->render('index', Array)
+#21 [internal function]: backend\controllers\RestaurantTablesController->actionIndex()
+#22 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#23 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#24 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#25 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-tabl...', Array)
+#26 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#28 {main}
+2019-05-16 09:27:14 [127.0.0.1][-][-][info][application] $_GET = [
+    'rid' => '8'
+    'lid' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1212joshi@gmail.com'
+    'site_title_admin_password' => 'admin@123'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => 'ofuj7omtp7n4fcvb3p07sr9hpt'
+    '_csrf' => 'c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X8XKadkuiyJJY18lp0ip2dk-UUAuD326\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/manage-restaurants-layout/8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1212joshi%40gmail.com; site_title_admin_password=admin%40123; _ga=GA1.1.1713593372.1554790963; PHPSESSID=ofuj7omtp7n4fcvb3p07sr9hpt; _csrf=c380a5d2b587effa93e605d20e3fc173d35f4c7715b64877e27b7c2775ed3fe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X8XKadkuiyJJY18lp0ip2dk-UUAuD326%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '40326'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-tables/index'
+    'REDIRECT_QUERY_STRING' => 'rid=8&lid=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'rid=8&lid=2'
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-tables/index?rid=8&lid=2'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1557998834.185
+    'REQUEST_TIME' => 1557998834
+]

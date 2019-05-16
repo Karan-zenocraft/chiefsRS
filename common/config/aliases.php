@@ -73,77 +73,15 @@ Yii::setAlias('user_delete_message', 'User has been deleted successfully !');
 Yii::setAlias('hours_update_message', "Restaurant's Hours has been updated successfully.");
 //END:  User message
 
-//START: Update status of task
-Yii::setAlias('milestone_update_status_message', 'Your milestone status has been updated successfully.');
-//END:  Update status of task
-
-//START: Update status of task
-Yii::setAlias('task_update_status_message', 'Your task status has been updated successfully.');
-//END:  Update status of task
-//END: BACK-END message 
-
-//START: add leave
-Yii::setAlias('create_leave_message', 'Your leave application has been created successfully.');
-//END:  add leave
-
-//START: add leave
-Yii::setAlias('create_leave_error_message', 'Something went wrong.Please try again later.');
-//END:  add leave
+//START: Restaurant layout message
+Yii::setAlias('restaurant_layout_add_message', 'Layout has been added successfully !');
+Yii::setAlias('restaurant_layout_update_message', 'Layout has been updated successfully !');
+Yii::setAlias('restaurant_layout_delete_message', 'Layout has been deleted successfully !');
+//END:  Restaurant layout message
 
 
-//START: update leave
-Yii::setAlias('update_leave_message', 'Your leave application has been updated successfully.');
-//END:  update leave
-
-//START: update leave
-Yii::setAlias('success_add_total_leave', 'Total leaves has been added successfully.');
-//END:  update leave
-
-//START: approve leave
-Yii::setAlias('success_approve_leave', 'Leave application approved successfully.');
-//END:  approve leave
-
-//START: reject leave
-Yii::setAlias('success_reject_leave', 'Leave application rejected successfully.');
-//END:  reject leave
-
-
-//START: cancel leave
-Yii::setAlias('success_cancel_leave', 'Leave application canceled successfully.');
-//END:  cancel leave
-
-//START: cancel leave
-Yii::setAlias('error_approve_leave', 'This leave application can not be approved');
-//END:  cancel leave
-
-
-//START: upload document
-Yii::setAlias('document_upload_success_message', 'Document has been uploaded successfully.');
-//END: upload document
-
-
-//START: error upload document
-Yii::setAlias('document_upload_error_message', 'Something went wrong.Please try again later.');
-//END:  error upload document
-
-//START: download document
-Yii::setAlias('document_delete_success_message', 'Document has been deleted successfully.');
-//END: delete document
-
-//START: Milestone successfully sent for QA
-Yii::setAlias('success_send_for_qa', 'Milestone has been successfully sent for QA.');
-//END: Milestone successfully sent for QA
-
-//START: QA approval
-Yii::setAlias('success_qa_approval', 'Milestone has been successfully approved by QA.');
-//END: QA approval
-
-//START: add technical skills
-Yii::setAlias('success_add_technical_skills', 'Technical skills have been added successfully.');
-//END:   add technical skills
-
-//START: technology
-Yii::setAlias('technology_create_message', 'Technology has been added successfully !');
-Yii::setAlias('technology_update_message', 'Technology has been updated successfully !');
-Yii::setAlias('technology_delete_message', 'Technology has been deleted successfully !');
-//START: technology
+//START: Restaurant table message
+Yii::setAlias('restaurant_table_add_message', 'Table has been added successfully !');
+Yii::setAlias('restaurant_table_update_message', 'Table has been updated successfully !');
+Yii::setAlias('restaurant_table_delete_message', 'Table has been deleted successfully !');
+//END:  Restaurant table message
