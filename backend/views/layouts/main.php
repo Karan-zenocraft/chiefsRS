@@ -32,7 +32,8 @@ CommonAppAsset::register($this);
                         <span class="icon-bar"></span>
                     </a>
                     <a class="brand logo" href="<?= \Yii::$app->urlManager->createUrl(['dashboard']); ?>">
-                        <?= Html::img(Yii::$app->request->baseUrl.'/../../common/web/img/Chiefs_rs_logo.png')?>
+                        <?= Html::img(Yii::$app->request->baseUrl.'/../../common/web/img/Chiefs_rs_logo.png',['width'=>"33px",'height'=>"33px"])?>
+                        <?php echo Yii::getAlias('@site_title'); ?>
                     </a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">

@@ -46,7 +46,7 @@ class UsersController extends AdminCoreController
         $searchModel = new UsersSearch();
         $dataProvider = $searchModel->search( Yii::$app->request->queryParams );
         $UsersFirstName = ArrayHelper::map( Users::find()->asArray()->all(), 'first_name', 'first_name' );
-        $UserRolesDropdown = ArrayHelper::map( UserRoles::find()->where( "id !=" .Yii::$app->params['super_admin_role_id'] )->asArray()->all(), 'id', 'role_name' );
+        $UserRolesDropdown = ArrayHelper::map( UserRoles::find()->where( "id !=" .Yii::$app->params['super_admin_role_id']." AND id !=".Yii::$app->params['administrator_role_id'])->asArray()->all(), 'id', 'role_name' );
 
         return $this->render( 'index', [
             'searchModel' => $searchModel,
