@@ -42,9 +42,9 @@ CommonAppAsset::register( $this );
               $snUserRoleId = Common::get_user_role( Yii::$app->user->id );
               if ( !empty( $snUserRoleId ) && $snUserRoleId != "2") {
                 $menuItems = [
-                ['label' => 'Restaurants', 'url' => ['/users/my-projects']/*,'visible'=> $snUserRoleId != Yii::$app->params['userroles']['qa']*/],
-                ['label' => 'Menus', 'url' => ['users/milestones'],'visible'=> $snUserRoleId == "2"],
-                ['label' => 'Tables', 'url' => ['/timesheet/index']],
+                ['label' => 'Restaurants', 'url' => ['#']/*,'visible'=> $snUserRoleId != Yii::$app->params['userroles']['qa']*/],
+                ['label' => 'Menus', 'url' => ['#'],'visible'=> $snUserRoleId == "2"],
+                ['label' => 'Tables', 'url' => ['#']],
                /* ['label' => 'Project Documents', 'url' => ['/project-documents/index']],*/
                // ['label' => 'Leaves', 'url' => ['/leaves/index']],
                 ['label' => 'Logout (' . Yii::$app->user->identity->first_name . ')',
