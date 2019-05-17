@@ -11,29 +11,37 @@ use yii\widgets\ActiveForm;
 <div class="restaurant-tables-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['index','rid'=>$_GET['rid'],'lid'=>$_GET['lid']],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'restaurant_id') ?>
+    <?php // $form->field($model, 'restaurant_id') ?>
 
-    <?= $form->field($model, 'layout_id') ?>
+    <?php // $form->field($model, 'layout_id') ?>
+    <table>
+        <tr>
+        <td><?= $form->field($model, 'table_no') ?></td>
 
-    <?= $form->field($model, 'table_no') ?>
+        <td><?= $form->field($model, 'name') ?></td>
+            
+        </tr>
+        <tr>
+           <td> <?php  echo $form->field($model, 'min_capacity') ?></td>
 
-    <?= $form->field($model, 'name') ?>
-
-    <?php // echo $form->field($model, 'min_capacity') ?>
-
-    <?php // echo $form->field($model, 'max_capacity') ?>
+           <td> <?php  echo $form->field($model, 'max_capacity') ?></td>
+            
+        </tr>
+        <tr>
+              <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
+        </tr>
+    </table>
 
     <?php // echo $form->field($model, 'created_by') ?>
 
     <?php // echo $form->field($model, 'updated_by') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
@@ -41,7 +49,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurant-tables/index','rid'=>$_GET['rid'],'lid'=>$_GET['lid'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

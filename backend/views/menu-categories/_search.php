@@ -15,21 +15,22 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php //$form->field($model, 'id') ?>
+<table>
+    <tr><td><?= $form->field($model, 'name') ?></td>
 
-    <?= $form->field($model, 'name') ?>
+    <td><?= $form->field($model, 'description') ?></td>
 
-    <?= $form->field($model, 'description') ?>
+<td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
+</tr>
 
-    <?= $form->field($model, 'status') ?>
-
-    <?= $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
-
+</table>
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+       <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['menu-categories/index',"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = 'Update';
         <div class="navbar navbar-inner block-header">
             <div class="muted pull-left">Restaurant MealTimes</div>   
             <div class="pull-right">       
-             <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurants/update','id'=>$model->id]), ['class' => 'btn btn-primary']) ?>  </div>
+             <?php // Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurants/update','id'=>$model->id]), ['class' => 'btn btn-primary']) ?>  </div>
         </div> 
          <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => null,
          'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='col-md-5 col-sm-12'><div class='row1'>{summary}</div></div>\n<div class='col-md-7 col-sm-12'><div class='row'>{pager}</div></div>",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],

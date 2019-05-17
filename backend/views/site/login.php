@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <hr>
         Forgot your password ? <br/>
 
-        no worries, click <a id="forget-password" href="javascript:void(0);" onclick="javascript:$('#login-form').hide();$('#forgot-password-form').show()"> here </a> to reset your password.
+        no worries, click <a id="forget-password" href="javascript:void(0);" onclick="javascript:jQuery('#login-form').hide();jQuery('#forgot-password-form').show()"> here </a> to reset your password.
 
     <?php ActiveForm::end(); ?>
     <!-- BEGIN FORGOT PASSWORD FORM -->

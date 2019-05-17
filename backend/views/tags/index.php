@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="block-content collapse in">
         <div class="tags-form span12">
    
-     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"#", ['class' => 'btn btn-primary open_search']); ?>
+     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
      <?php if(!empty($_REQUEST['TagsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
         <div class="tagss-serach">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   

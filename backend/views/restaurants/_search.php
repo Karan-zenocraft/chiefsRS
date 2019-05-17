@@ -15,15 +15,28 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php //$form->field($model, 'id') ?>
+<table>
+    <tr>
+        <td><?= $form->field($model, 'name') ?></td>
+        <td><?= $form->field($model, 'description') ?></td>
+        <td><?= $form->field($model, 'country') ?>  </td>  
+    </tr>
 
-    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'description') ?>
+    <?php // $form->field($model, 'address') ?>
+    <tr>
+        <td><?php  echo $form->field($model, 'website') ?></td>
 
-    <?= $form->field($model, 'address') ?>
+        <td><?php  echo $form->field($model, 'max_stay_time_after_reservation') ?></td>
 
-    <?= $form->field($model, 'city') ?>
+        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
+        
+    </tr>
+
+
+    
+</table>
 
     <?php // echo $form->field($model, 'state') ?>
 
@@ -39,11 +52,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'contact_no') ?>
 
-    <?php // echo $form->field($model, 'email') ?>
-
-    <?php // echo $form->field($model, 'max_stay_time_after_reservation') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
@@ -51,7 +59,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurants/index',"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

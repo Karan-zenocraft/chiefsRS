@@ -15,23 +15,42 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 
 ?>
 <div class="restaurants-gallery-index email-format-index">
-
+    <div class="email-format-index">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">Search Here</div>
+        </div>
+        <div class="block-content collapse in">
+        <div class="restaurants-gallery-form span12">
+   
+             <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
+             <?php if(!empty($_REQUEST['RestaurantsGallerySearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+                <div class="restaurantss-gallery-serach">
+                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+                </div> 
+        <?php }else{ ?>
+            <div class="restaurants-gallery-serach">
+                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div>  
+    <?php } ?>
+</div>
+</div>
+</div>
    <div class="navbar navbar-inner block-header">
         <div class="muted pull-left">
             <?php echo Html::encode($this->title).' - '.$snRestaurantName ?>
         </div>
         <div class="pull-right">
             <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Photo'), Yii::$app->urlManager->createUrl(['restaurants-gallery/create', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0]), ['class' => 'btn btn-success']) ?>
-            <?php echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurants-gallery/index', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0]), ['class' => 'btn btn-primary']) ?>
+            <?php // echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurants-gallery/index', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0]), ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
     <div class="block-content">
-    <?php Pjax::begin(); ?>
+    <?php // Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => null,
           'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='margin-top-10'>{summary}</div>\n<div class='dataTables_paginate paging_bootstrap pagination'>{pager}</div>",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -100,6 +119,15 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
         ],
     ]); ?>
 
-    <?php Pjax::end(); ?>
+    <?php // Pjax::end(); ?>
    </div>
 </div>
+<script type="text/javascript">
+$( document ).ready(function() {  
+    $('.restaurants-gallery-serach').hide();
+        $('.open_search').click(function(){
+            $('.restaurants-gallery-serach').toggle();
+        });
+    });
+
+</script>

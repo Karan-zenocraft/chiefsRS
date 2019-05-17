@@ -14,13 +14,33 @@ $this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Layouts', 'url'
 $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 ?>
 <div class="restaurant-tables-index email-format-inde">
+           <div class="email-format-index">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">Search Here</div>
+        </div>
+        <div class="block-content collapse in">
+        <div class="restaurant-tables-form span12">
+   
+             <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
+             <?php if(!empty($_REQUEST['RestaurantTablesSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+                <div class="restaurantss-tables-serach">
+                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+                </div> 
+        <?php }else{ ?>
+            <div class="restaurant-tables-serach">
+                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div>  
+    <?php } ?>
+</div>
+</div>
+</div>
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left">
             <?php echo Html::encode($this->title).' - '.$snLayoutName ?>
         </div>
         <div class="pull-right">
             <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Table'), Yii::$app->urlManager->createUrl(['restaurant-tables/create', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0,'lid'=>( $_GET['lid'] > 0 ) ? $_GET['lid'] : 0]), ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox(420,580);']) ?>
-            <?php echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurant-tables/index', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0,'lid'=>( $_GET['lid'] > 0 ) ? $_GET['lid'] : 0]), ['class' => 'btn btn-primary']) ?>
+            <?php  // echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurant-tables/index', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0,'lid'=>( $_GET['lid'] > 0 ) ? $_GET['lid'] : 0]), ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
     <div class="block-content">
@@ -30,7 +50,7 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => null,
         'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='margin-top-10'>{summary}</div>\n<div class='dataTables_paginate paging_bootstrap pagination'>{pager}</div>",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -81,3 +101,12 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 </div>
     </div>
 </div>
+<script type="text/javascript">
+$( document ).ready(function() {  
+    $('.restaurant-tables-serach').hide();
+        $('.open_search').click(function(){
+            $('.restaurant-tables-serach').toggle();
+        });
+    });
+
+</script>

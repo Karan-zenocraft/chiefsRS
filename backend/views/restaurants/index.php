@@ -12,11 +12,30 @@ $this->title = 'Restaurants';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="restaurants-index email-format-index">
+      <div class="email-format-index">
+    <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">Search Here</div>
+    </div>
+        <div class="block-content collapse in">
+        <div class="tags-form span12">
+   
+     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
+     <?php if(!empty($_REQUEST['RestaurantsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+        <div class="restaurantss-serach">
+         <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div> 
+<?php }else{ ?>
+    <div class="restaurants-serach">
+         <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+        </div>  
+    <?php } ?>
+</div>
+</div>
+</div>
 <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
         <div class="pull-right">   
         <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Restaurant'), ['create'], ['class' => 'btn btn-success']) ?>
-            <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurants/index']), ['class' => 'btn btn-primary']) ?>
        </div>
     </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -26,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => null,
         'layout' => "<div class='table-scrollable'>{items}</div>\n<div class='margin-top-10'>{summary}</div>\n<div class='dataTables_paginate paging_bootstrap pagination'>{pager}</div>",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -156,4 +175,12 @@ $this->params['breadcrumbs'][] = $this->title;
  </div>
     </div>
 </div>
+<script type="text/javascript">
+$( document ).ready(function() {  
+    $('.restaurants-serach').hide();
+        $('.open_search').click(function(){
+            $('.restaurants-serach').toggle();
+        });
+    });
 
+</script>

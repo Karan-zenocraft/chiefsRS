@@ -11,24 +11,28 @@ use yii\widgets\ActiveForm;
 <div class="restaurants-gallery-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['index','rid'=>$_GET['rid']],
         'method' => 'get',
-        'options' => [
+      /*  'options' => [
             'data-pjax' => 1
-        ],
+        ],*/
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'restaurant_id') ?>
+    <?php // $form->field($model, 'restaurant_id') ?>
+    <table>
+        <tr>
+        <td><?= $form->field($model, 'image_title') ?></td>
 
-    <?= $form->field($model, 'image_title') ?>
+        <td><?= $form->field($model, 'image_description') ?></td>
+        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
+            
+        </tr>
+        
+    </table>
 
-    <?= $form->field($model, 'image_description') ?>
-
-    <?= $form->field($model, 'image_name') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
+    <?php // $form->field($model, 'image_name') ?>
 
     <?php // echo $form->field($model, 'created_by') ?>
 
@@ -40,7 +44,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+         <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurants-gallery/index','rid'=>$_GET['rid'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

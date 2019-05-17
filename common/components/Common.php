@@ -102,7 +102,7 @@ class Common {
      */
     public static function MailTemplate( $replaceString, $body ) {
         $logo_front_url = Yii::$app->params['site_url'] . Yii::$app->request->baseUrl;
-        $logo_img_url = Yii::$app->params['site_url'] . Yii::$app->request->baseUrl . "/img/logo-big.png";
+        $logo_img_url = Yii::$app->params['site_url'] . Yii::$app->request->baseUrl . "/img/Chiefs_rs_logo.png";
         $logo_url = ( !empty( Yii::$app->urlManagerFrontEnd ) ) ? Yii::$app->urlManagerFrontEnd->createUrl( 'site/index' ) :'';
         /* $url = '';
           $url_logo = ''; */

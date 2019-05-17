@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\MenuCategories;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\\RestaurantMenuSearch */
@@ -11,23 +12,33 @@ use yii\widgets\ActiveForm;
 <div class="restaurant-menu-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['index','rid'=>$_GET['rid']],
         'method' => 'get',
-        'options' => [
+       /* 'options' => [
             'data-pjax' => 1
-        ],
+        ],*/
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'restaurant_id') ?>
+    <?php // $form->field($model, 'restaurant_id') ?>
+<table>
+    
 
-    <?= $form->field($model, 'name') ?>
+   <tr> <td><?= $form->field($model, 'name') ?></td>
 
-    <?= $form->field($model, 'description') ?>
+    <td><?= $form->field($model, 'description') ?></td></tr>
+    <tr>
+    <td>
+        <?php 
+         $MenuCategoriesDropdown = MenuCategories::MenuCategoriesDropdown();
+    
+        ?>
+      <?= $form->field($model, 'menu_category_id')->dropDownList($MenuCategoriesDropdown) ?></td>
 
-    <?= $form->field($model, 'menu_category_id') ?>
-
+    <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
+    </tr>
+    </table>
     <?php // echo $form->field($model, 'price') ?>
 
     <?php // echo $form->field($model, 'photo') ?>
@@ -36,7 +47,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'updated_by') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
@@ -44,7 +54,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+         <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurant-menu/index','rid'=>$_GET['rid'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

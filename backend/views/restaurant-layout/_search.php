@@ -11,32 +11,34 @@ use yii\widgets\ActiveForm;
 <div class="restaurant-layout-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['index','rid'=>$_GET['rid']],
         'method' => 'get',
-        'options' => [
+       /* 'options' => [
             'data-pjax' => 1
-        ],
+        ],*/
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'restaurant_id') ?>
+    <?php // $form->field($model, 'restaurant_id') ?>
+    <table>
+    <tr>
+    <td><?= $form->field($model, 'name') ?></td>
+   <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
 
-    <?= $form->field($model, 'name') ?>
+    <?php // $form->field($model, 'created_by') ?>
 
-    <?= $form->field($model, 'created_by') ?>
+    <?php // $form->field($model, 'updated_by') ?>
 
-    <?= $form->field($model, 'updated_by') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
+   </tr>
+</table>
     <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+          <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurant-layout/index','rid'=>$_GET['rid'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
