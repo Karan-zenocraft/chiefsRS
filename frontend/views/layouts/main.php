@@ -31,7 +31,7 @@ CommonAppAsset::register( $this );
         <div class="wrap">
             <?php
             NavBar::begin( [
-              'brandLabel' => 'Inx PMS (Beta)',
+              'brandLabel' => 'Chiefs RS',
               'brandUrl' => Yii::$app->urlManager->createUrl( ['site/index'] ),
               'options' => [
               'class' => 'navbar-inverse navbar-fixed-top',
