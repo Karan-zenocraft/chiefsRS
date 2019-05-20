@@ -9,6 +9,7 @@ return [
     'site_url' => stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'],
     'root_url' => stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST']."/chiefsRS/",
     'login_url' => '/chiefsRS/backend/web/login',
+    'frontend_login_url' => '/chiefsRS/frontend/web/login',
       'userroles' => [
         'super_admin' => '1', 
         'admin' => '2',

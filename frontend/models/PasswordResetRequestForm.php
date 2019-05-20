@@ -56,9 +56,9 @@ class PasswordResetRequestForm extends Model
                     //create template file
                     $AreplaceString = array('{password}' => $snNewPassword, '{username}' => $user->first_name, '{email}' => $user->email);
                     $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
-
+                   
                     //send email for new generated password
-                   $status= Common::sendMail($user->email,Yii::$app->params['adminEmail'] , $emailformatemodel->subject,$body );
+                   $status= Common::sendMailToUser($user->email,Yii::$app->params['adminEmail'],$emailformatemodel->subject,$body);
                    return $status;
                  }
             }

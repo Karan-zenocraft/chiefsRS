@@ -23,8 +23,6 @@ CommonAppAsset::register( $this );
             <?php echo Html::encode( $this->title ) ?>
         </title><?php $this->head() ?>
          <script src="<?php echo Yii::$app->getUrlManager()->getBaseUrl(); ?>/js/jquery-1.11.2.min.js"></script>
-        
-</script>
     </head>
     <body>
         <?php $this->beginBody() ?>
@@ -40,7 +38,7 @@ CommonAppAsset::register( $this );
             $menuItems = [];
             if ( !Yii::$app->user->isGuest ) {
               $snUserRoleId = Common::get_user_role( Yii::$app->user->id );
-              if ( !empty( $snUserRoleId ) && $snUserRoleId != "2") {
+              if ( !empty( $snUserRoleId ) && $snUserRoleId == "5") {
                 $menuItems = [
                 ['label' => 'Restaurants', 'url' => ['#']/*,'visible'=> $snUserRoleId != Yii::$app->params['userroles']['qa']*/],
                 ['label' => 'Menus', 'url' => ['#'],'visible'=> $snUserRoleId == "2"],
@@ -52,16 +50,18 @@ CommonAppAsset::register( $this );
                 'linkOptions' => ['data-method' => 'post']
                 ],
                 ];
-              }else {
+              }
+            }else{
                 $menuItems = [
-                //['label' => 'Leaves', 'url' => ['/leaves/index']],
-                ['label' => 'Logout (' . Yii::$app->user->identity->first_name . ')',
-                'url' => ['/site/logout'],
+            
+                ['label' => 'Sign Up', 'url' => ['site/signup'],
+                'linkOptions' => ['data-method' => 'post']
+                ],
+                ['label' => 'Login',
+                'url' => ['/site/login'],
                 'linkOptions' => ['data-method' => 'post']
                 ],
                 ];
-
-              }
             }
             echo Nav::widget( [
               'options' => ['class' => 'navbar-nav navbar-right'],

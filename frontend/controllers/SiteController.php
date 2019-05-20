@@ -129,7 +129,9 @@ class SiteController extends FrontCoreController
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
+
                 if (Yii::$app->getUser()->login($user)) {
+                    Yii::$app->session->setFlash( 'success', Yii::getAlias( '@user_add_message' ) );
                     return $this->goHome();
                 }
             }
@@ -143,7 +145,9 @@ class SiteController extends FrontCoreController
     public function actionRequestPasswordReset()
     {
         $model = new PasswordResetRequestForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+          
             if ($model->sendEmail() == '1') {
                 Yii::$app->getSession()->setFlash('success',Yii::getAlias('@reset_password_message'));
                 return $this->goHome();

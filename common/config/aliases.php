@@ -85,3 +85,8 @@ Yii::setAlias('restaurant_table_add_message', 'Table has been added successfully
 Yii::setAlias('restaurant_table_update_message', 'Table has been updated successfully !');
 Yii::setAlias('restaurant_table_delete_message', 'Table has been deleted successfully !');
 //END:  Restaurant table message
+
+//START: Admin users 
+Yii::setAlias('reset_password_message', 'Your password has been sent successfully !');
+//Yii::setAlias('admin_user_forget_password_msg', 'E-Mail has been sent with new password successfully !');
+//END: Admin user

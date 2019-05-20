@@ -51900,3 +51900,121 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1558097288.013
     'REQUEST_TIME' => 1558097288
 ]
+2019-05-20 13:03:19 [127.0.0.1][2][4945vmuv2kchl2k36nc5c8ekue][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1364 Field 'password_reset_token' doesn't have a default value in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('users', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(false, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/UsersController.php(90): yii\db\BaseActiveRecord->save(false)
+#7 [internal function]: backend\controllers\UsersController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1364 Field 'password_reset_token' doesn't have a default value
+The SQL being executed was: INSERT INTO `users` (`role_id`, `email`, `password`, `first_name`, `last_name`, `restaurant_id`, `address`, `status`, `created_at`, `updated_at`) VALUES (5, 'rutusha1212joshi@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'test', 'test', 7, 'test', 1, '2019-05-20 13:03:19', '2019-05-20 13:03:19') in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('users', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(false, NULL)
+#6 /var/www/html/chiefsRS/backend/controllers/UsersController.php(90): yii\db\BaseActiveRecord->save(false)
+#7 [internal function]: backend\controllers\UsersController->actionCreate()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/create', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'password_reset_token' doesn't have a default value
+)
+
+2019-05-20 13:03:19 [127.0.0.1][2][4945vmuv2kchl2k36nc5c8ekue][info][application] $_GET = []
+
+$_POST = [
+    '_csrf' => 'eNrHt-A_jFwvg2yKVpzVTxQcxRlU2-eAbQfNAHhyvckIu7WFqw-1F2zNFMEbpOw_bTGPcACplOo6fahpSzveng=='
+    'Users' => [
+        'role_id' => '5'
+        'email' => 'rutusha1212joshi@gmail.com'
+        'password' => 'admin'
+        'first_name' => 'test'
+        'last_name' => 'test'
+        'restaurant_id' => '7'
+        'address' => 'test'
+        'status' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'rutusha1s212joshi@gmail.com'
+    'site_title_admin_password' => 'admin'
+    '_ga' => 'GA1.1.1713593372.1554790963'
+    'PHPSESSID' => '4945vmuv2kchl2k36nc5c8ekue'
+    '_csrf' => '594dc7e4cf4d108cf5547d4e7d59093acc079cf1c325598b75592cd7769d4c7da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"par2K09KCNxKM89py-JiTrsjWzei3IcW\";}'
+    'advanced-frontend' => '78p2jcd9d7sebc37vq9g42f4r3'
+    '_csrf-frontend' => '1c789f0ca39332ee4dd104d854feb73e782358e8ad34a59f2f6f28153ae3a39ca:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"4lX-2q7x3p_3EsOCA88sQZJjgDAswB8-\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 2
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/create-user'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '315'
+    'HTTP_DNT' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'site_title_admin_email=rutusha1s212joshi%40gmail.com; site_title_admin_password=admin; _ga=GA1.1.1713593372.1554790963; PHPSESSID=4945vmuv2kchl2k36nc5c8ekue; _csrf=594dc7e4cf4d108cf5547d4e7d59093acc079cf1c325598b75592cd7769d4c7da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22par2K09KCNxKM89py-JiTrsjWzei3IcW%22%3B%7D; advanced-frontend=78p2jcd9d7sebc37vq9g42f4r3; _csrf-frontend=1c789f0ca39332ee4dd104d854feb73e782358e8ad34a59f2f6f28153ae3a39ca%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%224lX-2q7x3p_3EsOCA88sQZJjgDAswB8-%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '47660'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/create-user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/create-user'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1558357399.865
+    'REQUEST_TIME' => 1558357399
+]

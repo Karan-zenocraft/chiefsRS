@@ -15,18 +15,11 @@ use yii\db\Query;
 /* USE COMMON MODELS */
 use common\models\Users;
 use yii\helpers\ArrayHelper;
-use common\models\Answers;
 use yii\imagine\Image;
 use common\models\DeviceDetails;
 use backend\controllers\SiteController;
-use common\models\UserContactDetails;
-use common\models\UserFavouritePlaces;
-use common\models\UserEvents;
-use common\models\EventParticipants;
 use common\models\UserActivities;
 use common\models\EmailFormat;
-use common\models\Activities;
-use common\models\ParticipantComments;
 
 /**
  * MainController implements the CRUD actions for APIs.

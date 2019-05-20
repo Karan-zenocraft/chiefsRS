@@ -1,9 +1,11 @@
 <?php
 namespace frontend\models;
 
-use common\models\User;
+use common\models\Users;
 use yii\base\Model;
 use Yii;
+use common\models\EmailFormat;
+use common\components\Common;
 
 /**
  * Signup form
@@ -11,7 +13,10 @@ use Yii;
 class SignupForm extends Model
 {
     public $username;
+    public $first_name;
+    public $last_name;
     public $email;
+    public $address;
     public $password;
 
     /**
@@ -20,15 +25,16 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+           // ['username', 'filter', 'filter' => 'trim'],
+            ['first_name', 'required'],
+            ['last_name', 'required'],
+            //['username', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This username has already been taken.'],
+          //  ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -43,13 +49,31 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
-            $user = new User();
-            $user->username = $this->username;
+            $user = new Users();
+            $user->first_name = $this->first_name;
+            $user->last_name = $this->last_name;
             $user->email = $this->email;
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
+            $user->role_id = "5";
+            $user->password = md5($this->password);
+            $user->address = md5($this->password);
+          //  $user->generateAuthKey();
             if ($user->save()) {
-                return $user;
+                  ///////////////////////////////////////////////////////////
+            //Get email template into database for forgot password
+            $emailformatemodel = EmailFormat::findOne( ["title"=>'user_registration', "status"=>'1'] );
+            if ( $emailformatemodel ) {
+                $frontendLoginURL = Yii::$app->params['site_url'].Yii::$app->params['frontend_login_url'];
+
+                //create template file
+                $AreplaceString = array( '{password}' => $this->password, '{username}' => $this->first_name." ".$this->last_name, '{email}' => $this->email, '{loginurl}'=>$frontendLoginURL );
+
+                $body = Common::MailTemplate( $AreplaceString, $emailformatemodel->body );
+
+                //send email for new generated password
+                Common::sendMailToUser( $this->email, Yii::$app->params['adminEmail'] , $emailformatemodel->subject, $body );
+
+            }
+            return $user;
             }
         }
 

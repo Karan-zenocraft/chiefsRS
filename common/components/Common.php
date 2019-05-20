@@ -1594,4 +1594,13 @@ class Common {
         $amResponse = array('success' => -1, 'message' => $ssErrorMessage);
         return $amResponse;
     }
+
+    public static function get_header( $pHeaderKey )
+{
+     $test = getallheaders();
+    if ( array_key_exists($pHeaderKey, $test) ) {
+        $headerValue = $test[ $pHeaderKey ];
+    }
+    return $headerValue;
+}
 }
