@@ -148,9 +148,11 @@ class SiteController extends FrontCoreController
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
           
-            if ($model->sendEmail() == '1') {
-                Yii::$app->getSession()->setFlash('success',Yii::getAlias('@reset_password_message'));
+            if ($model->sendEmail()) {
+                Yii::$app->getSession()->setFlash('success',Yii::getAlias('Check your email for Reset Password.'));
                 return $this->goHome();
+            }else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
         }
         return $this->render('requestPasswordResetToken', [

@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
-use yii\helpers\Security;
+use yii\base\Security;
 use yii\web\IdentityInterface;
 use yii\helpers\ArrayHelper;
 
@@ -171,7 +171,9 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
      * Generates new password reset token
      */
     public function generatePasswordResetToken() {
-        $this->password_reset_token = Security::generateRandomKey() . '_' . time();
+        $user = new \common\models\Users;
+        $user->password_reset_token = Security::generateRandomString() . '_' . time();
+        return $user->password_reset_token;
     }
 
     /**
