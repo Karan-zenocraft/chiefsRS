@@ -380,7 +380,7 @@ class UsersController extends \yii\base\Controller
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
 
-        if ( ( $model = Users::findOne( ['id' => $requestParam['user_id'], 'password' => md5( $requestParam['old_password'] ), 'status' => '1', 'role_id' => '3'] ) ) !== null ) {
+        if ( ( $model = Users::findOne( ['id' => $requestParam['user_id'], 'password' => md5( $requestParam['old_password'] ), 'status' => '1'] ) ) !== null ) {
 
             $model->password = md5( $amData['request_param']['new_password'] );
             if ( $model->save() ) {
@@ -428,11 +428,29 @@ class UsersController extends \yii\base\Controller
         // Check User Status
 
 
-        if ( ( $omUsers = Users::findOne( ['email' => $requestParam['user_email'], 'status' => Yii::$app->params['status']['active']] ) ) !== null ) {
+        if ( ( $omUsers = Users::findOne( ['email' => $requestParam['user_email'], 'status' => Yii::$app->params['user_status_value']['active']] ) ) !== null ) {
 
             // $ssEmail = 'rutusha@inheritx.com';
-            $EmailSentStatus = SiteController::GenerateLink( $omUsers->email, Yii::$app->params['backend_access_url'] );
-            if ( $EmailSentStatus == 1 ) {
+            if (!Users::isPasswordResetTokenValid($omUsers->password_reset_token)) {
+            $token = $omUsers->generatePasswordResetToken();
+            $omUsers->password_reset_token = $token;
+            if (!$omUsers->save()) {
+                return false;
+            }
+        }
+        $resetLink = Yii::$app->params['root_url']."frontend/web/site/reset-password?token=".$omUsers->password_reset_token;
+
+          $emailformatemodel = EmailFormat::findOne(["title"=>'reset_password',"status"=>'1']);
+                if($emailformatemodel){
+                    
+                    //create template file
+                    $AreplaceString = array('{resetLink}' => $resetLink, '{username}' => $omUsers->first_name);
+                    $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
+
+                    //send email for new generated password
+                  $mail =  Common::sendMailToUser($omUsers->email,Yii::$app->params['adminEmail'] , $emailformatemodel->subject,$body );
+                }
+            if ( $mail == 1 ) {
                 $amReponseParam['user_email'] = $omUsers->email;
                 $ssMessage                    = 'Email has been sent successfully please check your email. ';
                 $amResponse                   = Common::successResponse( $ssMessage, $amReponseParam );
@@ -487,8 +505,9 @@ class UsersController extends \yii\base\Controller
 
     // User Status Match. Either its deactive or Deleted
     protected function matchUserStatus( $id ) {
+       
         if ( ( $model = Users::findOne( $id ) ) !== null ) {
-            if ( $model->status == Yii::$app->params['status']['in_active'] ) {
+            if ( $model->status == Yii::$app->params['user_status_value']['in_active'] ) {
                 $ssMessage     = 'User has been deactivated by admin.';
                 $WholeMealData = Common::negativeResponse( $ssMessage );
                 Common::encodeResponseJSON( $WholeMealData );
