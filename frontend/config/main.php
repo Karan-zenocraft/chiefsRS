@@ -11,7 +11,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'gii'],
-    'defaultRoute' => 'site/login',
+    'defaultRoute' => 'site/index',
     'modules' => [
         'gii' => [
             'class' => 'yii\gii\Module',
@@ -57,25 +57,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/'=>'site/index',
+                'home'=>'site/index',
                 'login'=>'site/login',
-                'timesheets' => 'timesheet/index',
-                'timesheet/add' => 'timesheet/create',
-                'timesheet/update/<id:\d+>' => 'timesheet/update',
-                'timesheet/delete/<id:\d+>' => 'timesheet/delete',
-
-                'leaves' => 'leaves/index',
-                'leaves/add' => 'leaves/create',
-                'leaves/update/<id:\d+>' => 'leaves/update',
-                'leaves/delete/<id:\d+>' => 'leaves/delete',
-                
-                'projects' => 'users/my-projects',
-                'project/milestone/<id:\d+>' => 'users/milestones',                
-                'project/milestone/task/<id:\d+>/<pid:\d+>' => 'users/tasks',
-                'project/milestone/task/timesheet/<id:\d+>/<mid:\d+>/<pid:\d+>' => 'users/timesheet',
-                'timesheet/view/<id:\d+>/<tid:\d+>/<mid:\d+>/<pid:\d+>'=> 'timesheet/view',
-                //'project-documents/<id>' => 'project-documents/index',
-                //'upload-project_document/<id>' => 'project-documents/create',
             ]
         ]
     ],

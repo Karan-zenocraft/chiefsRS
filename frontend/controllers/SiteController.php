@@ -72,8 +72,15 @@ class SiteController extends FrontCoreController
     }
 
     public function actionIndex()
-    {   
-        return $this->render('index');
+    {   $this->layout = "landingpage";
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index','model'=>$model]));
+        } 
+        return $this->render('frontpage',[
+            "model" => $model,
+        ]);
     }
 
     public function actionLogin()

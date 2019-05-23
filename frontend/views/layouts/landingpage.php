@@ -1,0 +1,301 @@
+<?php
+
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+//use frontend\assets\StatusAsset;
+use common\assets\CommonAppAsset;
+use frontend\widgets\Alert;
+use common\components\Common;
+use yii\bootstrap\ActiveForm;
+use common\models\LoginForm;
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+use frontend\assets\StatusAsset;
+StatusAsset::register($this);
+//CommonAppAsset::register( $this );
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?php echo Yii::$app->language ?>">
+    <head>
+        <title>
+            <?php echo Html::encode( $this->title ) ?>
+        </title>
+        <meta charset="<?php echo Yii::$app->charset ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><?php echo Html::csrfMetaTags() ?>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700|Raleway" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <?php $this->head(); ?>
+
+    </head>
+    <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
+      <?php $this->beginBody() ?>
+    <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
+          <?php //NavBar::begin(); ?>
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ml-auto">
+            <?php if ( Yii::$app->user->isGuest ) { ?>
+            <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
+          <!--   <li class="nav-item"><a href="#section-offer" class="nav-link">Offer</a></li>
+            <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
+            <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
+            <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->
+            <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li>
+          <?php }else{ ?>
+            <li class="nav-item"><a href="<?= Yii::$app->urlManager->createUrl(['site/logout']); ?>" class="nav-link">Logout</a></li>
+          <?php } ?>
+
+          </ul>
+        </div>
+      </div>
+        <?php// NavBar::end(); ?>    
+    </nav>
+  <section class="site-cover" style="background-image: url(themes/eatwell/images/bg_3.jpg);" id="section-home">
+      <div class="container">
+        <div class="row align-items-center site-vh-100">
+          <div class="col-md-9">
+            <?php 
+        $url = Yii::$app->request->absoluteUrl."/img/chiefs-rs-text.png";
+        ?>
+            <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
+            <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
+            <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
+          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> -->
+            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="#" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
+          </div>
+          <?php if(Yii::$app->user->isGuest){?>
+  <div class="form-w3ls col-md-3">
+    <ul class="tab-group cl-effect-4">
+        <li class="tab active"><a href="#signin-agile">Log In</a></li>
+    <li class="tab"><a href="#signup-agile">Join Us</a></li>        
+    </ul>
+
+    <div class="tab-content">
+        <div id="signin-agile"> 
+            <div class="logo">
+    <center><img src="themes/eatwell/images/Chiefs_rs_logo.png" alt=""></center>
+  </div>  
+ <!--      <form action="#" method="post">
+      
+        <input type="text" name="user" placeholder="User Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User Name';}" required="required">
+        
+        <input type="password" name="password" placeholder="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="required">
+        
+        <p class="forgot"> <a href="#">Forgot Password?</a> </p>
+        <input type="submit" class="sign-in" value="Log In">
+      </form> -->
+       <?php 
+        $model = new LoginForm;
+
+       $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <?= $form->field($model, 'email')->label('Email')?>
+                <?= $form->field($model, 'password')->passwordInput() ?>
+                <p class="forgot"> <a href="<?= Yii::$app->urlManager->createUrl(['site/request-password-reset']); ?>">Forgot Password?</a> </p>
+              
+                <div class="form-group">
+                    <?= Html::submitButton('Log In', ['class' => 'sign-in']) ?>
+                </div>
+            <?php ActiveForm::end(); ?>
+    </div>
+    <div id="signup-agile">   
+      <form action="#" method="post">
+      
+        <input type="text" name="user" placeholder="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}" required="required">
+        
+        <input type="email" name="email" placeholder="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="required">
+        
+        <input type="password" name="password" placeholder="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="required">
+         <input type="text" name="password" placeholder="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" required="required">
+        <input type="text" name="address" placeholder="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" required="required">
+        
+        <input type="submit" class="register" value="Sign up">
+      </form>
+    </div> 
+    </div><!-- tab-content -->
+</div> <!-- /form -->
+<?php } ?>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+      <div class="container">
+                <div class="flash_message">
+                    <?php include_once 'flash_message.php'; ?>
+                </div><?php echo
+                Breadcrumbs::widget( [
+                  'links' => isset( $this->params['breadcrumbs'] ) ? $this->params['breadcrumbs'] : [],
+                  ] )
+                ?><?php //echo Alert::widget() ?><?php echo $content ?>
+            </div>
+           
+   
+    
+<footer class="site-footer site-bg-dark site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4 site-animate">
+                <h2 class="site-heading-2">About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, similique, delectus blanditiis odit expedita amet. Sed labore ipsum vel dolore, quis, culpa et magni autem sequi facere eos tenetur, ex?</p>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-3 site-animate">
+                <div class="site-footer-widget mb-4">
+                  <h2 class="site-heading-2">The Restaurant</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">About Us</a></li>
+                    <li><a href="#" class="py-2 d-block">Chefs</a></li>
+                    <li><a href="#" class="py-2 d-block">Events</a></li>
+                    <li><a href="#" class="py-2 d-block">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-2 site-animate">
+                 <div class="site-footer-widget mb-4">
+                  <h2 class="site-heading-2">Useful links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">Foods</a></li>
+                    <li><a href="#" class="py-2 d-block">Drinks</a></li>
+                    <li><a href="#" class="py-2 d-block">Breakfast</a></li>
+                    <li><a href="#" class="py-2 d-block">Brunch</a></li>
+                    <li><a href="#" class="py-2 d-block">Dinner</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-2 site-animate">
+                 <div class="site-footer-widget mb-4">
+                  <h2 class="site-heading-2">Useful links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">Foods</a></li>
+                    <li><a href="#" class="py-2 d-block">Drinks</a></li>
+                    <li><a href="#" class="py-2 d-block">Breakfast</a></li>
+                    <li><a href="#" class="py-2 d-block">Brunch</a></li>
+                    <li><a href="#" class="py-2 d-block">Dinner</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <div class="row site-animate">
+           <div class="col-md-12 text-center">
+            <div class="site-footer-widget mb-4">
+              <ul class="site-footer-social list-unstyled ">
+                <li class="site-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="site-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="site-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12 text-center">
+            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="bg-image" style="background-image: url(themes/eatwell/images/reservation_1.jpg);"></div>
+              </div>
+              <div class="col-lg-12 p-5">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <small>CLOSE </small><span aria-hidden="true">&times;</span>
+                </button>
+                <h1 class="mb-4">Reserve A Table</h1>  
+                <form action="#" method="post">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="m_fname">First Name</label>
+                      <input type="text" class="form-control" id="m_fname">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="m_lname">Last Name</label>
+                      <input type="text" class="form-control" id="m_lname">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="m_email">Email</label>
+                      <input type="email" class="form-control" id="m_email">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="m_people">How Many People</label>
+                      <select name="" id="m_people" class="form-control">
+                        <option value="1">1 People</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4+">4+ People</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="m_phone">Phone</label>
+                      <input type="text" class="form-control" id="m_phone">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="m_date">Date</label>
+                      <input type="text" class="form-control" id="m_date">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="m_time">Time</label>
+                      <input type="text" class="form-control" id="m_time">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="m_message">Message</label>
+                      <textarea class="form-control" id="m_message" cols="30" rows="7"></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <input type="submit" class="btn btn-primary btn-lg btn-block" value="Reserve Now">
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END Modal -->
+
+    <!-- loader -->
+    <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+      <?php $this->endBody(); ?>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s"></script>
+      <?php $this->endPage() ?>
+        </body>
+</html>
