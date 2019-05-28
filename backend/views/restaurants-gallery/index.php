@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
                 'filter'=>false,
                 'format' => 'html',    
                 'value' => function ($data) {
-                return Html::img(Yii::$app->params['root_url']."uploads/". $data['image_name'],['width' => '70px']);
+                return Html::img(Yii::getAlias('@web')."../../../uploads/". $data['image_name'],['width' => '70px']);
                 },
                 'headerOptions' => ["style" => "width:17%;text-align:center;"],
                 'contentOptions' => ["style" => "width:17%;text-align:center;"],

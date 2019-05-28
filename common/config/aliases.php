@@ -1,5 +1,12 @@
 <?php
-Yii::setAlias('@common_base', '/common/');
+if ($_SERVER['HTTP_HOST'] == "localhost"){
+	
+	Yii::setAlias('@common_base', '/chiefsRS/common/');
+
+}else{
+
+	Yii::setAlias('@common_base', '/common/');
+}
 Yii::setAlias('common', dirname(__DIR__));
 Yii::setAlias('api', dirname(dirname(__DIR__)) . '/api'); // add api alias
 Yii::setAlias('frontend', dirname(dirname(__DIR__)) . '/frontend');
