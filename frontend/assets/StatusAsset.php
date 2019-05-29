@@ -32,7 +32,7 @@ class StatusAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-      'js/jquery.min.js',
+      //'js/jquery.min.js',
       'js/popper.min.js',
       'js/bootstrap.min.js',
       'js/jquery.easing.1.3.js',

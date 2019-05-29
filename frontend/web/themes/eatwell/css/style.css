@@ -256,6 +256,7 @@ h1, h2, h3, h4, h5,
     border-bottom: : 2px solid;
     border-color:#fff;
     margin-right:20px;
+    padding-left: 10px;
     color:#fff;
     height: 42px;
     width : 350px;
@@ -1106,7 +1107,7 @@ nav.horizontal ul li {
 }/* horizontal menu */
 img {
   max-width:100%;
-  padding-bottom: 15px !important;
+  padding-bottom: 34px !important;
   padding-bottom: 0px;
 }
 
@@ -1196,13 +1197,13 @@ div#signin-agile input[type="text"],div#signin-agile input[type="password"],div#
     border-left: 2px solid #696969;
     border-right: 2px solid #696969;
     border-radius: 25px;
-    color: #212121;
+    //color: #212121;
     text-align: left;
     outline: none;
     letter-spacing: 1px;
   font-size: 12px;
   margin-top: -2em;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
     font-weight: 600;
     font-family: 'Poiret One', cursive;
     background: none;
@@ -1328,7 +1329,7 @@ p.copyright a:hover {
 }
 @media (max-width:1366px) {
   .tab-group {
-    margin: -32px -40px 27px 0px;
+    margin: -32px -40px 27px -22px;
   }
 } 
 @media (max-width: 1280px) {
@@ -1561,3 +1562,30 @@ p.copyright a:hover {
   color: #000;
 }
 /*-- //Responsive end here--*/
+.has-error .help-block{
+      color: red;
+    margin-bottom: 30px;
+    margin-top: -33px;
+    /* padding-right: 2px; */
+    font-size: 11px;
+}
+.field-signupform-address textarea{
+    padding: 10px;
+    width: 137%;
+    margin-left: -32px;
+    border-bottom: 2px solid #696969;
+    border-top: 2px solid #696969;
+    border-left: 2px solid #696969;
+    border-right: 2px solid #696969;
+    border-radius: 25px;
+    //color: #212121;
+    text-align: left;
+    outline: none;
+    letter-spacing: 1px;
+    font-size: 12px;
+    margin-top: -2em;
+    margin-bottom: 3em;
+    font-weight: 600;
+    font-family: 'Poiret One', cursive;
+    background: none;
+}

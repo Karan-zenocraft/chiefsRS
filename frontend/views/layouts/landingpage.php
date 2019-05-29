@@ -10,7 +10,7 @@ use frontend\widgets\Alert;
 use common\components\Common;
 use yii\bootstrap\ActiveForm;
 use common\models\LoginForm;
-
+use frontend\models\SignupForm;
 /* @var $this \yii\web\View */
 /* @var $content string */
 use frontend\assets\StatusAsset;
@@ -45,8 +45,8 @@ StatusAsset::register($this);
             <?php if ( Yii::$app->user->isGuest ) { ?>
             <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
-          <!--   <li class="nav-item"><a href="#section-offer" class="nav-link">Offer</a></li>
-            <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
+            <li class="nav-item"><a href="#section-restaurants" class="nav-link">Restaurants</a></li>
+            <!-- <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->
             <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li>
@@ -57,77 +57,8 @@ StatusAsset::register($this);
           </ul>
         </div>
       </div>
-        <?php// NavBar::end(); ?>    
+        <?php //NavBar::end(); ?>    
     </nav>
-  <section class="site-cover" style="background-image: url(themes/eatwell/images/bg_3.jpg);" id="section-home">
-      <div class="container">
-        <div class="row align-items-center site-vh-100">
-          <div class="col-md-9">
-            <?php 
-        $url = Yii::$app->request->absoluteUrl."/img/chiefs-rs-text.png";
-        ?>
-            <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
-            <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
-            <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
-          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> -->
-            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="#" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
-          </div>
-          <?php if(Yii::$app->user->isGuest){?>
-  <div class="form-w3ls col-md-3">
-    <ul class="tab-group cl-effect-4">
-        <li class="tab active"><a href="#signin-agile">Log In</a></li>
-    <li class="tab"><a href="#signup-agile">Join Us</a></li>        
-    </ul>
-
-    <div class="tab-content">
-        <div id="signin-agile"> 
-            <div class="logo">
-    <center><img src="themes/eatwell/images/Chiefs_rs_logo.png" alt=""></center>
-  </div>  
- <!--      <form action="#" method="post">
-      
-        <input type="text" name="user" placeholder="User Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User Name';}" required="required">
-        
-        <input type="password" name="password" placeholder="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="required">
-        
-        <p class="forgot"> <a href="#">Forgot Password?</a> </p>
-        <input type="submit" class="sign-in" value="Log In">
-      </form> -->
-       <?php 
-        $model = new LoginForm;
-
-       $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?= $form->field($model, 'email')->label('Email')?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
-                <p class="forgot"> <a href="<?= Yii::$app->urlManager->createUrl(['site/request-password-reset']); ?>">Forgot Password?</a> </p>
-              
-                <div class="form-group">
-                    <?= Html::submitButton('Log In', ['class' => 'sign-in']) ?>
-                </div>
-            <?php ActiveForm::end(); ?>
-    </div>
-    <div id="signup-agile">   
-      <form action="#" method="post">
-      
-        <input type="text" name="user" placeholder="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}" required="required">
-        
-        <input type="email" name="email" placeholder="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="required">
-        
-        <input type="password" name="password" placeholder="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="required">
-         <input type="text" name="password" placeholder="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" required="required">
-        <input type="text" name="address" placeholder="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" required="required">
-        
-        <input type="submit" class="register" value="Sign up">
-      </form>
-    </div> 
-    </div><!-- tab-content -->
-</div> <!-- /form -->
-<?php } ?>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-      <div class="container">
                 <div class="flash_message">
                     <?php include_once 'flash_message.php'; ?>
                 </div><?php echo
@@ -135,9 +66,7 @@ StatusAsset::register($this);
                   'links' => isset( $this->params['breadcrumbs'] ) ? $this->params['breadcrumbs'] : [],
                   ] )
                 ?><?php //echo Alert::widget() ?><?php echo $content ?>
-            </div>
-           
-   
+          
     
 <footer class="site-footer site-bg-dark site-section">
       <div class="container">

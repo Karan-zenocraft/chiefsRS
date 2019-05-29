@@ -1,8 +1,85 @@
-<?php
-/* @var $this yii\web\View */
+<?php 
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use common\models\Restaurants;
 $this->title = 'Chiefs RS';
 ?>
- <section class="site-section" id="section-about">
+  <section class="site-cover" style="background-image: url(themes/eatwell/images/bg_3.jpg);" id="section-home">
+      <div class="container">
+        <div class="row align-items-center site-vh-100">
+          <div class="col-md-9">
+            <?php 
+        $url = Yii::getAlias('@web')."/img/chiefs-rs-text.png";
+        ?>
+            <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
+            <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
+            <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
+          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> -->
+            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="#section-offer" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
+          </div>
+          <?php if(Yii::$app->user->isGuest){?>
+  <div class="form-w3ls col-md-3">
+
+    <ul class="tab-group cl-effect-4">
+        <?php
+
+        $signup_active = "";
+        $login_active = "";
+         if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'signup')){
+          $signup_active = "active";
+          $login_active = "";
+
+        }else{
+          $signup_active = "";
+          $login_active = "active";
+
+        }?>
+        <li class="tab login_tab <?php echo $login_active ?>"><a href="#signin-agile">Log In</a></li>
+        <li class="tab signup_tab <?php echo $signup_active ?>"><a href="#signup-agile">Join Us</a></li>        
+    </ul>
+
+    <div class="tab-content">
+        <div id="signin-agile"> 
+            <div class="logo">
+    <center><img src="themes/eatwell/images/Chiefs_rs_logo.png" alt=""></center>
+  </div>
+       <?php 
+
+       $form = ActiveForm::begin(['id' => 'login-form','method'=>'post']); ?>
+                <?= $form->field($model, 'email')->textInput(['class'=>'form-control login_email','placeholder'=>'Email'/*'onfocus'=>"this.value = '';","onblur"=>"if (this.value == '') {this.value = 'Email';}"*/])->label(false);?>
+                <?= $form->field($model, 'password')->passwordInput(['class'=>'form-control','placeholder'=>'Password'])->label(false); ?>
+                <input type="text" name="hidden" value="login" hidden="true">
+                <p class="forgot"> <a href="<?= Yii::$app->urlManager->createUrl(['site/request-password-reset']); ?>">Forgot Password?</a> </p>
+              
+                <div class="form-group">
+                    <?= Html::submitButton('Log In', ['class' => 'sign-in','name' => 'login-button']) ?>
+                </div>
+            <?php ActiveForm::end(); ?>
+    </div>
+    <div id="signup-agile">   
+
+       <?php  //  $model2 = new SignupForm(); 
+     $form2 = ActiveForm::begin(['id' => 'form-signup']); ?>
+     <?= $form2->field($model2, 'first_name')->textInput(['class'=>'form-control','placeholder'=>'First Name'])->label(false); ?>
+                    <?= $form2->field($model2, 'last_name')->textInput(['class'=>'form-control','placeholder'=>'Last Name'])->label(false); ?>
+                    <?= $form2->field($model2, 'email')->textInput(['class'=>'form-control','placeholder'=>'Email'])->label(false); ?>
+
+                    <?= $form2->field($model2, 'password')->passwordInput(['class'=>'form-control','placeholder'=>'Password'])->label(false); ?>
+                    <?= $form2->field($model2, 'address')->textArea(['rows' => 2,'class'=>'form-control','placeholder'=>'Address'])->label(false); ?>
+                <input type="text" name="hidden" value="signup" hidden="true">
+                  <div class="form-group">
+                    <?= Html::submitButton('Signup', ['class' => 'register','form'=>'form-signup','name' => 'signup-button']) ?>
+                </div>
+        <?php ActiveForm::end(); ?>
+    </div> 
+    </div> 
+</div> <!-- /form -->
+<?php } ?>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+     <section class="site-section" id="section-about">
       <div class="container">
         <div class="row">
           <div class="col-md-5 site-animate mb-5">
@@ -23,13 +100,13 @@ $this->title = 'Chiefs RS';
     <!-- END section -->
     
 
-    <section class="site-section bg-light" id="section-offer">
+    <section class="site-section bg-light" id="section-restaurants">
       <div class="container">
         
         <div class="row">
           <div class="col-md-12 text-center mb-5 site-animate">
-            <h4 class="site-sub-title">Our Offers</h4>
-            <h2 class="display-4">Our Offer This Summer</h2>
+            <h4 class="site-sub-title">Our Restaurants
+            <h2 class="display-4">Restaurants</h2>
             <div class="row justify-content-center">
               <div class="col-md-7">
                 <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -38,6 +115,13 @@ $this->title = 'Chiefs RS';
           </div>
           <div class="col-md-12">
             <div class="owl-carousel site-owl">
+            <?php $restaurantsList = Restaurants::find(['status'=>1])->all();
+            if(!empty($restaurantsList)){
+              foreach ($restaurantsList as $key => $restaurant) {
+                //  p($restaurant);
+              }
+            }
+             ?>
 
               <div class="item">
                 <div class="media d-block mb-4 text-center site-media site-animate border-0">
@@ -51,7 +135,6 @@ $this->title = 'Chiefs RS';
                   </div>
                 </div>
               </div>
-
               <div class="item">
                 <div class="media d-block mb-4 text-center site-media site-animate border-0">
                   <img src="themes/eatwell/images/offer_2.jpg" alt="Free Template by colorlib.com" class="img-fluid">
@@ -538,4 +621,3 @@ $this->title = 'Chiefs RS';
       </div>
     </section>
     <div id="map"></div>
-    <!-- END section -->

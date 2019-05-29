@@ -206,6 +206,11 @@ $('.tab a,.links a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
-
+ if ( $('li.signup_tab').hasClass('active') ) {
+   	$("#signin-agile").hide();
+   	$("#signup-agile").show();
+  }else{
+  	$("#signin-agile").show();
+   	$("#signup-agile").hide();
+  }
 });
-

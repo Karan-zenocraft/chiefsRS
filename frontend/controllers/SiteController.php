@@ -13,6 +13,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\components\FrontCoreController;
+use yii\web\Response;
 
 /**
  * Site controller
@@ -72,14 +73,32 @@ class SiteController extends FrontCoreController
     }
 
     public function actionIndex()
-    {   $this->layout = "landingpage";
+    {   
+        $this->layout = "landingpage";
 
         $model = new LoginForm();
+        $model2 = new SignupForm();
+       
+        if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'login')){
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index','model'=>$model]));
-        } 
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
+        }
+        }
+        if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'signup')){
+             if ($model2->load(Yii::$app->request->post())) {
+            if ($user = $model2->signup()) {
+
+
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        }
         return $this->render('frontpage',[
             "model" => $model,
+            "model2" => $model2
         ]);
     }
 

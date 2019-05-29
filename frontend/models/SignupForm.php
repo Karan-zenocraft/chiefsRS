@@ -34,7 +34,7 @@ class SignupForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This email address has already been taken.'],
+          ['email', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -49,13 +49,14 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
+            
             $user = new Users();
             $user->first_name = $this->first_name;
             $user->last_name = $this->last_name;
             $user->email = $this->email;
             $user->role_id = "5";
             $user->password = md5($this->password);
-            $user->address = md5($this->password);
+            $user->address = $this->address;
           //  $user->generateAuthKey();
             if ($user->save()) {
                   ///////////////////////////////////////////////////////////
@@ -75,7 +76,12 @@ class SignupForm extends Model
             }
             return $user;
             }
-        }
+        }else {
+    // HERE YOU CAN PRINT THE ERRORS OF MODEL
+    $data = $this->getErrors();
+    Yii::$app->session->setFlash('message', $data['email'][0]);// its dislplays error msg on your form
+}
+
 
         return null;
     }
