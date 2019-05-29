@@ -45,7 +45,6 @@ StatusAsset::register($this);
             <?php if ( Yii::$app->user->isGuest ) { ?>
             <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="#section-restaurants" class="nav-link">Restaurants</a></li>
             <!-- <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->

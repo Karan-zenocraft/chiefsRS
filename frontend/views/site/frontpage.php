@@ -14,8 +14,9 @@ $this->title = 'Chiefs RS';
             <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
             <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
             <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
-          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> -->
-            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="#section-offer" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
+          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> --><form name="search" id="search" method="post" action="site/restaurants">
+            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:;" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
+          </form>
           </div>
           <?php if(Yii::$app->user->isGuest){?>
   <div class="form-w3ls col-md-3">

@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
     <div class="block-content collapse in">
 <div class="restaurants-form span12">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 <table>
   <tr>
     <td><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
@@ -27,6 +27,15 @@ use yii\widgets\ActiveForm;
   <tr>
     <td colspan="4">
       <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <?= $form->field($model, 'photo')->fileInput(['id'=>'photo','value'=>$model->photo]); ?>
+    <div><br>
+    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::$app->params['root_url']."uploads/".$model->photo; ?>" alt="your image" />
+    </div><br>
+
     </td>
   </tr>
   
@@ -96,8 +105,22 @@ google.maps.event.addDomListener(window, 'load', function()
 
    });
 });
-
+        $("#photo").change(function() {
+          readURL(this);
+        });
 });
+    function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#image').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?components=country:USA&key=AIzaSyBvpANF446OIBFdLaqozAf-lheEZ__oVVg&libraries=places"></script>
     

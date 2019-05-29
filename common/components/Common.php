@@ -346,7 +346,7 @@ class Common {
             return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
                 'title' => Yii::t( 'yii', 'Edit' ),
                 'class' => 'btn btn-primary btn-small colorbox_popup',
-                'onclick' => 'javascript:openColorBox(400,500);'
+                'onclick' => 'javascript:openColorBox(400,600);'
                 ] );
         }
         return Html::a( '<i class="icon-pencil icon-white"></i> Edit', $url, [

@@ -71,11 +71,10 @@ use kartik\widgets\TimePicker;
 <script type="text/javascript">
     jQuery(function($) {
 $('.clockpicker').clockpicker({
-    placement: 'bottom',
-    align: 'left',
+    placement: 'center',
+    align: 'right',
     donetext: 'Done',
     'default': 'now',
-     donetext: 'Done'
 });
 });
 </script>

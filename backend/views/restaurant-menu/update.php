@@ -6,7 +6,8 @@ use yii\helpers\Html;
 /* @var $model common\models\RestaurantMenu */
 
 $this->title = 'Update Restaurant Menu: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Restaurant Menus', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants', 'url' => ['restaurants/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Menu', 'url' => ['restaurant-menu/index','rid'=>$_GET['rid']]];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

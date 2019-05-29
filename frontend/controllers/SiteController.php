@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\components\FrontCoreController;
 use yii\web\Response;
+use common\models\Restaurants;
 
 /**
  * Site controller
@@ -202,6 +203,18 @@ class SiteController extends FrontCoreController
 
         return $this->render('resetPassword', [
             'model' => $model,
+        ]);
+    }
+    public function actionRestaurants(){
+
+        if(isset($_REQUEST['search_restaurant']) && !empty($_REQUEST['search_restaurant'])){
+            
+            $snRestaurantsArr = Restaurants::find()->where("name LIKE '".$_REQUEST['search_restaurant']."%' AND status = '".Yii::$app->params['user_status_value']['active']."'")->all();
+        }else{
+           $snRestaurantsArr = Restaurants::find(["status"=>Yii::$app->params['user_status_value']['active']])->all();
+        }
+        return $this->render('restaurants', [
+            'Restaurants' => $snRestaurantsArr,
         ]);
     }
 }

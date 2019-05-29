@@ -57619,3 +57619,177 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1559025212.662
     'REQUEST_TIME' => 1559025212
 ]
+2019-05-29 11:37:10 [::1][8][vp7435aam1i3tas9d1bmt031td][error][yii\base\ErrorException:2] yii\base\ErrorException: unlink(/var/www/html/chiefsRS/uploads/): Is a directory in /var/www/html/chiefsRS/backend/controllers/RestaurantsController.php:134
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'unlink(/var/www...', '/var/www/html/c...', 134, Array)
+#1 /var/www/html/chiefsRS/backend/controllers/RestaurantsController.php(134): unlink('/var/www/html/c...')
+#2 [internal function]: backend\controllers\RestaurantsController->actionUpdate('9')
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurants/upd...', Array)
+#7 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#9 {main}
+2019-05-29 11:37:10 [::1][8][vp7435aam1i3tas9d1bmt031td][info][application] $_GET = [
+    'id' => '9'
+]
+
+$_POST = [
+    '_csrf' => 'o0XVbXU83wa-GdTTBzT1q6Tcc6EzD9yH70rqMTaycZjCDLobHw-SM-xsvppOQJDlybk75lFAvu2NCL9wcNUHzQ=='
+    'Restaurants' => [
+        'name' => 'saffron'
+        'email' => 'saffron@gmail.com'
+        'website' => 'www.saffron.com'
+        'contact_no' => '6765665666'
+        'description' => 'saffron is one of best restaurant of the town.'
+        'photo' => ''
+        'address' => 'Seville, Spain'
+        'max_stay_time_after_reservation' => '50'
+        'status' => '1'
+    ]
+]
+
+$_FILES = [
+    'Restaurants' => [
+        'name' => [
+            'photo' => 'offer_3.jpg'
+        ]
+        'type' => [
+            'photo' => 'image/jpeg'
+        ]
+        'tmp_name' => [
+            'photo' => '/tmp/phpaNDVv6'
+        ]
+        'error' => [
+            'photo' => 0
+        ]
+        'size' => [
+            'photo' => 38161
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'site_title_admin_email' => 'admin@admin.com'
+    'site_title_admin_password' => 'admin'
+    'remember_admin_info' => 'eyJpdiI6IjhHN3dPSkZBd3gzdzlSRm1WdVMybkE9PSIsInZhbHVlIjoibFRJdmh3b0wxRVM3WDJaeG04TSt3YXhLbEVxZExtN3VZZUJPVGJha0V2cSsrNW5cLzRZZm5YNWVKVHhXcXNic2VrK2lEaXJ4R09TM1htdnU3eWVZTzdRPT0iLCJtYWMiOiIxYjE3MzE5N2Y5ZmNjNTAwNGEwYzc4NDZmYTgzOTE2MDliMDgzNDI4MTYzYzUwZTBjYTk1ZTYxYjcyNWZkMDk4In0='
+    'PHPSESSID' => 'vp7435aam1i3tas9d1bmt031td'
+    '_csrf' => '69a9a2226dcccc8f142c283aeb3077e73e80857141e1687091c96bdc2fb51e0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aIovj3M5RujIIteNmeHGbObjbBUAFgvU\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 8
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '39638'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary9OtbCTiae815mmk5'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/74.0.3729.169 Chrome/74.0.3729.169 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/update-restaurant/9'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'site_title_admin_email=admin%40admin.com; site_title_admin_password=admin; remember_admin_info=eyJpdiI6IjhHN3dPSkZBd3gzdzlSRm1WdVMybkE9PSIsInZhbHVlIjoibFRJdmh3b0wxRVM3WDJaeG04TSt3YXhLbEVxZExtN3VZZUJPVGJha0V2cSsrNW5cLzRZZm5YNWVKVHhXcXNic2VrK2lEaXJ4R09TM1htdnU3eWVZTzdRPT0iLCJtYWMiOiIxYjE3MzE5N2Y5ZmNjNTAwNGEwYzc4NDZmYTgzOTE2MDliMDgzNDI4MTYzYzUwZTBjYTk1ZTYxYjcyNWZkMDk4In0%3D; PHPSESSID=vp7435aam1i3tas9d1bmt031td; _csrf=69a9a2226dcccc8f142c283aeb3077e73e80857141e1687091c96bdc2fb51e0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aIovj3M5RujIIteNmeHGbObjbBUAFgvU%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '34854'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/update-restaurant/9'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/update-restaurant/9'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1559129830.704
+    'REQUEST_TIME' => 1559129830
+]
+2019-05-29 11:43:57 [::1][8][vp7435aam1i3tas9d1bmt031td][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: rid in /var/www/html/chiefsRS/backend/controllers/RestaurantMenuController.php:43
+Stack trace:
+#0 /var/www/html/chiefsRS/backend/controllers/RestaurantMenuController.php(43): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/var/www/html/c...', 43, Array)
+#1 [internal function]: backend\controllers\RestaurantMenuController->actionIndex()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('restaurant-menu...', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/backend/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2019-05-29 11:43:57 [::1][8][vp7435aam1i3tas9d1bmt031td][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'site_title_admin_email' => 'admin@admin.com'
+    'site_title_admin_password' => 'admin'
+    'remember_admin_info' => 'eyJpdiI6IjhHN3dPSkZBd3gzdzlSRm1WdVMybkE9PSIsInZhbHVlIjoibFRJdmh3b0wxRVM3WDJaeG04TSt3YXhLbEVxZExtN3VZZUJPVGJha0V2cSsrNW5cLzRZZm5YNWVKVHhXcXNic2VrK2lEaXJ4R09TM1htdnU3eWVZTzdRPT0iLCJtYWMiOiIxYjE3MzE5N2Y5ZmNjNTAwNGEwYzc4NDZmYTgzOTE2MDliMDgzNDI4MTYzYzUwZTBjYTk1ZTYxYjcyNWZkMDk4In0='
+    'PHPSESSID' => 'vp7435aam1i3tas9d1bmt031td'
+    '_csrf' => '69a9a2226dcccc8f142c283aeb3077e73e80857141e1687091c96bdc2fb51e0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aIovj3M5RujIIteNmeHGbObjbBUAFgvU\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/chiefsRS/backend/web/'
+    '_backend' => 8
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/74.0.3729.169 Chrome/74.0.3729.169 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://localhost/chiefsRS/backend/web/update-restaurant-menu/1/7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'site_title_admin_email=admin%40admin.com; site_title_admin_password=admin; remember_admin_info=eyJpdiI6IjhHN3dPSkZBd3gzdzlSRm1WdVMybkE9PSIsInZhbHVlIjoibFRJdmh3b0wxRVM3WDJaeG04TSt3YXhLbEVxZExtN3VZZUJPVGJha0V2cSsrNW5cLzRZZm5YNWVKVHhXcXNic2VrK2lEaXJ4R09TM1htdnU3eWVZTzdRPT0iLCJtYWMiOiIxYjE3MzE5N2Y5ZmNjNTAwNGEwYzc4NDZmYTgzOTE2MDliMDgzNDI4MTYzYzUwZTBjYTk1ZTYxYjcyNWZkMDk4In0%3D; PHPSESSID=vp7435aam1i3tas9d1bmt031td; _csrf=69a9a2226dcccc8f142c283aeb3077e73e80857141e1687091c96bdc2fb51e0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aIovj3M5RujIIteNmeHGbObjbBUAFgvU%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/backend/web/index.php'
+    'REMOTE_PORT' => '35012'
+    'REDIRECT_URL' => '/chiefsRS/backend/web/restaurant-menu/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/backend/web/restaurant-menu/index'
+    'SCRIPT_NAME' => '/chiefsRS/backend/web/index.php'
+    'PHP_SELF' => '/chiefsRS/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1559130237.776
+    'REQUEST_TIME' => 1559130237
+]

@@ -39,7 +39,7 @@ public function rules()
             [['description', 'address'], 'string'],
             [['pincode', 'contact_no', 'status'], 'integer'],
             [['lattitude', 'longitude'], 'number'],
-            [['max_stay_time_after_reservation','created_by','updated_by','created_at', 'updated_at'], 'safe'],
+            [['max_stay_time_after_reservation','created_by','updated_by','photo','created_at', 'updated_at'], 'safe'],
             [['name', 'city', 'country', 'website', 'email'], 'string', 'max' => 255],
             [['state'], 'string', 'max' => 250],
         ];
@@ -67,6 +67,7 @@ return [
     'id' => 'ID',
     'name' => 'Name',
     'description' => 'Description',
+    'photo' => "Photo",
     'address' => 'Address',
     'city' => 'City',
     'state' => 'State',
