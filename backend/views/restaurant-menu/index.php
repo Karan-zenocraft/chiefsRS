@@ -59,7 +59,16 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
            // 'id',
             //'restaurant_id',
             'name',
-            'description:ntext',
+            //'description:ntext',
+             [
+                    'attribute' => 'description',
+                    //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
+                    'format' => 'raw',
+                    'value' => function( $data ) {
+                        $ssText = Common::get_substr($data->description,20);
+                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox(700,650);']);
+                    }
+            ],
              [
                 'attribute' => 'menu_category_id',
                 'label' => 'Category',

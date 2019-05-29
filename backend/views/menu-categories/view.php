@@ -22,7 +22,14 @@ $this->title = "Menu Category Description : ".$model->name;
         'attributes' => [
            //'id',
             'name',
-            'description:ntext',
+            //'description:ntext',,
+             ['attribute'=>'description',
+             'value' => function( $model ) {
+                        return wordwrap($model->description,40,"<br>\n");
+                    }
+          //   'value' => wordwrap($model->description,15,"<br>\n"),
+             //str_replace(".",":",number_format($model->hours,2))
+            ],
              [
                 'label'=>'status',
                 'value' => Yii::$app->params['status'][$model->status],

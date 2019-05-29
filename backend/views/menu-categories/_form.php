@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
     <td> <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></td>
 </tr>
 <tr>
-    <td><?= $form->field($model, 'description')->textarea(['rows' => 4,"style"=>"width:94%"]) ?></td>
+    <td><?= $form->field($model, 'description')->textarea(['rows' => 4,"cols"=>"20","style"=>"width:94%"]) ?></td>
 </tr>
 <tr><td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></td></tr>
 </table>

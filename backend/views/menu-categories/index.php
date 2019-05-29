@@ -55,8 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
                     'format' => 'raw',
                     'value' => function( $data ) {
-                        $ssText = (!empty($data->description) ) ? $data->description : "";
-                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox();']);
+                        $ssText = Common::get_substr($data->description,20);
+                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox(600,500);']);
                     }
             ],
             [

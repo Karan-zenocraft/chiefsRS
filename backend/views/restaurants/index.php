@@ -61,15 +61,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $data->name;
                         },
                 ],
-              [
+               [
                     'attribute' => 'description',
                     //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
                     'format' => 'raw',
                     'value' => function( $data ) {
-                        $ssText = (!empty($data->description) ) ? $data->description : "";
-                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox();']);
+                        $ssText = Common::get_substr($data->description,20);
+                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox(700,650);']);
                     }
-                ],
+            ],
           //  'description:ntext',
                 [
                         'attribute' => 'address',

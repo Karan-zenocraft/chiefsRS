@@ -69,13 +69,13 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
                 'contentOptions' => ["style" => "width:17%;text-align:center;"],
             ],
              [
-                'attribute' => 'image_description',
-                'format' => 'html',    
-                'value' => function ($data) {
-                return $data->image_description;
-                },
-                'headerOptions' => ["style" => "width:17%;text-align:center;"],
-                'contentOptions' => ["style" => "width:17%;text-align:center;"],
+                    'attribute' => 'image_description',
+                    //'visible'=>( !empty( $_GET['tid'] ) ) ? false : true,
+                    'format' => 'raw',
+                    'value' => function( $data ) {
+                        $ssText = Common::get_substr($data->image_description,20);
+                        return Html::a($ssText, ['view', 'id' => $data->id], ['class' => 'colorbox_popup', 'onclick' => 'javascript:openColorBox(700,650);']);
+                    }
             ],
             'image_title',
             //'image_description:ntext',
