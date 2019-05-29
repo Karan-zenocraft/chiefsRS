@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
     <td>
       <?= $form->field($model, 'photo')->fileInput(['id'=>'photo','value'=>$model->photo]); ?>
     <div><br>
-    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::$app->params['root_url']."uploads/".$model->photo; ?>" alt="your image" />
+    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::getAlias('@web')."../../../uploads/".$model->photo; ?>" alt="your image" />
     </div><br>
 
     </td>
