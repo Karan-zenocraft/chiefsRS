@@ -33,7 +33,7 @@ StatusAsset::register($this);
     </head>
     <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
       <?php $this->beginBody() ?>
-    <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
+    <nav class="navbar navbar-expand-lg  site_navbar bg-dark site-navbar-light" id="site-navbar">
           <?php //NavBar::begin(); ?>
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,39 +42,21 @@ StatusAsset::register($this);
 
         <div class="collapse navbar-collapse" id="site-nav">
           <ul class="navbar-nav ml-auto">
-            <?php if ( Yii::$app->user->isGuest ) { ?>
-            <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
+            <?php if ( !Yii::$app->user->isGuest ) { ?>
+            <li class="nav-item active"><a href="#" class="nav-link">Booking History</a></li>
+            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']);?>" class="nav-link">Logout</a></li>
             <!-- <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->
-            <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li>
-          <?php }else{ ?>
-            <li class="nav-item"><a href="<?= Yii::$app->urlManager->createUrl(['site/logout']); ?>" class="nav-link">Logout</a></li>
+            <!-- <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li> -->
           <?php } ?>
-
+           
           </ul>
         </div>
       </div>
         <?php //NavBar::end(); ?>    
     </nav>
-       <?php 
-        $url_bg = Yii::getAlias('@web')."/themes/eatwell/images/bg_3.jpg";
-        ?>
-      <section class="site-cover" style="background-image: url(<?php echo $url_bg;?>);" id="section-home">
-      <div class="container">
-        <div class="row align-items-center site-vh-100">
-          <div class="col-md-9">
-            <?php 
-        $url = Yii::getAlias('@web')."/img/chiefs-rs-text.png";
-        ?>
-            <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
-            <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
-            <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
-          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> --><form name="search" id="search" method="post" action="site/restaurants">
-            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:;" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
-          </form>
-          </div>
+     
                 <div class="flash_message">
                     <?php include_once 'flash_message.php'; ?>
                 </div><?php echo

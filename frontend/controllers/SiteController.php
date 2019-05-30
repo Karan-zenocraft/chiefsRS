@@ -206,7 +206,8 @@ class SiteController extends FrontCoreController
         ]);
     }
     public function actionRestaurants(){
-
+        $this->layout = "restaurant_list";
+        
         if(isset($_REQUEST['search_restaurant']) && !empty($_REQUEST['search_restaurant'])){
             
             $snRestaurantsArr = Restaurants::find()->where("name LIKE '".$_REQUEST['search_restaurant']."%' AND status = '".Yii::$app->params['user_status_value']['active']."'")->all();

@@ -1589,3 +1589,30 @@ p.copyright a:hover {
     font-family: 'Poiret One', cursive;
     background: none;
 }
+
+/*/////////////////////////////Restaurant Page Header///////////////////////////////////// */
+/*/////////////////////////////////////////////////////////////////////////////////////// */
+
+div.title_restaurant {
+  background-color: #FDA403;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  margin-top: -143px;
+}
+
+@media screen and (min-width: 601px) {
+  div.title_restaurant {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.title_restaurant {
+    font-size: 30px;
+  }
+}
+.owl-carousel .item img{
+  height: 60vh;
+  text-align:center;
+}

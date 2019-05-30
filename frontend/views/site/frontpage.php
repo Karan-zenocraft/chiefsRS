@@ -4,20 +4,7 @@ use yii\bootstrap\ActiveForm;
 use common\models\Restaurants;
 $this->title = 'Chiefs RS';
 ?>
-  <section class="site-cover" style="background-image: url(themes/eatwell/images/bg_3.jpg);" id="section-home">
-      <div class="container">
-        <div class="row align-items-center site-vh-100">
-          <div class="col-md-9">
-            <?php 
-        $url = Yii::getAlias('@web')."/img/chiefs-rs-text.png";
-        ?>
-            <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
-            <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
-            <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
-          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> --><form name="search" id="search" method="post" action="site/restaurants">
-            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:;" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
-          </form>
-          </div>
+
           <?php if(Yii::$app->user->isGuest){?>
   <div class="form-w3ls col-md-3">
 
@@ -116,14 +103,6 @@ $this->title = 'Chiefs RS';
           </div>
           <div class="col-md-12">
             <div class="owl-carousel site-owl">
-            <?php $restaurantsList = Restaurants::find(['status'=>1])->all();
-            if(!empty($restaurantsList)){
-              foreach ($restaurantsList as $key => $restaurant) {
-                //  p($restaurant);
-              }
-            }
-             ?>
-
               <div class="item">
                 <div class="media d-block mb-4 text-center site-media site-animate border-0">
                   <img src="themes/eatwell/images/offer_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">

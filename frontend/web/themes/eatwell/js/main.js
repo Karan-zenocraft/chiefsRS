@@ -14,10 +14,11 @@ $(document).ready(function($) {
 
 	var carousel = function() {
 		$('.owl-carousel').owlCarousel({
-			loop: true,
+			loop: false,
 			margin: 10,
 			nav: true,
 			stagePadding: 5,
+			//autoWidth:true,
 			nav: false,
 			navText: ['<span class="icon-chevron-left">', '<span class="icon-chevron-right">'],
 			responsive:{
@@ -29,7 +30,7 @@ $(document).ready(function($) {
 				},
 				1000:{
 					items: 3
-				}
+				},
 			}
 		});
 	};
