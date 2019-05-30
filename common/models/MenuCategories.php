@@ -30,7 +30,8 @@ public function rules()
 {
         return [
             [['name', 'status','description'], 'required'],
-            [['description'], 'string'],
+            [['description'],'string','max'=>100],
+            //[['description'], 'string',],
             [['status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 255],

@@ -33,6 +33,7 @@ public function rules()
 {
         return [
             [['name', 'address', 'contact_no','email','max_stay_time_after_reservation','description'], 'required'],
+            [['description'],'string','max'=>100],
             [['email'],'email'],
              ['email','validateEmail'],
             ['contact_no', 'is10NumbersOnly'],

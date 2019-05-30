@@ -29,7 +29,8 @@ public function rules()
         return [
             [['name', 'description','status'], 'required'],
              [['status'], 'integer'],
-            [['description'], 'string'],
+            [['description'],'string','max'=>100],
+           // [['description'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];
 }

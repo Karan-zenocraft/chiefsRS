@@ -28,7 +28,8 @@ public function rules()
         return [
             [['name', 'description', 'menu_category_id', 'price'], 'required'],
             [['menu_category_id', 'status'], 'integer'],
-            [['description'], 'string'],
+            [['description'],'string','max'=>100],
+            //[['description'], 'string'],
             [['price'], 'number'],
             [['restaurant_id', 'created_by', 'updated_by','created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
