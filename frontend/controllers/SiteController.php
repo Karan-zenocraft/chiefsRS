@@ -15,6 +15,11 @@ use yii\filters\AccessControl;
 use frontend\components\FrontCoreController;
 use yii\web\Response;
 use common\models\Restaurants;
+use common\models\RestaurantLayout;
+use common\models\RestaurantMenu;
+use common\models\RestaurantTables;
+use common\models\RestaurantWorkingHours;
+use common\models\RestaurentMealTimes;
 
 /**
  * Site controller
@@ -82,7 +87,7 @@ class SiteController extends FrontCoreController
        
         if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'login')){
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
         }
         }
         if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'signup')){
@@ -91,7 +96,7 @@ class SiteController extends FrontCoreController
 
 
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+                    return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
                 }
             }
         }
@@ -216,6 +221,29 @@ class SiteController extends FrontCoreController
         }
         return $this->render('restaurants', [
             'Restaurants' => $snRestaurantsArr,
+        ]);
+    }
+
+     public function actionRestaurantDetails(){
+        $this->layout = "detail";
+        
+        if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
+            
+            $snRestaurantsDetail = Restaurants::find(['id'=>$_REQUEST['rid']])->one();
+            $snRestaurantMenusArr = $snRestaurantsDetail->getRestaurantMenus();
+            $snRestaurantLayoutsArr = $snRestaurantsDetail->getRestaurantLayouts();
+            $snRestaurantTablesArr = $snRestaurantsDetail->getRestaurantTables();
+            $snRestaurantWorkingHoursArr = $snRestaurantsDetail->getRestaurantWorkingHours();
+            $snRestaurantMealTimesArr = $snRestaurantsDetail->getRestaurentMealTimes();
+
+            
+
+
+            //p($snRestaurantsDetail);
+        }
+
+        return $this->render('restaurant_detail', [
+            'snRestaurantsDetail' => $snRestaurantsDetail,
         ]);
     }
 }

@@ -33,7 +33,7 @@ StatusAsset::register($this);
     </head>
     <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
       <?php $this->beginBody() ?>
-    <nav class="navbar navbar-expand-lg  site_navbar bg-dark site-navbar-light list_nav" id="site-navbar">
+          <nav class="navbar navbar-expand-lg  site_navbar bg-dark site-navbar-light" id="site-navbar">
           <?php //NavBar::begin(); ?>
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@ StatusAsset::register($this);
         <div class="collapse navbar-collapse" id="site-nav">
           <ul class="navbar-nav ml-auto">
             <?php if ( !Yii::$app->user->isGuest ) { ?>
-               <li class="nav-item active"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link">Home</a></li>
+               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link">Home</a></li>
               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Booking History</a></li>
             <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']);?>" class="nav-link">Logout</a></li>
@@ -53,14 +53,19 @@ StatusAsset::register($this);
             <!-- <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li> -->
           <?php }else{?>
           <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link">Home</a></li>
-           <li class="nav-item active"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
+          <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
+
            <?php } ?>
           </ul>
         </div>
       </div>
         <?php //NavBar::end(); ?>    
     </nav>
-     
+       <?php 
+        $url_bg = Yii::getAlias('@web')."/themes/eatwell/images/bg_3.jpg";
+        ?>
+      <section class="site-cover" style="background-image: url(<?php echo $url_bg;?>);" id="section-home">
+
                 <div class="flash_message">
                     <?php include_once 'flash_message.php'; ?>
                 </div><?php echo

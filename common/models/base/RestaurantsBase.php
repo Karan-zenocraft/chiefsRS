@@ -3,7 +3,7 @@
 namespace common\models\base;
 
 use Yii;
-use common\models\RestaurantLayouts;
+use common\models\RestaurantLayout;
 use common\models\RestaurantMenu;
 use common\models\RestaurantTables;
 use common\models\RestaurantWorkingHours;
@@ -93,7 +93,7 @@ return [
     */
     public function getRestaurantLayouts()
     {
-    return $this->hasMany(RestaurantLayouts::className(), ['restaurant_id' => 'id']);
+    return $this->hasMany(RestaurantLayout::className(), ['restaurant_id' => 'id']);
     }
 
     /**

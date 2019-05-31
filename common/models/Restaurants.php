@@ -3,6 +3,11 @@
 namespace common\models;
 use Yii;
 use yii\helpers\ArrayHelper;
+use common\models\RestaurantLayout;
+use common\models\RestaurantMenu;
+use common\models\RestaurantTables;
+use common\models\RestaurantWorkingHours;
+use common\models\RestaurantMealTimes;
 
 class Restaurants extends \common\models\base\RestaurantsBase
 {
@@ -93,7 +98,7 @@ return [
     */
     public function getRestaurantLayouts()
     {
-    return $this->hasMany(RestaurantLayouts::className(), ['restaurant_id' => 'id']);
+    return $this->hasMany(RestaurantLayout::className(), ['restaurant_id' => 'id']);
     }
 
     /**
@@ -125,6 +130,6 @@ return [
     */
     public function getRestaurentMealTimes()
     {
-    return $this->hasMany(RestaurentMealTimes::className(), ['restaurant_id' => 'id']);
+    return $this->hasMany(RestaurantMealTimes::className(), ['restaurant_id' => 'id']);
     }
 }

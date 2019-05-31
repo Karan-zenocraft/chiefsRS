@@ -34,7 +34,7 @@ $this->title = 'Chiefs RS';
                     <h5 class="mt-0 h4"><?php echo !empty($restaurant->name) ? $restaurant->name : "-"; ?></h5>
                     <p class="mb-4"><?php echo !empty($restaurant->description) ? Common::get_substr($restaurant->description,70) : "-"; ?></p>
 
-                    <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+                    <p class="mb-0"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurant-details',"rid"=>$restaurant->id]) ?>" class="btn btn-primary btn-sm">Read More</a></p>
                   </div>
                 </div>
               </div>

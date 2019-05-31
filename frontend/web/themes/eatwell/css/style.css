@@ -403,7 +403,7 @@ h1, h2, h3, h4, h5,
   border: 2px solid #ccc;
   background: none;
   border-radius: 0px;
-  color: #999999;
+  color: #fff;
 }
 
 .btn.btn-secondary:hover {
@@ -1598,7 +1598,7 @@ div.title_restaurant {
   padding: 20px;
   text-align: center;
   color: #fff;
-  margin-top: -143px;
+  margin-top: -104px;
 }
 
 @media screen and (min-width: 601px) {
@@ -1615,4 +1615,7 @@ div.title_restaurant {
 .owl-carousel .item img{
   height: 60vh;
   text-align:center;
+}
+.list_nav .container{
+  justify-content: right;
 }
