@@ -41,7 +41,7 @@ class UsersController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array( 'user_email', 'password', 'device_id', 'device_type' );
+        $amRequiredParams = array( 'user_email', 'password', 'device_id');
         $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
     
 
@@ -53,9 +53,9 @@ class UsersController extends \yii\base\Controller
 
         $requestParam = $amData['request_param'];
 
-        if ( ( $model = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'role_id' => "5"] ) ) !== null ) {
+        if ( ( $model = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'role_id' => "3"] ) ) !== null ) {
                
-            if ( ( $model1 = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => "5"] ) ) !== null ) {
+            if ( ( $model1 = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => "3"] ) ) !== null ) {
                 $ssMessage  = ' User has been deactivated. Please contact admin.';
                 $amResponse = Common::errorResponse( $ssMessage );
             }
