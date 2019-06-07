@@ -11,8 +11,9 @@ $this->title = 'Chiefs RS';
             <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
             <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
             <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
-          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> --><form name="search" id="search" method="post" action="site/restaurants">
-            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:;" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
+          <!--   <a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a> -->
+          <form name="search" id="search" method="post" action="<?= Yii::$app->urlManager->createUrl(['site/restaurants']) ?>">
+            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:void(0);" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
           </form>
           </div>
           <?php if(Yii::$app->user->isGuest){?>
@@ -63,7 +64,8 @@ $this->title = 'Chiefs RS';
                     <?= $form2->field($model2, 'email')->textInput(['class'=>'form-control','placeholder'=>'Email'])->label(false); ?>
 
                     <?= $form2->field($model2, 'password')->passwordInput(['class'=>'form-control','placeholder'=>'Password'])->label(false); ?>
-                    <?= $form2->field($model2, 'address')->textArea(['rows' => 2,'class'=>'form-control','placeholder'=>'Address'])->label(false); ?>
+                      <?= $form2->field($model2, 'confirm_password')->passwordInput(['class'=>'form-control','placeholder'=>'Confirm Password'])->label(false); ?>
+                   <?= $form2->field($model2, 'contact_no')->textInput(['class'=>'form-control','placeholder'=>'Contact Number'])->label(false); ?>
                 <input type="text" name="hidden" value="signup" hidden="true">
                   <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'register','form'=>'form-signup','name' => 'signup-button']) ?>

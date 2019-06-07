@@ -26,7 +26,7 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
             [['role_id', 'status'], 'integer'],
             [['role_id','email', 'password', 'first_name','last_name','address','status','restaurant_id'], 'required','on'=>'create'],
             [['role_id','email','first_name','last_name','address','status'], 'required','on'=>'update'],
-            [['created_at', 'updated_at','name'], 'safe'],
+            [['created_at', 'updated_at','name','contact_no'], 'safe'],
             [['email'],'email'],
             ['email','validateEmail'],
             [['email','password', 'first_name', 'last_name'], 'string', 'max' => 255],

@@ -18,7 +18,8 @@ class SignupForm extends Model
     public $email;
     public $address;
     public $password;
-
+    public $confirm_password;
+    public $contact_no;
     /**
      * @inheritdoc
      */
@@ -34,10 +35,14 @@ class SignupForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-          ['email', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
+            ['confirm_password', 'required'],
+        ['confirm_password', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match" ],
             ['password', 'string', 'min' => 6],
+            [['contact_no'],'integer'],
+            ['contact_no', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This Contact No. address has already been taken.'],
         ];
     }
 
@@ -56,7 +61,9 @@ class SignupForm extends Model
             $user->email = $this->email;
             $user->role_id = "5";
             $user->password = md5($this->password);
-            $user->address = $this->address;
+            if(!empty($this->contact_no)){
+                $user->contact_no = $this->contact_no;
+            }
           //  $user->generateAuthKey();
             if ($user->save()) {
                   ///////////////////////////////////////////////////////////
@@ -79,7 +86,12 @@ class SignupForm extends Model
         }else {
     // HERE YOU CAN PRINT THE ERRORS OF MODEL
     $data = $this->getErrors();
-    Yii::$app->session->setFlash('message', $data['email'][0]);// its dislplays error msg on your form
+    if(!empty($data['email'])){
+        Yii::$app->session->setFlash('message', $data['email'][0]);// its dislplays error msg on your form
+    }
+    if(!empty($data['contact_no'])){
+        Yii::$app->session->setFlash('message', $data['contact_no'][0]);// its dislplays error msg on your form
+    }   
 }
 
 

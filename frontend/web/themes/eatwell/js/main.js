@@ -139,7 +139,18 @@ $(document).ready(function($) {
 		} , { offset: '95%' } );
 	};
 	contentWayPoint();
+	/////////////////////////////////////////add class after reloading the div /////////////////////////////////////////
+		
+		//$.pjax.reload({container: '#restaurant_menu'});
 
+		jQuery(document).on("pjax:success", "#gallery_r",  function(event){
+            contentWayPoint();
+          }
+        );
+      /*  jQuery(document).on("pjax:success", "#restaurant_menu",  function(event){
+            contentWayPoint();
+          }
+        );*/
 	// navigation
 	var OnePageNav = function() {
 		$(".smoothscroll[href^='#'], #site-nav ul li a[href^='#']").on('click', function(e) {
@@ -214,4 +225,5 @@ $('.tab a,.links a').on('click', function (e) {
   	$("#signin-agile").show();
    	$("#signup-agile").hide();
   }
+
 });

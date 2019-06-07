@@ -34,9 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
  <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
-        <div class="pull-right">   
+  <!--       <div class="pull-right">   
         <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Menu Category'), ['create'], ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox();']) ?>
-       </div>
+       </div> -->
     </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
   <div class="block-content">

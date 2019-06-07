@@ -33,7 +33,7 @@ StatusAsset::register($this);
     </head>
     <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
       <?php $this->beginBody() ?>
-          <nav class="navbar navbar-expand-lg  site_navbar bg-dark site-navbar-light" id="site-navbar">
+          <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
           <?php //NavBar::begin(); ?>
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@ StatusAsset::register($this);
                <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link">Home</a></li>
               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Booking History</a></li>
-            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']);?>" class="nav-link">Logout</a></li>
+            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']);?>" class="nav-link">Logout(<?= Yii::$app->user->identity->first_name ?>)</a></li>
             <!-- <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->
@@ -62,7 +62,7 @@ StatusAsset::register($this);
         <?php //NavBar::end(); ?>    
     </nav>
        <?php 
-        $url_bg = Yii::getAlias('@web')."/themes/eatwell/images/bg_3.jpg";
+        $url_bg = Yii::getAlias('@web')."/themes/eatwell/images/rdetails2.jpg";
         ?>
       <section class="site-cover" style="background-image: url(<?php echo $url_bg;?>);" id="section-home">
 
@@ -231,7 +231,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
       <?php $this->endBody(); ?>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s"></script>
+     
       <?php $this->endPage() ?>
         </body>
 </html>
