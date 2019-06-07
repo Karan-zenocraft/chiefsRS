@@ -1,7 +1,6 @@
 <?php
 use Yii;
 if ($_SERVER['HTTP_HOST'] == "localhost"){
-    p(123);
     return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -64,7 +63,6 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
     ],
 ];
 }else{
-    p(1234444);
         return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
