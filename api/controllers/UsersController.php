@@ -60,13 +60,13 @@ class UsersController extends \yii\base\Controller
                 $amResponse = Common::errorResponse( $ssMessage );
             }
             else {
-                if ( ( $device_model = DeviceDetails::findOne( ['type' => $amData['request_param']['device_type'], 'user_id' => $model->id] ) ) === NULL ) {
+                if ( ( $device_model = DeviceDetails::findOne( ['type' => "1", 'user_id' => $model->id] ) ) === NULL ) {
                     $device_model = new DeviceDetails;
                 }
 
                 $device_model->setAttributes( $amData['request_param'] );
                 $device_model->device_tocken = $requestParam['device_id'];
-                $device_model->type          = $requestParam['device_type'];
+                $device_model->type          = "1";
                 $device_model->gcm_id        = !empty( $requestParam['gcm_registration_id'] ) ? $requestParam['gcm_registration_id'] : "";
                 $device_model->user_id        = $model->id;
               //  $device_model->created_at    = date( 'Y-m-d H:i:s' );
