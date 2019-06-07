@@ -147,6 +147,10 @@ $(document).ready(function($) {
             contentWayPoint();
           }
         );
+        	jQuery(document).on("pjax:success", "#menus",  function(event){
+            contentWayPoint();
+          }
+        );
       /*  jQuery(document).on("pjax:success", "#restaurant_menu",  function(event){
             contentWayPoint();
           }

@@ -6,7 +6,8 @@ use common\components\Common;
 use yii\widgets\Pjax;
 $this->title = 'Chiefs RS';
 ?>    
-         <?php Pjax::begin(['id' => 'gallery_r','timeout'=>100000]); ?>
+         <?php Pjax::begin(['id' => 'gallery_r','timeout'=>100000,'enablePushState' => false,
+        'clientOptions' => ['method' => 'POST']]); ?>
     <section class="site-section bg-light" id="section-news">
       <div class="container">
 

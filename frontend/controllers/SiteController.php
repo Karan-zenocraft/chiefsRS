@@ -20,6 +20,10 @@ use common\models\RestaurantMenu;
 use common\models\RestaurantTables;
 use common\models\RestaurantWorkingHours;
 use common\models\RestaurentMealTimes;
+use common\models\MenuCategories;
+use common\models\RestaurantsGallery;
+use yii\data\Pagination;
+
 
 /**
  * Site controller
@@ -105,6 +109,35 @@ class SiteController extends FrontCoreController
         return $this->render('frontpage',[
             "model" => $model,
             "model2" => $model2
+        ]);
+    }
+     public function actionIndex_2()
+    {   
+        $this->layout = "newlandingpage";
+
+        $model = new LoginForm();
+        $model2 = new SignupForm();
+       
+        if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'login')){
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
+        }
+        }
+        if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'signup')){
+             if ($model2->load(Yii::$app->request->post())) {
+            if ($user = $model2->signup()) {
+
+
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
+                }
+            }
+        }
+
+        }
+        return $this->render('newfrontpage',[
+           "model" => $model,
+           "model2" => $model2
         ]);
     }
 
@@ -215,35 +248,59 @@ class SiteController extends FrontCoreController
         
         if(isset($_REQUEST['search_restaurant']) && !empty($_REQUEST['search_restaurant'])){
             
+            $query = Restaurants::find()->where("name LIKE '".$_REQUEST['search_restaurant']."%' AND status = '".Yii::$app->params['user_status_value']['active']."'");
             $snRestaurantsArr = Restaurants::find()->where("name LIKE '".$_REQUEST['search_restaurant']."%' AND status = '".Yii::$app->params['user_status_value']['active']."'")->all();
         }else{
-           $snRestaurantsArr = Restaurants::find(["status"=>Yii::$app->params['user_status_value']['active']])->all();
+            $query = Restaurants::find()->where(["status"=>Yii::$app->params['user_status_value']['active']]);
+           $snRestaurantsArr = Restaurants::find()->where(["status"=>Yii::$app->params['user_status_value']['active']])->all();
         }
+         $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize'=>9]);
+             $models = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
         return $this->render('restaurants', [
             'Restaurants' => $snRestaurantsArr,
+            'models' => $models,
+            'pagination' => $pagination,
         ]);
     }
 
-     public function actionRestaurantDetails(){
+     public function actionRestaurantDetails($rid){
+
         $this->layout = "detail";
         
         if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
-            
-            $snRestaurantsDetail = Restaurants::find(['id'=>$_REQUEST['rid']])->one();
-            $snRestaurantMenusArr = $snRestaurantsDetail->getRestaurantMenus();
-            $snRestaurantLayoutsArr = $snRestaurantsDetail->getRestaurantLayouts();
-            $snRestaurantTablesArr = $snRestaurantsDetail->getRestaurantTables();
-            $snRestaurantWorkingHoursArr = $snRestaurantsDetail->getRestaurantWorkingHours();
-            $snRestaurantMealTimesArr = $snRestaurantsDetail->getRestaurentMealTimes();
+            $rid = $_REQUEST['rid'];
+            $snRestaurantsDetail = Restaurants::find()->where(['id'=>$_REQUEST['rid']])->one();
+            $snRestaurantMenuCategoryArr = MenuCategories::find()->where(["status"=>"1"])->all();
+            $snRestaurantMenusArr = RestaurantMenu::find()->where(['restaurant_id'=>$_REQUEST['rid'],'status'=>"1"])->all();
+            $query = RestaurantsGallery::find()->where(['restaurant_id'=>$_REQUEST['rid'],'status'=>"1"]);
+             $snRestaurantgallerysArr = RestaurantsGallery::find()->where(['restaurant_id'=>$_REQUEST['rid'],'status'=>"1"])->all();
+             $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize'=>3]);
+             $models = $query->offset($pagination->offset)
+             ->limit($pagination->limit)
+             ->all();
+            $snRestaurantWorkingHours = $snRestaurantsDetail->getRestaurantWorkingHours();
+            $snRestaurantWorkingHoursArr = $snRestaurantWorkingHours->all();
+         //   p($snRestaurantWorkingHoursArr);
+            $snRestaurantMealTimes = $snRestaurantsDetail->getRestaurentMealTimes();
+            $snRestaurantMealTimesArr = $snRestaurantMealTimes->all();
 
-            
-
+         /*   $snRestaurantLayoutsArr = $snRestaurantsDetail->getRestaurantLayouts();
+            $snRestaurantTablesArr = $snRestaurantsDetail->getRestaurantTables();*/
 
             //p($snRestaurantsDetail);
         }
-
         return $this->render('restaurant_detail', [
             'snRestaurantsDetail' => $snRestaurantsDetail,
+            'snRestaurantMenuCategoryArr' => $snRestaurantMenuCategoryArr,
+            'snRestaurantMenusArr' => $snRestaurantMenusArr,
+            'snRestaurantMealTimesArr' => $snRestaurantMealTimesArr,
+            'snRestaurantWorkingHoursArr' => $snRestaurantWorkingHoursArr,
+            'snRestaurantgallerysArr' => $snRestaurantgallerysArr,
+            'models' => $models,
+            'pagination' => $pagination,
         ]);
     }
 }

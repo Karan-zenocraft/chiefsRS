@@ -1,25 +1,17 @@
 <?php
-
+$this->title = "Restaurant Booking";
  ?>
-<div class="container">
-  <div class="row align-items-center site-vh-100">
-    <div class="col-md-12">
-      <?php
-      $url = Yii::getAlias('@web')."/img/chiefs-rs-text.png";
-      ?>
-      <!--   <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a> -->
-      <h1 class="site-heading site-animate mb-3"><?= !empty($snRestaurantsDetail) ? $snRestaurantsDetail->name : "-" ?></h1>
-      <h2 class="h5 site-subheading mb-5 site-animate">Please book our restaurant now</h2>
-      <?php if(Yii::$app->user->isGuest){ ?>
-      <p>For Booking Restaurant <a href="<?= Yii::$app->urlManager->createUrl(['site/index']) ?>" class="btn btn-secondary btn-lg">Register Now</a></p>
-    <?php }else{ ?>
-       <p><a href="<?= Yii::$app->urlManager->createUrl(['users/book']) ?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
-    <?php } ?>
-    </div>
-    
-  </div>
-</section>
-          <section class="site-section" id="section-about">
+  <?php 
+        $url_bg = Yii::getAlias('@web')."/themes/eatwell/images/bg_3.jpg";
+        ?>
+      <section class="site-cover" style="background-image: url(<?php echo $url_bg;?>);" id="section-home">
+      <div class="container">
+        <div class="row align-items-center site-vh-100">
+          Test
+        </div>
+      </div>
+        </section>
+          <section class="site-section" id="section-menu">
               <div class="col-lg-12 p-5">
              <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <small>CLOSE </small><span aria-hidden="true">&times;</span>
@@ -85,5 +77,5 @@
                 </form>
               </div>
             </section>
-     
+                
          

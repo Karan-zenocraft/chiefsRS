@@ -1,6 +1,7 @@
 <?php
 use common\models\RestaurantMenu;
 use yii\widgets\Pjax;
+use yii\data\Pagination;
 ?>
 <div class="container">
   <div class="row align-items-center site-vh-100">
@@ -143,13 +144,22 @@ use yii\widgets\Pjax;
           if(!empty($snRestaurantMenuCategoryArr)){
           foreach ($snRestaurantMenuCategoryArr as $key => $category) { ?>
           <div class="tab-pane fade <?= (strtolower($category->name) == "breakfast") ? 'show active' : '' ?>" id="pills-<?= strtolower($category->name)?>" role="tabpanel" aria-labelledby="pills-<?= strtolower($category->name)?>-tab">
+        <?php Pjax::begin(['id' => 'menus','timeout'=>100000,'enablePushState' => false,
+        'clientOptions' => ['method' => 'POST']]); ?>
             <div class="row">
               
               <?php
+              $query_menu = RestaurantMenu::find()->where(['restaurant_id'=>$_REQUEST['rid'],'menu_category_id'=>$category->id,'status'=>"1"]);
+              $pagination_menu = new Pagination(['totalCount' => $query_menu->count(), 'pageSize'=>6]);
+              $pagination_menu->pageParam = "page_menu";
+             $models_menu = $query_menu->offset($pagination_menu->offset)
+             ->limit($pagination_menu->limit)
+             ->all();
+              
               $breakfastMenu =  RestaurantMenu::find()->where(['restaurant_id'=>$_REQUEST['rid'],'menu_category_id'=>$category->id,'status'=>"1"])->all();
               //  p($breakfastMenu);
-              if(!empty($breakfastMenu)){
-              foreach ($breakfastMenu as $key_menu => $menu) { ?>
+              if(!empty($models_menu)){
+              foreach ($models_menu as $key_menu => $menu) { ?>
               <div class="col-md-6 site-animate">
                 <div class="media menu-item">
                   <img class="mr-3" src="<?php echo Yii::getAlias('@web')."/../../uploads/".$menu->photo; ?>" class="img-fluid" alt="chiefsRS">
@@ -165,6 +175,11 @@ use yii\widgets\Pjax;
               }
               ?>  
             </div>
+      <?php  echo \yii\widgets\LinkPager::widget([
+        'pagination' => $pagination_menu,
+    ]);
+
+    Pjax::end();?>
           </div>
           <?php }
           }
@@ -176,7 +191,8 @@ use yii\widgets\Pjax;
 </section>
 <!-- END section -->
  <?php
-      Pjax::begin(['id' => 'gallery_r','timeout'=>100000]); ?>
+      Pjax::begin(['id' => 'gallery_r','timeout'=>100000,'enablePushState' => false,
+        'clientOptions' => ['method' => 'POST']]); ?>
 <section class="site-section section_details" id="section-gallery">
   <div class="container">
     <div class="row site-custom-gutters">

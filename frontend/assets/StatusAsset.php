@@ -52,4 +52,36 @@ class StatusAsset extends AssetBundle
             'yii\web\YiiAsset',
             'yii\bootstrap\BootstrapAsset',
         ];
+
+        ///////////////////////////////////////chiefsrs theme by Krutin///////////////////////
+
+/*    public $basePath = '@webroot/themes/chiefsrs/';
+    public $baseUrl = '@web/themes/chiefsrs/';
+    public $sourcePath = '@webroot/themes/chiefsrs/';
+    public $css = [
+        'css/bootstrap.min.css',
+        'css/open-iconic-bootstrap.min.css',
+        'css/animate.css',
+        'css/owl.carousel.min.css',
+        'css/owl.theme.default.min.css',
+        'css/icomoon.css',
+        'css/style.css',
+    ];
+    public $js = [
+      //'js/jquery.min.js',
+      'javascript/popper.min.js',
+      'javascript/bootstrap.min.js',
+      'javascript/jquery.easing.1.3.js',
+      'javascript/jquery.waypoints.min.js',  
+      'javascript/owl.carousel.min.js',  
+      'javascript/jquery.animateNumber.min.js',  
+     // 'javascript/google-map.js', 
+      'javascript/main_1.js',
+      'javascript/main.js',  
+
+    ];
+    public $depends = [
+            'yii\web\YiiAsset',
+            'yii\bootstrap\BootstrapAsset',
+        ];*/
 }
