@@ -15,7 +15,7 @@ use yii\data\Pagination;
       <?php if(Yii::$app->user->isGuest){ ?>
       <p>For Booking Restaurant <a href="<?= Yii::$app->urlManager->createUrl(['site/index']) ?>" class="btn btn-secondary btn-lg book_restaurant">Register Now</a></p>
     <?php }else{ ?>
-       <p><a href="<?= Yii::$app->urlManager->createUrl(['users/book']) ?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
+       <p><a href="<?= Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$rid]) ?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
     <?php } ?>
     </div>
    <!--  <div class="col-md-8">
@@ -149,14 +149,14 @@ use yii\data\Pagination;
             <div class="row">
               
               <?php
-              $query_menu = RestaurantMenu::find()->where(['restaurant_id'=>$_REQUEST['rid'],'menu_category_id'=>$category->id,'status'=>"1"]);
+              $query_menu = RestaurantMenu::find()->where(['restaurant_id'=>$rid,'menu_category_id'=>$category->id,'status'=>"1"]);
               $pagination_menu = new Pagination(['totalCount' => $query_menu->count(), 'pageSize'=>6]);
               $pagination_menu->pageParam = "page_menu";
              $models_menu = $query_menu->offset($pagination_menu->offset)
              ->limit($pagination_menu->limit)
              ->all();
               
-              $breakfastMenu =  RestaurantMenu::find()->where(['restaurant_id'=>$_REQUEST['rid'],'menu_category_id'=>$category->id,'status'=>"1"])->all();
+              $breakfastMenu =  RestaurantMenu::find()->where(['restaurant_id'=>$rid,'menu_category_id'=>$category->id,'status'=>"1"])->all();
               //  p($breakfastMenu);
               if(!empty($models_menu)){
               foreach ($models_menu as $key_menu => $menu) { ?>

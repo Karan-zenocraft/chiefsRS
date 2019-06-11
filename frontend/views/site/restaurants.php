@@ -34,7 +34,7 @@ $this->title = 'Chiefs RS';
                 <!--   <a href="<?php //echo Yii::$app->urlManager->createUrl(['site/restaurant-details',"rid"=>$restaurant->id]) ?>" class="btn btn-primary btn-sm">Read More</a> -->
                 </p>
                 <p class="mb-0">
-                  <a onclick="window.open ('http://localhost<?php echo Yii::$app->urlManager->createUrl(['site/restaurant-details',"rid"=>$restaurant->id]) ?>', ''); return false" href="javascript:void(0);" class="btn btn-primary btn-sm">Read More</a>
+                  <a onclick="window.open ('<?php echo Yii::$app->params['site_url'].Yii::$app->urlManager->createUrl(['site/restaurant-details',"rid"=>$restaurant->id]) ?>', ''); return false" href="javascript:void(0);" class="btn btn-primary btn-sm">Read More</a>
                 </p>
               </div>
             </div>

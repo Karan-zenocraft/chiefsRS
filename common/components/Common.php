@@ -1603,4 +1603,23 @@ class Common {
     }
     return $headerValue;
 }
+    public static function template_cancel_button( $url, $model, $confirmmessage = false, $flag = false ) {
+        $confirmmessage = $confirmmessage ? : "Are you sure you want to cancel it?";
+        if ( $flag == 2 ) {
+            return Html::a( '<i class="fa fa-trash"></i>', $url, [
+                'title' => Yii::t( 'yii', 'Delete' ),
+                'class' => 'btn btn-danger btn-small deleteGlobalButton',
+                'data-confirm' => $confirmmessage,
+                "data-method" => "post",
+                "data-pjax" => "0"
+                ] );
+        }
+        return Html::a( '<i class="fa fa-window-close"></i>', $url, [
+            'title' => Yii::t( 'yii', 'Cancel Booking' ),
+            'class' => 'btn cancel_btn btn-small deleteGlobalButton',
+            'data-confirm' => $confirmmessage,
+            "data-method" => "post",
+            "data-pjax" => "0"
+            ] );
+    }
 }

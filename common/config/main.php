@@ -1,6 +1,6 @@
 <?php
 use Yii;
-if ($_SERVER['HTTP_HOST'] == "localhost"){
+if ($_SERVER['HTTP_HOST'] == "10.160.8.49"){
     return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -9,7 +9,7 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-      /*      'dsn' => 'mysql:host=localhost;dbname=pms_live',
+      /*      'dsn' => 'mysql:host=10.160.8.49;dbname=pms_live',
             'username' => 'root',
             'password' => 'inx@!123',*/
             'dsn'      => 'mysql:host=localhost;dbname=ChiefsRS',

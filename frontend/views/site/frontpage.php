@@ -6,13 +6,13 @@ $this->title = 'Chiefs RS';
 ?>
   <div class="col-md-9">
             <?php 
-        $url = Yii::getAlias('@web')."/img/chiefs-rs-text.png";
+        $url = Yii::getAlias('@web')."/img/logo.png";
         ?>
-            <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a>
+            <a class="brand" href="#"><img src="<?php echo $url; ?>"></a>
             <h1 class="site-heading site-animate mb-3">Welcome to Chiefs RS reservation System</h1>
             <h2 class="h5 site-subheading mb-5 site-animate">Please book your restaurant now</h2>    
           <form name="search" id="search" method="post" action="<?= Yii::$app->urlManager->createUrl(['site/restaurants']) ?>">
-            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:void(0);" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search"  style="font-size:30px;text-align:center;"></i> </a></p>
+            <p><input type="text" name="search_restaurant" class="search_text site-animate" placeholder="Search for a Restaurant"><a href="javascript:void(0);" onclick="document.getElementById('search').submit();" class="btn btn-outline-white btn-lg site-animate"><i class="fas fa-search" style="text-align:center;"></i> </a></p>
           </form>
           </div>
           <?php if(Yii::$app->user->isGuest){?>
@@ -39,13 +39,13 @@ $this->title = 'Chiefs RS';
     <div class="tab-content">
         <div id="signin-agile"> 
             <div class="logo">
-    <center><img src="themes/eatwell/images/Chiefs_rs_logo.png" alt=""></center>
+    <img src="themes/eatwell/images/chief-rs_logo.png" alt="">
   </div>
        <?php 
 
        $form = ActiveForm::begin(['id' => 'login-form','method'=>'post']); ?>
-                <?= $form->field($model, 'email')->textInput(['class'=>'form-control login_email','placeholder'=>'Email'/*'onfocus'=>"this.value = '';","onblur"=>"if (this.value == '') {this.value = 'Email';}"*/])->label(false);?>
-                <?= $form->field($model, 'password')->passwordInput(['class'=>'form-control','placeholder'=>'Password'])->label(false); ?>
+                <?= $form->field($model, 'email')->textInput(['class'=>'form-control login_email input_field_design','placeholder'=>'Email'/*'onfocus'=>"this.value = '';","onblur"=>"if (this.value == '') {this.value = 'Email';}"*/])->label(false);?>
+                <?= $form->field($model, 'password')->passwordInput(['class'=>'form-control input_field_design','placeholder'=>'Password'])->label(false); ?>
                 <input type="text" name="hidden" value="login" hidden="true">
                 <p class="forgot"> <a href="<?= Yii::$app->urlManager->createUrl(['site/request-password-reset']); ?>">Forgot Password?</a> </p>
               
@@ -58,13 +58,13 @@ $this->title = 'Chiefs RS';
 
        <?php  //  $model2 = new SignupForm(); 
      $form2 = ActiveForm::begin(['id' => 'form-signup']); ?>
-     <?= $form2->field($model2, 'first_name')->textInput(['class'=>'form-control','placeholder'=>'First Name'])->label(false); ?>
-                    <?= $form2->field($model2, 'last_name')->textInput(['class'=>'form-control','placeholder'=>'Last Name'])->label(false); ?>
-                    <?= $form2->field($model2, 'email')->textInput(['class'=>'form-control','placeholder'=>'Email'])->label(false); ?>
+     <?= $form2->field($model2, 'first_name')->textInput(['class'=>'form-control input_field_design','placeholder'=>'First Name'])->label(false); ?>
+                    <?= $form2->field($model2, 'last_name')->textInput(['class'=>'form-control input_field_design','placeholder'=>'Last Name'])->label(false); ?>
+                    <?= $form2->field($model2, 'email')->textInput(['class'=>'form-control input_field_design','placeholder'=>'Email'])->label(false); ?>
 
-                    <?= $form2->field($model2, 'password')->passwordInput(['class'=>'form-control','placeholder'=>'Password'])->label(false); ?>
-                      <?= $form2->field($model2, 'confirm_password')->passwordInput(['class'=>'form-control','placeholder'=>'Confirm Password'])->label(false); ?>
-                   <?= $form2->field($model2, 'contact_no')->textInput(['class'=>'form-control','placeholder'=>'Contact Number'])->label(false); ?>
+                    <?= $form2->field($model2, 'password')->passwordInput(['class'=>'form-control input_field_design','placeholder'=>'Password'])->label(false); ?>
+                      <?= $form2->field($model2, 'confirm_password')->passwordInput(['class'=>'form-control input_field_design','placeholder'=>'Confirm Password'])->label(false); ?>
+                   <?= $form2->field($model2, 'contact_no')->textInput(['class'=>'form-control input_field_design','placeholder'=>'Contact Number'])->label(false); ?>
                 <input type="text" name="hidden" value="signup" hidden="true">
                   <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'register','form'=>'form-signup','name' => 'signup-button']) ?>
@@ -77,6 +77,15 @@ $this->title = 'Chiefs RS';
         </div>
       </div>
     </section>
+    <?php
+       $url = Yii::getAlias('@web')."/themes/eatwell/images/logo.png";
+       ?>
+     <div id="social_icons">
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/apple.png" ?>" alt="apple logo and link to download on apple app store"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/facebook.png" ?>" alt="facebook"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/twitter.png" ?>" alt="twitter"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/insta.png" ?>" alt="instagram"></a>
+       </div>
     <!-- END section -->
      <section class="site-section" id="section-about">
       <div class="container">

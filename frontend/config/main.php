@@ -58,7 +58,12 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'home'=>'site/index',
-                'login'=>'site/login',
+                'restaurant-details/<rid>'=>'site/restaurant-details',
+                'book-restaurant/<rid>' => 'reservations/create',
+                'update-booking/<id>' => 'reservations/update',
+                'cancel-booking/<id>' => 'reservations/cancel',
+                'delete-booking/<id>' => 'reservations/delete',
+                'manage-reservations' => 'reservations/index',
             ]
         ]
     ],

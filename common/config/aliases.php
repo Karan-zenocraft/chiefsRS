@@ -97,3 +97,11 @@ Yii::setAlias('restaurant_table_delete_message', 'Table has been deleted success
 Yii::setAlias('reset_password_message', 'Your password has been sent successfully !');
 //Yii::setAlias('admin_user_forget_password_msg', 'E-Mail has been sent with new password successfully !');
 //END: Admin user
+
+////////Frontend Users///////////////
+
+Yii::setAlias('create_booking_message', 'Your Booking has been done successfully !');
+Yii::setAlias('update_booking_message', 'Your Booking has been updated successfully !');
+Yii::setAlias('cancel_booking_message', 'Your Booking has been canceled successfully !');
+Yii::setAlias('delete_booking_message', 'Your Booking has been deleted successfully !');
+

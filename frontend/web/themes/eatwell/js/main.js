@@ -1,4 +1,7 @@
 $(document).ready(function($) {
+	//fadeout flash message
+$(".flash_message").delay(3000).slideUp(500);
+
 
 	"use strict";
 
@@ -201,33 +204,39 @@ $(document).ready(function($) {
     }
   });
 
-  $('#m_date').datepicker({
+/*  $('#m_date').datepicker({
 	  'format': 'm/d/yyyy',
 	  'autoclose': true
-	});
-	$('#m_time').timepicker();
+	});*/
+	$('#booking_start_time').timepicker();
+	$('#booking_end_time').timepicker();
+	$('#pickup_time').timepicker();
+	$('#drop_time').timepicker();
 
-$('.tab a,.links a').on('click', function (e) {
-  
-  e.preventDefault();
-  //$(this).parent().css("background-color","black");
-  
-  $(this).parent().addClass('active');
-  $(this).parent().siblings().removeClass('active');
-  
-  var target = $(this).attr('href');
 
-  $('.tab-content > div').not(target).hide();
-  
-  $(target).fadeIn(600);
-  
-});
- if ( $('li.signup_tab').hasClass('active') ) {
-   	$("#signin-agile").hide();
-   	$("#signup-agile").show();
-  }else{
-  	$("#signin-agile").show();
-   	$("#signup-agile").hide();
-  }
+toCheckElementHasClassActive();
+    $('.tab a,.links a').click(function (e) {
+    
+        e.preventDefault();
+        //$(this).parent().css("background-color","black");
+        
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        
+        var target = $(this).attr('href');
+        $('.tab-content > div').not(target).hide();
+        
+        $(target).fadeIn(600);
+        toCheckElementHasClassActive();
+    });
+    function toCheckElementHasClassActive() {
+        if ( $('li.tab.signup_tab').hasClass('active') ) {
+            $("#signin-agile").css("display", "none");
+            $("#signup-agile").css("display", "flex");
+        }else{
+            $("#signin-agile").css("display", "flex");
+            $("#signup-agile").css("display", "none");
+        }
+    }
 
 });

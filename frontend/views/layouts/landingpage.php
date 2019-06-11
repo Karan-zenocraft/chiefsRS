@@ -54,7 +54,7 @@ StatusAsset::register($this);
               <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
                <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li>
               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Booking History</a></li>
+              <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['reservations/index']);?>" class="nav-link list_rest">My Reservations</a></li>
             <li class="nav-item"><a href="<?= Yii::$app->urlManager->createUrl(['site/logout']); ?>" class="nav-link">Logout(<?= Yii::$app->user->identity->first_name ?>)</a></li>
           <?php } ?>
 
@@ -81,53 +81,6 @@ StatusAsset::register($this);
     
 <footer class="site-footer site-bg-dark site-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-4 site-animate">
-                <h2 class="site-heading-2">About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, similique, delectus blanditiis odit expedita amet. Sed labore ipsum vel dolore, quis, culpa et magni autem sequi facere eos tenetur, ex?</p>
-              </div>
-              <div class="col-md-1"></div>
-              <div class="col-md-3 site-animate">
-                <div class="site-footer-widget mb-4">
-                  <h2 class="site-heading-2">The Restaurant</h2>
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="py-2 d-block">About Us</a></li>
-                    <li><a href="#" class="py-2 d-block">Chefs</a></li>
-                    <li><a href="#" class="py-2 d-block">Events</a></li>
-                    <li><a href="#" class="py-2 d-block">Contact</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-2 site-animate">
-                 <div class="site-footer-widget mb-4">
-                  <h2 class="site-heading-2">Useful links</h2>
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="py-2 d-block">Foods</a></li>
-                    <li><a href="#" class="py-2 d-block">Drinks</a></li>
-                    <li><a href="#" class="py-2 d-block">Breakfast</a></li>
-                    <li><a href="#" class="py-2 d-block">Brunch</a></li>
-                    <li><a href="#" class="py-2 d-block">Dinner</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-2 site-animate">
-                 <div class="site-footer-widget mb-4">
-                  <h2 class="site-heading-2">Useful links</h2>
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="py-2 d-block">Foods</a></li>
-                    <li><a href="#" class="py-2 d-block">Drinks</a></li>
-                    <li><a href="#" class="py-2 d-block">Breakfast</a></li>
-                    <li><a href="#" class="py-2 d-block">Brunch</a></li>
-                    <li><a href="#" class="py-2 d-block">Dinner</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-         
-        </div>
         <div class="row site-animate">
            <div class="col-md-12 text-center">
             <div class="site-footer-widget mb-4">
@@ -146,91 +99,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
       </div>
     </footer>
-
-    
-    
-
-    <!-- Modal -->
-    <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="bg-image" style="background-image: url(themes/eatwell/images/reservation_1.jpg);"></div>
-              </div>
-              <div class="col-lg-12 p-5">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <small>CLOSE </small><span aria-hidden="true">&times;</span>
-                </button>
-                <h1 class="mb-4">Reserve A Table</h1>  
-                <form action="#" method="post">
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <label for="m_fname">First Name</label>
-                      <input type="text" class="form-control" id="m_fname">
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <label for="m_lname">Last Name</label>
-                      <input type="text" class="form-control" id="m_lname">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="m_email">Email</label>
-                      <input type="email" class="form-control" id="m_email">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <label for="m_people">How Many People</label>
-                      <select name="" id="m_people" class="form-control">
-                        <option value="1">1 People</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4+">4+ People</option>
-                      </select>
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <label for="m_phone">Phone</label>
-                      <input type="text" class="form-control" id="m_phone">
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <label for="m_date">Date</label>
-                      <input type="text" class="form-control" id="m_date">
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <label for="m_time">Time</label>
-                      <input type="text" class="form-control" id="m_time">
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="m_message">Message</label>
-                      <textarea class="form-control" id="m_message" cols="30" rows="7"></textarea>
-                    </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <input type="submit" class="btn btn-primary btn-lg btn-block" value="Reserve Now">
-                    </div>
-                  </div>
-
-                </form>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- END Modal -->
 
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

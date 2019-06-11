@@ -270,13 +270,13 @@ class SiteController extends FrontCoreController
 
         $this->layout = "detail";
         
-        if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
-            $rid = $_REQUEST['rid'];
-            $snRestaurantsDetail = Restaurants::find()->where(['id'=>$_REQUEST['rid']])->one();
+        if(isset($rid) && !empty($rid)){
+            
+            $snRestaurantsDetail = Restaurants::find()->where(['id'=>$rid])->one();
             $snRestaurantMenuCategoryArr = MenuCategories::find()->where(["status"=>"1"])->all();
-            $snRestaurantMenusArr = RestaurantMenu::find()->where(['restaurant_id'=>$_REQUEST['rid'],'status'=>"1"])->all();
-            $query = RestaurantsGallery::find()->where(['restaurant_id'=>$_REQUEST['rid'],'status'=>"1"]);
-             $snRestaurantgallerysArr = RestaurantsGallery::find()->where(['restaurant_id'=>$_REQUEST['rid'],'status'=>"1"])->all();
+            $snRestaurantMenusArr = RestaurantMenu::find()->where(['restaurant_id'=>$rid,'status'=>"1"])->all();
+            $query = RestaurantsGallery::find()->where(['restaurant_id'=>$rid,'status'=>"1"]);
+             $snRestaurantgallerysArr = RestaurantsGallery::find()->where(['restaurant_id'=>$rid,'status'=>"1"])->all();
              $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize'=>3]);
              $models = $query->offset($pagination->offset)
              ->limit($pagination->limit)
@@ -293,6 +293,7 @@ class SiteController extends FrontCoreController
             //p($snRestaurantsDetail);
         }
         return $this->render('restaurant_detail', [
+            'rid' => $rid,
             'snRestaurantsDetail' => $snRestaurantsDetail,
             'snRestaurantMenuCategoryArr' => $snRestaurantMenuCategoryArr,
             'snRestaurantMenusArr' => $snRestaurantMenusArr,

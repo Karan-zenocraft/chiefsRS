@@ -25,11 +25,12 @@ class StatusAsset extends AssetBundle
         'css/owl.carousel.min.css',
         'css/owl.theme.default.min.css',
         'css/magnific-popup.css',
-        'css/bootstrap-datepicker.css',
+       // 'css/bootstrap-datepicker.css',
         'css/jquery.timepicker.css',
         'css/fontawesome_all.css',
         'css/icomoon.css',
         'css/style.css',
+        //'../../../../common/web/css/bootstrap-clockpicker.min.css',
     ];
     public $js = [
       //'js/jquery.min.js',
@@ -40,12 +41,13 @@ class StatusAsset extends AssetBundle
      // 'js/status-counter.js',
       'js/owl.carousel.min.js',  
       'js/jquery.magnific-popup.min.js',  
-      'js/bootstrap-datepicker.js',  
+    //  'js/bootstrap-datepicker.js',  
       'js/jquery.timepicker.min.js',  
       'js/jquery.animateNumber.min.js',  
-      'js/google-map.js',  
+    //  'js/google-map.js',  
       //'js/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"',  
-      'js/main.js',  
+      'js/main.js', 
+      //'../../../../common/web/js/bootstrap-clockpicker.min.js',
 
     ];
     public $depends = [
