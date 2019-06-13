@@ -89,6 +89,10 @@ return [
                 'create-layouts-tables/<rid>/<lid>'=>'restaurant-tables/create',
                 'update-layouts-tables/<id>/<rid>/<lid>'=>'restaurant-tables/update',
                 'delete-layouts-tables/<id>/<rid>/<lid>'=>'restaurant-tables/delete',
+                'manage-reservations/<user_id>'=>'reservations/index',
+                'update-reservation/<id>/<user_id>'=>'reservations/update',
+                'create-reservation/<user_id>'=>'reservations/create',
+
 
 
             ]

@@ -16,27 +16,20 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?php //$form->field($model, 'id') ?>
-<table>
-    <tr>
-        <td><?= $form->field($model, 'name') ?></td>
-        <td><?= $form->field($model, 'description') ?></td>
-        <td><?= $form->field($model, 'country') ?>  </td>  
-    </tr>
-
-
+ <div class="row">
+        <div class="span3"><?= $form->field($model, 'name') ?></div>
+        <div class="span3"><?= $form->field($model, 'description') ?></div>
+        <div class="span3"><?= $form->field($model, 'country') ?>  </div>  
+ </div>
     <?php // $form->field($model, 'address') ?>
-    <tr>
-        <td><?php  echo $form->field($model, 'website') ?></td>
-
-        <td><?php  echo $form->field($model, 'max_stay_time_after_reservation') ?></td>
-
-        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
-        
-    </tr>
-
+ <div class="row">
+        <div class="span3"><?php  echo $form->field($model, 'website') ?></div>
+        <div class="span3"><?php  echo $form->field($model, 'max_stay_time_after_reservation') ?></div>
+        <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
+</div>
 
     
-</table>
+
 
     <?php // echo $form->field($model, 'state') ?>
 

@@ -22,11 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
    
      <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
      <?php if(!empty($_REQUEST['TagsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
-        <div class="tagss-serach">
+        <div class="tagss-serach common_search">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div> 
 <?php }else{ ?>
-    <div class="tags-serach">
+    <div class="tags-serach common_search">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div>  
     <?php } ?>

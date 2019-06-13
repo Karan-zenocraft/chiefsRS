@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'testingforproject0@gmail.com',
     'upload_path'         => dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../frontend/web/uploads/projectdocs',
     'project_status'=>array('1'=>'In-process','2'=>'On-Hold','3'=>'Require-Client-Input','4'=>'Completed'),
     'milestone_status'=>array('1'=>'In-process','2'=>'On-Hold','3'=>'Require-Client-Input','4'=>'Completed','5'=>'QA-Pending','6'=>'QA-Approved'),

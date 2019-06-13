@@ -16,11 +16,11 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?php // $form->field($model, 'id') ?>
-<table>
-  <tr>  <td><?= $form->field($model, 'name') ?></td>
+<div class="row">
+   <div class="span3"><?= $form->field($model, 'name') ?></div>
 
-    <td><?= $form->field($model, 'description') ?></td> </tr> 
-</table>
+     <div class="span3"><?= $form->field($model, 'description') ?></div>
+</div>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

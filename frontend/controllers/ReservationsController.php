@@ -80,12 +80,24 @@ class ReservationsController extends FrontCoreController
             $model->restaurant_id = (isset($_GET['rid']) && !empty($_GET['rid'])) ? $_GET['rid'] : $model->restaurant_id;
             $model->booking_start_time = date("H:i:s", strtotime($postData['Reservations']['booking_start_time']));
             $model->booking_end_time = date("H:i:s", strtotime($postData['Reservations']['booking_end_time']));
-            $model->pickup_time = !empty($model->pickup_time) ? date("H:i:s", strtotime($postData['Reservations']['pickup_time'])) : "";
+             if($postData['Reservations']['pickup_drop'] == 0){
+            $model->pickup_time = "";
+            $model->drop_time = "";
+            $model->pickup_location = "";
+            $model->drop_location = "";
+            $model->pickup_lat = "";
+            $model->pickup_long = "";
+            $model->drop_lat = "";
+            $model->drop_long = "";
+        }else{
+
+             $model->pickup_time = !empty($model->pickup_time) ? date("H:i:s", strtotime($postData['Reservations']['pickup_time'])) : "";
             $model->drop_time = !empty($model->pickup_time) ? date("H:i:s", strtotime($postData['Reservations']['drop_time'])) : "";
-            $model->status = "0";
+        }
+            $model->status = Yii::$app->params['reservation_status_value']['requested'];
             
             $model->save(false);
-        Yii::$app->session->setFlash( 'success', Yii::getAlias( '@create_booking_message' ) );
+            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@create_booking_message' ) );
             return $this->redirect(['index']);
         }
 
@@ -112,8 +124,20 @@ class ReservationsController extends FrontCoreController
 
             $model->booking_start_time = date("H:i:s", strtotime($postData['Reservations']['booking_start_time']));
             $model->booking_end_time = date("H:i:s", strtotime($postData['Reservations']['booking_end_time']));
+        if($postData['Reservations']['pickup_drop'] == 0){
+            $model->pickup_time = "";
+            $model->drop_time = "";
+            $model->pickup_location = "";
+            $model->drop_location = "";
+            $model->pickup_lat = "";
+            $model->pickup_long = "";
+            $model->drop_lat = "";
+            $model->drop_long = "";
+        }else{
+
              $model->pickup_time = !empty($model->pickup_time) ? date("H:i:s", strtotime($postData['Reservations']['pickup_time'])) : "";
             $model->drop_time = !empty($model->pickup_time) ? date("H:i:s", strtotime($postData['Reservations']['drop_time'])) : "";
+        }
             $model->status = "0";
             $model->save(false);
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@update_booking_message' ) );

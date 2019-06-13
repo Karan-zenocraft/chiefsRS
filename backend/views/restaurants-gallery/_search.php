@@ -21,16 +21,13 @@ use yii\widgets\ActiveForm;
     <?php // $form->field($model, 'id') ?>
 
     <?php // $form->field($model, 'restaurant_id') ?>
-    <table>
-        <tr>
-        <td><?= $form->field($model, 'image_title') ?></td>
-
-        <td><?= $form->field($model, 'image_description') ?></td>
-        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
-            
-        </tr>
+   <div class="row">
+   <div class="span3"><?= $form->field($model, 'image_title') ?></div>
+   <div class="span3"><?= $form->field($model, 'image_description') ?></div>
+   <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
+   </div>
         
-    </table>
+   
 
     <?php // $form->field($model, 'image_name') ?>
 

@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use common\models\Restaurants;
+use common\models\ContactUs;
 $this->title = 'Chiefs RS';
 ?>
   <div class="col-md-9">
@@ -121,25 +122,22 @@ $this->title = 'Chiefs RS';
               </div>
             </div>
           </div>
-
+  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo Yii::getAlias("@web");?>../../../common/web/img/loading.gif" width="64" height="64" /><br>Loading..</div></center>
           <div class="col-md-7 mb-5 site-animate">
-            <form action="" method="post">
-              <div class="form-group">
-                <label for="name" class="sr-only">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="email" class="sr-only">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="message" class="sr-only">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-lg" value="Send Message">
-              </div>
-            </form>
+           <?php $form = ActiveForm::begin(['id'=>'contact_us','action'=>Yii::$app->urlManager->createUrl("site/contact-us")]); ?>
+
+              <?php $model = new ContactUs(); ?>
+
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'message')->textarea(['rows' => 10]) ?>
+            
+            <div class="form-group">
+              <?= Html::submitButton(Yii::t('app', 'Send Message'), ['class' => 'btn btn-primary']) ?>
+            </div>
+            <?php ActiveForm::end(); ?>
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-4 site-animate">
@@ -156,3 +154,33 @@ $this->title = 'Chiefs RS';
       </div>
     </section>
    <!--  <div id="map"></div> -->
+   <script type="text/javascript">
+$('body').on('beforeSubmit', "form#contact_us",function () {
+     var form = $(this);
+     // return false if form still have some validation errors
+     if (form.find('.has-error').length) {
+          return false;
+     }
+     // submit form
+     $.ajax({
+          url: form.attr('action'),
+          type: 'post',
+          data: form.serialize(),
+          beforeSend: function(){
+             $("#loading").fadeIn("slow");
+          },
+          success: function (response) {
+               // do something with response
+              if(response){
+                alert("You Email has been sent successfully.");
+              }else{
+                alert("something Went wrong,Your mail is not sent.");
+              }
+          },
+          complete: function(){
+            $("#loading").fadeOut();
+      }
+     });
+     return false;
+});
+   </script>

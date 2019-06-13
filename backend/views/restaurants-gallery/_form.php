@@ -12,22 +12,32 @@ use yii\widgets\ActiveForm;
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
     </div>
     <div class="block-content collapse in">
-<div class="restaurants-gallery-form span12">
+<div class="restaurants-gallery-form span12 common_search">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php //echo $form->field($model, 'restaurant_id')->textInput() ?>
+ <div class="row">
+    <div class="span3"><?= $form->field($model, 'image_title')->textInput(['maxlength' => true]) ?></div>
+ </div>
+ <div class="row">
+    <div class="span3"><?= $form->field($model, 'image_description')->textarea(['rows' => 3]) ?></div>
+ </div>
 
-    <?= $form->field($model, 'image_title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image_description')->textarea(['rows' => 6]) ?>
+ <div class="row">
+    <div class="span3"><?= $form->field($model, 'image_name')->fileInput(['id'=>'image_name','value'=>$model->image_name]); ?></div>
 
-    <?= $form->field($model, 'image_name')->fileInput(['id'=>'image_name','value'=>$model->image_name]); ?>
-    <div><br>
-    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::$app->params['root_url']."uploads/".$model->image_name; ?>" alt="your image" />
-    </div><br>
+</div>
+<div class="row">
+<div class="span3">
+    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::$app->params['root_url']."uploads/".$model->image_name; ?>" alt="" />
+    </div>
+</div>
 
-    <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?>
+ <div class="row">
+    <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></div>
+</div>
 
     <?php //echo $form->field($model, 'created_by')->textInput() ?>
 

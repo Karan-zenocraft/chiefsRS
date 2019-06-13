@@ -22,23 +22,22 @@ use common\models\MenuCategories;
     <?php // $form->field($model, 'id') ?>
 
     <?php // $form->field($model, 'restaurant_id') ?>
-<table>
-    
+    <div class="row">
+        <div class="span3"><?= $form->field($model, 'name') ?></div>
 
-   <tr> <td><?= $form->field($model, 'name') ?></td>
-
-    <td><?= $form->field($model, 'description') ?></td></tr>
-    <tr>
-    <td>
+        <div class="span3"><?= $form->field($model, 'description') ?></div>
+    </div>
+    <div class="row">
+   
         <?php 
          $MenuCategoriesDropdown = MenuCategories::MenuCategoriesDropdown();
     
         ?>
-      <?= $form->field($model, 'menu_category_id')->dropDownList($MenuCategoriesDropdown) ?></td>
+      <div class="span3"><?= $form->field($model, 'menu_category_id')->dropDownList($MenuCategoriesDropdown) ?></div>
 
-    <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
-    </tr>
-    </table>
+    <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
+   </div>
+   
     <?php // echo $form->field($model, 'price') ?>
 
     <?php // echo $form->field($model, 'photo') ?>

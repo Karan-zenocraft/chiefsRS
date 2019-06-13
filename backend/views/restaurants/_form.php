@@ -13,49 +13,49 @@ use yii\widgets\ActiveForm;
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
     </div>
     <div class="block-content collapse in">
-<div class="restaurants-form span12">
+<div class="restaurants-form span12 common_search">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-<table>
-  <tr>
-    <td><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-</td>
-<td> <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></td>
-<td>  <?= $form->field($model, 'website')->textInput(['maxlength' => true]) ?></td>
-<td> <?= $form->field($model, 'contact_no')->textInput() ?></td>
-  </tr>
-  <tr>
+
+  <div class="row">
+    <div class="span3"><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+</div>
+<div class="span3"> <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></div>
+<div class="span3">  <?= $form->field($model, 'website')->textInput(['maxlength' => true]) ?></div>
+<div class="span3"> <?= $form->field($model, 'contact_no')->textInput() ?></div>
+ </div>
+  <div class="row">
     <td colspan="4">
       <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
     </td>
-  </tr>
-  <tr>
-    <td>
+ </div>
+  <div class="row">
+    <div class="span3">
       <?= $form->field($model, 'photo')->fileInput(['id'=>'photo','value'=>$model->photo]); ?>
-    <div><br>
-    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::getAlias('@web')."../../../uploads/".$model->photo; ?>" alt="your image" />
-    </div><br>
-
-    </td>
-  </tr>
+     </div>
+   </div>
+   <div class="row">
+    <div class="span3">
+    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::getAlias('@web')."../../../uploads/".$model->photo; ?>" alt="" />
+    </div>
+    </div>
   
- <tr>
-   <td> <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete"]) ?></td>
+ <div class="row">
+   <div class="span3"> <?= $form->field($model, 'address')->textInput(['maxlength' => true,'id' =>"autocomplete"]) ?></div>
      
-        <td><?= $form->field($model, 'city')->textInput(['maxlength' => true,'id'=>"city",'disabled'=>"true"]) ?></td>
-        <td><?= $form->field($model, 'country')->textInput(['maxlength' => true,'id'=>"country",'disabled'=>"true"]) ?></td>
-         <td><?= $form->field($model, 'state')->textInput(['maxlength' => true,'id'=>"state",'disabled'=>"true"]) ?></td>
-      </tr>
-      <tr>
-         <td><?= $form->field($model, 'pincode')->textInput(['id'=>"postal_code",'disabled'=>"true"]) ?></td>
-          <td> <?= $form->field($model, 'lattitude')->textInput(['id'=>"lattitude",'disabled'=>"true"]) ?></td>
-          <td> <?= $form->field($model, 'longitude')->textInput(['id'=>"longitude",'disabled'=>"true"]) ?></td>
-      </tr>
-      <tr>
-        <td> <?= $form->field($model, 'max_stay_time_after_reservation')->textInput(['placeholder'=>'Enter in minutes']) ?></td>
-        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></td>
-      </tr>
-    </table>
+        <div class="span3"><?= $form->field($model, 'city')->textInput(['maxlength' => true,'id'=>"city",'disabled'=>"true"]) ?></div>
+        <div class="span3"><?= $form->field($model, 'country')->textInput(['maxlength' => true,'id'=>"country",'disabled'=>"true"]) ?></div>
+         <div class="span3"><?= $form->field($model, 'state')->textInput(['maxlength' => true,'id'=>"state",'disabled'=>"true"]) ?></div>
+     </div>
+      <div class="row">
+         <div class="span3"><?= $form->field($model, 'pincode')->textInput(['id'=>"postal_code",'disabled'=>"true"]) ?></div>
+          <div class="span3"> <?= $form->field($model, 'lattitude')->textInput(['id'=>"lattitude",'disabled'=>"true"]) ?></div>
+          <div class="span3"> <?= $form->field($model, 'longitude')->textInput(['id'=>"longitude",'disabled'=>"true"]) ?></div>
+     </div>
+      <div class="row">
+        <div class="span3"> <?= $form->field($model, 'max_stay_time_after_reservation')->textInput(['placeholder'=>'Enter in minutes']) ?></div>
+        <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></div>
+     </div>
     
     <div class="form-group form-actions">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

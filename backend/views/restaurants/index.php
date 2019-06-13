@@ -21,11 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
    
      <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
      <?php if(!empty($_REQUEST['RestaurantsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
-        <div class="restaurantss-serach">
+        <div class="restaurantss-serach common_search">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div> 
 <?php }else{ ?>
-    <div class="restaurants-serach">
+    <div class="restaurants-serach common_search">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div>  
     <?php } ?>

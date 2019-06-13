@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
    
              <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
              <?php if(!empty($_REQUEST['RestaurantMenuSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
-                <div class="restaurants-menu-serach">
+                <div class="restaurants-menu-serach common_search">
                  <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
                 </div> 
         <?php }else{ ?>
-            <div class="restaurant-menu-serach">
+            <div class="restaurant-menu-serach common_search">
                  <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div>  
     <?php } ?>

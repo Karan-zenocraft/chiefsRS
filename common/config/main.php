@@ -1,6 +1,6 @@
 <?php
 use Yii;
-if ($_SERVER['HTTP_HOST'] == "10.160.8.49"){
+if ($_SERVER['HTTP_HOST'] == "localhost"){
     return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [

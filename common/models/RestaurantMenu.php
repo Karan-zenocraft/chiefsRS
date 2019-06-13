@@ -45,10 +45,10 @@ public function attributeLabels()
 {
 return [
     'id' => 'ID',
-    'restaurant_id' => 'Restaurant ID',
+    'restaurant_id' => 'Restaurant',
     'name' => 'Name',
     'description' => 'Description',
-    'menu_category_id' => 'Menu Category ID',
+    'menu_category_id' => 'Menu Category',
     'price' => 'Price',
     'photo' => 'Photo',
     'created_by' => 'Created By',

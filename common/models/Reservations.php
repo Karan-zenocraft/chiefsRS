@@ -44,7 +44,7 @@ public function attributeLabels()
 return [
     'id' => 'ID',
     'user_id' => 'User ID',
-    'restaurant_id' => 'Restaurant ID',
+    'restaurant_id' => 'Restaurant',
     'layout_id' => 'Layout ID',
     'table_id' => 'Table ID',
     'first_name' => 'First Name',

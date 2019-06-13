@@ -19,20 +19,25 @@ use yii\widgets\ActiveForm;
     <?php //echo $form->field($model, 'restaurant_id')->textInput() ?>
 
     <?php // echo $form->field($model, 'layout_id')->textInput() ?>
-
-    <?= $form->field($model, 'table_no')->textInput() ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'min_capacity')->textInput() ?>
-
-    <?= $form->field($model, 'max_capacity')->textInput() ?>
+<div class="row">
+    <div class="span3"><?= $form->field($model, 'table_no')->textInput() ?></div>
+</div>
+<div class="row">
+    <div class="span3"><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></div>
+</div>
+<div class="row">
+    <div class="span3"><?= $form->field($model, 'min_capacity')->textInput() ?></div>
+</div>
+<div class="row">
+   <div class="span3"> <?= $form->field($model, 'max_capacity')->textInput() ?></div>
+</div>
 
     <?php // echo $form->field($model, 'created_by')->textInput() ?>
 
     <?php // echo $form->field($model, 'updated_by')->textInput() ?>
-
-   <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?>
+<div class="row">
+   <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></div>
+</div>
 
     <?php // echo $form->field($model, 'created_at')->textInput() ?>
 

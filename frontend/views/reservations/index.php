@@ -26,12 +26,27 @@ $this->title = 'Reservations';
       <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['reservations/index']), ['class' => 'btn btn-primary']) ?>
   </div>
 </div>
+<div class="row">
+
+<div class="col-md-8">
+     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?> Search Here
+             <?php if(!empty($_REQUEST['ReservationsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+                <div class="reservations-serach">
+                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+                </div> 
+        <?php }else{ ?>
+           <div class="reservation-serach">
+                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
+            </div>  
+    <?php } ?>
+</div>
+</div>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => null,
          'layout' => "{items}\n{pager}",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -45,7 +60,7 @@ $this->title = 'Reservations';
                         'headerOptions' => ["style" => "width:13%;"],
                         'contentOptions' => ["style" => "width:13%;"],
                         'value' => function($data) {
-                            return $data->restaurant_id;
+                            return $data->restaurant->name;
                         },
                 ],
             //'layout_id',
@@ -111,3 +126,12 @@ $this->title = 'Reservations';
 </div>
 </div>
 </section>
+<script type="text/javascript">
+$( document ).ready(function() {  
+    $('.reservation-serach').hide();
+        $('.open_search').click(function(){
+            $('.reservation-serach').toggle();
+        });
+    });
+
+</script>

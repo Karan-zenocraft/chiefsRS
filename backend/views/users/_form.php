@@ -13,28 +13,27 @@ use yii\jui\DatePicker;
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
     </div>
     <div class="block-content collapse in">
-<div class="users-form span12">
+<div class="users-form span12 common_search">
 
     <?php $form = ActiveForm::begin(); ?>
-<table>
-    <tr>
-        <td><?= $form->field($model, 'role_id')->dropDownList($UserRolesDropdown,['class'=>'roles']) ?></td>
-        <td> <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?></td>
-        <td>
+<div class="row">
+        <div class="span3"><?= $form->field($model, 'role_id')->dropDownList($UserRolesDropdown,['class'=>'roles']) ?></div>
+        <div class="span3"> <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?></div>
+        <div class="span3">
     <?= $model->isNewRecord ? ($form->field($model, 'password')->passwordInput(['maxlength' => 255])) : '' ?>
         
-    </td>
-    </tr>
-      <tr>
-        <td><?= $form->field($model, 'first_name')->textInput(['maxlength' => 255]) ?></td>
-        <td><?= $form->field($model, 'last_name')->textInput(['maxlength' => 255]) ?></td>
-         <td><?= $form->field($model, 'restaurant_id')->dropDownList($Restaurants,['class'=>'restaurants']); ?></td>
-    </tr>
-        <tr><td><?= $form->field($model, 'address')->textArea(['maxlength' => 255]) ?></td>
-        <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
-        </tr>
+    </div>
+   </div>
+     <div class="row">
+        <div class="span3"><?= $form->field($model, 'first_name')->textInput(['maxlength' => 255]) ?></div>
+        <div class="span3"><?= $form->field($model, 'last_name')->textInput(['maxlength' => 255]) ?></div>
+         <div class="span3"><?= $form->field($model, 'restaurant_id')->dropDownList($Restaurants,['class'=>'restaurants']); ?></div>
+   </div>
+       <div class="row"><div class="span3"><?= $form->field($model, 'address')->textArea(['maxlength' => 255]) ?></div>
+        <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
+       </div>
 
-</table>
+
     
     
 

@@ -379,3 +379,36 @@ table.table_class tbody {  }
 .restaurants-form tr td{
     padding-right: 10px;
 }
+/*///////////////////////////////////////////////////////////////////////////////////////////
+                                Chiefs RS Responsive Backend
+///////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 767px){
+    .row-fluid .leftsidebar {
+    width: 100% !important;
+}
+}
+/*@media (max-width: 320px){
+    .form-group select, {
+    width: 100% !important;
+}
+}*/
+@media (max-width: 320px){
+.form-group input[type="text"]{
+     width: 90% !important;
+}
+.form-group select{
+     width: 98% !important;
+}
+}
+@media (min-width: 1200px){
+.common_search{
+    padding-left:2rem;
+}
+}
+.hours_form{
+    padding-left:2rem;
+}
+.form-group input[type="file"]{
+    width: 100% !important;
+}

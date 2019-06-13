@@ -17,10 +17,12 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php //echo $form->field($model, 'restaurant_id')->textInput() ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?>
+<div class="row">
+    <div class="span3"><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></div>
+</div>
+<div class="row">
+    <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['status']); ?></div>
+</div>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

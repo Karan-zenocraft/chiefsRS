@@ -23,6 +23,9 @@ use common\models\RestaurentMealTimes;
 use common\models\MenuCategories;
 use common\models\RestaurantsGallery;
 use yii\data\Pagination;
+use common\models\ContactUs;
+use common\models\EmailFormat;
+use common\components\Common;
 
 
 /**
@@ -304,4 +307,32 @@ class SiteController extends FrontCoreController
             'pagination' => $pagination,
         ]);
     }
+      public function actionContactUs()
+    {
+      if(isset($_POST) && !empty($_POST)){
+       $name = $_POST['ContactUs']['name'];
+       $fromEmail = $_POST['ContactUs']['email'];
+       $message = $_POST['ContactUs']['message'];
+       $model = new ContactUs();
+       $model->name = $name;
+       $model->email = $fromEmail;
+       $model->message = $message;
+       $model->save(false);
+       
+            ///////////////////////////////////////////////////////////
+            //Get email template into database for forgot password
+            $emailformatemodel = EmailFormat::findOne( ["title"=>'contact_us', "status"=>'1'] );
+            if ( $emailformatemodel ) {
+                //create template file
+                $AreplaceString = array('{name}' => $name,'{message}'=>$message);
+                
+                $body = Common::MailTemplate( $AreplaceString, $emailformatemodel->body );
+                
+                //send email
+                $mail = Common::sendMailToUser(Yii::$app->params['adminEmail'],$fromEmail, $emailformatemodel->subject, $body );
+                return $mail;
+            }
+       }
+      }
+    
 }

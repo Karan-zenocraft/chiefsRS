@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'testingforproject0@gmail.com',
     'super_admin_role_id' => '1',
     'administrator_role_id' => '2',
     'allow_deleted_status' => '0',

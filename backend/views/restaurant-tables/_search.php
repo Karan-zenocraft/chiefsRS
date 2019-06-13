@@ -20,23 +20,20 @@ use yii\widgets\ActiveForm;
     <?php // $form->field($model, 'restaurant_id') ?>
 
     <?php // $form->field($model, 'layout_id') ?>
-    <table>
-        <tr>
-        <td><?= $form->field($model, 'table_no') ?></td>
+        <div class="row">
+            <div class="span3"><?= $form->field($model, 'table_no') ?></div>
 
-        <td><?= $form->field($model, 'name') ?></td>
+            <div class="span3"><?= $form->field($model, 'name') ?></div>
             
-        </tr>
-        <tr>
-           <td> <?php  echo $form->field($model, 'min_capacity') ?></td>
+        </div>
+        <div class="row">
+           <div class="span3"> <?php  echo $form->field($model, 'min_capacity') ?></div>
 
-           <td> <?php  echo $form->field($model, 'max_capacity') ?></td>
-            
-        </tr>
-        <tr>
-              <td><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></td>
-        </tr>
-    </table>
+           <div class="span3"> <?php  echo $form->field($model, 'max_capacity') ?></div>
+        </div>
+        <div class="row">
+              <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
+        </div>
 
     <?php // echo $form->field($model, 'created_by') ?>
 

@@ -66,11 +66,11 @@ use kartik\widgets\SwitchInput
                     </div>
                     <div class="col-md-6">
                     <?php  //$model->pickup_drop = 1;
-                          echo $form->field($model, 'pickup_drop')->widget(SwitchInput::classname(), ['value'=>$model->pickup_drop]); ?>
+                          echo $form->field($model, 'pickup_drop')->widget(SwitchInput::classname()); ?>
                     </div>
                   </div>
-                  <?php if($model->pickup_drop == "1"){ ?>
-                   <div class="row">
+                  
+                   <div class="row pickup_row">
                     <div class="col-md-6">
                   <?= $form->field($model, 'pickup_location')->textInput(['maxlength' => true,'id'=>'autocomplete']) ?>
                     </div>
@@ -81,7 +81,7 @@ use kartik\widgets\SwitchInput
                     <?= $form->field($model, 'pickup_long')->textInput(["hidden"=>"true",'longitude'])->label(false); ?>
 
                   </div>
-                   <div class="row">
+                   <div class="row pickup_row">
                     <div class="col-md-6">
                     <?= $form->field($model, 'drop_location')->textInput(['maxlength' => true,'id'=>'autocomplete']) ?>
                     </div>
@@ -91,7 +91,7 @@ use kartik\widgets\SwitchInput
                      <?= $form->field($model, 'drop_lat')->textInput(["hidden"=>"true",'id'=>'lattitude'])->label(false); ?>
                     <?= $form->field($model, 'drop_long')->textInput(["hidden"=>"true",'longitude'])->label(false); ?>
                   </div>
-                <?php } ?>
+            
  
                   <div class="row">
                     <div class="col-md-12">
@@ -110,7 +110,23 @@ use kartik\widgets\SwitchInput
               </div>
               </div>
 <script type="text/javascript">
- $('.bootstrap-switch input[type=checkbox]').click(function() { // while you're at it listen for change rather than click, this is in case something else modifies the checkbox
-    alert("something is checked on the page")
+$(document).ready(function(){
+  if($("#reservations-pickup_drop").prop('checked') == true){
+      $(".pickup_row").show();
+  }else{
+        $(".pickup_row").hide();
+  }
 });
+   $('#reservations-pickup_drop').on('change.bootstrapSwitch', function(e) {
+      var switch_active = e.target.checked;
+     // console.log(switch_active);
+      if(switch_active == true){
+        $(".pickup_row").show();
+      }else{
+        $(".pickup_row").hide();
+       // $('.pickup_row').find('input:text').val('');
+      }
+  });
+ 
+ 
 </script>

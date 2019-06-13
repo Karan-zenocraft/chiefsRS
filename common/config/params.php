@@ -3,7 +3,7 @@
 return [
    //  'bsVersion' => '4.x',
      'bsDependencyEnabled' => 'false',
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'testingforproject0@gmail.com',
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
     'site_url' => stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'],
@@ -76,8 +76,8 @@ return [
     'cmsAdminEmail' => 'kavita@inheritx.com',
     'PMName'        => 'Abhishek',
     'base_path'     => __DIR__,
-    'reservation_status' => ["0"=>"requested","1"=>"Booked","2"=>"Cancelled","3"=>"Deleted"],
-    'reservation_status_value' => ["requested"=>"0","booked"=>"1","cancelled"=>"2","deleted"=>"3"],
+    'reservation_status' => ["0"=>"requested","1"=>"Booked","2"=>"Cancelled","3"=>"Deleted","4"=>"Completed"],
+    'reservation_status_value' => ["requested"=>"0","booked"=>"1","cancelled"=>"2","deleted"=>"3","completed"=>"4"],
     //'managersEmail' => 'managers@inheritx.com',
 
 

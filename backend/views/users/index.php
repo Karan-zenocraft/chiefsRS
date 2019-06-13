@@ -17,15 +17,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="muted pull-left">Search Here</div>
     </div>
         <div class="block-content collapse in">
-        <div class="tags-form span12">
+        <div class="users-form span12">
    
      <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
      <?php if(!empty($_REQUEST['UsersSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
-        <div class="userss-serach">
+        <div class="userss-serach common_search">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div> 
 <?php }else{ ?>
-    <div class="users-serach">
+    <div class="users-serach common_search">
          <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div>  
     <?php } ?>
@@ -99,17 +99,25 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'yii\grid\ActionColumn',
                         'headerOptions' => ["style" => "width:40%;"],
                         'contentOptions' => ["style" => "width:40%;"],
-                        'template' => '{update}{delete}',
+                        'template' => '{update}{manage_reservations}{delete}',
                         'buttons' => [
                             'update' => function ($url, $model) {
                                 $flag = 1;
                                 return Common::template_update_button($url, $model, $flag);
+                            },
+                              'manage_reservations' => function ($url, $model) {
+                                $title = "Manage Reservations";
+                                $flag =4;
+                                $url = Yii::$app->urlManager->createUrl(['reservations/index', 'user_id' => $model->id]);
+                                return Common::template_view_gallery_button($url, $model,$title,$flag);
+                                
                             },
                             'delete' => function ($url, $model) {
                                 $flag = 1;
                                 $confirmmessage = "Are you sure you want to delete this user?";
                                 return Common::template_delete_button($url, $model,$confirmmessage, $flag);
                             },
+
                         ]
                     ],
                 ],

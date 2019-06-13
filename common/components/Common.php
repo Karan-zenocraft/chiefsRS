@@ -1139,12 +1139,20 @@ class Common {
         
             if($flag == "Restaurants"){
                 $snRestaurantsDetail = Restaurants::find()->where( ['id'=>$id] )->one();
+                $name = $snRestaurantsDetail->name;
             }
             if($flag == "RestaurantLayout"){
                 $snRestaurantsDetail = RestaurantLayout::find()->where( ['id'=>$id] )->one();
+                $name = $snRestaurantsDetail->name;
                 
             }
-            return !empty( $snRestaurantsDetail ) ? $snRestaurantsDetail->name : '';
+               if($flag == "Users"){
+                $snRestaurantsDetail = Users::find()->where( ['id'=>$id] )->one();
+                $name = $snRestaurantsDetail->first_name." ".$snRestaurantsDetail->last_name;
+
+                
+            }
+            return !empty( $name ) ? $name : '';
     }
     //THIS FUNCTIONS FINDS ESTIMATED HOURS BY MILESTONE ID//
     public static function get_estimated_hours( $milestone_id, $flag='' ) {

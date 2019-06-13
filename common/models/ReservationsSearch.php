@@ -19,8 +19,8 @@ class ReservationsSearch extends Reservations
     {
         return [
             [['id', 'user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
-            [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_drop', 'pickup_location', 'pickup_time', 'drop_location', 'drop_time', 'special_comment', 'created_at', 'updated_at'], 'safe'],
-            [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long'], 'number'],
+            [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_drop', 'pickup_location', 'pickup_time', 'drop_location', 'drop_time', 'special_comment', 'created_at', 'updated_at','first_name','last_name','email'], 'safe'],
+            [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long','contact_no'], 'number'],
         ];
     }
 
@@ -40,9 +40,9 @@ class ReservationsSearch extends Reservations
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function backendSearch($params)
     {
-        $query = Reservations::find();
+        $query = Reservations::find()->where(['user_id'=>$params['user_id']]);
 
         // add conditions that should always apply here
 
@@ -66,6 +66,7 @@ class ReservationsSearch extends Reservations
             'layout_id' => $this->layout_id,
             'table_id' => $this->table_id,
             'date' => $this->date,
+            'contact_no' => $this->contact_no,
             'booking_start_time' => $this->booking_start_time,
             'booking_end_time' => $this->booking_end_time,
             'total_stay_time' => $this->total_stay_time,
@@ -81,7 +82,10 @@ class ReservationsSearch extends Reservations
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'pickup_drop', $this->pickup_drop])
+        $query->andFilterWhere(['like', 'first_name', $this->first_name])
+            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'pickup_drop', $this->pickup_drop])
             ->andFilterWhere(['like', 'pickup_location', $this->pickup_location])
             ->andFilterWhere(['like', 'drop_location', $this->drop_location])
             ->andFilterWhere(['like', 'special_comment', $this->special_comment]);
