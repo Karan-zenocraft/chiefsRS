@@ -44,7 +44,7 @@ class StatusAsset extends AssetBundle
     //  'js/bootstrap-datepicker.js',  
       'js/jquery.timepicker.min.js',  
       'js/jquery.animateNumber.min.js',  
-    //  'js/google-map.js',  
+      'js/google-map.js',  
       //'js/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"',  
       'js/main.js', 
       //'../../../../common/web/js/bootstrap-clockpicker.min.js',

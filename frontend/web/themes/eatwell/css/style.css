@@ -1885,7 +1885,7 @@ div.title_restaurant {
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
-  text-transform: capitalize;
+ /* text-transform: capitalize;*/
   opacity: 1;
 }
 
@@ -2061,4 +2061,7 @@ div.title_restaurant {
 }
 .clear_button{
   border:1px solid !important;
+}
+.book_restaurant{
+  color:#fff!important;
 }
