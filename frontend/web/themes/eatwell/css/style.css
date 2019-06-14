@@ -2059,3 +2059,6 @@ div.title_restaurant {
     background: url('../../../common/img/ajax-loader.gif') 50% 50% no-repeat rgb(0,0,0);
     opacity: 0.75;
 }
+.clear_button{
+  border:1px solid !important;
+}

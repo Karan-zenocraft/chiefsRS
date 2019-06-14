@@ -23,10 +23,13 @@ public function beforeSave($insert) {
 public function rules()
 {
         return [
-            [['first_name','last_name','email','contact_no','date', 'booking_start_time', 'booking_end_time', 'no_of_guests','total_stay_time'], 'required'],
+            [['first_name','last_name','email','contact_no','date', 'booking_start_time', 'booking_end_time', 'no_of_guests','total_stay_time','pickup_drop','restaurant_id'], 'required'],
+            [['pickup_location', 'drop_location','pickup_time', 'drop_time'],'required', 'when' => function($model) {
+                    return $model->pickup_drop == "1";
+            }],
             [['user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
             [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time', 'created_at', 'updated_at'], 'safe'],
-            [['pickup_drop', 'special_comment'], 'string'],
+            [['special_comment'], 'string'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long'], 'number'],
             [['pickup_location', 'drop_location'], 'string', 'max' => 255],
             [['layout_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantLayout::className(), 'targetAttribute' => ['layout_id' => 'id']],

@@ -70,7 +70,12 @@ $this->title = 'Reservations';
             //'booking_end_time',
             'total_stay_time',
             'no_of_guests',
-            //'pickup_drop',
+                [
+                        'attribute' => 'pickup_drop',
+                        'value' => function($data) {
+                            return Yii::$app->params['pickup_drop_status'][$data->pickup_drop];
+                        },
+                ],
             //'pickup_location',
             //'pickup_lat',
             //'pickup_long',

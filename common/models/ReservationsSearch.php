@@ -18,7 +18,7 @@ class ReservationsSearch extends Reservations
     public function rules()
     {
         return [
-            [['id', 'user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
+            [['id', 'user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status','total_stay_time'], 'integer'],
             [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_drop', 'pickup_location', 'pickup_time', 'drop_location', 'drop_time', 'special_comment', 'created_at', 'updated_at','first_name','last_name','email'], 'safe'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long','contact_no'], 'number'],
         ];
@@ -119,7 +119,7 @@ class ReservationsSearch extends Reservations
             'layout_id' => $this->layout_id,
             'table_id' => $this->table_id,
             'date' => $this->date,
-            'booking_start_time' => $this->booking_start_time,
+          //  'booking_start_time' => $this->booking_start_time,
             'booking_end_time' => $this->booking_end_time,
             'total_stay_time' => $this->total_stay_time,
             'no_of_guests' => $this->no_of_guests,
@@ -138,7 +138,10 @@ class ReservationsSearch extends Reservations
             ->andFilterWhere(['like', 'pickup_location', $this->pickup_location])
             ->andFilterWhere(['like', 'drop_location', $this->drop_location])
             ->andFilterWhere(['like', 'special_comment', $this->special_comment]);
-
+       if(!empty($params['ReservationsSearch']) && !empty($params['ReservationsSearch']['booking_start_time'])){
+            $booking_start_time = date("H:i:s", strtotime($params['ReservationsSearch']['booking_start_time']));
+            $dataProvider->query->andFilterWhere(['booking_start_time'=>$booking_start_time]);
+        }
         return $dataProvider;
     }
 }

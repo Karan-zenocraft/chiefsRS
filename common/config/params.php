@@ -78,6 +78,8 @@ return [
     'base_path'     => __DIR__,
     'reservation_status' => ["0"=>"requested","1"=>"Booked","2"=>"Cancelled","3"=>"Deleted","4"=>"Completed"],
     'reservation_status_value' => ["requested"=>"0","booked"=>"1","cancelled"=>"2","deleted"=>"3","completed"=>"4"],
+    'pickup_drop_status' => ['1'=>'Yes','0'=>'No'],
+  //  'pickup_drop_status_value' => ['yes'=>'1','no'=>'1'],
     //'managersEmail' => 'managers@inheritx.com',
 
 

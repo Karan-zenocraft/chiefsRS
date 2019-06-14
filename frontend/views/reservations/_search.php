@@ -48,7 +48,7 @@ use yii\jui\DatePicker;
 
     <?php  echo $form->field($model, 'no_of_guests') ?>
 
-    <?php  echo $form->field($model, 'pickup_drop') ?>
+    <?php  echo $form->field($model, 'pickup_drop')->dropDownList(array(''=>'')+Yii::$app->params['pickup_drop_status']); ?>
 
     <?php // echo $form->field($model, 'pickup_location') ?>
 
@@ -76,7 +76,7 @@ use yii\jui\DatePicker;
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-         <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['reservations/index',"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
+         <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['reservations/index',"temp"=>"clear"]), ['class' => 'btn btn-default clear_button']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
