@@ -177,6 +177,9 @@ use yii\data\Pagination;
             </div>
       <?php  echo \yii\widgets\LinkPager::widget([
         'pagination' => $pagination_menu,
+        'prevPageLabel' => 'Previous',
+        'nextPageLabel' => 'Next',
+        'maxButtonCount' => 0,
     ]);
 
     Pjax::end();?>
@@ -208,26 +211,38 @@ use yii\data\Pagination;
     
 
 <?php if (!empty($models)) {
+    echo \yii\widgets\LinkPager::widget([
+        'pagination' => $pagination,
+        'prevPageLabel' => 'Previous',
+        //'nextPageLabel' => 'Next',
+        'maxButtonCount' => 0,
+    ]);
+
       foreach ($models as $key => $image) {
           ?>
-          <div class="col-md-4 site-animate">
+          <div class="col-md-3 site-animate">
               <a href="<?php echo Yii::getAlias('@web') . "../../../uploads/" . $image->image_name; ?>" class="site-thumbnail image-popup">
                   <img src="<?php echo Yii::getAlias('@web') . "../../../uploads/" . $image->image_name; ?>" alt="chiefsRS" class="img-fluid" style="width:80%;height:50vh;" title="<?= $image->image_title; ?>">
               </a>
           </div>
       <?php
-      }
+      } ?>
+  <?php  echo \yii\widgets\LinkPager::widget([
+        'pagination' => $pagination,
+       // 'prevPageLabel' => 'Previous',
+        'nextPageLabel' => 'Next',
+        'maxButtonCount' => 0,
+    ]);
 }
 ?>
+
     </div>
   </div>
 </section>
-  <?php  echo \yii\widgets\LinkPager::widget([
-        'pagination' => $pagination,
-    ]);
 
-    Pjax::end();?>
+    <?php Pjax::end();?>
 <!-- END section -->
+
 <section class="site-section section_details bg-light" id="section-contact">
   <div class="container">
     <div class="row">
