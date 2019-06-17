@@ -38,7 +38,7 @@ use yii\data\Pagination;
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-6 site-animate img" data-animate-effect="fadeInRight">
-        <img src="<?= ($snRestaurantsDetail->photo) ? Yii::getAlias('@web')."../../../uploads/".$snRestaurantsDetail->photo : "No image uploaded"?>" alt="chiefsRS" class="img-fluid" style="width:100%;height: 60vh">
+        <img src="<?= ($snRestaurantsDetail->photo) ? Yii::getAlias('@web')."/uploads/".$snRestaurantsDetail->photo : "No image uploaded"?>" alt="chiefsRS" class="img-fluid" style="width:100%;height: 60vh">
       </div>
     </div>
   </div>
@@ -162,7 +162,7 @@ use yii\data\Pagination;
               foreach ($models_menu as $key_menu => $menu) { ?>
               <div class="col-md-6 site-animate">
                 <div class="media menu-item">
-                  <img class="mr-3" src="<?php echo Yii::getAlias('@web')."/../../uploads/".$menu->photo; ?>" class="img-fluid" alt="chiefsRS">
+                  <img class="mr-3" src="<?php echo Yii::getAlias('@web')."/uploads/".$menu->photo; ?>" class="img-fluid" alt="chiefsRS">
                   <div class="media-body">
                     <h5 class="mt-0"><?= !empty($menu->name) ? $menu->name : ""?></h5>
                     <p><?= !empty($menu->description) ? $menu->description : ""?></p>
@@ -221,8 +221,8 @@ use yii\data\Pagination;
       foreach ($models as $key => $image) {
           ?>
           <div class="col-md-3 site-animate">
-              <a href="<?php echo Yii::getAlias('@web') . "../../../uploads/" . $image->image_name; ?>" class="site-thumbnail image-popup">
-                  <img src="<?php echo Yii::getAlias('@web') . "../../../uploads/" . $image->image_name; ?>" alt="chiefsRS" class="img-fluid" style="width:80%;height:50vh;" title="<?= $image->image_title; ?>">
+              <a href="<?php echo Yii::getAlias('@web') . "/uploads/" . $image->image_name; ?>" class="site-thumbnail image-popup">
+                  <img src="<?php echo Yii::getAlias('@web') . "/uploads/" . $image->image_name; ?>" alt="chiefsRS" class="img-fluid" style="width:80%;height:50vh;" title="<?= $image->image_title; ?>">
               </a>
           </div>
       <?php
