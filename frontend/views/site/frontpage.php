@@ -122,7 +122,7 @@ $this->title = 'Chiefs RS';
               </div>
             </div>
           </div>
-  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo Yii::getAlias("@web");?>../../../common/web/img/loading.gif" width="64" height="64" /><br>Loading..</div></center>
+  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo ($_SERVER['HTTP_HOST'] == "localhost") ? Yii::getAlias('@web').'../../../common/web/img/loading.gif' : Yii::$app->params['site_url'].'/chiefsrs_zenocraft_com/common/web/img/loading.gif'; ?>" width="64" height="64" /><br>Loading..</div></center>
           <div class="col-md-7 mb-5 site-animate">
            <?php $form = ActiveForm::begin(['id'=>'contact_us','action'=>Yii::$app->urlManager->createUrl("site/contact-us")]); ?>
 
