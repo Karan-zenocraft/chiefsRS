@@ -40,7 +40,7 @@ StatusAsset::register($this);
           <span class="oi oi-menu"></span> Menu
         </button>
 
-        <div class="collapse navbar-collapse" id="site-nav">
+        <div class="collapse navbar-collapse restaurant_nav" id="site-nav">
           <ul class="navbar-nav ml-auto">
             <?php if ( !Yii::$app->user->isGuest ) { ?>
                <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link list_rest">Home</a></li>

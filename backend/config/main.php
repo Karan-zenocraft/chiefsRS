@@ -51,6 +51,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'scriptUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/admin' : '/chiefsrs_zenocraft_com/admin',
             'rules' => [
                 'login'=>'site/login',
                 'dashboard'=>'site/index',
@@ -98,6 +99,7 @@ return [
             ]
         ],
         'request' => [
+            'baseUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/admin' : '/chiefsrs_zenocraft_com/admin',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'pbB0NvlmxlWRk7XFCN_7XUC2uvX0vyCD',
         ],
