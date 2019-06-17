@@ -83,7 +83,7 @@ class RestaurantsGalleryController extends AdminCoreController
                 $model->image_name = $file_name;
                 if($model->validate()){
                     $model->save();
-                    $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $file_name);
+                    $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name);
 
                 }
                 Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_add_message' ) );
@@ -121,8 +121,8 @@ class RestaurantsGalleryController extends AdminCoreController
                  $file_name = $file->basename."_".uniqid().".".$file->extension;
 
                  $model->image_name = $file_name; 
-                 unlink(Yii::getAlias('@root') .'/uploads/'.$old_image);
-                 $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $file_name,false);
+                 unlink(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image);
+                 $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name,false);
                  $model->image_name = $file_name;
                  $model->save();
             }
@@ -152,8 +152,8 @@ class RestaurantsGalleryController extends AdminCoreController
     {
         $model = $this->findModel($id);
         $this->findModel($id)->delete();
-        if(file_exists(Yii::getAlias('@root') . '/uploads/'. $model->image_name))
-            unlink(Yii::getAlias('@root') . '/uploads/'. $model->image_name);
+        if(file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/'. $model->image_name))
+            unlink(Yii::getAlias('@root') . '/frontend/web/uploads/'. $model->image_name);
             $model->delete(); 
         Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_delete_message' ) );
         return $this->redirect(['index','rid' => $model->restaurant_id]);

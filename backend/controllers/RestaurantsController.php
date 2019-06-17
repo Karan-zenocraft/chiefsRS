@@ -84,7 +84,7 @@ class RestaurantsController extends AdminCoreController
                 $model->photo = $file_name;
                 if($model->validate()){
                     $model->save();
-                    $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $file_name);
+                    $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name);
                       $mealTimes = Yii::$app->params['meal_times'];
                        foreach ($mealTimes as $key => $value) {
                             $modelMealTimes = new RestaurantMealTimes();
@@ -132,9 +132,9 @@ class RestaurantsController extends AdminCoreController
 
                  $model->photo = $file_name; 
                  if(!empty($old_image)){
-                    unlink(Yii::getAlias('@root') .'/uploads/'.$old_image);
+                    unlink(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image);
                  }
-                 $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $file_name,false);
+                 $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name,false);
                  $model->photo = $file_name;
                  $model->save();
             }
@@ -168,8 +168,13 @@ class RestaurantsController extends AdminCoreController
      */
     public function actionDelete($id)
     {
-          $snDeleteStatus = $this->findModel( $id )->delete();
+           $model = $this->findModel($id);
+           $snDeleteStatus = $model->delete();
+
          if ( !empty( $snDeleteStatus ) && $snDeleteStatus=='1' ) {
+            if(file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/'. $model->photo))
+            unlink(Yii::getAlias('@root') . '/frontend/web/uploads/'. $model->photo);
+            $model->delete(); 
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_delete_message' ) );
         }
         return $this->redirect(['index']);
