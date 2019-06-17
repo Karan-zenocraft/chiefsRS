@@ -20,6 +20,12 @@ use common\models\RestaurantWorkingHours;
  */
 class RestaurantsController extends AdminCoreController
 {
+
+    public function beforeAction($action) 
+    { 
+        $this->enableCsrfValidation = false; 
+        return parent::beforeAction($action); 
+    }
     /**
      * {@inheritdoc}
      */
