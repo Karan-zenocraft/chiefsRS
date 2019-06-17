@@ -43,7 +43,7 @@ return [
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'baseUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '/chiefsrs_zenocraft_com',
+            'baseUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '/',
             'cookieValidationKey' => 'iAIsGHwD4Yy9srwnOWoF1BnvESKAYI63',
         ],
          'assetManager' => [
@@ -57,7 +57,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '/chiefsrs_zenocraft_com',
+            'scriptUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '/',
             'rules' => [
                 'home'=>'site/index',
                 'restaurant-details/<rid>'=>'site/restaurant-details',
