@@ -5,7 +5,7 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
 
 }else{
 
-	Yii::setAlias('@common_base', 'chiefsrs_zenocraft_com/common/');
+	Yii::setAlias('@common_base', '/../../../chiefsrs_zenocraft_com/common/');
 }
 Yii::setAlias('common', dirname(__DIR__));
 Yii::setAlias('api', dirname(dirname(__DIR__)) . '/api'); // add api alias
