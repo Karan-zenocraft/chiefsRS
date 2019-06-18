@@ -24,14 +24,6 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
             ],
         ],
     ],
-      'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'scriptUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/common' : '/common',
-            ],
-        'request' => [
-             'baseUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/common' : '/common',
-        ],
    /*     'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
             //'viewPath' => '@common/mail',
@@ -94,14 +86,6 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
             ],
         ],
     ],
-    'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'scriptUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/common' : '/common',
-            ],
-        'request' => [
-             'baseUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/common' : '/common',
-        ],
    /*     'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
             //'viewPath' => '@common/mail',
