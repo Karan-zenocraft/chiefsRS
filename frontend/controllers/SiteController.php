@@ -61,8 +61,8 @@ class SiteController extends FrontCoreController
        
         if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'login')){
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
-                return $this->redirect(\Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$_REQUEST['rid']]));
+            if(isset($_GET['rid']) && !empty($_GET['rid'])){
+                return $this->redirect(\Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$_GET['rid']]));
             }else{
                 return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));    
             }           
@@ -74,8 +74,8 @@ class SiteController extends FrontCoreController
 
 
                 if (Yii::$app->getUser()->login($user)) {
-                      if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
-                        return $this->redirect(\Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$_REQUEST['rid']]));
+                      if(isset($_GET['rid']) && !empty($_GET['rid'])){
+                        return $this->redirect(\Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$_GET['rid']]));
                       }else{
                         return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));    
             }  
