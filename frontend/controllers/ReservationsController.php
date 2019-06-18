@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\components\FrontCoreController;
 use common\models\Restaurants;
+use common\models\Tags;
 
 /**
  * ReservationsController implements the CRUD actions for Reservations model.
@@ -72,8 +73,10 @@ class ReservationsController extends FrontCoreController
 
         $this->layout = "booking";
         $snRestaurantDropDown = Restaurants::RestaurantsDropdown();
+        $tagsArr = Tags::TagsDropDown();
         $model = new Reservations();
         $postData = Yii::$app->request->post();
+
        
         if ($model->load(Yii::$app->request->post())) {
             $model->user_id = Yii::$app->user->id;
@@ -103,7 +106,8 @@ class ReservationsController extends FrontCoreController
 
         return $this->render('create', [
             'model' => $model,
-            'snRestaurantDropDown' => $snRestaurantDropDown
+            'snRestaurantDropDown' => $snRestaurantDropDown,
+            'tagsArr' => $tagsArr,
         ]);
     }
 

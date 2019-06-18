@@ -40,7 +40,7 @@ $this->title = 'Chiefs RS';
     <div class="tab-content">
         <div id="signin-agile"> 
             <div class="logo">
-    <img src="themes/eatwell/images/chief-rs_logo.png" alt="">
+    <img src="themes/chiefsrs/images/chief-rs_logo.png" alt="">
   </div>
        <?php 
 
@@ -79,13 +79,13 @@ $this->title = 'Chiefs RS';
       </div>
     </section>
     <?php
-       $url = Yii::getAlias('@web')."/themes/eatwell/images/logo.png";
+       $url = Yii::getAlias('@web')."/themes/chiefsrs/images/logo.png";
        ?>
      <div id="social_icons">
-           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/apple.png" ?>" alt="apple logo and link to download on apple app store"></a>
-           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/facebook.png" ?>" alt="facebook"></a>
-           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/twitter.png" ?>" alt="twitter"></a>
-           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/eatwell/images/insta.png" ?>" alt="instagram"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/chiefsrs/images/apple.png" ?>" alt="apple logo and link to download on apple app store"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/chiefsrs/images/facebook.png" ?>" alt="facebook"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/chiefsrs/images/twitter.png" ?>" alt="twitter"></a>
+           <a href=""><img src="<?= Yii::getAlias('@web')."/themes/chiefsrs/images/insta.png" ?>" alt="instagram"></a>
        </div>
     <!-- END section -->
      <section class="site-section" id="section-about">
@@ -101,7 +101,7 @@ $this->title = 'Chiefs RS';
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-6 site-animate img" data-animate-effect="fadeInRight">
-            <img src="themes/eatwell/images/about_img_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
+            <img src="themes/chiefsrs/images/about_img_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ $this->title = 'Chiefs RS';
               </div>
             </div>
           </div>
-  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo ($_SERVER['HTTP_HOST'] == "localhost") ? Yii::getAlias('@web').'../../../common/web/img/loading.gif' : Yii::getAlias('@common_base').'/web/img/loading.gif'; ?>" width="64" height="64" /><br>Loading..</div></center>
+  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo ($_SERVER['HTTP_HOST'] == "localhost") ? Yii::getAlias('@web').'/chiefsRS../../common/web/img/loading.gif' : Yii::getAlias('@common_base').'/web/img/loading.gif'; ?>" width="64" height="64" /><br>Loading..</div></center>
           <div class="col-md-7 mb-5 site-animate">
            <?php $form = ActiveForm::begin(['id'=>'contact_us','action'=>Yii::$app->urlManager->createUrl("site/contact-us")]); ?>
 
@@ -141,7 +141,7 @@ $this->title = 'Chiefs RS';
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-4 site-animate">
-            <p><img src="themes/eatwell/images/about_img_1.jpg" alt="" class="img-fluid"></p>
+            <p><img src="themes/chiefsrs/images/about_img_1.jpg" alt="" class="img-fluid"></p>
             <p class="text-black">
               Address: <br> 121 Street, Melbourne Victoria <br> 3000 Australia <br> <br>
               Phone: <br> 90 987 65 44 <br> <br>
@@ -173,8 +173,10 @@ $('body').on('beforeSubmit', "form#contact_us",function () {
                // do something with response
               if(response){
                 alert("You Email has been sent successfully.");
+                 location.reload();
               }else{
                 alert("something Went wrong,Your mail is not sent.");
+                location.reload();
               }
           },
           complete: function(){

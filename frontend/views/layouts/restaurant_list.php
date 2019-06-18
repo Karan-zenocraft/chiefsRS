@@ -101,7 +101,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
           <div class="modal-body">
             <div class="row">
               <div class="col-lg-12">
-                <div class="bg-image" style="background-image: url(themes/eatwell/images/reservation_1.jpg);"></div>
+                <div class="bg-image" style="background-image: url(themes/chiefsrs/images/reservation_1.jpg);"></div>
               </div>
               <div class="col-lg-12 p-5">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

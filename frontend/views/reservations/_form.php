@@ -94,8 +94,11 @@ use kartik\widgets\SwitchInput
             
  
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                        <?= $form->field($model, 'special_comment')->textarea(['rows' => 6]) ?>
+                    </div>
+                    <div class="col-md-6">
+                       <?= $form->field($model, 'tag_id')->dropDownList(array(""=>"")+$tagsArr); ?>
                     </div>
                   </div>
                   

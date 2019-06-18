@@ -19,7 +19,7 @@ class ReservationsSearch extends Reservations
     {
         return [
             [['id', 'user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status','total_stay_time'], 'integer'],
-            [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_drop', 'pickup_location', 'pickup_time', 'drop_location', 'drop_time', 'special_comment', 'created_at', 'updated_at','first_name','last_name','email'], 'safe'],
+            [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_drop', 'pickup_location', 'pickup_time', 'drop_location', 'drop_time', 'special_comment', 'created_at', 'updated_at','first_name','last_name','email','tag_id'], 'safe'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long','contact_no'], 'number'],
         ];
     }
@@ -77,6 +77,7 @@ class ReservationsSearch extends Reservations
             'drop_lat' => $this->drop_lat,
             'drop_long' => $this->drop_long,
             'drop_time' => $this->drop_time,
+            'tag_id' => $this->tag_id,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
@@ -129,6 +130,7 @@ class ReservationsSearch extends Reservations
             'drop_lat' => $this->drop_lat,
             'drop_long' => $this->drop_long,
             'drop_time' => $this->drop_time,
+            'tag_id' => $this->tag_id,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

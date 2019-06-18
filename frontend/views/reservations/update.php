@@ -12,7 +12,8 @@ $this->title = 'Update Reservations: ' . $model->id;
  <h1 class="mb-4 reserve_restaurant">Update Booking</h1>  
     <?= $this->render('_form', [
         'model' => $model,
-        'snRestaurantDropDown' => $snRestaurantDropDown
+        'snRestaurantDropDown' => $snRestaurantDropDown,
+        'tagsArr' => $tagsArr,
     ]) ?>
 
 </div>

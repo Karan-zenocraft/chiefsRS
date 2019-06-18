@@ -38,40 +38,7 @@ class SiteController extends FrontCoreController
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
-    /**
-     * @inheritdoc
-     */
-    /*public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup','index'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout','index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }*/
-
-    /**
-     * @inheritdoc
-     */
+ 
     public function actions()
     {
         return [
@@ -94,7 +61,11 @@ class SiteController extends FrontCoreController
        
         if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'login')){
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
+            if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
+                return $this->redirect(\Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$_REQUEST['rid']]));
+            }else{
+                return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));    
+            }           
         }
         }
         if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'signup')){
@@ -103,7 +74,11 @@ class SiteController extends FrontCoreController
 
 
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
+                      if(isset($_REQUEST['rid']) && !empty($_REQUEST['rid'])){
+                        return $this->redirect(\Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$_REQUEST['rid']]));
+                      }else{
+                        return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));    
+            }  
                 }
             }
         }
@@ -114,100 +89,12 @@ class SiteController extends FrontCoreController
             "model2" => $model2
         ]);
     }
-     public function actionIndex_2()
-    {   
-        $this->layout = "newlandingpage";
-
-        $model = new LoginForm();
-        $model2 = new SignupForm();
-       
-        if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'login')){
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
-        }
-        }
-        if(isset($_REQUEST['hidden']) && !empty($_REQUEST['hidden']) && ($_REQUEST['hidden'] == 'signup')){
-             if ($model2->load(Yii::$app->request->post())) {
-            if ($user = $model2->signup()) {
-
-
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(\Yii::$app->urlManager->createUrl(['site/restaurants']));
-                }
-            }
-        }
-
-        }
-        return $this->render('newfrontpage',[
-           "model" => $model,
-           "model2" => $model2
-        ]);
-    }
-
-    public function actionLogin()
-    {
-       /* if (!\Yii::$app->user->isGuest) {            
-            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
-        }
-*/
-         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
-        } 
-        return $this->render('login', [
-                'model' => $model,
-            ]);
-    }
 
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-
-                if (Yii::$app->getUser()->login($user)) {
-                    Yii::$app->session->setFlash( 'success', Yii::getAlias( '@user_add_message' ) );
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
     }
 
     public function actionRequestPasswordReset()

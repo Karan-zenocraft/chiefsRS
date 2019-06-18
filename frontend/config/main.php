@@ -59,9 +59,12 @@ return [
             'showScriptName' => false,
             'scriptUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '',
             'rules' => [
+                'home/<rid>'=>'site/index',
                 'home'=>'site/index',
+                'restaurants' => 'site/restaurants',
                 'restaurant-details/<rid>'=>'site/restaurant-details',
                 'book-restaurant/<rid>' => 'reservations/create',
+                'book-restaurant' => 'reservations/create',
                 'update-booking/<id>' => 'reservations/update',
                 'cancel-booking/<id>' => 'reservations/cancel',
                 'delete-booking/<id>' => 'reservations/delete',

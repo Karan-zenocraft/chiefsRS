@@ -64,7 +64,7 @@ StatusAsset::register($this);
         <?php //NavBar::end(); ?>    
     </nav>
        <?php 
-        $url_bg = Yii::getAlias('@web')."/themes/eatwell/images/bg_3.jpg";
+        $url_bg = Yii::getAlias('@web')."/themes/chiefsrs/images/bg_3.jpg";
         ?>
       <section class="site-cover" style="background-image: url(<?php echo $url_bg;?>);" id="section-home">
       <div class="container">

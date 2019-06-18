@@ -11,7 +11,8 @@ use yii\helpers\Html;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'snRestaurantDropDown' => $snRestaurantDropDown
+        'snRestaurantDropDown' => $snRestaurantDropDown,
+        'tagsArr' => $tagsArr,
     ]) ?>
 
 </div>

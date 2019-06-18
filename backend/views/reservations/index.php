@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use common\components\Common;
+use common\models\Tags;
 /* @var $this yii\web\View */
 /* @var $searchModel common\modelsReservationsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -84,6 +85,14 @@ $this->params['breadcrumbs'][] = ['label' => Common::get_name_by_id($_GET['user_
                             return ($data->pickup_drop == 0) ? "No" : "Yes";
                         },
             ],
+               [
+                        'attribute' => 'tag_id',
+                        'filter' => Tags::TagsDropDown(),
+                        'value' => function($data) {
+                            $TagsDropDown = Tags::TagsDropDown();
+                            return !empty($data->tag_id) ? $TagsDropDown[$data->tag_id] : "-";
+                        },
+                ],   
              [
                         'attribute' => 'status',
                         'value' => function($data) {

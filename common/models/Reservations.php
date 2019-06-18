@@ -28,7 +28,7 @@ public function rules()
                     return $model->pickup_drop == "1";
             }],
             [['user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
-            [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time', 'created_at', 'updated_at'], 'safe'],
+            [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time','tag_id','created_at', 'updated_at'], 'safe'],
             [['special_comment'], 'string'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long'], 'number'],
             [['pickup_location', 'drop_location'], 'string', 'max' => 255],
@@ -68,6 +68,7 @@ return [
     'drop_lat' => 'Drop Lat',
     'drop_long' => 'Drop Long',
     'drop_time' => 'Drop Time',
+    'tag_id' => 'Tags',
     'special_comment' => 'Special Comment',
     'status' => 'Status',
     'created_at' => 'Created At',

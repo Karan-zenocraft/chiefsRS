@@ -13,7 +13,7 @@ use yii\data\Pagination;
       <h1 class="site-heading site-animate mb-3"><?= !empty($snRestaurantsDetail) ? $snRestaurantsDetail->name : "-" ?></h1>
       <h2 class="h5 site-subheading mb-5 site-animate">Please book our restaurant now</h2>
       <?php if(Yii::$app->user->isGuest){ ?>
-      <p>For Booking Restaurant <a href="<?= Yii::$app->urlManager->createUrl(['site/index']) ?>" class="btn btn-secondary btn-lg book_restaurant">Register Now</a></p>
+      <p>For Booking Restaurant <a href="<?= Yii::$app->urlManager->createUrl(['site/index','rid'=>$_GET['rid']]) ?>" class="btn btn-secondary btn-lg book_restaurant">Register Now</a></p>
     <?php }else{ ?>
        <p><a href="<?= Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$rid]) ?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
     <?php } ?>
@@ -177,7 +177,7 @@ use yii\data\Pagination;
             </div>
       <?php  echo \yii\widgets\LinkPager::widget([
         'pagination' => $pagination_menu,
-        'prevPageLabel' => 'Previous',
+        'prevPageLabel' => '<',
         'nextPageLabel' => 'Next',
         'maxButtonCount' => 0,
     ]);
@@ -213,9 +213,10 @@ use yii\data\Pagination;
 <?php if (!empty($models)) {
     echo \yii\widgets\LinkPager::widget([
         'pagination' => $pagination,
-        'prevPageLabel' => 'Previous',
+        'prevPageLabel' => '<span class="glyphicon glyphicon-chevron-left"></span>',
         //'nextPageLabel' => 'Next',
         'maxButtonCount' => 0,
+         'options' => ['class' => 'prev_button'],
     ]);
 
       foreach ($models as $key => $image) {
@@ -230,8 +231,9 @@ use yii\data\Pagination;
   <?php  echo \yii\widgets\LinkPager::widget([
         'pagination' => $pagination,
        // 'prevPageLabel' => 'Previous',
-        'nextPageLabel' => 'Next',
+        'nextPageLabel' => '<span class="glyphicon glyphicon-chevron-right"></span>',
         'maxButtonCount' => 0,
+        'options' => ['class' => 'next_button'],
     ]);
 }
 ?>

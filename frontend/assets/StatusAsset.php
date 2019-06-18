@@ -15,9 +15,9 @@ use yii\web\AssetBundle;
  */
 class StatusAsset extends AssetBundle
 {
-    public $basePath = '@webroot/themes/eatwell/';
-    public $baseUrl = '@web/themes/eatwell/';
-    public $sourcePath = '@webroot/themes/eatwell/';
+    public $basePath = '@webroot/themes/chiefsrs/';
+    public $baseUrl = '@web/themes/chiefsrs/';
+    public $sourcePath = '@webroot/themes/chiefsrs/';
     public $css = [
         'css/bootstrap.min.css',
         'css/open-iconic-bootstrap.min.css',

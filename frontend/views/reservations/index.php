@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use common\components\Common;
+use common\models\Tags;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ReservationsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -84,13 +85,18 @@ $this->title = 'Reservations';
             //'drop_lat',
             //'drop_long',
             //'drop_time',
+               [
+                        'attribute' => 'tag_id',
+                        'filter' => Tags::TagsDropDown(),
+                        'value' => function($data) {
+                            $TagsDropDown = Tags::TagsDropDown();
+                            return !empty($data->tag_id) ? $TagsDropDown[$data->tag_id] : "-";
+                        },
+                ],   
             //'special_comment:ntext',
                [
                         'attribute' => 'status',
                         'filter' => Yii::$app->params['reservation_status'],
-                        'filterOptions' => ["style" => "width:13%;"],
-                        'headerOptions' => ["style" => "width:13%;"],
-                        'contentOptions' => ["style" => "width:13%;"],
                         'value' => function($data) {
                             return Yii::$app->params['reservation_status'][$data->status];
                         },
@@ -100,8 +106,8 @@ $this->title = 'Reservations';
    [
                         'header' => 'Actions',
                         'class' => 'yii\grid\ActionColumn',
-                        'headerOptions' => ["style" => "width:30%;color:#FDA403"],
-                        'contentOptions' => ["style" => "width:30%;"],
+                        'headerOptions' => ["style" => "width:22%;color:#FDA403"],
+                        'contentOptions' => ["style" => "width:22%;"],
                         'template' => '{update}{cancel}{delete}',
                         'buttons' => [
                             'update' => function ($url, $model) {
