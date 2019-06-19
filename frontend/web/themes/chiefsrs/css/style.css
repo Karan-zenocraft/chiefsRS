@@ -3835,8 +3835,11 @@ html {
   }
 }
 /*# sourceMappingURL=main.css.map */
+@media (min-width:1281px) { 
 .restaurant_nav > ul > li > a {
 color:#000 !important;
+}
+
 }
 .restaurant_nav > ul li.nav-item.active a {
     color: #FDA403 !important;
