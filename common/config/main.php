@@ -1,5 +1,5 @@
 <?php
-use Yii;
+//use Yii;
 if ($_SERVER['HTTP_HOST'] == "localhost"){
     return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
