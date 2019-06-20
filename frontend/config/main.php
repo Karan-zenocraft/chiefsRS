@@ -43,7 +43,7 @@ return [
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'baseUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '',
+            'baseUrl'=> (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012")) ? '/chiefsRS' : '',
             'cookieValidationKey' => 'iAIsGHwD4Yy9srwnOWoF1BnvESKAYI63',
         ],
          'assetManager' => [
@@ -57,7 +57,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS' : '',
+            'scriptUrl'=>(($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012")) ? '/chiefsRS' : '',
             'rules' => [
                 'home/<rid>'=>'site/index',
                 'home'=>'site/index',

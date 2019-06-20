@@ -51,7 +51,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl'=> ($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/admin' : '/admin',
+            'scriptUrl'=> (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012")) ? '/chiefsRS/admin' : '/admin',
             'rules' => [
                 'login'=>'site/login',
                 'dashboard'=>'site/index',
@@ -99,7 +99,7 @@ return [
             ]
         ],
         'request' => [
-             'baseUrl'=>($_SERVER['HTTP_HOST'] == "localhost") ? '/chiefsRS/admin' : '/admin',
+             'baseUrl'=>(($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012")) ? '/chiefsRS/admin' : '/admin',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'pbB0NvlmxlWRk7XFCN_7XUC2uvX0vyCD',
         ],
