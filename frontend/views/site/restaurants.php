@@ -24,7 +24,7 @@ $this->title = 'Chiefs RS';
           $count = 0;
           foreach ($models as $key => $restaurant) { ?>
           <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="media d-block mb-4 text-center site-media site-animate">
+            <div class="media d-block mb-4 text-center site-media site-animate img-container">
               <img src="<?php echo Yii::getAlias('@web')."/uploads/".$restaurant->photo?>" alt="<?= $restaurant->photo;?>" class="img-fluid r_list">
               <div class="media-body p-md-5 p-4">
                 <h5 class="mt-0 h4"><?php echo !empty($restaurant->name) ? $restaurant->name : "-"; ?></h5>

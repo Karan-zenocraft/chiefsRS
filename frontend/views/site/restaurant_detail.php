@@ -10,12 +10,12 @@ use yii\data\Pagination;
       $url = Yii::getAlias('@web')."/img/chiefs-rs-text.png";
       ?>
       <!--   <a class="brand" href="#"><img src="<?php echo $url; ?>" width="35%" height="35%"></a> -->
-      <h1 class="site-heading site-animate mb-3"><?= !empty($snRestaurantsDetail) ? $snRestaurantsDetail->name : "-" ?></h1>
-      <h2 class="h5 site-subheading mb-5 site-animate">Please book our restaurant now</h2>
+      <h1 class="site-heading site-animate mb-3 style_heading_h1"><?= !empty($snRestaurantsDetail) ? $snRestaurantsDetail->name : "-" ?></h1>
+      <h2 class="h5 site-subheading mb-5 site-animate style_book_h2">Please book our restaurant now</h2>
       <?php if(Yii::$app->user->isGuest){ ?>
-      <p>For Booking Restaurant <a href="<?= Yii::$app->urlManager->createUrl(['site/index','rid'=>$_GET['rid']]) ?>" class="btn btn-secondary btn-lg book_restaurant">Register Now</a></p>
+      <p class="style_p">For Booking Restaurant <a href="<?= Yii::$app->urlManager->createUrl(['site/index','rid'=>$_GET['rid']]) ?>" class="btn btn-secondary btn-lg book_restaurant">Register Now</a></p>
     <?php }else{ ?>
-       <p><a href="<?= Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$rid]) ?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
+       <p class="style_p"><a href="<?= Yii::$app->urlManager->createUrl(['reservations/create','rid'=>$rid]) ?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
     <?php } ?>
     </div>
    <!--  <div class="col-md-8">
@@ -210,33 +210,42 @@ use yii\data\Pagination;
       <div id="categories"></div>
     
 
-<?php if (!empty($models)) {
-    echo \yii\widgets\LinkPager::widget([
-        'pagination' => $pagination,
-        'prevPageLabel' => '<span class="glyphicon glyphicon-chevron-left"></span>',
-        //'nextPageLabel' => 'Next',
-        'maxButtonCount' => 0,
-         'options' => ['class' => 'prev_button'],
-    ]);
+<div id="image_curosal">
 
-      foreach ($models as $key => $image) {
-          ?>
-          <div class="col-md-3 site-animate">
-              <a href="<?php echo Yii::getAlias('@web') . "/uploads/" . $image->image_name; ?>" class="site-thumbnail image-popup">
-                  <img src="<?php echo Yii::getAlias('@web') . "/uploads/" . $image->image_name; ?>" alt="chiefsRS" class="img-fluid" style="width:80%;height:50vh;" title="<?= $image->image_title; ?>">
-              </a>
-          </div>
-      <?php
-      } ?>
-  <?php  echo \yii\widgets\LinkPager::widget([
-        'pagination' => $pagination,
-       // 'prevPageLabel' => 'Previous',
-        'nextPageLabel' => '<span class="glyphicon glyphicon-chevron-right"></span>',
-        'maxButtonCount' => 0,
-        'options' => ['class' => 'next_button'],
-    ]);
-}
-?>
+       <?php if (!empty($models)) {
+
+         echo \yii\widgets\LinkPager::widget([
+           'pagination' => $pagination,
+           'prevPageLabel' => '<span class="glyphicon glyphicon-chevron-left"></span>',
+           //'nextPageLabel' => 'Next',
+           'maxButtonCount' => 0,
+           'options' => ['class' => 'prev_button'],
+         ]);
+
+         foreach ($models as $key => $image) { ?>
+
+       <div class="col-md-3 site-animate">
+         <a href="<?php echo Yii::getAlias('@web') . "/uploads/" . $image->image_name; ?>" class="site-thumbnail image-popup">
+           <img src="<?php echo Yii::getAlias('@web') . "/uploads/" . $image->image_name; ?>" alt="chiefsRS" class="img-fluid" title="<?= $image->image_title; ?>">
+         </a>
+       </div>
+
+       <?php
+         }
+       ?>
+
+       <?php
+         echo \yii\widgets\LinkPager::widget([
+           'pagination' => $pagination,
+           //'prevPageLabel' => 'Previous',
+           'nextPageLabel' => '<span class="glyphicon glyphicon-chevron-right"></span>',
+           'maxButtonCount' => 0,
+           'options' => ['class' => 'next_button'],
+         ]);
+
+         }
+       ?>
+     </div>
 
     </div>
   </div>

@@ -13,9 +13,7 @@ use yii\filters\VerbFilter;
 use \yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
 use yii\helpers\DateTime;
-use common\models\Users;
-use common\models\UserEvents;
-use common\models\EventParticipants;
+use common\models\Reservations;
 use common\models\Devicedetails;
 
 /**
@@ -23,12 +21,12 @@ use common\models\Devicedetails;
  */
 class CronController extends \yii\base\Controller
 {
-   public function actionBeforeHourEventNotification(){
+   public function actionCompleteReservation(){
 
-   	$snNextHourEvents = UserEvents::find()->where("event_status != '".Yii::$app->params['event_status']['completed']."' AND event_status != '".Yii::$app->params['event_status']['cancelled']."' AND event_start_date = DATE_ADD(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i'), INTERVAL 1 HOUR)")->asArray()->all();
-   //	p($snNextHourEvents);
-   	if(!empty($snNextHourEvents)){
-   		foreach ($snNextHourEvents as $key => $event) {
+   	$snReservationsArr = Reservations::find()->where("status IN "Yii::$app->params['reservation_status_value']['booked'].",".Yii::$app->params['reservation_status_value']['seated'].") AND date = CURDATE() AND booking_end_time = TIME_FORMAT(CURRENT_TIME(),\"H:i:00\")")->asArray()->all(); 
+   	p($snReservationsArr);
+   	if(!empty($snReservationsArr)){
+   		foreach ($snReservationsArr as $key => $event) {
    			$snEventParticipants = EventParticipants::find()->where(['event_id'=> $event['id'],'participant_status'=> Yii::$app->params['participant_status']['active']])->asArray()->all();
    			if(!empty($snEventParticipants)){
    				foreach ($snEventParticipants as $key => $participant) {
