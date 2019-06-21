@@ -1,0 +1,62 @@
+body {
+
+  color: #ffffff;
+
+  > div.reservations-create {
+    background-image: url("../images/bg-crs-1.jpg");
+    background-clip: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    > h1 {
+      font-size: 5rem;
+      color: #fff;
+    }
+  }
+}
+
+input,
+#reservations-restaurant_id,
+#reservations-date,
+#reservations-tag_id {
+  background-color: transparent !important;
+  border: solid #ffffff 2px !important;
+  border-radius: 5px !important;
+  height: 5vmax !important;
+  color: #fff !important;
+}
+
+#reservations-special_comment {
+  background-color: transparent !important;
+  border: solid #ffffff 2px !important;
+  border-radius: 5px !important;
+  color: #fff !important;
+}
+
+#w0 > div:nth-child(7) > div:nth-child(2) > div > div.form-group > div > div > span.bootstrap-switch-handle-on.bootstrap-switch-primary {
+  background: #FDA403;
+}
+
+option {
+  color: #000 !important;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+}
