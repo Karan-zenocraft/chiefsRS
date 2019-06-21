@@ -16,6 +16,8 @@ use frontend\models\SignupForm;
 use frontend\assets\StatusAsset;
 StatusAsset::register($this);
 //CommonAppAsset::register( $this );
+$this->registerCssFile(Yii::getAlias('@web')."/themes/chiefsrs/css/booking.css");
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
