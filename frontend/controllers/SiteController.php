@@ -99,6 +99,7 @@ class SiteController extends FrontCoreController
 
     public function actionRequestPasswordReset()
     {
+        $this->layout = "booking";
         $model = new PasswordResetRequestForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -117,6 +118,7 @@ class SiteController extends FrontCoreController
 
     public function actionResetPassword($token)
     {
+        $this->layout = "booking";
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {

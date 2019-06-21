@@ -46,7 +46,7 @@ StatusAsset::register($this);
              <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link list_rest">Home</a></li>
               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link list_rest">Restaurants</a></li>
             <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['reservations/index']);?>" class="nav-link list_rest active">My Reservations</a></li>
-            <li class="nav-item"><a href="<?= Yii::$app->urlManager->createUrl(['site/logout']); ?>" class="nav-link list_rest">Logout(<?= Yii::$app->user->identity->first_name ?>)</a></li>
+         <!--    <li class="nav-item"><a href="<?php // Yii::$app->urlManager->createUrl(['site/logout']); ?>" class="nav-link list_rest">Logout(<?php // Yii::$app->user->identity->first_name ?>)</a></li> -->
           </ul>
         </div>
       </div>

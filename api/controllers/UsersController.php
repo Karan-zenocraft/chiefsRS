@@ -55,12 +55,11 @@ class UsersController extends \yii\base\Controller
 
         if ( ( $model = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] )] ) ) !== null ) {
         
-            if ( ( $modell = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => [1,2,4,5]] ) ) !== null ) {
-              //  p($modell);
+            if ( ( $modell = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ),'role_id' => [Yii::$app->params['userroles']['super_admin'],Yii::$app->params['userroles']['admin'],Yii::$app->params['userroles']['supervisor'],Yii::$app->params['userroles']['customer']]] ) ) !== null ) {
                 $ssMessage  = ' You are not authorize to login.';
                 $amResponse = Common::errorResponse( $ssMessage );
             }
-            else if ( ( $model1 = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => "3"] ) ) !== null ) {
+            else if ( ( $model1 = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0"] ) ) !== null ) {
                 $ssMessage  = ' User has been deactivated. Please contact admin.';
                 $amResponse = Common::errorResponse( $ssMessage );
             }
@@ -99,10 +98,6 @@ class UsersController extends \yii\base\Controller
                 $amReponseParam['gcm_registration_id']    = !empty( $device_model->gcm_id ) ? $device_model->gcm_id : "";
                // $amReponseParam['image']                  = !empty( $model->user_image ) && file_exists( Yii::$app->params['upload_user_image'].$model->user_image ) ? Yii::getAlias( '@host' ) . '/' . "uploads/profile_pictures/" . $model->user_image : Yii::getAlias( '@host' ) . '/' . "uploads/no_image.png";
                 $amReponseParam['auth_token']             = $ssAuthToken;
-
-
-
-
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
             }
         }
