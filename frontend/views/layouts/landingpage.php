@@ -15,6 +15,8 @@ use frontend\models\SignupForm;
 /* @var $content string */
 use frontend\assets\StatusAsset;
 StatusAsset::register($this);
+$this->registerCssFile('@web/themes/chiefsrs/css/landingpage.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
+
 //CommonAppAsset::register( $this );
 ?>
 <?php $this->beginPage() ?>
