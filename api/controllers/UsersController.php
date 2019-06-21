@@ -53,9 +53,14 @@ class UsersController extends \yii\base\Controller
 
         $requestParam = $amData['request_param'];
 
-        if ( ( $model = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'role_id' => "3"] ) ) !== null ) {
-               
-            if ( ( $model1 = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => "3"] ) ) !== null ) {
+        if ( ( $model = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] )] ) ) !== null ) {
+        
+            if ( ( $modell = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => [1,2,4,5]] ) ) !== null ) {
+              //  p($modell);
+                $ssMessage  = ' You are not authorize to login.';
+                $amResponse = Common::errorResponse( $ssMessage );
+            }
+            else if ( ( $model1 = Users::findOne( ['email' => $requestParam['user_email'], 'password' => md5( $requestParam['password'] ), 'status' => "0", 'role_id' => "3"] ) ) !== null ) {
                 $ssMessage  = ' User has been deactivated. Please contact admin.';
                 $amResponse = Common::errorResponse( $ssMessage );
             }

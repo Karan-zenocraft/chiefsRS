@@ -40,7 +40,7 @@ $this->title = 'Chiefs RS';
     <div class="tab-content">
         <div id="signin-agile"> 
             <div class="logo">
-    <img src="themes/chiefsrs/images/chief-rs_logo.png" alt="">
+    <img src="<?php echo Yii::getAlias('@web')."/themes/chiefsrs/images/chief-rs_logo.png"; ?>" alt="ChiefsRS Logo">
   </div>
        <?php 
 
@@ -101,7 +101,7 @@ $this->title = 'Chiefs RS';
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-6 site-animate img" data-animate-effect="fadeInRight">
-            <img src="themes/chiefsrs/images/about_img_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
+            <img src="<?php echo Yii::getAlias('@web')."/themes/chiefsrs/images/about_img_1.jpg"?>" alt="About Us" class="img-fluid">
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ $this->title = 'Chiefs RS';
               </div>
             </div>
           </div>
-  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo ($_SERVER['HTTP_HOST'] == "localhost") ? Yii::getAlias('@web').'/chiefsRS../../common/web/img/loading.gif' : Yii::getAlias('@common_base').'/web/img/loading.gif'; ?>" width="64" height="64" /><br>Loading..</div></center>
+  <center><div id="loading" style="display:none;position:center;padding:2px;"><img src="<?php echo Yii::getAlias('@web')."/themes/chiefsrs/images/loading.gif";?>" width="64" height="64" /><br>Loading..</div></center>
           <div class="col-md-7 mb-5 site-animate">
            <?php $form = ActiveForm::begin(['id'=>'contact_us','action'=>Yii::$app->urlManager->createUrl("site/contact-us")]); ?>
 
@@ -141,7 +141,7 @@ $this->title = 'Chiefs RS';
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-4 site-animate">
-            <p><img src="themes/chiefsrs/images/about_img_1.jpg" alt="" class="img-fluid"></p>
+            <p><img src="<?php echo Yii::getAlias('@web')."/themes/chiefsrs/images/about_img_1.jpg";?>" alt="About Us" class="img-fluid"></p>
             <p class="text-black">
               Address: <br> 121 Street, Melbourne Victoria <br> 3000 Australia <br> <br>
               Phone: <br> 90 987 65 44 <br> <br>

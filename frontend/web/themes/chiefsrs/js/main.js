@@ -209,7 +209,7 @@ $(".flash_message").delay(3000).slideUp(500);
 	  'autoclose': true
 	});*/
 	$('#booking_start_time').timepicker();
-	$('#booking_end_time').timepicker();
+	//$('#booking_end_time').timepicker();
 	$('#pickup_time').timepicker();
 	$('#drop_time').timepicker();
 
