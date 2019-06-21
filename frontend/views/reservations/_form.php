@@ -53,7 +53,7 @@ use kartik\widgets\SwitchInput
                   </div>
 
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                      <?= $form->field($model, 'booking_start_time')->textInput(["id"=>"booking_start_time"]) ?>
                     </div>
                   <!--   <div class="col-md-6">
