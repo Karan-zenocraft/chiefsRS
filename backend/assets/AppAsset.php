@@ -21,12 +21,14 @@ class AppAsset extends AssetBundle
         //'css/site.css'
         'css/bootstrap.min.css',
         'css/bootstrap-responsive.min.css',
-        'css/styles.css'
+        'css/styles.css',
+        '../themes/chiefsrs/css/jquery.timepicker.css',
     ];
     public $js = [
         'js/modernizr-2.6.2-respond-1.1.0.min.js',
         'js/bootstrap.min.js',
         'js/scripts.js',
+      '../themes/chiefsrs/js/jquery.timepicker.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
