@@ -98,7 +98,7 @@ $(".userCheckbox").each(function() {
   });
         //if($(this).is('not:checked')){
     /*START: Validation for edit permission form*/
-    var form1 = $('#permission_form');
+    var form1 = $('#workinghours_form');
     var error1 = $('.alert-danger', form1);
     var success1 = $('.alert-success', form1);
     form1.validate({
@@ -146,42 +146,17 @@ $(".userCheckbox").each(function() {
         }
     });
     // START OF CUSTOM MESSAGES AND VALIDATION FOR permission_form//
-         $.validator.addMethod("required_start_date", function(value, element) {
+         $.validator.addMethod("opening_time", function(value, element) {
       //If false, the validation fails and the message below is displayed
-        var snStartDate = value;
-        return snStartDate != '';
-      }, "Start Date is required");
+        var opening_time = value;
+        return opening_time != '';
+      }, "Opening Time is required");
 
-        $.validator.addMethod("required_end_date", function(value, element) {
+        $.validator.addMethod("closing_time", function(value, element) {
       //If false, the validation fails and the message below is displayed
-        var snEndDate = value;
-        return snEndDate != '';
-      }, "End Date is required");
-
-        $.validator.addMethod("required_allocated_hours", function(value, element) {
-      //If false, the validation fails and the message below is displayed
-        var snAlcHours = value;
-        return snAlcHours != '';
-      }, "Total allocated hours is required");
-
-        $.validator.addMethod("required_avg_hours", function(value, element) {
-      //If false, the validation fails and the message below is displayed
-        var snAvgHour = value;
-        return snAvgHour != '';
-      }, "Daily allocated hours is required");
-
-        $.validator.addMethod("allocated_hours_not_zero", function(value, element) {
-      //If false, the validation fails and the message below is displayed
-        var snAllocatedHours = value;
-        return snAllocatedHours > 0;
-      }, "Total Allocated Hours should be not zero");
-
-         $.validator.addMethod("avg_hours_not_zero", function(value, element) {
-      //If false, the validation fails and the message below is displayed
-        var snAvgHours = value;
-        return snAvgHours > 0;
-      }, "Daily allocated Hours should be not zero");
-
+        var opening_time = value;
+        return opening_time != '';
+      }, "Closing Time is required");
           //}
        // if($('[$key]start_date'))
     //});

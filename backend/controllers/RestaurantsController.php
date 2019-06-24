@@ -212,8 +212,8 @@ class RestaurantsController extends AdminCoreController
           $week_days_hours_details[$key]['weekday'] = $key;
           $week_days_hours_details[$key]['hours24'] = $value['hours24'];
           $week_days_hours_details[$key]['restaurant_id'] = $rid;
-          $week_days_hours_details[$key]['opening_time'] = $value['opening_time'];
-          $week_days_hours_details[$key]['closing_time'] = $value['closing_time'];
+          $week_days_hours_details[$key]['opening_time'] = date("H:i:s", strtotime($value['opening_time']));
+          $week_days_hours_details[$key]['closing_time'] = date("H:i:s", strtotime($value['closing_time']));
           $week_days_hours_details[$key]['status'] = $value['status'];
           $week_days_hours_details[$key]->save();
          

@@ -115,7 +115,7 @@ use kartik\widgets\SwitchInput
 <script type="text/javascript">
 $(document).ready(function(){
   if($("#reservations-pickup_drop").prop('checked') == true){
-      $(".pickup_row").show();
+      $(".pickup_row").show();s
   }else{
         $(".pickup_row").hide();
   }

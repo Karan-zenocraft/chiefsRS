@@ -42,20 +42,22 @@ $this->params['breadcrumbs'][] = $this->title;
                        </div>
 
                         <div class="span3">
-                            <div class="input-group clockpicker">
-                                <?= $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key",'readonly'=>true]) ?>  
+                              <?= $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key opening_time",'id'=>'opening_time']) ?>  
+                         <!--    <div class="input-group clockpicker">
+                                <?php // $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key",'readonly'=>true]) ?>  
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
                                     </span>
-                            </div>     
+                            </div>  -->    
                        </div>
                         <div class="span3">
-                             <div class="input-group clockpicker">
-                                <?= $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key",'readonly'=>true]) ?>  
+                            <?php echo $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key closing_time",'id'=>'closing_time']) ?>  
+                             <!-- <div class="input-group clockpicker">
+                                <?php // $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key",'readonly'=>true]) ?>  
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
                                     </span>
-                            </div>
+                            </div> -->
                        </div>
                         <div class="span3">
                             <?= $form->field($weekday, "[$key]status")->dropDownList(Yii::$app->params['restaurants_working_hours_status']) ?>
@@ -75,21 +77,30 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript">
   
     jQuery(function($) {
-$('.clockpicker').clockpicker({
+    $('.opening_time').timepicker({'disableTextInput': true});
+    $('.closing_time').timepicker({'disableTextInput': true});
+
+
+
+/*$('.clockpicker').clockpicker({
     placement: 'bottom',
     align: 'left',
     donetext: 'Done',
     'default': 'now',
      donetext: 'Done'
-});
+});*/
  $('.fulldayhours').change(function() {
         var key = $(this).data('id');
         if($(this).is(':checked')){
-            $('.opening_time_'+key).val("00:00");
-            $('.closing_time_'+key).val("23:59");
+            $('.opening_time_'+key).val("12:00am");
+            $('.closing_time_'+key).val("11:30pm");
+            $('.opening_time_'+key).attr({'readonly': true});
+            $('.closing_time_'+key).attr({'readonly': true});
         }else{
            $('.opening_time_'+key).val("");
             $('.closing_time_'+key).val("");
+            $('.opening_time_'+key).attr({'readonly': false});
+            $('.closing_time_'+key).attr({'readonly': false});
         }
        // if($('[$key]start_date'))
     });

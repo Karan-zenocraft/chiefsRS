@@ -28,7 +28,7 @@ return 'restaurant_working_hours';
 public function rules()
 {
         return [
-            [['weekday', 'opening_time', 'closing_time', 'status'], 'required'],
+            //[['weekday', 'opening_time', 'closing_time', 'status'], 'required'],
            // [['restaurant_id', 'weekday', 'status', 'created_by', 'updated_by'], 'integer'],
             [['opening_time', 'closing_time', 'created_at', 'updated_at','restaurant_id','hours24'], 'safe'],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],

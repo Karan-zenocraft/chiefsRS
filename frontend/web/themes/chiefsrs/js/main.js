@@ -208,7 +208,10 @@ $(".flash_message").delay(3000).slideUp(500);
 	  'format': 'm/d/yyyy',
 	  'autoclose': true
 	});*/
-	$('#booking_start_time').timepicker();
+	$('#booking_start_time').timepicker({'disableTextInput': true});
+	$('#booking_start_time').on('focus',function(){
+		$(this).trigger('blur');
+	});
 	//$('#booking_end_time').timepicker();
 	$('#pickup_time').timepicker();
 	$('#drop_time').timepicker();
