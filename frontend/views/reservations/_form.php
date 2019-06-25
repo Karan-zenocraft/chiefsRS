@@ -23,8 +23,9 @@ use kartik\widgets\SwitchInput;
                             $restaurant_id = $_GET['rid'];
                             echo $form->field($model, 'restaurant_id')->dropDownList($snRestaurantDropDown,['value'=>$restaurant_id,'disabled'=>"true"]); 
                           }else{
+            
                             $restaurant_id = "";
-                             echo $form->field($model, 'restaurant_id')->dropDownList(array(""=>"")+$snRestaurantDropDown,['value'=>$restaurant_id]); 
+                             echo $form->field($model, 'restaurant_id')->dropDownList(array(""=>"")+$snRestaurantDropDown,['value'=>!empty($model->restaurant_id) ? $model->restaurant_id : $restaurant_id]); 
                           }
                         }else{
                           echo $form->field($model, 'restaurant_id')->dropDownList(array(""=>"")+$snRestaurantDropDown);

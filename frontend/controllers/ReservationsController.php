@@ -130,7 +130,7 @@ class ReservationsController extends FrontCoreController
          $tagsArr = Tags::TagsDropDown();
          $postData = Yii::$app->request->post();
         $snRestaurantDropDown = Restaurants::RestaurantsDropdown();
-        if ($model->load($postData)) {
+        if ($model->load($postData) && $model->validate()) {
 
             $model->booking_start_time = date("H:i:s", strtotime($postData['Reservations']['booking_start_time']));
           $model->booking_end_time = date("H:i:s", strtotime('+'.$postData['Reservations']['total_stay_time'].' minutes',strtotime($postData['Reservations']['booking_start_time'])));
