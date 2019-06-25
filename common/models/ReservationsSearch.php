@@ -96,7 +96,7 @@ class ReservationsSearch extends Reservations
 
     public function forntendSearch($params)
     {
-        $query = Reservations::find()->where("status !=".Yii::$app->params['reservation_status_value']['deleted']);
+        $query = Reservations::find()->where("status !=".Yii::$app->params['reservation_status_value']['deleted']." AND user_id = ".Yii::$app->user->id);
 
         // add conditions that should always apply here
 
