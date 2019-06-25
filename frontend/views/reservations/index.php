@@ -30,7 +30,7 @@ $this->title = 'Reservations';
 <div class="row">
 
 <div class="col-md-8">
-     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?> Search Here
+     <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
              <?php if(!empty($_REQUEST['ReservationsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
                 <div class="reservations-serach">
                  <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   

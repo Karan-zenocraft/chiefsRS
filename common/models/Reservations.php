@@ -2,6 +2,7 @@
 
 namespace common\models;
 use Yii;
+use DateTime;
 
 class Reservations extends \common\models\base\ReservationsBase
 {
@@ -23,10 +24,16 @@ public function beforeSave($insert) {
 public function rules()
 {
         return [
-            [['first_name','last_name','email','contact_no','date', 'booking_start_time', 'booking_end_time', 'no_of_guests','total_stay_time','pickup_drop','restaurant_id'], 'required'],
+            [['first_name','last_name','email','contact_no','date', 'booking_start_time','no_of_guests','total_stay_time','pickup_drop'], 'required'],
             [['pickup_location', 'drop_location','pickup_time', 'drop_time'],'required', 'when' => function($model) {
                     return $model->pickup_drop == "1";
-            }],
+            },'whenClient' => "function (attribute, value) {
+                return $('#switch_active').val() == '1';
+            }"],
+            ['restaurant_id','required','when'=>function($model){
+                return (!isset($_GET['rid']) && empty($_GET['rid']));
+            },'enableClientValidation'=>true],
+            ['booking_start_time',"validate_start_time"],
             [['user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
             [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time','tag_id','created_at', 'updated_at'], 'safe'],
             [['special_comment'], 'string'],
@@ -38,7 +45,35 @@ public function rules()
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
 }
-
+    public function validate_start_time($attribute, $params){
+    $dayofweek = date('w', strtotime($this->date))+1;
+    $restaurant_id = !empty($this->restaurant_id) ? $this->restaurant_id : $_GET['rid'];
+    $restaurantDetails = RestaurantWorkingHours::find()->where(['weekday'=>$dayofweek,'restaurant_id'=>$restaurant_id])->one();
+        if(!empty($restaurantDetails)){
+            if($restaurantDetails['hours24'] != "1"){
+             $booking_time = strtotime($this->booking_start_time);
+           
+             $test = $this->isBetween($restaurantDetails['opening_time'],$restaurantDetails['closing_time'],$this->booking_start_time,$restaurantDetails['status']);
+                if($test == "fail"){
+                    $this->addError($attribute, Yii::t('app', 'Restaurant is not open on your booking time.'));
+                }
+            }else{
+                if($restaurantDetails['status'] == "0"){
+                    $this->addError($attribute, Yii::t('app', 'Restaurant is closed in this day.'));
+                }
+            }
+        }
+    }
+    public function isBetween($from, $till, $input,$status) {
+   $fromTime = strtotime($from);
+   $toTime = strtotime($till);
+    $inputTime = strtotime($input);
+    if(($inputTime >= $fromTime) && ($inputTime <= $toTime) && ($status="1")){
+        return "success";
+    }else{
+        return "fail";
+    }
+}
 /**
 * @inheritdoc
 */

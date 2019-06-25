@@ -16,8 +16,9 @@ use frontend\models\SignupForm;
 use frontend\assets\StatusAsset;
 StatusAsset::register($this);
 //CommonAppAsset::register( $this );
-$this->registerCssFile(Yii::getAlias('@web')."/themes/chiefsrs/css/booking.css");
-
+//$this->registerCssFile(Yii::getAlias('@web')."/themes/chiefsrs/css/booking.css");
+$this->registerCssFile('@web/themes/chiefsrs/css/booking.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
+$this->registerCssFile('@web/themes/chiefsrs/css/forgotpassword.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

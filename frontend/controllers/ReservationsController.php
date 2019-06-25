@@ -17,6 +17,11 @@ use common\models\Tags;
  */
 class ReservationsController extends FrontCoreController
 {
+    public function beforeAction($action) 
+    { 
+        $this->enableCsrfValidation = false; 
+        return parent::beforeAction($action); 
+    }
     /**
      * {@inheritdoc}
      */
@@ -76,13 +81,13 @@ class ReservationsController extends FrontCoreController
         $tagsArr = Tags::TagsDropDown();
         $model = new Reservations();
         $postData = Yii::$app->request->post();
-
+        //p($postData);
        
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->user_id = Yii::$app->user->id;
             $model->restaurant_id = (isset($_GET['rid']) && !empty($_GET['rid'])) ? $_GET['rid'] : $model->restaurant_id;
             $model->booking_start_time = date("H:i:s", strtotime($postData['Reservations']['booking_start_time']));
-            $model->booking_end_time = date("H:i:s", strtotime($postData['Reservations']['booking_end_time']));
+            $model->booking_end_time = date("H:i:s", strtotime('+'.$postData['Reservations']['total_stay_time'].' minutes',strtotime($postData['Reservations']['booking_start_time'])));
              if($postData['Reservations']['pickup_drop'] == 0){
             $model->pickup_time = "";
             $model->drop_time = "";
@@ -122,12 +127,13 @@ class ReservationsController extends FrontCoreController
     {
         $this->layout = "booking";
         $model = $this->findModel($id);
+         $tagsArr = Tags::TagsDropDown();
          $postData = Yii::$app->request->post();
         $snRestaurantDropDown = Restaurants::RestaurantsDropdown();
         if ($model->load($postData)) {
 
             $model->booking_start_time = date("H:i:s", strtotime($postData['Reservations']['booking_start_time']));
-            $model->booking_end_time = date("H:i:s", strtotime($postData['Reservations']['booking_end_time']));
+          $model->booking_end_time = date("H:i:s", strtotime('+'.$postData['Reservations']['total_stay_time'].' minutes',strtotime($postData['Reservations']['booking_start_time'])));
         if($postData['Reservations']['pickup_drop'] == 0){
             $model->pickup_time = "";
             $model->drop_time = "";
@@ -150,7 +156,8 @@ class ReservationsController extends FrontCoreController
 
         return $this->render('update', [
             'model' => $model,
-            'snRestaurantDropDown' => $snRestaurantDropDown
+            'snRestaurantDropDown' => $snRestaurantDropDown,
+            'tagsArr' => $tagsArr,
         ]);
     }
 

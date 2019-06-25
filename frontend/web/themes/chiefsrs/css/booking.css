@@ -1,35 +1,47 @@
-body {
-    color: #ffffff;
-}
-
 body>div.reservations-create {
-    background-image: url("../images/bg-crs-1.jpg");
+    background-image: url("../images/rdetails1.jpg");
     background-clip: border-box;
     background-size: cover;
     background-repeat: no-repeat;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
 }
 
 body>div.reservations-create>h1 {
-    font-size: 5rem;
-    color: #fff;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.9);
+    padding-left: 0 !important;
+}
+
+body>div.reservations-create>div {
+    background-color: #fff;
+    width: 50% !important;
+    margin-bottom: 5% !important;
 }
 
 input,
 #reservations-restaurant_id,
 #reservations-date,
 #reservations-tag_id {
-    background-color: transparent !important;
-    border: solid #ffffff 2px !important;
     border-radius: 5px !important;
-    height: 5vmax !important;
-    color: #fff !important;
+    height: 3vmax !important;
 }
 
 #reservations-special_comment {
-    background-color: transparent !important;
-    border: solid #ffffff 2px !important;
     border-radius: 5px !important;
-    color: #fff !important;
 }
 
 #w0>div:nth-child(7)>div:nth-child(2)>div>div.form-group>div>div>span.bootstrap-switch-handle-on.bootstrap-switch-primary {
@@ -42,6 +54,50 @@ option {
 
 label {
     font-size: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    input,
+    #reservations-restaurant_id,
+    #reservations-date,
+    #reservations-tag_id {
+        height: 3vmax !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    input,
+    #reservations-restaurant_id,
+    #reservations-date,
+    #reservations-tag_id {
+        height: 3vmax !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    input,
+    #reservations-restaurant_id,
+    #reservations-date,
+    #reservations-tag_id {
+        height: 3vmax !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    input,
+    #reservations-restaurant_id,
+    #reservations-date,
+    #reservations-tag_id {
+        height: 3vmax !important;
+    }
+}
+
+.nav_list .navbar-nav .list_rest {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /*# sourceMappingURL=booking.css.map */

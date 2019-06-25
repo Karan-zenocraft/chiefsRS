@@ -98,7 +98,7 @@ $(".userCheckbox").each(function() {
   });
         //if($(this).is('not:checked')){
     /*START: Validation for edit permission form*/
-    var form1 = $('#workinghours_form');
+    var form1 = $('#permission_form');
     var error1 = $('.alert-danger', form1);
     var success1 = $('.alert-success', form1);
     form1.validate({

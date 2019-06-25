@@ -16,6 +16,7 @@ use frontend\models\SignupForm;
 use frontend\assets\StatusAsset;
 StatusAsset::register($this);
 //CommonAppAsset::register( $this );
+$this->registerCssFile('@web/themes/chiefsrs/css/restaurant.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

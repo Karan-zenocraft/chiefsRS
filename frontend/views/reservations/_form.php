@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
-use kartik\widgets\SwitchInput
+use kartik\widgets\SwitchInput;
 /* @var $this yii\web\View */
 /* @var $model common\models\Reservations */
 /* @var $form yii\widgets\ActiveForm */
@@ -16,22 +16,27 @@ use kartik\widgets\SwitchInput
                
                <?php $form = ActiveForm::begin(); ?>
                   <div class="row">
-                     <div class="col-md-4">
-
+                     <div class="col-md-12">
                         <?php 
-                        if((isset($_GET['rid']) && !empty($_GET['rid']))){
-                          $restaurant_id = $_GET['rid'];
-                          echo $form->field($model, 'restaurant_id')->dropDownList($snRestaurantDropDown,['value'=>$restaurant_id,'disabled'=>"true"]); 
+                        if($model->isNewRecord){
+                          if((isset($_GET['rid']) && !empty($_GET['rid']))){
+                            $restaurant_id = $_GET['rid'];
+                            echo $form->field($model, 'restaurant_id')->dropDownList($snRestaurantDropDown,['value'=>$restaurant_id,'disabled'=>"true"]); 
+                          }else{
+                            $restaurant_id = "";
+                             echo $form->field($model, 'restaurant_id')->dropDownList(array(""=>"")+$snRestaurantDropDown,['value'=>$restaurant_id]); 
+                          }
                         }else{
-                          $restaurant_id = "";
-                           echo $form->field($model, 'restaurant_id')->dropDownList(array(""=>"")+$snRestaurantDropDown,['value'=>$restaurant_id]); 
+                          echo $form->field($model, 'restaurant_id')->dropDownList(array(""=>"")+$snRestaurantDropDown);
                         }
                         ?>
                     </div>
-                    <div class="col-md-4">
+                  </div>
+                   <div class="row">
+                    <div class="col-md-6">
                       <?php echo $form->field($model, 'first_name')->textInput() ?>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <?php echo $form->field($model, 'last_name')->textInput() ?>
                     </div>
                   </div>
@@ -67,6 +72,7 @@ use kartik\widgets\SwitchInput
                     <div class="col-md-6">
                     <?php  //$model->pickup_drop = 1;
                           echo $form->field($model, 'pickup_drop')->widget(SwitchInput::classname()); ?>
+                       <input type="hidden" name="switch_active" id="switch_active">
                     </div>
                   </div>
                   
@@ -115,18 +121,20 @@ use kartik\widgets\SwitchInput
 <script type="text/javascript">
 $(document).ready(function(){
   if($("#reservations-pickup_drop").prop('checked') == true){
-      $(".pickup_row").show();s
+      $(".pickup_row").show();
   }else{
         $(".pickup_row").hide();
   }
 });
    $('#reservations-pickup_drop').on('change.bootstrapSwitch', function(e) {
       var switch_active = e.target.checked;
-     // console.log(switch_active);
+     
       if(switch_active == true){
         $(".pickup_row").show();
+        $("#switch_active").val("1");
       }else{
         $(".pickup_row").hide();
+        $("#switch_active").val("0");
        // $('.pickup_row').find('input:text').val('');
       }
   });

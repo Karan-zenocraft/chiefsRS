@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                        </div>
 
                         <div class="span3">
-                              <?= $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key opening_time",'id'=>'opening_time']) ?>  
+                              <?= $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key opening_time_common",'id'=>'opening_time']) ?>  
                          <!--    <div class="input-group clockpicker">
                                 <?php // $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key",'readonly'=>true]) ?>  
                                     <span class="input-group-addon">
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>  -->    
                        </div>
                         <div class="span3">
-                            <?php echo $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key closing_time",'id'=>'closing_time']) ?>  
+                            <?php echo $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key closing_time_common",'id'=>'closing_time']) ?>  
                              <!-- <div class="input-group clockpicker">
                                 <?php // $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key",'readonly'=>true]) ?>  
                                     <span class="input-group-addon">
@@ -77,8 +77,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript">
   
     jQuery(function($) {
-    $('.opening_time').timepicker({'disableTextInput': true});
-    $('.closing_time').timepicker({'disableTextInput': true});
+    $('.opening_time_common').timepicker({'disableTextInput': true});
+    $('.closing_time_common').timepicker({'disableTextInput': true});
 
 
 

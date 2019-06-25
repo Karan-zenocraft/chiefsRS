@@ -1717,3 +1717,9 @@ color:#fff!important;
 .restaurant_nav > ul li.nav-item.hover a {
   color: #FDA403 !important;
 }
+@media (min-width:1025px) {
+  .restaurant_nav>ul>li>a {
+    color: #000 !important;
+  }
+
+}

@@ -2282,9 +2282,4 @@ html {
 }
 
 /*# sourceMappingURL=main.css.map */
-@media (min-width:1025px) {
-  .restaurant_nav>ul>li>a {
-    color: #000 !important;
-  }
 
-}
