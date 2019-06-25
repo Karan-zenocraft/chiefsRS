@@ -17,7 +17,7 @@ use frontend\assets\StatusAsset;
 StatusAsset::register($this);
 //CommonAppAsset::register( $this );
 //$this->registerCssFile(Yii::getAlias('@web')."/themes/chiefsrs/css/booking.css");
-$this->registerCssFile('@web/themes/chiefsrs/css/booking.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
+$this->registerCssFile('@web/themes/chiefsrs/css/forgotpassword.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -47,8 +47,6 @@ $this->registerCssFile('@web/themes/chiefsrs/css/booking.css', ['depends'=> [yii
            
              <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link list_rest">Home</a></li>
               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link list_rest">Restaurants</a></li>
-            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['reservations/index']);?>" class="nav-link list_rest active">My Reservations</a></li>
-            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']);?>" class="nav-link list_rest">Logout</a></li>
           </ul>
         </div>
       </div>
