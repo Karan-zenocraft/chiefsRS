@@ -20,7 +20,7 @@ class FrontCoreController extends Controller {
         if(!empty(Yii::$app->user->id)){
             if(Yii::$app->user->identity->status != '1'){
                 Yii::$app->user->logout();
-                $this->redirect(Yii::$app->urlManager(['site/index']));
+               // $this->redirect(Yii::$app->urlManager(['site/index']));
            }
         }
         return true; 

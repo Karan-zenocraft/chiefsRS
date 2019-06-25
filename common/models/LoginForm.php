@@ -51,7 +51,9 @@ class LoginForm extends Model {
                 $this->addError($attribute, Yii::t('app', 'Incorrect email or password.'));                        
             }else if (!$user || $user->status != self::ACTIVE_STATUS) {
                 $this->addError($attribute, Yii::t('app','Your account has been deactivated, please contact to administrator.'));
-            }else {
+            }else if($user->role_id != Yii::$app->params['userroles']['customer']){
+                    $this->addError($attribute, Yii::t('app','You are not authorize to login here'));
+            }else{
                 //$user->last_login = date('Y-m-d H:i:s');
                 //$user->is_logged_in = '1';
                 //$user->save();
