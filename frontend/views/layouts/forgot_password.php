@@ -61,29 +61,6 @@ $this->registerCssFile('@web/themes/chiefsrs/css/forgotpassword.css', ['depends'
                 ?>
 
                 <?php //echo Alert::widget() ?><?php echo $content ?>
-          
-    
-<footer class="site-footer site-bg-dark site-section">
-      <div class="container">
-        <div class="row site-animate">
-           <div class="col-md-12 text-center">
-            <div class="site-footer-widget mb-4">
-              <ul class="site-footer-social list-unstyled ">
-                <li class="site-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="site-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="site-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-12 text-center">
-            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>//document.write(new Date().getFullYear());</script> All rights reserved by <a href="<?php echo Yii::getAlias('@web'); ?>" target="_blank">Chiefs RS</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
       <?php $this->endBody(); ?>
