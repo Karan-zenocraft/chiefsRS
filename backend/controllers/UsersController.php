@@ -121,7 +121,12 @@ class UsersController extends AdminCoreController
 
         $UserRolesDropdown = ArrayHelper::map( UserRoles::find()->where( "id !=" .Yii::$app->params['super_admin_role_id'] )->asArray()->all(), 'id', 'role_name' );
 
-        if ( $model->load( Yii::$app->request->post() ) && $model->save() ) {
+        if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
+            $postData = Yii::$app->request->post();
+            if(isset($postData['Users']) && !empty($postData['Users']['restaurant_id'])){
+                $model->restaurant_id = $postData['Users']['restaurant_id'];
+            }
+            $model->save();
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@user_update_message' ) );
             return $this->redirect( ['users/index'] );
         } else {

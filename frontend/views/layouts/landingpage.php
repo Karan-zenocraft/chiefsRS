@@ -51,6 +51,7 @@ $this->registerCssFile('@web/themes/chiefsrs/css/landingpage.css', ['depends'=> 
             <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->
             <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li>
+             <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link list_rest">Restaurants</a></li>
           <?php }else{ ?>
              <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
               <li class="nav-item"><a href="#section-about" class="nav-link">About</a></li>
