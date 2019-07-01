@@ -71,7 +71,7 @@ class UsersController extends \yii\base\Controller
                 $device_model->setAttributes( $amData['request_param'] );
                 $device_model->device_tocken = $requestParam['device_id'];
                 $device_model->type          = "1";
-                $device_model->gcm_id        = !empty( $requestParam['gcm_registration_id'] ) ? $requestParam['gcm_registration_id'] : "";
+              //  $device_model->gcm_id        = !empty( $requestParam['gcm_registration_id'] ) ? $requestParam['gcm_registration_id'] : "";
                 $device_model->user_id        = $model->id;
               //  $device_model->created_at    = date( 'Y-m-d H:i:s' );
                 $device_model->save( false );
@@ -95,7 +95,7 @@ class UsersController extends \yii\base\Controller
                 //$amReponseParam['event_radious_range']    = !empty( $model->event_radious_range ) ? $model->event_radious_range : "";
                 $amReponseParam['device_token']           = $device_model->device_tocken;
                // $amReponseParam['device_type']            = Yii::$app->params['device_type_value'][$device_model->type];
-                $amReponseParam['gcm_registration_id']    = !empty( $device_model->gcm_id ) ? $device_model->gcm_id : "";
+        //   $amReponseParam['gcm_registration_id']    = !empty( $device_model->gcm_id ) ? $device_model->gcm_id : "";
                // $amReponseParam['image']                  = !empty( $model->user_image ) && file_exists( Yii::$app->params['upload_user_image'].$model->user_image ) ? Yii::getAlias( '@host' ) . '/' . "uploads/profile_pictures/" . $model->user_image : Yii::getAlias( '@host' ) . '/' . "uploads/no_image.png";
                 $amReponseParam['auth_token']             = $ssAuthToken;
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
@@ -519,10 +519,6 @@ class UsersController extends \yii\base\Controller
             Common::encodeResponseJSON( $WholeMealData );
         }
     }
-
-   
-
-
     /*
      * Function : EditProfile()
      * Description : Edit User Profile
