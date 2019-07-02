@@ -1723,3 +1723,20 @@ color:#fff!important;
   }
 
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  .navbar-collapse.collapse.show {
+    display: block !important;
+  }
+}
+
+/* 
+onFirstClick : navbar-collapse restaurant_nav collapse show
+
+toggale : navbar-collapse restaurant_nav collapse
+
+onload : collapse navbar-collapse restaurant_nav 
+*/

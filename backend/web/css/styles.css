@@ -412,3 +412,140 @@ table.table_class tbody {  }
 .form-group input[type="file"]{
     width: 100% !important;
 }
+
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************/
+
+/************? changes done by krutin trivedi **********/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    div.span3.style_input_width {
+        width: 25% !important;
+        margin: 0 5% 0 0 !important;
+    }
+    
+    #w0 input,
+    #users-role_id,
+    #users-email,
+    #users-password,
+    #users-first_name,
+    #users-last_name,
+    #users-address,
+    #users-status,
+    #userssearch-fullname,
+    #userssearch-email,
+    #userssearch-role_id,
+    #userssearch-status {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #w0 > div:nth-child(1),
+    #w0 > div:nth-child(2),
+    #w0 > div:nth-child(4),
+    #w0 > div:nth-child(3) {
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    div.span3.style_input_width {
+        width: 25% !important;
+        margin: 0 5% 0 0 !important;
+    }
+    
+    #w0 input,
+    #users-role_id,
+    #users-email,
+    #users-password,
+    #users-first_name,
+    #users-last_name,
+    #users-address,
+    #users-status,
+    #userssearch-fullname,
+    #userssearch-email,
+    #userssearch-role_id,
+    #userssearch-status {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #w0 > div:nth-child(1),
+    #w0 > div:nth-child(2),
+    #w0 > div:nth-child(4),
+    #w0 > div:nth-child(3) {
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #sidebar > ul {
+        margin: 0;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #content {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    
+    #content > div:nth-child(1) {
+        max-width: 100%;
+        width: 100%;   
+    }
+    #content > div:nth-child(1) > div.navbar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #sidebar > ul {
+        margin: 0;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #content {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    
+    #content > div:nth-child(1) {
+        max-width: 100%;
+        width: 100%;   
+    }
+    #content > div:nth-child(1) > div.navbar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 360px) {
+    #content > div:nth-child(2) > div > div > div.navbar.navbar-inner.block-header {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+        padding-bottom: 2%;
+    }
+}

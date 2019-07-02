@@ -28,10 +28,10 @@ class UsersController extends \yii\base\Controller
 {
     /*
      * Function : Login()
-     * Description : The register user can login from application.
-     * Request Params :mail address and password.
+     * Description : The Restaurant's manager can login from application.
+     * Request Params :Email address and password.
      * Response Params :
-     * Author :Ankit Patel
+     * Author :Rutusha Joshi
      */
 
     public function actionLogin() {
@@ -71,7 +71,6 @@ class UsersController extends \yii\base\Controller
                 $device_model->setAttributes( $amData['request_param'] );
                 $device_model->device_tocken = $requestParam['device_id'];
                 $device_model->type          = "1";
-              //  $device_model->gcm_id        = !empty( $requestParam['gcm_registration_id'] ) ? $requestParam['gcm_registration_id'] : "";
                 $device_model->user_id        = $model->id;
               //  $device_model->created_at    = date( 'Y-m-d H:i:s' );
                 $device_model->save( false );
@@ -85,18 +84,8 @@ class UsersController extends \yii\base\Controller
                 $amReponseParam['first_name']             = $model->first_name;
                 $amReponseParam['last_name']              = $model->last_name;
                 $amReponseParam['address']         = !empty( $model->address ) ? $model->address : "";
-              //  $amReponseParam['country_code']           = $model->country_code;
-               // $amReponseParam['phone']                  = $model->phone;
-             //   $amReponseParam['birth_date']             = date( "d-m-Y", strtotime( $model->birth_date ) );
-              //  $amReponseParam['gender']                 = Yii::$app->params['gender_value'][$model->gender];
-              //  $amReponseParam['is_mobile_verified']     = !empty( $model->is_code_verified ) && ( $model->is_code_verified > 0 ) ? $model->is_code_verified : 0;
-               // $amReponseParam['user_initial_longitude'] = !empty( $model->user_initial_longitude ) ? $model->user_initial_longitude : "";
-                //$amReponseParam['user_initial_latitude']  = !empty( $model->user_initial_latitude ) ? $model->user_initial_latitude : "";
-                //$amReponseParam['event_radious_range']    = !empty( $model->event_radious_range ) ? $model->event_radious_range : "";
+               // $amReponseParam['contact_no']                  = $model->contact_no;
                 $amReponseParam['device_token']           = $device_model->device_tocken;
-               // $amReponseParam['device_type']            = Yii::$app->params['device_type_value'][$device_model->type];
-        //   $amReponseParam['gcm_registration_id']    = !empty( $device_model->gcm_id ) ? $device_model->gcm_id : "";
-               // $amReponseParam['image']                  = !empty( $model->user_image ) && file_exists( Yii::$app->params['upload_user_image'].$model->user_image ) ? Yii::getAlias( '@host' ) . '/' . "uploads/profile_pictures/" . $model->user_image : Yii::getAlias( '@host' ) . '/' . "uploads/no_image.png";
                 $amReponseParam['auth_token']             = $ssAuthToken;
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
             }
@@ -113,9 +102,9 @@ class UsersController extends \yii\base\Controller
     /*
      * Function : SignUp()
      * Description : new user singup.
-     * Request Params : university_id,first_name,last_name,email address,password,profile_pic
-     * Response Params : user_id,firstname,email,last_name, email,status,created_at
-     * Author : Ankit
+     * Request Params : irst_name,last_name,email address,contact_no
+     * Response Params : user_id,firstname,email,last_name, email,status
+     * Author : Rutusha Joshi
      */
 
     public function actionSignUp() {
@@ -352,7 +341,7 @@ class UsersController extends \yii\base\Controller
      * Description : user can change password
      * Request Params : user_id,old_password, new_password
      * Response Params : success or error message
-     * Author : Ankit
+     * Author : Rutusha Joshi
      */
 
     public function actionChangePassword() {
@@ -403,7 +392,7 @@ class UsersController extends \yii\base\Controller
      * Description : if user can forgot passord so send password by mail.
      * Request Params : email,auth_token
      * Response Params : success or error message
-     * Author : Ankit
+     * Author : Rutusha Joshi
      */
 
     public function actionForgotPassword() {
@@ -475,7 +464,7 @@ class UsersController extends \yii\base\Controller
      * Description : Log out
      * Request Params : user_id,auth_token
      * Response Params :
-     * Author : Ankit
+     * Author : Rutusha Joshi
      */
 
     // For Geting Daily data by date
@@ -522,9 +511,9 @@ class UsersController extends \yii\base\Controller
     /*
      * Function : EditProfile()
      * Description : Edit User Profile
-     * Request Params : university_id,first_name,last_name,email address,password,profile_pic
+     * Request Params : university_id,first_name,last_name,email address,contact_no
      * Response Params : user_id,firstname,email,last_name, email,status,created_at
-     * Author : Ankit
+     * Author : Rutusha Joshi
      */
 
     public function actionEditProfile() {
@@ -701,7 +690,7 @@ class UsersController extends \yii\base\Controller
      * Description : Reset Badge Count
      * Request Params :'user_id','auth_token'
      * Response Params :
-     * Author :An
+     * Author :Rutusha Joshi
      */
     public function actionResetBadgeCount() {
 
