@@ -51,7 +51,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl'=> (($_SERVER['HTTP_HOST'] == "localhost") || (($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) ? '/chiefsRS/admin' : '/admin',
+            'scriptUrl'=> (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) ? '/chiefsRS/admin' : '/admin',
             'rules' => [
                 'login'=>'site/login',
                 'dashboard'=>'site/index',
