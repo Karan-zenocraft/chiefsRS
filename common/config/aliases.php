@@ -1,5 +1,5 @@
 <?php
-if (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012")){
+if (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")){
 	
 	Yii::setAlias('@common_base', '/chiefsRS/common/');
 
