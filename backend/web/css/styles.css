@@ -549,3 +549,21 @@ table.table_class tbody {  }
         padding-bottom: 2%;
     }
 }
+/* 
+#cboxWrapper,
+#cboxContent,
+#cboxMiddleLeft {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#cboxLoadedContent {
+    width: 100% !important;
+    height: 70vh !important;
+    border: none !important;
+    background-color: #fff !important;
+}
+
+#cboxClose {
+    top: 0 !important;
+} */
