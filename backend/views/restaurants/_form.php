@@ -36,7 +36,7 @@ use yii\widgets\ActiveForm;
    </div>
    <div class="row">
     <div class="span3">
-    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::getAlias('@web')."../../../frontend/web/uploads/".$model->photo; ?>" alt="" />
+    <img id="image" width="100px" hieght="100px" src="<?php echo Yii::getAlias('@web')."../../frontend/web/uploads/".$model->photo; ?>" alt="" />
     </div>
     </div>
   

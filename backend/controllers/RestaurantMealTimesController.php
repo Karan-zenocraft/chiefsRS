@@ -87,9 +87,11 @@ class RestaurantMealTimesController extends AdminCoreController
     {
         $this->layout = "popup";
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
+        $postData = Yii::$app->request->post();
+        if ($model->load($postData) && $model->validate()) {
+            $model->start_time = date("H:i:s", strtotime($postData['RestaurantMealTimes']['start_time']));
+            $model->end_time = date("H:i:s", strtotime($postData['RestaurantMealTimes']['end_time']));
+            $model->save();
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_mealtime_update_message' ) );
             return Common::closeColorBox();
             return $this->redirect(['restaurants/update', 'id' => $model->restaurant_id]);

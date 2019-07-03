@@ -82,15 +82,15 @@ class RestaurantsController extends AdminCoreController
     public function actionCreate()
     {
         $model = new Restaurants();
-        if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
             $file = \yii\web\UploadedFile::getInstance($model, 'photo');
             if (!empty($file)){   
                 $file_name = $file->basename."_".uniqid().".".$file->extension;
                 $model->photo = $file_name;
-                if($model->validate()){
+                $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name);
+               }
                     $model->save();
-                    $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name);
                       $mealTimes = Yii::$app->params['meal_times'];
                        foreach ($mealTimes as $key => $value) {
                             $modelMealTimes = new RestaurantMealTimes();
@@ -99,14 +99,9 @@ class RestaurantsController extends AdminCoreController
                             $modelMealTimes->status = "1";
                             $modelMealTimes->save(false);
                        }
-                }
+                
                 Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_add_message' ) );
                return $this->redirect( ['restaurants/index'] );
-            }else{
-               return $this->render('create', [
-                    'model' => $model,
-                ]);
-            }
         }
         return $this->render('create', [
             'model' => $model,
@@ -130,7 +125,7 @@ class RestaurantsController extends AdminCoreController
         $model = $this->findModel($id);
         $old_image = $model->photo;
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
              $file = \yii\web\UploadedFile::getInstance($model, 'photo');
               if (!empty($file)){
                  $delete = $model->oldAttributes['photo'];
@@ -142,22 +137,13 @@ class RestaurantsController extends AdminCoreController
                  }
                  $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name,false);
                  $model->photo = $file_name;
-                 $model->save();
-            }
-            else{
+             }else{
                 $model->photo  = $old_image;
-                $model->save(false);
             }
+            $model->save();
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_update_message' ) );
             return $this->redirect( ['restaurants/index'] );
-        }else{
-              return $this->render('update', [
-                'model' => $model,
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
-        }
-
+            }
         return $this->render('update', [
             'model' => $model,
             'searchModel' => $searchModel,

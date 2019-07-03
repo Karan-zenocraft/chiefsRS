@@ -28,7 +28,7 @@ use kartik\widgets\TimePicker;
 <?= $form->field($model, 'meal_type')->textInput(['value'=>Yii::$app->params['meal_times'][$model->meal_type],'disabled'=>true]) ?></td>
        
             <div class="input-group clockpicker">
-   <?= $form->field($model, 'start_time')->textInput(['class'=>'form-control','value'=>$model->start_time,'readonly'=>true]); ?>
+   <?= $form->field($model, 'start_time')->textInput(['class'=>'form-control start_time','value'=>$model->start_time]); ?>
                  <span class="input-group-addon">
                      <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -37,7 +37,7 @@ use kartik\widgets\TimePicker;
 
             <?php //echo $form->field($model, 'start_time')->widget(TimePicker::classname(), []); ?>
             <div class="input-group clockpicker">
-   <?= $form->field($model, 'end_time')->textInput(['class'=>'form-control','value'=>$model->end_time,'readonly'=>true]); ?>
+   <?= $form->field($model, 'end_time')->textInput(['class'=>'form-control end_time','value'=>$model->end_time]); ?>
                  <span class="input-group-addon">
                      <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -70,11 +70,7 @@ use kartik\widgets\TimePicker;
 
 <script type="text/javascript">
     jQuery(function($) {
-$('.clockpicker').clockpicker({
-    placement: 'center',
-    align: 'right',
-    donetext: 'Done',
-    'default': 'now',
-});
+    $('.start_time').timepicker({'disableTextInput': true});
+    $('.end_time').timepicker({'disableTextInput': true});
 });
 </script>

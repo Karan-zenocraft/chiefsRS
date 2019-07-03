@@ -80,15 +80,19 @@ $this->params['breadcrumbs'][] = $this->title;
     $('.opening_time_common').timepicker({'disableTextInput': true});
     $('.closing_time_common').timepicker({'disableTextInput': true});
 
+ $('.fulldayhours').each(function() {
+        var key = $(this).data('id');
+        if($(this).is(':checked')){
+            $('.opening_time_'+key).val("12:00am");
+            $('.closing_time_'+key).val("11:30pm");
+            $('.opening_time_'+key).attr({'readonly': true});
+            $('.closing_time_'+key).attr({'readonly': true});
+        }else{
+            $('.opening_time_'+key).attr({'readonly': false});
+            $('.closing_time_'+key).attr({'readonly': false});
+        }
+    });
 
-
-/*$('.clockpicker').clockpicker({
-    placement: 'bottom',
-    align: 'left',
-    donetext: 'Done',
-    'default': 'now',
-     donetext: 'Done'
-});*/
  $('.fulldayhours').change(function() {
         var key = $(this).data('id');
         if($(this).is(':checked')){
@@ -102,7 +106,6 @@ $this->params['breadcrumbs'][] = $this->title;
             $('.opening_time_'+key).attr({'readonly': false});
             $('.closing_time_'+key).attr({'readonly': false});
         }
-       // if($('[$key]start_date'))
     });
 });
 </script>
