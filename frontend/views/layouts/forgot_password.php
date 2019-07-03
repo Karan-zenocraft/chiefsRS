@@ -21,7 +21,7 @@ $this->registerCssFile('@web/themes/chiefsrs/css/forgotpassword.css', ['depends'
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
     <head>
-      <link rel="shortcut icon" type="image/png" href="img/favicon.jpg"/>
+      <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
         <title>
             <?php echo Html::encode( $this->title ) ?>
         </title>
