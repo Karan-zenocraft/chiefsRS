@@ -45,23 +45,23 @@ th a {
 
 
 #w1::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
     height: 2px;
-	background-color: #F5F5F5;
+    background-color: #F5F5F5;
 }
 
 #w1::-webkit-scrollbar {
     width: 2px;
     height: 8px;
-	background-color: #F5F5F5;
+    background-color: #F5F5F5;
 }
 
 #w1::-webkit-scrollbar-thumb {
     border-radius: 10px;
     height: 2px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #FDA403;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #FDA403;
 }
 
 
