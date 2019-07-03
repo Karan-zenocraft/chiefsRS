@@ -153,7 +153,6 @@ $this->title = 'Chiefs RS';
         </div>
       </div>
     </section>
-   <!--  <div id="map"></div> -->
    <script type="text/javascript">
 $('body').on('beforeSubmit', "form#contact_us",function () {
      var form = $(this);

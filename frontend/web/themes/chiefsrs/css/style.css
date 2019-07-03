@@ -1723,7 +1723,8 @@ color:#fff!important;
   }
 
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .navbar-collapse.collapse {
     display: none !important;
   }
@@ -1732,6 +1733,17 @@ color:#fff!important;
     display: block !important;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  .navbar-collapse.collapse.show {
+    display: block !important;
+  }
+}
+
 
 /* 
 onFirstClick : navbar-collapse restaurant_nav collapse show

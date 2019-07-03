@@ -15,13 +15,14 @@ use frontend\models\SignupForm;
 /* @var $content string */
 use frontend\assets\StatusAsset;
 StatusAsset::register($this);
-//CommonAppAsset::register( $this );
+
 $this->registerCssFile('@web/themes/chiefsrs/css/restaurant.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
     <head>
+      <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
         <title>
             <?php echo Html::encode( $this->title ) ?>
         </title>

@@ -15,14 +15,15 @@ use frontend\models\SignupForm;
 /* @var $content string */
 use frontend\assets\StatusAsset;
 StatusAsset::register($this);
-//CommonAppAsset::register( $this );
-//$this->registerCssFile(Yii::getAlias('@web')."/themes/chiefsrs/css/booking.css");
 $this->registerCssFile('@web/themes/chiefsrs/css/booking.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
+$this->registerCssFile('@web/themes/chiefsrs/css/reservation.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
     <head>
+      <link rel="shortcut icon" type="image/png" href="img/favicon.jpg"/>
+      
         <title>
             <?php echo Html::encode( $this->title ) ?>
         </title>
@@ -41,8 +42,14 @@ $this->registerCssFile('@web/themes/chiefsrs/css/booking.css', ['depends'=> [yii
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
-
-        <div class="collapse navbar-collapse restaurant_nav" id="site-nav">
+        <?php 
+          if(Yii::$app->controller->action->id == "index"){
+            $class = "restaurant_nav";
+          }else{
+            $class = "";
+          }
+        ?>
+        <div class="collapse navbar-collapse <?php echo $class;?>" id="site-nav">
           <ul class="navbar-nav ml-auto">
            
              <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link list_rest">Home</a></li>
@@ -89,7 +96,6 @@ Copyright &copy;<script>//document.write(new Date().getFullYear());</script> All
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
       <?php $this->endBody(); ?>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s"></script>
       <?php $this->endPage() ?>
         </body>
 </html>

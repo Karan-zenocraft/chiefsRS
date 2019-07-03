@@ -316,6 +316,12 @@ class Common {
      */
 
     public static function template_update_button( $url, $model, $flag = false ) {
+          if ( $flag == 2 ) {
+            return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
+                'title' => Yii::t( 'yii', 'Edit' ),
+                'class' => ''
+                ] );
+        }
         if ( $flag == 1 ) {
             return Html::a( '<i class="icon-pencil icon-white"></i>', $url, [
                 'title' => Yii::t( 'yii', 'Edit' ),
@@ -1616,7 +1622,7 @@ class Common {
         if ( $flag == 2 ) {
             return Html::a( '<i class="fa fa-trash"></i>', $url, [
                 'title' => Yii::t( 'yii', 'Delete' ),
-                'class' => 'btn btn-danger btn-small deleteGlobalButton',
+                'class' => 'deleteGlobalButton',
                 'data-confirm' => $confirmmessage,
                 "data-method" => "post",
                 "data-pjax" => "0"
@@ -1624,7 +1630,7 @@ class Common {
         }
         return Html::a( '<i class="fa fa-window-close"></i>', $url, [
             'title' => Yii::t( 'yii', 'Cancel Booking' ),
-            'class' => 'btn cancel_btn btn-small deleteGlobalButton',
+            'class' => 'deleteGlobalButton',
             'data-confirm' => $confirmmessage,
             "data-method" => "post",
             "data-pjax" => "0"

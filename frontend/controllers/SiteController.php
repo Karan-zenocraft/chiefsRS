@@ -39,7 +39,7 @@ class SiteController extends FrontCoreController
         return parent::beforeAction($action);
     }
  
-    public function actions()
+  /*  public function actions()
     {
         return [
             'error' => [
@@ -50,7 +50,7 @@ class SiteController extends FrontCoreController
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
-    }
+    }*/
 
     public function actionIndex()
     {   
