@@ -20,7 +20,12 @@ class ReservationsController extends FrontCoreController
     public function beforeAction($action) 
     { 
         $this->enableCsrfValidation = false; 
-        return parent::beforeAction($action); 
+        if (parent::beforeAction($action)){
+        if (Yii::$app->user->isGuest){
+           return $this->redirect(['site/index'])->send();
+        }
+        }
+        return parent::beforeAction($action);
     }
     /**
      * {@inheritdoc}

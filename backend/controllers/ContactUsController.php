@@ -8,16 +8,17 @@ use common\models\modelContactUsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\components\AdminCoreController;
 
 /**
  * ContactUsController implements the CRUD actions for ContactUs model.
  */
-class ContactUsController extends Controller
+class ContactUsController extends AdminCoreController
 {
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+ /*   public function behaviors()
     {
         return [
             'verbs' => [
@@ -28,7 +29,7 @@ class ContactUsController extends Controller
             ],
         ];
     }
-
+*/
     /**
      * Lists all ContactUs models.
      * @return mixed

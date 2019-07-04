@@ -53,12 +53,8 @@ CommonAppAsset::register( $this );
               }
             }else{
                 $menuItems = [
-            
-                ['label' => 'Sign Up', 'url' => ['site/signup'],
-                'linkOptions' => ['data-method' => 'post']
-                ],
                 ['label' => 'Login',
-                'url' => ['/site/login'],
+                'url' => ['/site/index'],
                 'linkOptions' => ['data-method' => 'post']
                 ],
                 ];

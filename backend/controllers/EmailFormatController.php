@@ -16,7 +16,7 @@ use backend\components\AdminCoreController;
  */
 class EmailFormatController extends AdminCoreController
 {
-    public function behaviors()
+   /* public function behaviors()
     {
         return [
             'verbs' => [
@@ -26,7 +26,7 @@ class EmailFormatController extends AdminCoreController
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all EmailFormat models.
