@@ -29,14 +29,12 @@ class CommonAppAsset extends AssetBundle {
         'css/style.css',
         'css/error.css',
         'css/colorbox.css',
-       // 'css/bootstrap-clockpicker.min.css'
     ];
     public $js = [
         'plugins/easypiechart/jquery.easy-pie-chart.js',
         'js/jquery.validate.min.js',
         'js/common.js',
         'js/jquery.colorbox.js',
-       // 'js/bootstrap-clockpicker.min.js'
     ];
     public $depends = [
         //'yii\web\JqueryAsset',

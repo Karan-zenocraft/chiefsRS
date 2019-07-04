@@ -9,10 +9,11 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\Common;
+use backend\components\AdminCoreController;
 /**
  * RestaurantTablesController implements the CRUD actions for RestaurantTables model.
  */
-class RestaurantTablesController extends Controller
+class RestaurantTablesController extends AdminCoreController
 {
     /**
      * {@inheritdoc}

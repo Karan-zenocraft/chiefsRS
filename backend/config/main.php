@@ -94,9 +94,7 @@ return [
                 'manage-reservations/<user_id>'=>'reservations/index',
                 'update-reservation/<id>/<user_id>'=>'reservations/update',
                 'create-reservation/<user_id>'=>'reservations/create',
-
-
-
+                'manage-contacts'=>'contact-us/index',
             ]
         ],
         'request' => [

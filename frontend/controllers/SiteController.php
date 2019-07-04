@@ -206,7 +206,7 @@ class SiteController extends FrontCoreController
        $model->name = $name;
        $model->email = $fromEmail;
        $model->message = $message;
-       $model->save(false);
+      
        
             ///////////////////////////////////////////////////////////
             //Get email template into database for forgot password
@@ -219,7 +219,12 @@ class SiteController extends FrontCoreController
                 
                 //send email
                 $mail = Common::sendMailToUser(Yii::$app->params['adminEmail'],$fromEmail, $emailformatemodel->subject, $body );
-                return $mail;
+                if($mail){
+                    $model->save(false);
+                    return "success";
+                }else{
+                    return "fail";
+                }
             }
        }
       }

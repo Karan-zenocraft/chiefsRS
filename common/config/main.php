@@ -54,8 +54,8 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                'host' => 'smtp.gmail.com',
-               'username' => 'chefsrs123@gmail.com',
-               'password' => 'Admin@123',
+               'username' => 'chiefsrsmail@gmail.com',
+               'password' => 'chiefsrs@123',
                'port' => '587',
                'encryption' => 'tls',
             ],
@@ -113,8 +113,8 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                'host' => 'smtp.gmail.com',
-               'username' => 'chefsrs123@gmail.com',
-               'password' => 'Admin@123',
+              'username' => 'chiefsrsmail@gmail.com',
+               'password' => 'chiefsrs@123',
                'port' => '587',
                'encryption' => 'tls',
             ],
@@ -175,8 +175,8 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                'host' => 'smtp.gmail.com',
-               'username' => 'chefsrs123@gmail.com',
-               'password' => 'Admin@123',
+                'username' => 'chiefsrsmail@gmail.com',
+               'password' => 'chiefsrs@123',
                'port' => '587',
                'encryption' => 'tls',
             ],

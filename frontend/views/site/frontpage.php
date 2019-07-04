@@ -170,7 +170,7 @@ $('body').on('beforeSubmit', "form#contact_us",function () {
           },
           success: function (response) {
                // do something with response
-              if(response){
+              if(response == "success"){
                 alert("You Email has been sent successfully.");
                  location.reload();
               }else{
