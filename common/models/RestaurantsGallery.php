@@ -28,7 +28,7 @@ public function rules()
         return [
             [['image_title', 'image_description'], 'required'],
             [['image_name'], 'image','extensions'=>'jpg, jpeg, gif, png'],
-            [['description'],'string','max'=>100],
+            [['image_description'],'string','max'=>100],
             [['image_name'], 'image', 'skipOnEmpty'=>TRUE, 'extensions'=>'jpg, jpeg, gif, png', 'on'=>'update'],
             [['restaurant_id', 'status', 'created_by', 'updated_by'], 'integer'],
             [['image_description'], 'string'],

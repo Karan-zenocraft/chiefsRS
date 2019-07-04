@@ -121,7 +121,9 @@ class RestaurantsGalleryController extends AdminCoreController
                  $file_name = $file->basename."_".uniqid().".".$file->extension;
 
                  $model->image_name = $file_name; 
-                 unlink(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image);
+                 if(!empty($old_image) && file_exists(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image)){
+                    unlink(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image);
+                 }
                  $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name,false);
                  $model->image_name = $file_name;
                  $model->save();

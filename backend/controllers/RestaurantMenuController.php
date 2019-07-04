@@ -129,7 +129,9 @@ class RestaurantMenuController extends AdminCoreController
                  $file_name = $file->basename."_".uniqid().".".$file->extension;
 
                  $model->photo = $file_name; 
+            if(!empty($old_image) && file_exists(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image)){
                  unlink(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image);
+             }
                  $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name,false);
                  $model->photo = $file_name;
                  $model->save();
