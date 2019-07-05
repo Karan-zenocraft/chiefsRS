@@ -22,7 +22,7 @@ $this->registerCssFile('@web/themes/chiefsrs/css/reservation.css', ['depends'=> 
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
     <head>
-      <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+      <link rel="shortcut icon" type="image/png" href="<?php Yii::getAlias('@web')?>img/favicon.png"/>
       
         <title>
             <?php echo Html::encode( $this->title ) ?>

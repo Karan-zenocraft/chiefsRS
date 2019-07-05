@@ -33,31 +33,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </label>
                             </div>
                      <div class="row">
-                       
-
-
-                                <?php //echoHtml::checkBox('24hours',[],['label'=>'24hours','id'=>"restaurantworkinghours-24hours-$key hours_$key restaurant_hours",'class'=>'fulldayhours','value'=>"hours_$key",'data-id' => "$key"]); ?>
                         <div class="span3">
                             <?= $form->field($weekday, "[$key]weekday")->textInput(['value'=>Yii::$app->params['week_days'][$key],'disabled'=>true]) ?>
                        </div>
 
                         <div class="span3">
-                              <?= $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key opening_time_common",'id'=>'opening_time']) ?>  
-                         <!--    <div class="input-group clockpicker">
-                                <?php // $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key",'readonly'=>true]) ?>  
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-time"></span>
-                                    </span>
-                            </div>  -->    
+                              <?= $form->field($weekday, "[$key]opening_time")->textInput(['class'=>"form-control opening_time_$key opening_time_common",'id'=>'opening_time','required'=>"required"]) ?>   
                        </div>
                         <div class="span3">
-                            <?php echo $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key closing_time_common",'id'=>'closing_time']) ?>  
-                             <!-- <div class="input-group clockpicker">
-                                <?php // $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key",'readonly'=>true]) ?>  
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-time"></span>
-                                    </span>
-                            </div> -->
+                            <?php echo $form->field($weekday, "[$key]closing_time")->textInput(['class'=>"form-control closing_time_$key closing_time_common",'id'=>'closing_time',"required"=>"required"]) ?>  
                        </div>
                         <div class="span3">
                             <?= $form->field($weekday, "[$key]status")->dropDownList(Yii::$app->params['restaurants_working_hours_status']) ?>
@@ -67,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
         
 
             <div class="form-group form-actions">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-success'/* , 'onClick' => 'javascript:console.log($(".users-form .userfieldsShow"));return false;' */]) ?>
+                <?= Html::submitButton('Save', ['class' => 'btn btn-success submitButton'/* , 'onClick' => 'javascript:console.log($(".users-form .userfieldsShow"));return false;' */]) ?>
                 <?= Html::a(Yii::t('app', 'Cancel'), 'javascript:void(0)', ['class' => 'btn default btn-success', 'onClick' => 'parent.jQuery.colorbox.close();']) ?>
             </div>
             <?php ActiveForm::end(); ?>
