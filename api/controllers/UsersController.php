@@ -761,7 +761,7 @@ class UsersController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-                $layouts = RestaurantLayout::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active'])->asArray()->all();
+                $layouts = RestaurantLayout::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
                 if(!empty($layouts)){
                     $ssMessage                                = 'User Floors Details.';
 
