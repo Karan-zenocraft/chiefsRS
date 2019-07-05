@@ -68,6 +68,9 @@ th a {
     .restaurant_nav_reservation.temp_forspecificity.temp_forspecificity_1 > ul > li > a {
         color : black !important;
     }
+    .restaurant_nav_reservation.temp_forspecificity.temp_forspecificity_1 .nav-link.active {
+        color : #FDA403 !important;
+    }
 }
 
 body > section > div > div > div.table-responsive.reservation_table > div.reservation-serach {

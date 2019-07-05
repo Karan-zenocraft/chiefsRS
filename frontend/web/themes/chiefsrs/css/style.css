@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+body,
+html {
+  font-family: 'Montserrat', sans-serif;
+}
 
 html {
   overflow-x: hidden;
@@ -1045,6 +1051,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   border:0;
   font-size:100%;
   font:inherit;
+  font-family: 'Montserrat', sans-serif;
   vertical-align:baseline;
 }
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {
@@ -1755,6 +1762,10 @@ color:#fff!important;
   .site-navbar-light .nav-link {
     color: #fff !important;
   }
+}
+
+#site-nav>ul>li>a {
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* 
