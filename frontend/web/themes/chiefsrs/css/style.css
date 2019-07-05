@@ -1717,14 +1717,19 @@ color:#fff!important;
 .restaurant_nav > ul li.nav-item.hover a {
   color: #FDA403 !important;
 }
-@media (min-width:1025px) {
+@media (min-width:991px) {
   .restaurant_nav>ul>li>a {
     color: #000 !important;
   }
-
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width:990px) {
+  .site-navbar-light .nav-link {
+    color: #fff !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
   .navbar-collapse.collapse {
     display: none !important;
   }
@@ -1732,15 +1737,23 @@ color:#fff!important;
   .navbar-collapse.collapse.show {
     display: block !important;
   }
+
+  .site-navbar-light .nav-link {
+    color: #fff !important;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media (min-width: 768px) and (max-width: 990px) and (orientation: landscape) {
   .navbar-collapse.collapse {
     display: none !important;
   }
   
   .navbar-collapse.collapse.show {
     display: block !important;
+  }
+  
+  .site-navbar-light .nav-link {
+    color: #fff !important;
   }
 }
 

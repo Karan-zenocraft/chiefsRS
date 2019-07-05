@@ -64,7 +64,41 @@ th a {
 	background-color: #FDA403;
 }
 
+@media (min-width:1024px) {
+    .restaurant_nav_reservation.temp_forspecificity.temp_forspecificity_1 > ul > li > a {
+        color : black !important;
+    }
+}
 
+body > section > div > div > div.table-responsive.reservation_table > div.reservation-serach {
+    margin-top: 2%;
+}
+
+body > section > div > div > div.table-responsive.reservation_table > div.reservation-serach > div {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    align-content: center !important;
+    width: 100%;
+    height: 100%;
+}
+
+#w0 {
+    width: 50%;
+    height: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #w0 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #w0 {
+        width: 100%;
+    }
+}
 
 @media (min-width: 481px) and (max-width: 767px) {
     .reservations-index {
@@ -110,6 +144,10 @@ th a {
     
     #w1 > table > tbody > tr > td:nth-child(8) > a {
         margin: 0 5%;
+    }
+
+    #w0 {
+        width: 100%;
     }
 }
 
@@ -157,5 +195,9 @@ th a {
 
     #w1 > table > tbody > tr > td:nth-child(8) > a {
         margin: 0 6%;
+    }
+
+    #w0 {
+        width: 100%;
     }
 }

@@ -14,7 +14,7 @@ if ($_SERVER['HTTP_HOST'] == "localhost"){
             'password' => 'inx@!123',*/
             'dsn'      => 'mysql:host=localhost;dbname=ChiefsRS',
             'username' => 'root',
-            'password' => 'rutusha@123',
+            'password' => '',
             'charset' => 'utf8',
         ],
          'assetManager' => [

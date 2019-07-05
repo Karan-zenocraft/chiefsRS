@@ -26,7 +26,10 @@ $this->title = 'Reservations';
         <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Book Restaurant'), Yii::$app->urlManager->createUrl(['reservations/create']), ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['reservations/index']), ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
-        <?php if(!empty($_REQUEST['ReservationsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+      
+    </div>
+</div>
+<?php if(!empty($_REQUEST['ReservationsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
             <div class="reservations-serach">
                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
             </div> 
@@ -35,8 +38,6 @@ $this->title = 'Reservations';
                 <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
             </div>  
         <?php } ?>
-    </div>
-</div>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

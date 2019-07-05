@@ -44,7 +44,7 @@ $this->registerCssFile('@web/themes/chiefsrs/css/reservation.css', ['depends'=> 
         </button>
         <?php 
           if(Yii::$app->controller->action->id == "index"){
-            $class = "restaurant_nav_reservation";
+            $class = "restaurant_nav_reservation temp_forspecificity temp_forspecificity_1";
           }else{
             $class = "";
           }

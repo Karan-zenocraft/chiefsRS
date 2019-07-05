@@ -485,7 +485,7 @@ html {
     justify-content: flex-start;
     max-width: 100% !important;
     width: 100% !important;
-    margin: 5% 0 0 0 !important;
+    margin: 10% 0 0 0 !important;
     padding: 0 !important;
   }
 
@@ -908,9 +908,6 @@ html {
     margin: 0 !important;
   }
 
-  .navbar-collapse.collapse {
-    display: none !important;
-  }
 }
 
 /* 
@@ -943,7 +940,7 @@ html {
     justify-content: flex-start;
     max-width: 100% !important;
     width: 100% !important;
-    margin: 5% 0 0 0 !important;
+    margin: 10% 0 0 0 !important;
     padding: 0 !important;
     height: 100vmax;
   }
@@ -1369,9 +1366,6 @@ html {
     margin: 0 !important;
   }
 
-  .navbar-collapse.collapse {
-    display: none !important;
-  }
 }
 
 /* 
