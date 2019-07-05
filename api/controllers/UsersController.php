@@ -421,7 +421,7 @@ class UsersController extends \yii\base\Controller
 
             // $ssEmail = 'rutusha@inheritx.com';
             if (!Users::isPasswordResetTokenValid($omUsers->password_reset_token)) {
-            $token = $omUsers->generatePasswordResetToken();
+            $token = Users::generatePasswordResetToken();
             $omUsers->password_reset_token = $token;
             if (!$omUsers->save()) {
                 return false;
