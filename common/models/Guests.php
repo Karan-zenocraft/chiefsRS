@@ -17,7 +17,7 @@ public function rules()
         return [
             [['reservation_id', 'contact_no'], 'integer'],
             [['name', 'email'], 'required'],
-            [['birthday', 'anniversary','first_name','last_name'], 'safe'],
+            [['birthday', 'anniversary','first_name','last_name','restaurant_id'], 'safe'],
             [['first_name','last_name','email', 'guest_note'], 'string', 'max' => 255],
         ];
 }
@@ -29,7 +29,8 @@ public function attributeLabels()
 {
 return [
     'id' => Yii::t('app', 'ID'),
-    'reservation_id' => Yii::t('app', 'Reservation ID'),
+    'restaurant_id' => Yii::t('app', 'Restaurant Id'),
+    'reservation_id' => Yii::t('app', 'Reservation Id'),
     'first_name' => Yii::t('app', 'First Name'),
     'last_name' => Yii::t('app', 'Last Name'),
     'email' => Yii::t('app', 'Email'),
