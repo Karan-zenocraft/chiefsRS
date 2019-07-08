@@ -16,9 +16,10 @@ return [
         'manager' => '3',
         'supervisor' => '4',
         'customer' => '5',
+        'walk_in' => '6',
     ],
     //get user rolename 
-    'userrole_name' => ['1' => 'Super Admin', '2' => 'Admin','3'=>'Manager','4'=>'SuperVisor','5'=>'Customer'],
+    'userrole_name' => ['1' => 'Super Admin', '2' => 'Admin','3'=>'Manager','4'=>'SuperVisor','5'=>'Customer',"6"=>"Walk In"],
     'user_status' => array('1' => 'Active', '0' => 'In-Active'),
     'user_status_value' => array('active' => '1', 'in_active' => '0'),
     'status' => array('1' => 'Active', '0' => 'In-Active'),

@@ -59,25 +59,25 @@ class GuestController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-                 if ( ( $gModel = Guests::findOne(['email'=>$requestParam['email']])) !== null){
+                 if ( ( $gModel = Users::findOne(['email'=>$requestParam['email']])) !== null){
                      
-                     $ssMessage  = 'This Email is already in guest list. Please try another email';
+                     $ssMessage  = 'This Email is already in user list. Please try another email';
                      $amResponse = Common::errorResponse( $ssMessage );
-                }else if(($gModel = Guests::findOne(['contact_no'=>$requestParam['contact_no']])) !== null){
+                }else if(($gModel = Users::findOne(['contact_no'=>$requestParam['contact_no']])) !== null){
 
-                     $ssMessage  = 'This Contact Number is already in guest list. Please try another Contact Number.';
+                     $ssMessage  = 'This Contact Number is already in user list. Please try another Contact Number.';
                      $amResponse = Common::errorResponse( $ssMessage );
                 }else{
-                    $guestModel = new Guests();
+                    $guestModel = new Users();
                     $guestModel->first_name = !empty($requestParam['first_name']) ? $requestParam['first_name'] : "";
                     $guestModel->last_name = !empty($requestParam['last_name']) ? $requestParam['last_name'] : "";
                     $guestModel->email = !empty($requestParam['email']) ? $requestParam['email'] : "";
                     $guestModel->contact_no = !empty($requestParam['contact_no']) ? $requestParam['contact_no'] : "";
-                    $guestModel->reservation_id = !empty($requestParam['reservation_id']) ? $requestParam['reservation_id'] : "";
-                    $guestModel->restaurant_id = $restaurant_id;
-                    $guestModel->reservation_id = !empty($requestParam['reservation_idguest_note']) ? $requestParam['guest_note'] : "";
-                    $guestModel->birthday = !empty($requestParam['birthday']) ? $requestParam['birthday'] : "";
+                    $guestModel->walkin_note = !empty($requestParam['walkin_note']) ? $requestParam['walkin_note'] : "";
+                    $guestModel->birthdate = !empty($requestParam['birthday']) ? $requestParam['birthday'] : "";
                     $guestModel->anniversary = !empty($requestParam['anniversary']) ? $requestParam['anniversary'] : "";
+                    $guestModel->role_id = Yii::$app->params['userroles']['walk_in'];
+                    $guestModel->status = Yii::$app->params['user_status_value']['active'];
                     $guestModel->save(false); 
                      $amReponseParam['GuestDetails']['id'] = !empty($guestModel['id']) ? $guestModel['id'] : "null";
                     $amReponseParam['GuestDetails']['first_name'] = !empty($guestModel['first_name']) ? $guestModel['first_name'] : "null";
@@ -85,10 +85,8 @@ class GuestController extends \yii\base\Controller
                     $amReponseParam['GuestDetails']['email'] = !empty($guestModel['email']) ? $guestModel['email'] : "null";
                     $amReponseParam['GuestDetails']['contact_no'] = !empty($guestModel['contact_no']) ? $guestModel['contact_no'] : "null";
                     $amReponseParam['GuestDetails']['guest_note'] = !empty($guestModel['guest_note']) ? $guestModel['guest_note'] : "null";
-                    $amReponseParam['GuestDetails']['birthday'] = !empty($guestModel['birthday']) ? $guestModel['birthday'] : "null";
+                    $amReponseParam['GuestDetails']['birthday'] = !empty($guestModel['birthdate']) ? $guestModel['birthdate'] : "null";
                     $amReponseParam['GuestDetails']['anniversary'] = !empty($guestModel['anniversary']) ? $guestModel['anniversary'] : "null";
-                    $amReponseParam['GuestDetails']['reservation_id'] = !empty($guestModel['reservation_id']) ? $guestModel['reservation_id'] : "null";
-                    $amReponseParam['GuestDetails']['restaurant_id'] = !empty($guestModel['restaurant_id']) ? $guestModel['restaurant_id'] : "null";
                    
                     $ssMessage                                = 'Guest is successfully created.';
                     $amReponseParam             = $amReponseParam;
@@ -99,7 +97,7 @@ class GuestController extends \yii\base\Controller
                  $amResponse = Common::errorResponse( $ssMessage );
             }
         }else {
-            $ssMessage  = 'Invalid User.';
+            $ssMessage  = 'Invalid Manager.';
             $amResponse = Common::errorResponse( $ssMessage );
         }
         // FOR ENCODE RESPONSE INTO JSON //
