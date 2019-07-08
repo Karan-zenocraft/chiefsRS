@@ -67,6 +67,7 @@ class FloorController extends \yii\base\Controller
                 $floorModel->created_by = $requestParam['user_id'];
                 $floorModel->created_at = date('Y-m-d H:i:s');
                 if($floorModel->save()){
+                        $amResponseFloor = $floorModel;
                     //$amReponseParamPrepare['floor_data'] = $floorModel;
                     if(!empty($requestParam['table_data'])){
                         foreach ($requestParam['table_data'] as $key => $table) {
@@ -86,31 +87,9 @@ class FloorController extends \yii\base\Controller
                             $tableModel->created_at = date('Y-m-d H:i:s');
                             $tableModel->save(false);     
                             $amReponseParamTable[]  = $tableModel;
-                            $amReponseParamTable['id'] = !empty($tableModel->id) ? $tableModel->id : "empty";
-                            $amReponseParamTable['restaurant_id'] = !empty($tableModel->restaurant_id) ? $tableModel->restaurant_id : "empty";
-                            $amReponseParamTable['floor_id'] = !empty($tableModel->layout_id) ? $tableModel->layout_id : "empty";
-                            $amReponseParamTable['name'] = !empty($tableModel->name) ? $tableModel->name : "empty";
-                            $amReponseParamTable['width'] = !empty($tableModel->width) ? $tableModel->width : "empty";
-                            $amReponseParamTable['height'] = !empty($tableModel->height) ? $tableModel->height : "empty";
-                            $amReponseParamTable['x_cordinate'] = !empty($tableModel->x_cordinate) ? $tableModel->x_cordinate : "empty";
-                            $amReponseParamTable['y_cordinate'] = !empty($tableModel->y_cordinate) ? $tableModel->y_cordinate : "empty";
-                            $amReponseParamTable['shape'] = !empty($tableModel->shape) ? $tableModel->shape : "empty";
-                            $amReponseParamTable['min_capacity'] = !empty($tableModel->min_capacity) ? $tableModel->min_capacity : "empty";
-                            $amReponseParamTable['max_capacity'] = !empty($tableModel->max_capacity) ? $tableModel->max_capacity : "empty";
-                              $amReponseParamTable['created_by'] = !empty($tableModel->created_by) ? $tableModel->created_by : "empty";
-                                $amReponseParamTable['updated_by'] = !empty($tableModel->updated_by) ? $tableModel->updated_by : "empty";
-                            $amReponseParamTable['status'] = !empty($tableModel->status) ? Yii::$app->params['user_status'][$tableModel->status] : "empty";
-                             $amReponseParamTable['created_by'] = !empty($tableModel->created_by) ? $tableModel->created_by : "empty";
-                            $amReponseParamTable['updated_by'] = !empty($tableModel->updated_by) ? $tableModel->updated_by : "empty";
 
                         }
 
-                        $amResponseFloor = $floorModel;
-                        $amResponseFloor['id'] = !empty($floorModel->id) ? $floorModel->id : "empty";
-                        $amResponseFloor['name'] = !empty($floorModel->name) ? $floorModel->name : "empty";
-
-                        $amResponseFloor['restaurant_id'] = !empty($floorModel->restaurant_id) ? "test" : "empty";
-                        $amResponseFloor['status'] = !empty($floorModel->status) ? Yii::$app->params['user_status'][$floorModel->status] : "empty";
                         $amReponseParam['floor_data'] = $amResponseFloor;
                         $amReponseParam['table_data'] = $amReponseParamTable;
 
