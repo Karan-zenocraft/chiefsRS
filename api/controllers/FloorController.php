@@ -87,19 +87,15 @@ class FloorController extends \yii\base\Controller
                             $tableModel->created_at = date('Y-m-d H:i:s');
                             $tableModel->save(false);     
                             $amReponseParamTable[]  = $tableModel;
-
                         }
 
                         $amReponseParam['floor_data'] = $amResponseFloor;
                         $amReponseParam['table_data'] = $amReponseParamTable;
-
-
                         $ssMessage                  = 'Floor is successfully created.';
                        // $amReponseParam             = $amReponseParam;
                         $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
                     }
-
                 }
 
             }else{
