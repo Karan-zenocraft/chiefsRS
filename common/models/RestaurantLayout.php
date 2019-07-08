@@ -9,7 +9,7 @@ class RestaurantLayout extends \common\models\base\RestaurantLayoutBase
 	{
 		return 'restaurant_layouts';
 	}
-    public function beforeSave($insert) {
+    /*public function beforeSave($insert) {
         $user_id = Yii::$app->user->id;
         if ($this->isNewRecord) {
             $this->setAttribute('created_by',$user_id);
@@ -19,7 +19,7 @@ class RestaurantLayout extends \common\models\base\RestaurantLayoutBase
         $this->setAttribute('updated_by',$user_id);
 
         return parent::beforeSave($insert);
-    }
+    }*/
 
 /**
 * @inheritdoc

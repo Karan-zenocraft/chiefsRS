@@ -1636,4 +1636,25 @@ class Common {
             "data-pjax" => "0"
             ] );
     }
+
+    public static function checkRequestParameterKeyArray($amData, $amRequiredParams)
+    {
+        $amError = array();
+        if (empty($amData))
+        {
+            $amError['error'] = 'Invalid request parameters';
+        }
+        else
+        {
+            foreach ($amRequiredParams as $value)
+            {
+                if (!isset($amData[$value]))
+                {
+                    $amError['error'] = $value . " can't be blank";
+                    return $amError;
+                }
+            }
+        }
+        return $amError;
+    }
 }

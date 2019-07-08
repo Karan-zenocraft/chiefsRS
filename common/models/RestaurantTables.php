@@ -13,7 +13,7 @@ public static function tableName()
 return 'restaurant_tables';
 }
 
-  public function beforeSave($insert) {
+ /* public function beforeSave($insert) {
         $user_id = Yii::$app->user->id;
         if ($this->isNewRecord) {
             $this->setAttribute('created_by',$user_id);
@@ -23,7 +23,7 @@ return 'restaurant_tables';
         $this->setAttribute('updated_by',$user_id);
 
         return parent::beforeSave($insert);
-    }
+    }*/
 /**
 * @inheritdoc
 */
