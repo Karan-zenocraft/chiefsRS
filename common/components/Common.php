@@ -1568,7 +1568,7 @@ class Common {
 
  public static function successResponse($ssSuccessMessage, $amReponseParam = [])
     {
-        $amResponse = ['success' => 1, 'message' => $ssSuccessMessage, 'data' => $amReponseParam];
+        $amResponse = ['success' => 200, 'message' => $ssSuccessMessage, 'data' => $amReponseParam];
         return $amResponse;
     }
 

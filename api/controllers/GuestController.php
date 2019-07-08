@@ -59,32 +59,41 @@ class GuestController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
+                 if ( ( $gModel = Guests::findOne(['email'=>$requestParam['email']])) !== null){
+                     
+                     $ssMessage  = 'This Email is already in guest list. Please try another email';
+                     $amResponse = Common::errorResponse( $ssMessage );
+                }else if(($gModel = Guests::findOne(['contact_no'=>$requestParam['contact_no']])) !== null){
 
-                $guestModel = new Guests();
-                $guestModel->first_name = !empty($requestParam['first_name']) ? $requestParam['first_name'] : "";
-                $guestModel->last_name = !empty($requestParam['last_name']) ? $requestParam['last_name'] : "";
-                $guestModel->email = !empty($requestParam['email']) ? $requestParam['email'] : "";
-                $guestModel->contact_no = !empty($requestParam['contact_no']) ? $requestParam['contact_no'] : "";
-                $guestModel->reservation_id = !empty($requestParam['reservation_id']) ? $requestParam['reservation_id'] : "";
-                $guestModel->restaurant_id = $restaurant_id;
-                $guestModel->reservation_id = !empty($requestParam['reservation_idguest_note']) ? $requestParam['guest_note'] : "";
-                $guestModel->birthday = !empty($requestParam['birthday']) ? $requestParam['birthday'] : "";
-                $guestModel->anniversary = !empty($requestParam['anniversary']) ? $requestParam['anniversary'] : "";
-                $guestModel->save(false); 
-                 $amReponseParam['GuestDetails']['id'] = !empty($guestModel['id']) ? $guestModel['id'] : "null";
-                $amReponseParam['GuestDetails']['first_name'] = !empty($guestModel['first_name']) ? $guestModel['first_name'] : "null";
-                $amReponseParam['GuestDetails']['last_name'] = !empty($guestModel['last_name']) ? $guestModel['last_name'] : "null";
-                $amReponseParam['GuestDetails']['email'] = !empty($guestModel['email']) ? $guestModel['email'] : "null";
-                $amReponseParam['GuestDetails']['contact_no'] = !empty($guestModel['contact_no']) ? $guestModel['contact_no'] : "null";
-                $amReponseParam['GuestDetails']['guest_note'] = !empty($guestModel['guest_note']) ? $guestModel['guest_note'] : "null";
-                $amReponseParam['GuestDetails']['birthday'] = !empty($guestModel['birthday']) ? $guestModel['birthday'] : "null";
-                $amReponseParam['GuestDetails']['anniversary'] = !empty($guestModel['anniversary']) ? $guestModel['anniversary'] : "null";
-                $amReponseParam['GuestDetails']['reservation_id'] = !empty($guestModel['reservation_id']) ? $guestModel['reservation_id'] : "null";
-                $amReponseParam['GuestDetails']['restaurant_id'] = !empty($guestModel['restaurant_id']) ? $guestModel['restaurant_id'] : "null";
-               
-                $ssMessage                                = 'Guest is successfully created.';
-                $amReponseParam             = $amReponseParam;
-                $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+                     $ssMessage  = 'This Contact Number is already in guest list. Please try another Contact Number.';
+                     $amResponse = Common::errorResponse( $ssMessage );
+                }else{
+                    $guestModel = new Guests();
+                    $guestModel->first_name = !empty($requestParam['first_name']) ? $requestParam['first_name'] : "";
+                    $guestModel->last_name = !empty($requestParam['last_name']) ? $requestParam['last_name'] : "";
+                    $guestModel->email = !empty($requestParam['email']) ? $requestParam['email'] : "";
+                    $guestModel->contact_no = !empty($requestParam['contact_no']) ? $requestParam['contact_no'] : "";
+                    $guestModel->reservation_id = !empty($requestParam['reservation_id']) ? $requestParam['reservation_id'] : "";
+                    $guestModel->restaurant_id = $restaurant_id;
+                    $guestModel->reservation_id = !empty($requestParam['reservation_idguest_note']) ? $requestParam['guest_note'] : "";
+                    $guestModel->birthday = !empty($requestParam['birthday']) ? $requestParam['birthday'] : "";
+                    $guestModel->anniversary = !empty($requestParam['anniversary']) ? $requestParam['anniversary'] : "";
+                    $guestModel->save(false); 
+                     $amReponseParam['GuestDetails']['id'] = !empty($guestModel['id']) ? $guestModel['id'] : "null";
+                    $amReponseParam['GuestDetails']['first_name'] = !empty($guestModel['first_name']) ? $guestModel['first_name'] : "null";
+                    $amReponseParam['GuestDetails']['last_name'] = !empty($guestModel['last_name']) ? $guestModel['last_name'] : "null";
+                    $amReponseParam['GuestDetails']['email'] = !empty($guestModel['email']) ? $guestModel['email'] : "null";
+                    $amReponseParam['GuestDetails']['contact_no'] = !empty($guestModel['contact_no']) ? $guestModel['contact_no'] : "null";
+                    $amReponseParam['GuestDetails']['guest_note'] = !empty($guestModel['guest_note']) ? $guestModel['guest_note'] : "null";
+                    $amReponseParam['GuestDetails']['birthday'] = !empty($guestModel['birthday']) ? $guestModel['birthday'] : "null";
+                    $amReponseParam['GuestDetails']['anniversary'] = !empty($guestModel['anniversary']) ? $guestModel['anniversary'] : "null";
+                    $amReponseParam['GuestDetails']['reservation_id'] = !empty($guestModel['reservation_id']) ? $guestModel['reservation_id'] : "null";
+                    $amReponseParam['GuestDetails']['restaurant_id'] = !empty($guestModel['restaurant_id']) ? $guestModel['restaurant_id'] : "null";
+                   
+                    $ssMessage                                = 'Guest is successfully created.';
+                    $amReponseParam             = $amReponseParam;
+                    $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+            }
             }else{
                  $ssMessage  = 'You have not assigned any restaurant yet.';
                  $amResponse = Common::errorResponse( $ssMessage );
