@@ -1657,4 +1657,19 @@ class Common {
         }
         return $amError;
     }
+        public static function matchUserStatus( $id ) {
+       
+        if ( ( $model = Users::findOne( $id ) ) !== null ) {
+            if ( $model->status == Yii::$app->params['user_status_value']['in_active'] ) {
+                $ssMessage     = 'User has been deactivated by admin.';
+                $WholeMealData = Common::negativeResponse( $ssMessage );
+                Common::encodeResponseJSON( $WholeMealData );
+            }
+        }
+        else {
+            $ssMessage     = 'User is not available';
+            $WholeMealData = Common::negativeResponse( $ssMessage );
+            Common::encodeResponseJSON( $WholeMealData );
+        }
+    }
 }

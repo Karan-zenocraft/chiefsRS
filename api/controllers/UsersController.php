@@ -364,7 +364,7 @@ class UsersController extends \yii\base\Controller
         }
         $requestParam = $amData['request_param'];
         // Check User Status
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
@@ -491,23 +491,6 @@ class UsersController extends \yii\base\Controller
         }
         Common::encodeResponseJSON( $amResponse );
     }
-
-    // User Status Match. Either its deactive or Deleted
-    protected function matchUserStatus( $id ) {
-       
-        if ( ( $model = Users::findOne( $id ) ) !== null ) {
-            if ( $model->status == Yii::$app->params['user_status_value']['in_active'] ) {
-                $ssMessage     = 'User has been deactivated by admin.';
-                $WholeMealData = Common::negativeResponse( $ssMessage );
-                Common::encodeResponseJSON( $WholeMealData );
-            }
-        }
-        else {
-            $ssMessage     = 'User is not available';
-            $WholeMealData = Common::negativeResponse( $ssMessage );
-            Common::encodeResponseJSON( $WholeMealData );
-        }
-    }
     /*
      * Function : EditProfile()
      * Description : Edit User Profile
@@ -534,7 +517,7 @@ class UsersController extends \yii\base\Controller
         $requestParam     = $amData['request_param'];
 
         //Check User Status//
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
@@ -606,7 +589,7 @@ class UsersController extends \yii\base\Controller
 
         $requestParam     = $amData['request_param'];
         //Check User Status//
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
@@ -657,7 +640,7 @@ class UsersController extends \yii\base\Controller
 
         $requestParam     = $amData['request_param'];
         //Check User Status//
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
@@ -710,7 +693,7 @@ class UsersController extends \yii\base\Controller
         }
         $requestParam = $amData['request_param'];
         //Check User Status//
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
@@ -752,7 +735,7 @@ class UsersController extends \yii\base\Controller
 
         $requestParam     = $amData['request_param'];
         //Check User Status//
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );

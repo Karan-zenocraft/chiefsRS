@@ -30,9 +30,9 @@ return 'restaurant_tables';
  
 	public function rules(){
         return [
-            [['table_no', 'name', 'min_capacity', 'max_capacity','status'], 'required'],
-            [['restaurant_id', 'layout_id', 'table_no', 'min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
-            [['restaurant_id', 'layout_id','width','height','x_cordinate','y_cordinate','shape','created_at', 'updated_at','created_by', 'updated_by'], 'safe'],
+            [['name', 'min_capacity', 'max_capacity','status'], 'required'],
+            [['restaurant_id', 'layout_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
+            [['restaurant_id', 'layout_id','width','height','x_cordinate','y_cordinate','shape','created_at', 'updated_at','created_by', 'updated_by','status'], 'safe'],
             [['name'], 'string', 'max' => 250],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['layout_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantLayout::className(), 'targetAttribute' => ['layout_id' => 'id']],

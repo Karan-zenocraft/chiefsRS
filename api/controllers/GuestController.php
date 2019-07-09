@@ -50,7 +50,7 @@ class GuestController extends \yii\base\Controller
 
         $requestParam     = $amData['request_param'];
         //Check User Status//
-        $this->matchUserStatus( $requestParam['user_id'] );
+        Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header( 'auth_token' );
         Common::checkAuthentication( $authToken );
@@ -103,21 +103,5 @@ class GuestController extends \yii\base\Controller
         // FOR ENCODE RESPONSE INTO JSON //
         Common::encodeResponseJSON( $amResponse );
     }
-    protected function matchUserStatus( $id ) {
-       
-        if ( ( $model = Users::findOne( $id ) ) !== null ) {
-            if ( $model->status == Yii::$app->params['user_status_value']['in_active'] ) {
-                $ssMessage     = 'User has been deactivated by admin.';
-                $WholeMealData = Common::negativeResponse( $ssMessage );
-                Common::encodeResponseJSON( $WholeMealData );
-            }
-        }
-        else {
-            $ssMessage     = 'User is not available';
-            $WholeMealData = Common::negativeResponse( $ssMessage );
-            Common::encodeResponseJSON( $WholeMealData );
-        }
-    }
-
 
 }
