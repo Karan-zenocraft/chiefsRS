@@ -50,7 +50,6 @@ return [
     'id' => 'ID',
     'restaurant_id' => 'Restaurant ID',
     'layout_id' => 'Layout ID',
-    'table_no' => 'Table No',
     'name' => 'Name',
     'width' => 'Width',
     'height' => 'Height',

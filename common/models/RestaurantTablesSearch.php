@@ -17,7 +17,7 @@ class RestaurantTablesSearch extends RestaurantTables
     public function rules()
     {
         return [
-            [['id', 'restaurant_id', 'layout_id', 'table_no', 'min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
+            [['id', 'restaurant_id', 'layout_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
             [['name', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -61,7 +61,6 @@ class RestaurantTablesSearch extends RestaurantTables
             'id' => $this->id,
             'restaurant_id' => $this->restaurant_id,
             'layout_id' => $this->layout_id,
-            'table_no' => $this->table_no,
             'min_capacity' => $this->min_capacity,
             'max_capacity' => $this->max_capacity,
             'created_by' => $this->created_by,
@@ -99,7 +98,6 @@ class RestaurantTablesSearch extends RestaurantTables
             'id' => $this->id,
             'restaurant_id' => $this->restaurant_id,
             'layout_id' => $this->layout_id,
-            'table_no' => $this->table_no,
             'min_capacity' => $this->min_capacity,
             'max_capacity' => $this->max_capacity,
             'created_by' => $this->created_by,
