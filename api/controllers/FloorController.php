@@ -345,4 +345,71 @@ class FloorController extends \yii\base\Controller
         Common::encodeResponseJSON( $amResponse );
     }
 
+    /*
+     * Function :
+     * Description : Get List of Floors and tables
+     * Request Params :'user_id','auth_token'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+       public function actionGetFloors(){
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array( 'user_id' );
+        $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
+
+        // If any getting error in request paramter then set error message.
+        if ( !empty( $amParamsResult['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResult['error'] );
+            Common::encodeResponseJSON( $amResponse );
+        }
+
+        $requestParam     = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus( $requestParam['user_id'] );
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header( 'auth_token' );
+        Common::checkAuthentication( $authToken );
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne( ["id" => $snUserId] );
+        if ( !empty( $model ) ) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if(!empty($restaurant_id)){
+                $layouts = RestaurantLayout::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
+
+                if(!empty($layouts)){
+                    foreach ($layouts as $key => $layout) {
+                       $arrTables = RestaurantTables::find()->select("id,restaurant_id,layout_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['layout_id'=>$layout['id'],"status"=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
+                       unset($layout['updated_by']);
+                       unset($layout['updated_at']);
+                        unset($layout['created_by']);
+                       unset($layout['created_at']);
+                        $layout['table_data'] = !empty($arrTables) ? $arrTables : "No table added.";
+                        $layout_data['floor_data'][] = $layout;
+                    }
+                    $ssMessage                                = 'User Floors Details.';
+
+                    $amReponseParam             = $layout_data;
+
+                    $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+                }else{
+                    $ssMessage  = 'There is no any floors added to your restaurant';
+                    $amResponse = Common::errorResponse( $ssMessage );
+                }
+            }else{
+                 $ssMessage  = 'You have not assigned any restaurant yet.';
+                 $amResponse = Common::errorResponse( $ssMessage );
+            }
+        }else {
+            $ssMessage  = 'Invalid User.';
+            $amResponse = Common::errorResponse( $ssMessage );
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON( $amResponse );
+    }
+
+
 }

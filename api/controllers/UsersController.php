@@ -616,59 +616,6 @@ class UsersController extends \yii\base\Controller
         Common::encodeResponseJSON( $amResponse );
     }
 
-       /*
-     * Function : Reservations()
-     * Description : Get Reservations
-     * Request Params : user_id
-     * Response Params : reservation details
-     * Author : Rutusha Joshi
-     */
-
-    public function actionGetReservationList() {
-        //Get all request parameter
-        $amData = Common::checkRequestType();
-        $amResponse = $amReponseParam = [];
-
-        // Check required validation for request parameter.
-        $amRequiredParams = array( 'user_id' );
-        $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
-
-        // If any getting error in request paramter then set error message.
-        if ( !empty( $amParamsResult['error'] ) ) {
-            $amResponse = Common::errorResponse( $amParamsResult['error'] );
-            Common::encodeResponseJSON( $amResponse );
-        }
-
-        $requestParam     = $amData['request_param'];
-        //Check User Status//
-        Common::matchUserStatus( $requestParam['user_id'] );
-        //VERIFY AUTH TOKEN
-        $authToken = Common::get_header( 'auth_token' );
-        Common::checkAuthentication( $authToken );
-        $snUserId = $requestParam['user_id'];
-        $model = Users::findOne( ["id" => $snUserId] );
-        if ( !empty( $model ) ) {
-            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
-            if(!empty($restaurant_id)){
-                $reservations = Reservations::find()->where(['restaurant_id'=>$restaurant_id])->asArray()->all();
-            // Device Registration
-                $ssMessage                                = 'User Reservations Details.';
-
-                $amReponseParam['reservations']            = $reservations;
-
-                $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
-            }else{
-                 $ssMessage  = 'You have not assigned any restaurant yet.';
-                 $amResponse = Common::errorResponse( $ssMessage );
-            }
-        }else {
-            $ssMessage  = 'Invalid User.';
-            $amResponse = Common::errorResponse( $ssMessage );
-        }
-        // FOR ENCODE RESPONSE INTO JSON //
-        Common::encodeResponseJSON( $amResponse );
-    }
-
     /*
      * Function :
      * Description : Reset Badge Count
@@ -712,62 +659,7 @@ class UsersController extends \yii\base\Controller
         // FOR ENCODE RESPONSE INTO JSON //
         Common::encodeResponseJSON( $amResponse );
     }
-       /*
-     * Function :
-     * Description : Get List of Floors and tables
-     * Request Params :'user_id','auth_token'
-     * Response Params :
-     * Author :Rutusha Joshi
-     */
-       public function actionGetFloors(){
-        //Get all request parameter
-        $amData = Common::checkRequestType();
-        $amResponse = $amReponseParam = [];
-
-        // Check required validation for request parameter.
-        $amRequiredParams = array( 'user_id' );
-        $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
-
-        // If any getting error in request paramter then set error message.
-        if ( !empty( $amParamsResult['error'] ) ) {
-            $amResponse = Common::errorResponse( $amParamsResult['error'] );
-            Common::encodeResponseJSON( $amResponse );
-        }
-
-        $requestParam     = $amData['request_param'];
-        //Check User Status//
-        Common::matchUserStatus( $requestParam['user_id'] );
-        //VERIFY AUTH TOKEN
-        $authToken = Common::get_header( 'auth_token' );
-        Common::checkAuthentication( $authToken );
-        $snUserId = $requestParam['user_id'];
-        $model = Users::findOne( ["id" => $snUserId] );
-        if ( !empty( $model ) ) {
-            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
-            if(!empty($restaurant_id)){
-                $layouts = RestaurantLayout::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
-                if(!empty($layouts)){
-                    $ssMessage                                = 'User Floors Details.';
-
-                    $amReponseParam['Floors']             = $layouts;
-
-                    $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
-                }else{
-                    $ssMessage  = 'There is no any floors added to your restaurant';
-                    $amResponse = Common::errorResponse( $ssMessage );
-                }
-            }else{
-                 $ssMessage  = 'You have not assigned any restaurant yet.';
-                 $amResponse = Common::errorResponse( $ssMessage );
-            }
-        }else {
-            $ssMessage  = 'Invalid User.';
-            $amResponse = Common::errorResponse( $ssMessage );
-        }
-        // FOR ENCODE RESPONSE INTO JSON //
-        Common::encodeResponseJSON( $amResponse );
-    }
-
+   
 
 
 }
