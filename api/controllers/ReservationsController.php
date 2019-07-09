@@ -60,26 +60,31 @@ class ReservationsController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
                 $reservations = Reservations::find()->where(['restaurant_id'=>$restaurant_id,"status"=>Yii::$app->params['reservation_status_value']['requested'],"date"=>$requestParam['date']])->asArray()->all();
-                    foreach ($reservations as $key => $reservation){
-                      $reservation['layout_id'] = !empty($reservation['layout_id']) ? $reservation['layout_id'] : "null";
-                       $reservation['table_id'] = !empty($reservation['table_id']) ? $reservation['table_id'] : "null";
-                       if($reservation['pickup_drop'] == "0"){
-                            unset($reservation['pickup_location']);
-                            unset($reservation['pickup_time']);
-                            unset($reservation['drop_location']);  
-                            unset($reservation['drop_time']);
-                       }
-                        unset($reservation['pickup_lat']);
-                        unset($reservation['pickup_long']);
-                        unset($reservation['drop_lat']);
-                        unset($reservation['drop_long']);
-                       $arrReservation[] = $reservation;
-                    }
-                $ssMessage                                = 'User Reservations Details.';
+                    if(!empty($reservations)){
+                        foreach ($reservations as $key => $reservation){
+                          $reservation['layout_id'] = !empty($reservation['layout_id']) ? $reservation['layout_id'] : "null";
+                           $reservation['table_id'] = !empty($reservation['table_id']) ? $reservation['table_id'] : "null";
+                            $reservation['pickup_location'] = !empty($reservation['pickup_location']) ? $reservation['pickup_location'] : "null";
+                            $reservation['pickup_time'] = !empty($reservation['pickup_time']) ? $reservation['pickup_time'] : "null";
+                            $reservation['drop_location'] = !empty($reservation['drop_location']) ? $reservation['drop_location'] : "null";
+                            $reservation['drop_time'] = !empty($reservation['drop_time']) ? $reservation['drop_time'] : "null";
+                            unset($reservation['pickup_lat']);
+                            unset($reservation['pickup_long']);
+                            unset($reservation['drop_lat']);
+                            unset($reservation['drop_long']);
+                            
+                           $arrReservation[] = $reservation;
+                        }
+                    $ssMessage                                = 'User Reservations Details.';
 
-                $amReponseParam['reservations']            = $arrReservation;
+                    $amReponseParam['reservations']            = $arrReservation;
 
-                $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+                    $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+
+                }else{
+                     $ssMessage  = 'There is no any reservations on this date.';
+                     $amResponse = Common::errorResponse( $ssMessage );
+                }
             }else{
                  $ssMessage  = 'You have not assigned any restaurant yet.';
                  $amResponse = Common::errorResponse( $ssMessage );
