@@ -68,11 +68,11 @@ class ReservationsController extends \yii\base\Controller
                             $reservation['pickup_time'] = !empty($reservation['pickup_time']) ? $reservation['pickup_time'] : "null";
                             $reservation['drop_location'] = !empty($reservation['drop_location']) ? $reservation['drop_location'] : "null";
                             $reservation['drop_time'] = !empty($reservation['drop_time']) ? $reservation['drop_time'] : "null";
+                            $reservation['updated_at'] = !empty($reservation['updated_at']) ? $reservation['updated_at'] : "null";
                             unset($reservation['pickup_lat']);
                             unset($reservation['pickup_long']);
                             unset($reservation['drop_lat']);
                             unset($reservation['drop_long']);
-                            
                            $arrReservation[] = $reservation;
                         }
                     $ssMessage                                = 'User Reservations Details.';
