@@ -78,3 +78,24 @@ Request Params :
 Response Params :
 
 {"success":1,"message":"User Reservations Details.","data":$data}
+
+////////////////////////////////////////////////////////////////////////////////////
+								Delete Floor API
+////////////////////////////////////////////////////////////////////////////////////
+
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/floor/delete-floor
+Request Params : 
+{"user_id":"3","floor_id":"42"}
+RESPONSE PARAMS :
+{"success":200,"message":"Floor is deleted successfully.","data":[]}
+
+///////////////////////////////////////////////////////////////////////////////////
+								Delete Table API
+///////////////////////////////////////////////////////////////////////////////////
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/floor/delete-table
+Request Params :
+{"user_id":"3","table_id":"128"}
+RESPONSE PARAMS :
+{"success":200,"message":"Table is deleted successfully.","data":[]}

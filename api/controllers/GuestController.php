@@ -79,7 +79,8 @@ class GuestController extends \yii\base\Controller
                     $guestModel->role_id = Yii::$app->params['userroles']['walk_in'];
                     $guestModel->status = Yii::$app->params['user_status_value']['active'];
                     $guestModel->save(false); 
-                     $amReponseParam['GuestDetails']['id'] = !empty($guestModel['id']) ? $guestModel['id'] : "null";
+                    $id = !empty($guestModel['id']) ? $guestModel['id'] : null;
+                     $amReponseParam['GuestDetails']['id'] = "$id";
                     $amReponseParam['GuestDetails']['first_name'] = !empty($guestModel['first_name']) ? $guestModel['first_name'] : "null";
                     $amReponseParam['GuestDetails']['last_name'] = !empty($guestModel['last_name']) ? $guestModel['last_name'] : "null";
                     $amReponseParam['GuestDetails']['email'] = !empty($guestModel['email']) ? $guestModel['email'] : "null";

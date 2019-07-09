@@ -64,9 +64,13 @@ class FloorController extends \yii\base\Controller
                 $floorModel->restaurant_id = $restaurant_id;
                 $floorModel->name = $requestParam['floor_data']['name'];
                 $floorModel->status = $requestParam['floor_data']['status'];
-                $floorModel->created_by = $requestParam['user_id'];
+                $floorModel->created_by = $snUserId;
                 $floorModel->created_at = date('Y-m-d H:i:s');
                 if($floorModel->save()){
+                    $floorModel->id = "$floorModel->id";
+                    $floorModel->restaurant_id = "$restaurant_id";
+                    $floorModel->created_by = "$snUserId";
+
                     if(!empty($requestParam['table_data'])){
                         foreach ($requestParam['table_data'] as $key => $table) {
                             $tableModel = new RestaurantTables();
@@ -81,11 +85,18 @@ class FloorController extends \yii\base\Controller
                             $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : "";
                             $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : "";
                             $tableModel->status = $table['status'];
-                            $tableModel->created_by = $requestParam['user_id'];
+                            $tableModel->created_by = $snUserId;
                             $tableModel->created_at = date('Y-m-d H:i:s');
                             $tableModel->save(false);     
-                            $amReponseParamTable[]  = $tableModel;
+                            $tableModel->id = "$tableModel->id";
+                            $tableModel->created_by = "$snUserId";
+                            $tableModel->restaurant_id = "$restaurant_id";
+                            $tableModel->layout_id = "$floorModel->id";
+
+
+                            $amReponseParamTable['table_data'][]  = $tableModel;
                         }
+                    
 
                         $amReponseParam['floor_data'] = $floorModel;
                         $amReponseParam['table_data'] = $amReponseParamTable;
@@ -154,6 +165,11 @@ class FloorController extends \yii\base\Controller
                         $floorModel->updated_by = $snUserId;
                         $floorModel->updated_at = date('Y-m-d H:i:s');
                         if($floorModel->save()){
+                            $floorModel->id = "$floorModel->id";
+                            $floorModel->restaurant_id = "$restaurant_id";
+                            $floorModel->created_by = "$floorModel->created_by";
+                            $floorModel->updated_by = "$snUserId";
+
 
                         foreach ($requestParam['table_data'] as $key => $table) {
                             $tableModel = RestaurantTables::findOne(['id'=>$table['id']]);
@@ -170,7 +186,15 @@ class FloorController extends \yii\base\Controller
                             $tableModel->status = $table['status'];
                             $tableModel->updated_by = $snUserId;
                             $tableModel->updated_at = date('Y-m-d H:i:s');
-                            $tableModel->save(false);     
+                            $tableModel->save(false);  
+
+                            $tableModel->id = "$tableModel->id";
+                            $tableModel->restaurant_id = "$restaurant_id";
+                            $layout_id = !empty($table['layout_id']) ? $table['layout_id'] : "$tableModel->layout_id";
+                            $tableModel->layout_id = "$layout_id";
+                            $tableModel->created_by = "$tableModel->created_by";
+                            $tableModel->updated_by = "$snUserId";
+
                             $amReponseParamTable[]  = $tableModel;
                         }
 
@@ -197,6 +221,128 @@ class FloorController extends \yii\base\Controller
         // FOR ENCODE RESPONSE INTO JSON //
         Common::encodeResponseJSON( $amResponse );
     }
+      /*
+     * Function :
+     * Description : Delete Floor
+     * Request Params :'user_id','floor_id'
+     * Response Params : Updated floor_data array and tables data array
+     * Author :Rutusha Joshi
+     */
+ public function actionDeleteFloor(){
 
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array('user_id','floor_id');
+        $amParamsResult   = Common::checkRequestParameterKeyArray( $amData['request_param'], $amRequiredParams );
+
+        // If any getting error in request paramter then set error message.
+        if ( !empty( $amParamsResult['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResult['error'] );
+            Common::encodeResponseJSON( $amResponse );
+        }
+
+        $requestParam     = $amData['request_param'];
+       
+        //Check User Status//
+        Common::matchUserStatus( $requestParam['user_id'] );
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header( 'auth_token' );
+        Common::checkAuthentication( $authToken );
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne( ["id" => $snUserId] );
+        if ( !empty( $model ) ) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if(!empty($restaurant_id)){
+
+                if(!empty($requestParam['floor_id'])){
+                    
+                    $floorModel = RestaurantLayout::findOne(["id"=>$requestParam['floor_id']]);
+                    if(!empty($floorModel)){
+
+                        $floorModel->delete();
+                        $ssMessage                  = 'Floor is deleted successfully.';
+                        $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
+                    }
+                    }else{
+                        $ssMessage  = 'Please pass valid floor id';
+                        $amResponse = Common::errorResponse( $ssMessage );
+                    }
+
+            }else{
+                 $ssMessage  = 'You have not assigned any restaurant yet.';
+                 $amResponse = Common::errorResponse( $ssMessage );
+            }
+        }else{
+            $ssMessage  = 'Invalid Manager.';
+            $amResponse = Common::errorResponse( $ssMessage );
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON( $amResponse );
+    }
+
+          /*
+     * Function :
+     * Description : Delete Table
+     * Request Params :'user_id','table_id'
+     * Response Params : Updated floor_data array and tables data array
+     * Author :Rutusha Joshi
+     */
+    public function actionDeleteTable(){
+
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array('user_id','table_id');
+        $amParamsResult   = Common::checkRequestParameterKeyArray( $amData['request_param'], $amRequiredParams );
+
+        // If any getting error in request paramter then set error message.
+        if ( !empty( $amParamsResult['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResult['error'] );
+            Common::encodeResponseJSON( $amResponse );
+        }
+
+        $requestParam     = $amData['request_param'];
+       
+        //Check User Status//
+        Common::matchUserStatus( $requestParam['user_id'] );
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header( 'auth_token' );
+        Common::checkAuthentication( $authToken );
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne( ["id" => $snUserId] );
+        if ( !empty( $model ) ) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if(!empty($restaurant_id)){
+
+                if(!empty($requestParam['table_id'])){
+                    
+                    $tableModel = RestaurantTables::findOne(["id"=>$requestParam['table_id']]);
+                    if(!empty($tableModel)){
+
+                        $tableModel->delete();
+                        $ssMessage                  = 'Table is deleted successfully.';
+                        $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
+                    }
+                    }else{
+                        $ssMessage  = 'Please pass valid table id';
+                        $amResponse = Common::errorResponse( $ssMessage );
+                    }
+
+            }else{
+                 $ssMessage  = 'You have not assigned any restaurant yet.';
+                 $amResponse = Common::errorResponse( $ssMessage );
+            }
+        }else{
+            $ssMessage  = 'Invalid Manager.';
+            $amResponse = Common::errorResponse( $ssMessage );
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON( $amResponse );
+    }
 
 }

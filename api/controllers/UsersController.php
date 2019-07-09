@@ -87,7 +87,8 @@ class UsersController extends \yii\base\Controller
                // $amReponseParam['contact_no']                  = $model->contact_no;
                 $amReponseParam['device_token']           = $device_model->device_tocken;
                 $amReponseParam['auth_token']             = $ssAuthToken;
-                $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+
+                $amResponse = Common::successResponse( $ssMessage,array_map('strval',$amReponseParam));
             }
         }
         else {
@@ -376,7 +377,7 @@ class UsersController extends \yii\base\Controller
                 $ssMessage                    = 'Your password has been changed successfully.';
                 $amReponseParam['user_id']    = $model->id;
                 $amReponseParam['user_email'] = $model->email;
-                $amResponse                   = Common::successResponse( $ssMessage, $amReponseParam );
+                $amResponse                   = Common::successResponse( $ssMessage, array_map('strval',$amReponseParam));
             }
         }
         else {
@@ -554,7 +555,7 @@ class UsersController extends \yii\base\Controller
                 $amReponseParam['address']                = !empty( $model->address ) ? $model->address : "";
                 $amReponseParam['contact_no']           = $model->contact_no;
                 $amReponseParam['auth_token']             = !empty( $model->auth_token ) ? $model->auth_token : "";
-                $amResponse                               = Common::successResponse( $ssMessage, $amReponseParam );
+                $amResponse                               = Common::successResponse( $ssMessage, array_map('strval',$amReponseParam));
             }
         }else {
             $ssMessage  = 'Invalid User.';
@@ -606,7 +607,7 @@ class UsersController extends \yii\base\Controller
             $amReponseParam['address']         = $model->address;
             $amReponseParam['contact_no']           = $model->contact_no;
 
-            $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+            $amResponse = Common::successResponse( $ssMessage,array_map('strval',$amReponseParam));
         }else {
             $ssMessage  = 'Invalid User.';
             $amResponse = Common::errorResponse( $ssMessage );
@@ -653,7 +654,7 @@ class UsersController extends \yii\base\Controller
             // Device Registration
                 $ssMessage                                = 'User Reservations Details.';
 
-                $amReponseParam['reservations']             = $reservations;
+                $amReponseParam['reservations']            = $reservations;
 
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
             }else{

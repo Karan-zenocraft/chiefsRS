@@ -109,16 +109,6 @@ class ReservationsController extends FrontCoreController
         }
             $model->status = Yii::$app->params['reservation_status_value']['requested'];
             $model->save(false);
-
-            $guestModel = new Guests();
-            $guestModel->first_name = !empty($postData['Reservations']['first_name']) ? $postData['Reservations']['first_name'] : "";
-            $guestModel->last_name = !empty($postData['Reservations']['last_name']) ? $postData['Reservations']['last_name'] : "";
-            $guestModel->email = !empty($postData['Reservations']['email']) ? $postData['Reservations']['email'] : "";
-            $guestModel->contact_no = !empty($postData['Reservations']['contact_no']) ? $postData['Reservations']['contact_no'] : "";
-            $guestModel->reservation_id = $model->id;
-            $guestModel->restaurant_id = $model->restaurant_id;
-            $guestModel->save(false);
-
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@create_booking_message' ) );
             return $this->redirect(['index']);
         }
@@ -164,18 +154,6 @@ class ReservationsController extends FrontCoreController
         }
            // $model->status = Yii::$app->params['reservation_status_value']['requested'];
             $model->save(false);
-            if(!empty($model->guest_id)){
-                $guestModel = Guests::find()->where(['id'=>$model->guest_id])->one();
-                if(!empty($guestModel)){
-                    $guestModel->first_name = !empty($postData['Reservations']['first_name']) ? $postData['Reservations']['first_name'] : "";
-                    $guestModel->last_name = !empty($postData['Reservations']['last_name']) ? $postData['Reservations']['last_name'] : "";
-                    $guestModel->email = !empty($postData['Reservations']['email']) ? $postData['Reservations']['email'] : "";
-                    $guestModel->contact_no = !empty($postData['Reservations']['contact_no']) ? $postData['Reservations']['contact_no'] : "";
-                    $guestModel->reservation_id = $model->id;
-                    $guestModel->restaurant_id = $model->restaurant_id;
-                    $guestModel->save(false);
-                }
-            }
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@update_booking_message' ) );
             return $this->redirect(['index']);
         }
