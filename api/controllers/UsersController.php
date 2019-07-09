@@ -352,7 +352,7 @@ class UsersController extends \yii\base\Controller
         $amResponse       = array();
         $ssMessage        = '';
         // Check required validation for request parameter.
-        $amRequiredParams = array( 'old_password', 'new_password', 'user_id' );
+        $amRequiredParams = array('old_password','new_password','user_id' );
 
         $amParamsResult = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
 
