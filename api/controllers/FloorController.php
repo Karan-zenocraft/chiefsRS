@@ -205,10 +205,11 @@ class FloorController extends \yii\base\Controller
 
                     }
                     }
-                    }else{
+                    else{
                         $ssMessage  = 'Please pass valid floor id';
                         $amResponse = Common::errorResponse( $ssMessage );
                     }
+                }
 
             }else{
                  $ssMessage  = 'You have not assigned any restaurant yet.';
