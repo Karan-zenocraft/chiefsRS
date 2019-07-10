@@ -121,7 +121,7 @@ class ReservationsSearch extends Reservations
             'table_id' => $this->table_id,
             'date' => $this->date,
             'contact_no' => $this->contact_no,
-            'booking_start_time' => $this->booking_start_time,
+           // 'booking_start_time' => $this->booking_start_time,
             'booking_end_time' => $this->booking_end_time,
             'total_stay_time' => $this->total_stay_time,
             'no_of_guests' => $this->no_of_guests,

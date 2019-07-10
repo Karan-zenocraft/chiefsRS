@@ -266,10 +266,11 @@ class FloorController extends \yii\base\Controller
                         $ssMessage                  = 'Floor is deleted successfully.';
                         $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
                     }
-                    }else{
+                    else{
                         $ssMessage  = 'Please pass valid floor id';
                         $amResponse = Common::errorResponse( $ssMessage );
                     }
+                }
 
             }else{
                  $ssMessage  = 'You have not assigned any restaurant yet.';
@@ -327,11 +328,12 @@ class FloorController extends \yii\base\Controller
                         $tableModel->delete();
                         $ssMessage                  = 'Table is deleted successfully.';
                         $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
-                    }
+                    
                     }else{
                         $ssMessage  = 'Please pass valid table id';
                         $amResponse = Common::errorResponse( $ssMessage );
                     }
+                }
 
             }else{
                  $ssMessage  = 'You have not assigned any restaurant yet.';
