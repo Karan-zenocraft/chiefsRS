@@ -16,7 +16,7 @@ use common\models\EmailFormat;
 use common\models\Projects;
 use common\models\Restaurants;
 use yii\helpers\Json;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 class Common {
 
  public static $amPostData;
@@ -1147,8 +1147,8 @@ class Common {
                 $snRestaurantsDetail = Restaurants::find()->where( ['id'=>$id] )->one();
                 $name = $snRestaurantsDetail->name;
             }
-            if($flag == "RestaurantLayout"){
-                $snRestaurantsDetail = RestaurantLayout::find()->where( ['id'=>$id] )->one();
+            if($flag == "RestaurantFloors"){
+                $snRestaurantsDetail = RestaurantFloors::find()->where( ['id'=>$id] )->one();
                 $name = $snRestaurantsDetail->name;
                 
             }
