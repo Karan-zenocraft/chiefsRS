@@ -39,7 +39,7 @@ class GuestController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array( 'user_id','first_name','last_name','email','contact_no');
+        $amRequiredParams = array( 'user_id','first_name','last_name','email','contact_no','date','booking_time','total_stay_time','floor_id',"table_id","no_of_guests");
         $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
 
         // If any getting error in request paramter then set error message.
@@ -73,25 +73,35 @@ class GuestController extends \yii\base\Controller
                     $guestModel->last_name = !empty($requestParam['last_name']) ? $requestParam['last_name'] : "";
                     $guestModel->email = !empty($requestParam['email']) ? $requestParam['email'] : "";
                     $guestModel->contact_no = !empty($requestParam['contact_no']) ? $requestParam['contact_no'] : "";
-                    $guestModel->walkin_note = !empty($requestParam['walkin_note']) ? $requestParam['walkin_note'] : "";
+                    $guestModel->walkin_note = !empty($requestParam['special_comment']) ? $requestParam['special_comment'] : "";
                     $guestModel->birthdate = !empty($requestParam['birthday']) ? $requestParam['birthday'] : "";
                     $guestModel->anniversary = !empty($requestParam['anniversary']) ? $requestParam['anniversary'] : "";
                     $guestModel->role_id = Yii::$app->params['userroles']['walk_in'];
                     $guestModel->status = Yii::$app->params['user_status_value']['active'];
-                    $guestModel->save(false); 
-                    $id = !empty($guestModel['id']) ? $guestModel['id'] : null;
-                     $amReponseParam['GuestDetails']['id'] = "$id";
-                    $amReponseParam['GuestDetails']['first_name'] = !empty($guestModel['first_name']) ? $guestModel['first_name'] : "null";
-                    $amReponseParam['GuestDetails']['last_name'] = !empty($guestModel['last_name']) ? $guestModel['last_name'] : "null";
-                    $amReponseParam['GuestDetails']['email'] = !empty($guestModel['email']) ? $guestModel['email'] : "null";
-                    $amReponseParam['GuestDetails']['contact_no'] = !empty($guestModel['contact_no']) ? $guestModel['contact_no'] : "null";
-                    $amReponseParam['GuestDetails']['guest_note'] = !empty($guestModel['guest_note']) ? $guestModel['guest_note'] : "null";
-                    $amReponseParam['GuestDetails']['birthday'] = !empty($guestModel['birthdate']) ? $guestModel['birthdate'] : "null";
-                    $amReponseParam['GuestDetails']['anniversary'] = !empty($guestModel['anniversary']) ? $guestModel['anniversary'] : "null";
-                   
+                    if($guestModel->save(false)){
+                        $reserveationModel = new Reservations();
+                        $reserveationModel->first_name = $guestModel->first_name;
+                        $reserveationModel->last_name = $guestModel->last_name;
+                        $reserveationModel->email = $guestModel->email;
+                        $reserveationModel->contact_no = $guestModel->contact_no;
+                        $reserveationModel->user_id = $guestModel->id;
+                        $reserveationModel->restaurant_id = $restaurant_id;
+                        $reserveationModel->layout_id = !empty($requestParam['floor_id']) ? $requestParam['floor_id'] : ""; 
+                        $reserveationModel->table_id = !empty($requestParam['table_id']) ? $requestParam['table_id'] : ""; 
+                        $reserveationModel->date = !empty($requestParam['date']) ? $requestParam['date'] : "";
+                        $reserveationModel->booking_start_time = !empty($requestParam['booking_time']) ? $requestParam['booking_time'] : ""; 
+                        $reserveationModel->total_stay_time =!empty($requestParam['total_stay_time']) ? $requestParam['total_stay_time'] : "";
+                         $reserveationModel->booking_end_time = date("H:i:s", strtotime('+'.$requestParam['total_stay_time'].' minutes',strtotime($requestParam['booking_time'])));
+                         $reserveationModel->no_of_guests =!empty($requestParam['no_of_guests']) ? $requestParam['no_of_guests'] : "";
+                          $reserveationModel->special_comment =!empty($requestParam['special_comment']) ? $requestParam['special_comment'] : ""; 
+                          $reserveationModel->status = Yii::$app->params['reservation_status_value']['booked'];
+                          $reserveationModel->role_id = Yii::$app->params['userroles']['walk_in'];
+                          $reserveationModel->save(false);
+                          $amReponseParam = $reserveationModel;
+
                     $ssMessage                                = 'Guest is successfully created.';
-                    $amReponseParam             = $amReponseParam;
                     $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+                }
             }
             }else{
                  $ssMessage  = 'You have not assigned any restaurant yet.';

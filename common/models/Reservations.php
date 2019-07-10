@@ -35,7 +35,7 @@ public function rules()
             },'enableClientValidation'=>true],
             ['booking_start_time',"validate_start_time"],
             [['user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
-            [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time','tag_id','created_at', 'updated_at'], 'safe'],
+            [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time','tag_id','created_at', 'updated_at','role_id'], 'safe'],
             [['special_comment'], 'string'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long'], 'number'],
             [['pickup_location', 'drop_location'], 'string', 'max' => 255],
@@ -106,6 +106,7 @@ return [
     'tag_id' => 'Tags',
     'special_comment' => 'Special Comment',
     'status' => 'Status',
+    'role_id' => "User Role",
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
 ];

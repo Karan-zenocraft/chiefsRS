@@ -204,8 +204,7 @@ class FloorController extends \yii\base\Controller
                         $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
                     }
-                    }
-                    else{
+                    }else{
                         $ssMessage  = 'Please pass valid floor id';
                         $amResponse = Common::errorResponse( $ssMessage );
                     }
