@@ -213,8 +213,14 @@ $(".flash_message").delay(3000).slideUp(500);
 		$(this).trigger('blur');
 	});
 	//$('#booking_end_time').timepicker();
-	$('#pickup_time').timepicker();
-	$('#drop_time').timepicker();
+	$('#pickup_time').timepicker({'disableTextInput': true});
+	$('#pickup_time').on('focus',function(){
+		$(this).trigger('blur');
+	});
+	$('#drop_time').timepicker({'disableTextInput': true});
+	$('#drop_time').on('focus',function(){
+		$(this).trigger('blur');
+	});
 
 
 toCheckElementHasClassActive();

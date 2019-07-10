@@ -128,7 +128,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'yii\grid\ActionColumn',
                         'headerOptions' => ["style" => "width:40%;"],
                         'contentOptions' => ["style" => "width:40%;"],
-                        'template' => '{update}{manage_working_hours}{manage_gallery}{manage_menu}{manage_layout}{delete}',
+                        'template' => '{update}{manage_working_hours}{manage_gallery}{manage_menu}{manage_layout}{manage_reservations}{delete}',
                         'buttons' => [
                             'update' => function ($url, $model) {
                                 $flag = 1;
@@ -164,6 +164,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 $title = "manage Restaurant's Layout";
                                 $flag =3;
                                 $url = Yii::$app->urlManager->createUrl(['restaurant-layout/index', 'rid' => $model->id]);
+                                return Common::template_view_gallery_button($url, $model,$title,$flag);
+                                
+                            },
+                              'manage_reservations' => function ($url, $model) {
+                                $title = "Manage Reservations";
+                                $flag =4;
+                                $url = Yii::$app->urlManager->createUrl(['reservations/index', 'restaurant_id' => $model->id]);
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                             },

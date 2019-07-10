@@ -37,8 +37,11 @@ class ReservationsController extends AdminCoreController
     public function actionIndex()
     {
         $searchModel = new ReservationsSearch();
-        $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
-        
+        if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
+            $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
+        }else{
+            $dataProvider = $searchModel->RestaurantWiseSearch(Yii::$app->request->queryParams);
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

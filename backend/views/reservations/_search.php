@@ -9,13 +9,27 @@ use common\models\Tags;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="reservations-search">
-    <?php $form = ActiveForm::begin([
+    <?php 
+    if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
+     $form = ActiveForm::begin([
+    
     'action' => ['index','user_id'=>$_GET['user_id']],
     'method' => 'get',
     /* 'options' => [
     'data-pjax' => 1
     ],*/
-    ]); ?>
+    ]); 
+    }else{
+        $form = ActiveForm::begin([
+    
+    'action' => ['index','restaurant_id'=>$_GET['restaurant_id']],
+    'method' => 'get',
+    /* 'options' => [
+    'data-pjax' => 1
+    ],*/
+    ]); 
+    }
+    ?>
     <?php //$form->field($model, 'id') ?>
     <div class="row">
         <div class="span3"><?= $form->field($model, 'first_name') ?></div>
@@ -62,7 +76,19 @@ use common\models\Tags;
 <?php // echo $form->field($model, 'updated_at') ?>
 <div class="form-group">
     <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+    <?php  if(isset($_GET['user_id']) && !empty($_GET['user_id'])){ ?>
     <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['reservations/index','user_id'=>$_GET['user_id'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
+        <?php }else{ ?>
+             <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['reservations/index','restaurant_id'=>$_GET['restaurant_id'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
+     <?php   } ?>
 </div>
 <?php ActiveForm::end(); ?>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+            $('#booking_start_time').timepicker({'disableTextInput': true});
+    $('#booking_start_time').on('focus',function(){
+        $(this).trigger('blur');
+    });
+    });
+</script>

@@ -8,11 +8,18 @@ use common\models\Tags;
 /* @var $this yii\web\View */
 /* @var $searchModel common\modelsReservationsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
 
-$this->title = Yii::t('app', 'Reservations');
-$this->params['breadcrumbs'][] = ['label' => 'Manage Users', 'url' => ['users/index']];
-$this->params['breadcrumbs'][] = ['label' => 'Manage Reservations', 'url' => ['reservations/index','user_id'=>$_GET['user_id']]];
-$this->params['breadcrumbs'][] = ['label' => Common::get_name_by_id($_GET['user_id'],"Users")];
+    $this->title = Yii::t('app', 'Reservations');
+    $this->params['breadcrumbs'][] = ['label' => 'Manage Users', 'url' => ['users/index']];
+    $this->params['breadcrumbs'][] = ['label' => 'Manage Reservations', 'url' => ['reservations/index','user_id'=>$_GET['user_id']]];
+    $this->params['breadcrumbs'][] = ['label' => Common::get_name_by_id($_GET['user_id'],"Users")];
+}else{
+    $this->title = Yii::t('app', 'Reservations');
+    $this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants', 'url' => ['restaurants/index']];
+    $this->params['breadcrumbs'][] = ['label' => 'Manage Reservations', 'url' => ['reservations/index','restaurant_id'=>$_GET['restaurant_id']]];
+    $this->params['breadcrumbs'][] = ['label' => Common::get_name_by_id($_GET['restaurant_id'],"Restaurants")];
+}
 ?>
 <div class="reservations-index email-format-index">
     <div class="email-format-index">
@@ -37,7 +44,7 @@ $this->params['breadcrumbs'][] = ['label' => Common::get_name_by_id($_GET['user_
 </div>
 <div class="navbar navbar-inner block-header">
         <div class="muted pull-left">
-            <?php echo Html::encode($this->title).' - '.Common::get_name_by_id($_GET['user_id'],"Users") ?>
+            <?php echo Html::encode($this->title).' - '.Common::get_name_by_id((isset($_GET['user_id']) && !empty($_GET['user_id'])) ? $_GET['user_id'] : $_GET['restaurant_id'],isset($_GET['user_id']) && !empty($_GET['user_id']) ? "Users" : "Restaurants") ?>
         </div>
        <!--  <div class="pull-right">
             <?php // Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Menu'), Yii::$app->urlManager->createUrl(['restaurant-menu/create', 'rid' => ( $_GET['user_id'] > 0 ) ? $_GET['user_id'] : 0]), ['class' => 'btn btn-success']) ?>
