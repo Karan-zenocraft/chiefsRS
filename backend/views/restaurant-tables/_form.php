@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?php //echo $form->field($model, 'restaurant_id')->textInput() ?>
 
-    <?php // echo $form->field($model, 'layout_id')->textInput() ?>
+    <?php // echo $form->field($model, 'floor_id')->textInput() ?>
 
 <div class="row">
     <div class="span3"><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></div>

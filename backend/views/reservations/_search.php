@@ -42,7 +42,7 @@ use common\models\Tags;
     <?php // echo $form->field($model, 'user_id') ?>
     <div class="row">
         <div class="span3"><?php  echo $form->field($model, 'restaurant_id')->dropDownList(array(''=>'')+Restaurants::RestaurantsDropDown()); ?></div>
-        <?php // echo $form->field($model, 'layout_id') ?>
+        <?php // echo $form->field($model, 'floor_id') ?>
         <?php // echo $form->field($model, 'table_id') ?>
         <div class="span3"><?= $form->field($model, 'date')->widget(DatePicker::className(), ['dateFormat' => 'yyyy-MM-dd','clientOptions' => ['minDate'=>'0'],'options' => ['readonly'=>'readonly','class'=>'reservation_date']/*, 'clientOptions' => ['minDate'=>'0']*/]) ?></div>
     </div>

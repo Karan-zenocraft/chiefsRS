@@ -19,7 +19,7 @@ use yii\imagine\Image;
 use common\models\DeviceDetails;
 use common\models\EmailFormat;
 use common\models\RestaurantTables;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 /**
  * MainController implements the CRUD actions for APIs.
  */
@@ -60,7 +60,7 @@ class FloorController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-                $floorModel = new RestaurantLayout();
+                $floorModel = new RestaurantFloors();
                 $floorModel->restaurant_id = $restaurant_id;
                 $floorModel->name = $requestParam['floor_data']['name'];
                 $floorModel->status = $requestParam['floor_data']['status'];
@@ -75,7 +75,7 @@ class FloorController extends \yii\base\Controller
                         foreach ($requestParam['table_data'] as $key => $table) {
                             $tableModel = new RestaurantTables();
                             $tableModel->restaurant_id = $restaurant_id;
-                            $tableModel->layout_id = $floorModel->id;
+                            $tableModel->floor_id = $floorModel->id;
                             $tableModel->name = !empty($table['name']) ? $table['name'] : "";
                             $tableModel->width = !empty($table['width']) ? $table['width'] : "";
                             $tableModel->height = !empty($table['height']) ? $table['height'] : "";
@@ -84,14 +84,14 @@ class FloorController extends \yii\base\Controller
                             $tableModel->shape = !empty($table['shape']) ? $table['shape'] : "" ;
                             $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : "";
                             $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : "";
-                            $tableModel->status = $table['status'];
+                            $tableModel->status = !empty($table['status']) ? $table['status'] : "";
                             $tableModel->created_by = $snUserId;
                             $tableModel->created_at = date('Y-m-d H:i:s');
                             $tableModel->save(false);     
                             $tableModel->id = "$tableModel->id";
                             $tableModel->created_by = "$snUserId";
                             $tableModel->restaurant_id = "$restaurant_id";
-                            $tableModel->layout_id = "$floorModel->id";
+                            $tableModel->floor_id = "$floorModel->id";
 
 
                             $amReponseParamTable['table_data'][]  = $tableModel;
@@ -157,7 +157,7 @@ class FloorController extends \yii\base\Controller
 
                 if(!empty($requestParam['floor_data']['id'])){
                     
-                    $floorModel = RestaurantLayout::findOne(["id"=>$requestParam['floor_data']['id']]);
+                    $floorModel = RestaurantFloors::findOne(["id"=>$requestParam['floor_data']['id']]);
                     if(!empty($floorModel)){
                         $floorModel->restaurant_id = $restaurant_id;
                         $floorModel->name = !empty($requestParam['floor_data']['name']) ? $requestParam['floor_data']['name'] : $floorModel->name;
@@ -170,11 +170,10 @@ class FloorController extends \yii\base\Controller
                             $floorModel->created_by = "$floorModel->created_by";
                             $floorModel->updated_by = "$snUserId";
 
-
                         foreach ($requestParam['table_data'] as $key => $table) {
                             $tableModel = RestaurantTables::findOne(['id'=>$table['id']]);
                             $tableModel->restaurant_id = $restaurant_id;
-                            $tableModel->layout_id = !empty($table['layout_id']) ? $table['layout_id'] : $tableModel->layout_id;
+                            $tableModel->floor_id = !empty($table['floor_id']) ? $table['floor_id'] : $tableModel->floor_id;
                             $tableModel->name = !empty($table['name']) ? $table['name'] : $tableModel->name;
                             $tableModel->width =!empty($table['width']) ? $table['width'] : $tableModel->width;
                             $tableModel->height = !empty($table['height']) ? $table['height'] : $tableModel->height;
@@ -190,8 +189,8 @@ class FloorController extends \yii\base\Controller
 
                             $tableModel->id = "$tableModel->id";
                             $tableModel->restaurant_id = "$restaurant_id";
-                            $layout_id = !empty($table['layout_id']) ? $table['layout_id'] : "$tableModel->layout_id";
-                            $tableModel->layout_id = "$layout_id";
+                            $floor_id = !empty($table['floor_id']) ? $table['floor_id'] : "$tableModel->floor_id";
+                            $tableModel->floor_id = "$floor_id";
                             $tableModel->created_by = "$tableModel->created_by";
                             $tableModel->updated_by = "$snUserId";
 
@@ -259,7 +258,7 @@ class FloorController extends \yii\base\Controller
 
                 if(!empty($requestParam['floor_id'])){
                     
-                    $floorModel = RestaurantLayout::findOne(["id"=>$requestParam['floor_id']]);
+                    $floorModel = RestaurantFloors::findOne(["id"=>$requestParam['floor_id']]);
                     if(!empty($floorModel)){
 
                         $floorModel->delete();
@@ -380,21 +379,21 @@ class FloorController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-                $layouts = RestaurantLayout::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
+                $floors = RestaurantFloors::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
 
-                if(!empty($layouts)){
-                    foreach ($layouts as $key => $layout) {
-                       $arrTables = RestaurantTables::find()->select("id,restaurant_id,layout_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['layout_id'=>$layout['id'],"status"=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
-                       unset($layout['updated_by']);
-                       unset($layout['updated_at']);
-                        unset($layout['created_by']);
-                       unset($layout['created_at']);
-                        $layout['table_data'] = !empty($arrTables) ? $arrTables : "No table added.";
-                        $layout_data['floor_data'][] = $layout;
+                if(!empty($floors)){
+                    foreach ($floors as $key => $floor) {
+                       $arrTables = RestaurantTables::find()->select("id,restaurant_id,floor_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['floor_id'=>$floor['id'],"status"=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
+                       unset($floor['updated_by']);
+                       unset($floor['updated_at']);
+                        unset($floor['created_by']);
+                       unset($floor['created_at']);
+                        $floor['table_data'] = !empty($arrTables) ? $arrTables : "No table added.";
+                        $floor_data['floor_data'][] = $floor;
                     }
                     $ssMessage                                = 'User Floors Details.';
 
-                    $amReponseParam             = $layout_data;
+                    $amReponseParam             = $floor_data;
 
                     $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
                 }else{

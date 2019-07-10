@@ -3,17 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\RestaurantLayout;
-use common\models\RestaurantLayoutSearch;
+use common\models\RestaurantFloors;
+use common\models\RestaurantFloorsSearch;
 use yii\web\Controller;
 use backend\components\AdminCoreController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\Common;
 /**
- * RestaurantLayoutController implements the CRUD actions for RestaurantLayout model.
+ * RestaurantFloorsController implements the CRUD actions for RestaurantFloors model.
  */
-class RestaurantLayoutController extends AdminCoreController
+class RestaurantFloorsController extends AdminCoreController
 {
     /**
      * {@inheritdoc}
@@ -31,14 +31,14 @@ class RestaurantLayoutController extends AdminCoreController
     }*/
 
     /**
-     * Lists all RestaurantLayout models.
+     * Lists all RestaurantFloors models.
      * @return mixed
      */
     public function actionIndex()
     {
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
         $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
-        $searchModel = new RestaurantLayoutSearch();
+        $searchModel = new RestaurantFloorsSearch();
         $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +49,7 @@ class RestaurantLayoutController extends AdminCoreController
     }
 
     /**
-     * Displays a single RestaurantLayout model.
+     * Displays a single RestaurantFloors model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,14 +62,14 @@ class RestaurantLayoutController extends AdminCoreController
     }
 
     /**
-     * Creates a new RestaurantLayout model.
+     * Creates a new RestaurantFloors model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
         $this->layout = "popup";
-        $model = new RestaurantLayout();
+        $model = new RestaurantFloors();
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
         $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
         $model->restaurant_id = $_GET['rid'];
@@ -87,7 +87,7 @@ class RestaurantLayoutController extends AdminCoreController
     }
 
     /**
-     * Updates an existing RestaurantLayout model.
+     * Updates an existing RestaurantFloors model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -110,7 +110,7 @@ class RestaurantLayoutController extends AdminCoreController
     }
 
     /**
-     * Deletes an existing RestaurantLayout model.
+     * Deletes an existing RestaurantFloors model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -125,15 +125,15 @@ class RestaurantLayoutController extends AdminCoreController
     }
 
     /**
-     * Finds the RestaurantLayout model based on its primary key value.
+     * Finds the RestaurantFloors model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return RestaurantLayout the loaded model
+     * @return RestaurantFloors the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = RestaurantLayout::findOne($id)) !== null) {
+        if (($model = RestaurantFloors::findOne($id)) !== null) {
             return $model;
         }
 

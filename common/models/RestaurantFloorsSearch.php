@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 
 /**
- * RestaurantLayoutSearch represents the model behind the search form of `common\models\RestaurantLayout`.
+ * RestaurantFloorsSearch represents the model behind the search form of `common\models\RestaurantFloors`.
  */
-class RestaurantLayoutSearch extends RestaurantLayout
+class RestaurantFloorsSearch extends RestaurantFloors
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class RestaurantLayoutSearch extends RestaurantLayout
      */
     public function search($params)
     {
-        $query = RestaurantLayout::find();
+        $query = RestaurantFloors::find();
 
         // add conditions that should always apply here
 
@@ -74,7 +74,7 @@ class RestaurantLayoutSearch extends RestaurantLayout
 
     public function backendSearch($params)
     {
-        $query = RestaurantLayout::find()->where(['restaurant_id'=>$_GET['rid']]);
+        $query = RestaurantFloors::find()->where(['restaurant_id'=>$_GET['rid']]);
 
         // add conditions that should always apply here
 

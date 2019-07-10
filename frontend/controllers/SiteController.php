@@ -15,7 +15,7 @@ use yii\filters\AccessControl;
 use frontend\components\FrontCoreController;
 use yii\web\Response;
 use common\models\Restaurants;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 use common\models\RestaurantMenu;
 use common\models\RestaurantTables;
 use common\models\RestaurantWorkingHours;
@@ -179,7 +179,7 @@ class SiteController extends FrontCoreController
             $snRestaurantMealTimes = $snRestaurantsDetail->getRestaurentMealTimes();
             $snRestaurantMealTimesArr = $snRestaurantMealTimes->all();
 
-         /*   $snRestaurantLayoutsArr = $snRestaurantsDetail->getRestaurantLayouts();
+         /*   $snRestaurantFloorssArr = $snRestaurantsDetail->getRestaurantFloorss();
             $snRestaurantTablesArr = $snRestaurantsDetail->getRestaurantTables();*/
 
             //p($snRestaurantsDetail);

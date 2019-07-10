@@ -36,7 +36,7 @@ use common\models\Tags;
     <div class="col-md-6">
     <?php  echo $form->field($model, 'restaurant_id')->dropDownList(array(''=>'')+Restaurants::RestaurantsDropDown()); ?>
     </div>
-    <?php // echo $form->field($model, 'layout_id') ?>
+    <?php // echo $form->field($model, 'floor_id') ?>
 
     <?php // echo $form->field($model, 'table_id') ?>
     <div class="col-md-6">

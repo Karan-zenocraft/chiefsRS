@@ -62,7 +62,7 @@ class ReservationsController extends \yii\base\Controller
                 $reservations = Reservations::find()->where(['restaurant_id'=>$restaurant_id,"status"=>Yii::$app->params['reservation_status_value']['requested'],"date"=>$requestParam['date']])->asArray()->all();
                     if(!empty($reservations)){
                         foreach ($reservations as $key => $reservation){
-                          $reservation['layout_id'] = !empty($reservation['layout_id']) ? $reservation['layout_id'] : "null";
+                          $reservation['floor_id'] = !empty($reservation['floor_id']) ? $reservation['floor_id'] : "null";
                            $reservation['table_id'] = !empty($reservation['table_id']) ? $reservation['table_id'] : "null";
                             $reservation['pickup_location'] = !empty($reservation['pickup_location']) ? $reservation['pickup_location'] : "null";
                             $reservation['pickup_time'] = !empty($reservation['pickup_time']) ? $reservation['pickup_time'] : "null";
@@ -100,7 +100,7 @@ class ReservationsController extends \yii\base\Controller
             /*
      * Function :
      * Description : Book Table
-     * Request Params :'user_id','auth_token','reservation_id','table_id','layout_id'
+     * Request Params :'user_id','auth_token','reservation_id','table_id','floor_id'
      * Response Params :
      * Author :Rutusha Joshi
      */
@@ -134,7 +134,7 @@ class ReservationsController extends \yii\base\Controller
                 $reservations = Reservations::find()->where(['restaurant_id'=>$restaurant_id,"status"=>Yii::$app->params['reservation_status_value']['requested'],"date"=>$requestParam['date']])->asArray()->all();
                     if(!empty($reservations)){
                         foreach ($reservations as $key => $reservation){
-                          $reservation['layout_id'] = !empty($reservation['layout_id']) ? $reservation['layout_id'] : "null";
+                          $reservation['floor_id'] = !empty($reservation['floor_id']) ? $reservation['floor_id'] : "null";
                            $reservation['table_id'] = !empty($reservation['table_id']) ? $reservation['table_id'] : "null";
                             $reservation['pickup_location'] = !empty($reservation['pickup_location']) ? $reservation['pickup_location'] : "null";
                             $reservation['pickup_time'] = !empty($reservation['pickup_time']) ? $reservation['pickup_time'] : "null";

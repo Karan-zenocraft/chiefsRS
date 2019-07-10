@@ -18,7 +18,7 @@ class ReservationsSearch extends Reservations
     public function rules()
     {
         return [
-            [['id', 'user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status','total_stay_time'], 'integer'],
+            [['id', 'user_id', 'restaurant_id', 'floor_id', 'table_id', 'no_of_guests', 'status','total_stay_time'], 'integer'],
             [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_drop', 'pickup_location', 'pickup_time', 'drop_location', 'drop_time', 'special_comment', 'created_at', 'updated_at','first_name','last_name','email','tag_id'], 'safe'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long','contact_no'], 'number'],
         ];
@@ -63,7 +63,7 @@ class ReservationsSearch extends Reservations
             'id' => $this->id,
             'user_id' => $this->user_id,
             'restaurant_id' => $this->restaurant_id,
-            'layout_id' => $this->layout_id,
+            'floor_id' => $this->floor_id,
             'table_id' => $this->table_id,
             'date' => $this->date,
             'contact_no' => $this->contact_no,
@@ -117,7 +117,7 @@ class ReservationsSearch extends Reservations
             'id' => $this->id,
             'user_id' => $this->user_id,
             'restaurant_id' => $this->restaurant_id,
-            'layout_id' => $this->layout_id,
+            'floor_id' => $this->floor_id,
             'table_id' => $this->table_id,
             'date' => $this->date,
             'contact_no' => $this->contact_no,
@@ -176,7 +176,7 @@ class ReservationsSearch extends Reservations
             'id' => $this->id,
             'user_id' => $this->user_id,
             'restaurant_id' => $this->restaurant_id,
-            'layout_id' => $this->layout_id,
+            'floor_id' => $this->floor_id,
             'table_id' => $this->table_id,
             'date' => $this->date,
           //  'booking_start_time' => $this->booking_start_time,

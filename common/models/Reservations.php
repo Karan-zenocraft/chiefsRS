@@ -34,12 +34,12 @@ public function rules()
                 return (!isset($_GET['rid']) && empty($_GET['rid']));
             },'enableClientValidation'=>true],
             ['booking_start_time',"validate_start_time"],
-            [['user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
-            [['user_id', 'restaurant_id', 'layout_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time','tag_id','created_at', 'updated_at','role_id'], 'safe'],
+            [['user_id', 'restaurant_id', 'floor_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
+            [['user_id', 'restaurant_id', 'floor_id','date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time','tag_id','created_at', 'updated_at','role_id'], 'safe'],
             [['special_comment'], 'string'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long'], 'number'],
             [['pickup_location', 'drop_location'], 'string', 'max' => 255],
-            [['layout_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantLayout::className(), 'targetAttribute' => ['layout_id' => 'id']],
+            [['floor_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantFloors::className(), 'targetAttribute' => ['floor_id' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
             [['table_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantTables::className(), 'targetAttribute' => ['table_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -83,7 +83,7 @@ return [
     'id' => 'ID',
     'user_id' => 'User ID',
     'restaurant_id' => 'Restaurant',
-    'layout_id' => 'Layout ID',
+    'floor_id' => 'Layout ID',
     'table_id' => 'Table ID',
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
@@ -117,7 +117,7 @@ return [
     */
     public function getLayout()
     {
-    return $this->hasOne(RestaurantLayouts::className(), ['id' => 'layout_id']);
+    return $this->hasOne(RestaurantFloorss::className(), ['id' => 'floor_id']);
     }
 
     /**

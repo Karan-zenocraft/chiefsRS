@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'restaurant_id')->textInput() ?>
 
-    <?= $form->field($model, 'layout_id')->textInput() ?>
+    <?= $form->field($model, 'floor_id')->textInput() ?>
 
     <?= $form->field($model, 'table_id')->textInput() ?>
 

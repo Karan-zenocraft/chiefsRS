@@ -78,7 +78,7 @@ if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
                             return $data->restaurant->name;
                         },
             ],
-            //'layout_id',
+            //'floor_id',
             //'table_id',
             'date',
             'booking_start_time',

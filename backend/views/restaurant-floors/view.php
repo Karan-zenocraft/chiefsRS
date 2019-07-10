@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\RestaurantLayout */
+/* @var $model common\models\RestaurantFloors */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Restaurant Layouts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Restaurant Floors', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="restaurant-layout-view">
+<div class="restaurant-floors-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

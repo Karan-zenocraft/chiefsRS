@@ -31,11 +31,11 @@ return 'restaurant_tables';
 	public function rules(){
         return [
             [['name', 'min_capacity', 'max_capacity','status'], 'required'],
-            [['restaurant_id', 'layout_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
-            [['restaurant_id', 'layout_id','width','height','x_cordinate','y_cordinate','shape','created_at', 'updated_at','created_by', 'updated_by','status'], 'safe'],
+            [['restaurant_id', 'floor_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
+            [['restaurant_id', 'floor_id','width','height','x_cordinate','y_cordinate','shape','created_at', 'updated_at','created_by', 'updated_by','status'], 'safe'],
             [['name'], 'string', 'max' => 250],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['layout_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantLayout::className(), 'targetAttribute' => ['layout_id' => 'id']],
+            [['floor_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantFloors::className(), 'targetAttribute' => ['floor_id' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
@@ -49,7 +49,7 @@ public function attributeLabels()
 return [
     'id' => 'ID',
     'restaurant_id' => 'Restaurant ID',
-    'layout_id' => 'Layout ID',
+    'floor_id' => 'Floor ID',
     'name' => 'Name',
     'width' => 'Width',
     'height' => 'Height',
@@ -79,7 +79,7 @@ return [
     */
     public function getLayout()
     {
-    return $this->hasOne(RestaurantLayout::className(), ['id' => 'layout_id']);
+    return $this->hasOne(RestaurantFloors::className(), ['id' => 'floor_id']);
     }
 
     /**

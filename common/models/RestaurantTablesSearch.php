@@ -17,7 +17,7 @@ class RestaurantTablesSearch extends RestaurantTables
     public function rules()
     {
         return [
-            [['id', 'restaurant_id', 'layout_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
+            [['id', 'restaurant_id', 'floor_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
             [['name', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class RestaurantTablesSearch extends RestaurantTables
         $query->andFilterWhere([
             'id' => $this->id,
             'restaurant_id' => $this->restaurant_id,
-            'layout_id' => $this->layout_id,
+            'floor_id' => $this->floor_id,
             'min_capacity' => $this->min_capacity,
             'max_capacity' => $this->max_capacity,
             'created_by' => $this->created_by,
@@ -77,7 +77,7 @@ class RestaurantTablesSearch extends RestaurantTables
 
        public function backendsearch($params)
         {
-        $query = RestaurantTables::find()->where(['restaurant_id'=>$_GET['rid'],'layout_id'=>$_GET['lid']]);
+        $query = RestaurantTables::find()->where(['restaurant_id'=>$_GET['rid'],'floor_id'=>$_GET['lid']]);
 
         // add conditions that should always apply here
 
@@ -97,7 +97,7 @@ class RestaurantTablesSearch extends RestaurantTables
         $query->andFilterWhere([
             'id' => $this->id,
             'restaurant_id' => $this->restaurant_id,
-            'layout_id' => $this->layout_id,
+            'floor_id' => $this->floor_id,
             'min_capacity' => $this->min_capacity,
             'max_capacity' => $this->max_capacity,
             'created_by' => $this->created_by,

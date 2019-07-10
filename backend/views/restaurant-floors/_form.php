@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\RestaurantLayout */
+/* @var $model common\models\RestaurantFloors */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="email-format-index">
@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
         <div class="muted pull-left"><?= Html::encode($this->title) ?></div>
     </div>
     <div class="block-content collapse in">
-<div class="restaurant-layout-form span12">
+<div class="restaurant-floors-form span12">
 
     <?php $form = ActiveForm::begin(); ?>
 

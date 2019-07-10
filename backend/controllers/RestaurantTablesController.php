@@ -39,7 +39,7 @@ class RestaurantTablesController extends AdminCoreController
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
         $snLayoutId = ($_GET['lid'] > 0) ? $_GET['lid'] : 0;
         $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
-        $snLayoutName = Common::get_name_by_id($snLayoutId,$flag = "RestaurantLayout");
+        $snLayoutName = Common::get_name_by_id($snLayoutId,$flag = "RestaurantFloors");
         $searchModel = new RestaurantTablesSearch();
 
         $dataProvider = $searchModel->backendsearch(Yii::$app->request->queryParams);
@@ -75,13 +75,13 @@ class RestaurantTablesController extends AdminCoreController
         $this->layout = "popup";
         $model = new RestaurantTables();
         $model->restaurant_id = !empty($_GET['rid']) ? $_GET['rid'] : 0;
-        $model->layout_id = !empty($_GET['lid']) ? $_GET['lid'] : 0;
+        $model->floor_id = !empty($_GET['lid']) ? $_GET['lid'] : 0;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_table_add_message' ) );
             return Common::closeColorBox();
-            return $this->redirect(['index', 'rid' => $model->restaurant_id,'lid'=>$model->layout_id]);
+            return $this->redirect(['index', 'rid' => $model->restaurant_id,'lid'=>$model->floor_id]);
         }
 
         return $this->render('create', [
@@ -104,7 +104,7 @@ class RestaurantTablesController extends AdminCoreController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
              Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_table_update_message' ) );
             return Common::closeColorBox();
-            return $this->redirect(['index', 'rid' => $model->restaurant_id,'lid'=>$model->layout_id]);
+            return $this->redirect(['index', 'rid' => $model->restaurant_id,'lid'=>$model->floor_id]);
         }
 
         return $this->render('update', [
@@ -123,7 +123,7 @@ class RestaurantTablesController extends AdminCoreController
     {
         $this->findModel($id)->delete();
            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_table_delete_message' ) );
-         return $this->redirect(['index', 'rid' => $model->restaurant_id,'lid'=>$model->layout_id]);
+         return $this->redirect(['index', 'rid' => $model->restaurant_id,'lid'=>$model->floor_id]);
     }
 
     /**

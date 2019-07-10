@@ -86,7 +86,7 @@ class GuestController extends \yii\base\Controller
                         $reserveationModel->contact_no = $guestModel->contact_no;
                         $reserveationModel->user_id = $guestModel->id;
                         $reserveationModel->restaurant_id = $restaurant_id;
-                        $reserveationModel->layout_id = !empty($requestParam['floor_id']) ? $requestParam['floor_id'] : ""; 
+                        $reserveationModel->floor_id = !empty($requestParam['floor_id']) ? $requestParam['floor_id'] : ""; 
                         $reserveationModel->table_id = !empty($requestParam['table_id']) ? $requestParam['table_id'] : ""; 
                         $reserveationModel->date = !empty($requestParam['date']) ? $requestParam['date'] : "";
                         $reserveationModel->booking_start_time = !empty($requestParam['booking_time']) ? $requestParam['booking_time'] : ""; 

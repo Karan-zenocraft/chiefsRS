@@ -3,7 +3,7 @@
 namespace common\models\base;
 
 use Yii;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 use common\models\Restaurants;
 use common\models\RestaurantTables;
 use common\models\Users;
@@ -14,7 +14,7 @@ use common\models\Users;
     * @property integer $id
     * @property integer $user_id
     * @property integer $restaurant_id
-    * @property integer $layout_id
+    * @property integer $floor_id
     * @property integer $table_id
     * @property string $date
     * @property string $booking_start_time
@@ -35,7 +35,7 @@ use common\models\Users;
     * @property string $created_at
     * @property string $updated_at
     *
-            * @property RestaurantLayouts $layout
+            * @property RestaurantFloorss $layout
             * @property Restaurants $restaurant
             * @property RestaurantTables $table
             * @property Users $user
@@ -56,13 +56,13 @@ return 'reservations';
 public function rules()
 {
         return [
-            [['user_id', 'restaurant_id', 'layout_id', 'date', 'booking_start_time', 'booking_end_time', 'no_of_guests', 'status', 'created_at', 'updated_at'], 'required'],
-            [['user_id', 'restaurant_id', 'layout_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
+            [['user_id', 'restaurant_id', 'floor_id', 'date', 'booking_start_time', 'booking_end_time', 'no_of_guests', 'status', 'created_at', 'updated_at'], 'required'],
+            [['user_id', 'restaurant_id', 'floor_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
             [['date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time', 'created_at', 'updated_at'], 'safe'],
             [['pickup_drop', 'special_comment'], 'string'],
             [['pickup_lat', 'pickup_long', 'drop_lat', 'drop_long'], 'number'],
             [['pickup_location', 'drop_location'], 'string', 'max' => 255],
-            [['layout_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantLayout::className(), 'targetAttribute' => ['layout_id' => 'id']],
+            [['floor_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantFloors::className(), 'targetAttribute' => ['floor_id' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
             [['table_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantTables::className(), 'targetAttribute' => ['table_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -78,7 +78,7 @@ return [
     'id' => 'ID',
     'user_id' => 'User ID',
     'restaurant_id' => 'Restaurant ID',
-    'layout_id' => 'Layout ID',
+    'floor_id' => 'Layout ID',
     'table_id' => 'Table ID',
     'date' => 'Date',
     'booking_start_time' => 'Booking Start Time',
@@ -106,7 +106,7 @@ return [
     */
     public function getLayout()
     {
-    return $this->hasOne(RestaurantLayouts::className(), ['id' => 'layout_id']);
+    return $this->hasOne(RestaurantFloorss::className(), ['id' => 'floor_id']);
     }
 
     /**

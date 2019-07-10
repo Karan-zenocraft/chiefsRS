@@ -10,7 +10,7 @@ use common\components\Common;
 
 $this->title = 'Restaurant Tables';
 $this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants', 'url' => ['restaurants/index']];
-$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Layouts', 'url' => ['restaurant-layout/index','rid'=>$_GET['rid'],'lid'=>$_GET['lid']]];
+$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Floors', 'url' => ['restaurant-floors/index','rid'=>$_GET['rid'],'lid'=>$_GET['lid']]];
 $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 ?>
 <div class="restaurant-tables-index email-format-inde">
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 
            // 'id',
            // 'restaurant_id',
-           // 'layout_id',
+           // 'floor_id',
             'name',
             'min_capacity',
             'max_capacity',

@@ -58,9 +58,9 @@ return [
                 'update-restaurant-mealtimes/<id>/<rid>'=>'restaurant-meal-times/update',
                 'manage-restaurant-working-hours/<rid>'=>'restaurant-working-hours/index',
                 'update-restaurant-working-hours/<id>/<rid>'=>'restaurant-working-hours/update',
-                'create-restaurant-layout/<rid>'=>'restaurant-layout/create',
-                'update-restaurant-layout/<id>/<rid>'=>'restaurant-layout/update',
-                'delete-restaurant-layout/<id>/<rid>'=>'restaurant-layout/delete'
+                'create-restaurant-floors/<rid>'=>'restaurant-floors/create',
+                'update-restaurant-floors/<id>/<rid>'=>'restaurant-floors/update',
+                'delete-restaurant-floors/<id>/<rid>'=>'restaurant-floors/delete'
 
             ]
         ],

@@ -4,7 +4,7 @@ namespace common\models\base;
 
 use Yii;
 use common\models\Users;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 use common\models\Restaurants;
 
 /**
@@ -12,7 +12,7 @@ use common\models\Restaurants;
 *
     * @property integer $id
     * @property integer $restaurant_id
-    * @property integer $layout_id
+    * @property integer $floor_id
     * @property integer $table_no
     * @property string $name
     * @property integer $min_capacity
@@ -24,7 +24,7 @@ use common\models\Restaurants;
     * @property string $updated_at
     *
             * @property Users $createdBy
-            * @property RestaurantLayouts $layout
+            * @property RestaurantFloorss $layout
             * @property Restaurants $restaurant
             * @property Users $updatedBy
     */
@@ -44,12 +44,12 @@ return 'restaurant_tables';
 public function rules()
 {
         return [
-            [['restaurant_id', 'layout_id', 'table_no', 'name', 'min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status', 'created_at', 'updated_at'], 'required'],
-            [['restaurant_id', 'layout_id', 'table_no', 'min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
+            [['restaurant_id', 'floor_id', 'table_no', 'name', 'min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status', 'created_at', 'updated_at'], 'required'],
+            [['restaurant_id', 'floor_id', 'table_no', 'min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 250],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['layout_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantLayout::className(), 'targetAttribute' => ['layout_id' => 'id']],
+            [['floor_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantFloors::className(), 'targetAttribute' => ['floor_id' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
@@ -63,7 +63,7 @@ public function attributeLabels()
 return [
     'id' => 'ID',
     'restaurant_id' => 'Restaurant ID',
-    'layout_id' => 'Layout ID',
+    'floor_id' => 'Layout ID',
     'table_no' => 'Table No',
     'name' => 'Name',
     'min_capacity' => 'Min Capacity',
@@ -89,7 +89,7 @@ return [
     */
     public function getLayout()
     {
-    return $this->hasOne(RestaurantLayout::className(), ['id' => 'layout_id']);
+    return $this->hasOne(RestaurantFloors::className(), ['id' => 'floor_id']);
     }
 
     /**

@@ -1,25 +1,38 @@
 <?php
 
-namespace common\models;
+namespace common\models\base;
+
 use Yii;
+use common\models\Users;
+use common\models\Restaurants;
+use common\models\RestaurantTables;
 
-class RestaurantLayout extends \common\models\base\RestaurantLayoutBase
+/**
+ * This is the model class for table "restaurant_layouts".
+*
+    * @property integer $id
+    * @property integer $restaurant_id
+    * @property string $name
+    * @property integer $created_by
+    * @property integer $updated_by
+    * @property integer $status
+    * @property string $created_at
+    * @property string $updated_at
+    *
+            * @property Users $createdBy
+            * @property Restaurants $restaurant
+            * @property Users $updatedBy
+            * @property RestaurantTables[] $restaurantTables
+    */
+class RestaurantFloorsBase extends \yii\db\ActiveRecord
 {
-	public static function tableName()
-	{
-		return 'restaurant_layouts';
-	}
-    /*public function beforeSave($insert) {
-        $user_id = Yii::$app->user->id;
-        if ($this->isNewRecord) {
-            $this->setAttribute('created_by',$user_id);
-            $this->setAttribute('created_at', date('Y-m-d H:i:s'));
-        }
-        $this->setAttribute('updated_at', date('Y-m-d H:i:s'));
-        $this->setAttribute('updated_by',$user_id);
-
-        return parent::beforeSave($insert);
-    }*/
+/**
+* @inheritdoc
+*/
+public static function tableName()
+{
+return 'restaurant_floors';
+}
 
 /**
 * @inheritdoc
@@ -27,9 +40,9 @@ class RestaurantLayout extends \common\models\base\RestaurantLayoutBase
 public function rules()
 {
         return [
-            [['name','status'], 'required'],
+            [['restaurant_id', 'name', 'created_by', 'updated_by', 'status', 'created_at', 'updated_at'], 'required'],
             [['restaurant_id', 'created_by', 'updated_by', 'status'], 'integer'],
-            [['restaurant_id','created_at', 'updated_at', 'created_by', 'updated_by'], 'safe'],
+            [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
@@ -83,6 +96,6 @@ return [
     */
     public function getRestaurantTables()
     {
-    return $this->hasMany(RestaurantTables::className(), ['layout_id' => 'id']);
+    return $this->hasMany(RestaurantTables::className(), ['floor_id' => 'id']);
     }
 }

@@ -60,7 +60,7 @@ $this->title = 'Reservations';
                             return $data->restaurant->name;
                         },
                 ],
-            //'layout_id',
+            //'floor_id',
             //'table_id',
             'date',
             'booking_start_time',

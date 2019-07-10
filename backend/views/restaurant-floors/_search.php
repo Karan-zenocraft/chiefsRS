@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\RestaurantLayoutSearch */
+/* @var $model common\models\RestaurantFloorsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="restaurant-layout-search">
+<div class="restaurant-floors-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index','rid'=>$_GET['rid']],
@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
  </div>
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-          <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurant-layout/index','rid'=>$_GET['rid'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
+          <?= Html::a(Yii::t('app', '<i class="icon-refresh"></i> clear'), Yii::$app->urlManager->createUrl(['restaurant-floors/index','rid'=>$_GET['rid'],"temp"=>"clear"]), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

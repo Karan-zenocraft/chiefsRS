@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\RestaurantLayout */
+/* @var $model common\models\RestaurantFloors */
 
-$this->title = 'Create Restaurant Layout';
-$this->params['breadcrumbs'][] = ['label' => 'Restaurant Layouts', 'url' => ['index']];
+$this->title = 'Create Restaurant Floor';
+$this->params['breadcrumbs'][] = ['label' => 'Restaurant Floors', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="restaurant-layout-create email-format-index">
+<div class="restaurant-floors-create email-format-index">
 
     <?= $this->render('_form', [
         'model' => $model,

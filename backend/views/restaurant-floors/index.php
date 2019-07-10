@@ -5,28 +5,28 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 use common\components\Common;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\RestaurantLayoutSearch */
+/* @var $searchModel common\models\RestaurantFloorsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-$this->title = 'Restaurant Layouts';
+$this->title = 'Restaurant Floors';
 $this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants', 'url' => ['restaurants/index']];
-$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Layouts', 'url' => ['restaurant-layout/index','rid'=>$_GET['rid']]];
+$this->params['breadcrumbs'][] = ['label' => 'Manage Restaurants Floors', 'url' => ['restaurant-floors/index','rid'=>$_GET['rid']]];
 $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 ?>
-<div class="restaurant-layout-index email-format-index">
+<div class="restaurant-floors-index email-format-index">
        <div class="email-format-index">
         <div class="navbar navbar-inner block-header">
             <div class="muted pull-left">Search Here</div>
         </div>
         <div class="block-content collapse in">
-        <div class="restaurant-layout-form span12">
+        <div class="restaurant-floors-form span12">
    
              <?= Html::a(Yii::t('app', '<i class="icon-filter icon-white"></i> Filter'),"javascript:void(0);", ['class' => 'btn btn-primary open_search']); ?>
-             <?php if(!empty($_REQUEST['RestaurantLayoutSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
-                <div class="restaurantss-layout-serach common_search">
+             <?php if(!empty($_REQUEST['RestaurantFloorsSearch']) || (!empty($_GET['temp']) && $_GET['temp'] =="clear")){ ?>
+                <div class="restaurantss-floors-serach common_search">
                  <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
                 </div> 
         <?php }else{ ?>
-            <div class="restaurant-layout-serach common_search">
+            <div class="restaurant-floors-serach common_search">
                  <?php  echo $this->render('_search', ['model' => $searchModel]); ?>   
         </div>  
     <?php } ?>
@@ -103,9 +103,9 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
 </div>
 <script type="text/javascript">
 $( document ).ready(function() {  
-    $('.restaurant-layout-serach').hide();
+    $('.restaurant-floors-serach').hide();
         $('.open_search').click(function(){
-            $('.restaurant-layout-serach').toggle();
+            $('.restaurant-floors-serach').toggle();
         });
     });
 

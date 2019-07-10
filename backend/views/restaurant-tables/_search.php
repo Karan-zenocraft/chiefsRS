@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
 
     <?php // $form->field($model, 'restaurant_id') ?>
 
-    <?php // $form->field($model, 'layout_id') ?>
+    <?php // $form->field($model, 'floor_id') ?>
         <div class="row">
 
             <div class="span3"><?= $form->field($model, 'name') ?></div>

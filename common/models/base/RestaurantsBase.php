@@ -3,7 +3,7 @@
 namespace common\models\base;
 
 use Yii;
-use common\models\RestaurantLayout;
+use common\models\RestaurantFloors;
 use common\models\RestaurantMenu;
 use common\models\RestaurantTables;
 use common\models\RestaurantWorkingHours;
@@ -30,7 +30,7 @@ use common\models\RestaurentMealTimes;
     * @property string $created_at
     * @property string $updated_at
     *
-            * @property RestaurantLayouts[] $restaurantLayouts
+            * @property RestaurantFloorss[] $RestaurantFloorss
             * @property RestaurantMenu[] $restaurantMenus
             * @property RestaurantTables[] $restaurantTables
             * @property RestaurantWorkingHours[] $restaurantWorkingHours
@@ -91,9 +91,9 @@ return [
     /**
     * @return \yii\db\ActiveQuery
     */
-    public function getRestaurantLayouts()
+    public function getRestaurantFloorss()
     {
-    return $this->hasMany(RestaurantLayout::className(), ['restaurant_id' => 'id']);
+    return $this->hasMany(RestaurantFloors::className(), ['restaurant_id' => 'id']);
     }
 
     /**
