@@ -37,10 +37,9 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
         <div class="muted pull-left">
             <?php echo Html::encode($this->title).' - '.$snRestaurantName ?>
         </div>
-        <div class="pull-right">
-            <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Layout'), Yii::$app->urlManager->createUrl(['restaurant-layout/create', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0]), ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox(420,400);']) ?>
-            <?php // echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurant-layout/index', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0]), ['class' => 'btn btn-primary']) ?>
-        </div>
+       <!--  <div class="pull-right">
+            <?php //Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Layout'), Yii::$app->urlManager->createUrl(['restaurant-layout/create', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0]), ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox(420,400);']) ?>
+        </div> -->
     </div>
     <div class="block-content">
     <?php// Pjax::begin(); ?>
@@ -74,13 +73,13 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
                 'class' => 'yii\grid\ActionColumn',
                 'headerOptions' => ["style" => "width:40%;"],
                 'contentOptions' => ["style" => "width:40%;"],
-                'template' => '{update}{tables}{delete}',
+                'template' => '{tables}',
                 'buttons' => [
-                    'update' => function ($url, $model) {
+                   /* 'update' => function ($url, $model) {
                         $flag = 2;
                        $url = Yii::$app->urlManager->createurl(['restaurant-layout/update', 'rid' => $model->restaurant_id, 'id' => $model->id]);
                         return Common::template_update_tag_button($url, $model, $flag);
-                    },
+                    },*/
                     'tables' => function ($url, $model) {
                                 $title = "Manage Tables";
                                 $flag = 4;
@@ -88,12 +87,12 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
                                 return Common::template_view_gallery_button($url, $model,$title,$flag);
                                 
                     },
-                    'delete' => function ($url, $model) {
+                   /* 'delete' => function ($url, $model) {
                         $flag = 1;
                            $url = Yii::$app->urlManager->createurl(['restaurant-layout/delete', 'rid' => $model->restaurant_id, 'id' => $model->id]);
                         $confirmmessage = "Are you sure you want to delete this Layout?";
                         return Common::template_delete_button($url, $model,$confirmmessage, $flag);
-                    },
+                    },*/
                 ]
             ],
         ],

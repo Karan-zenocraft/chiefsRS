@@ -83,8 +83,8 @@ class UsersController extends \yii\base\Controller
                 $amReponseParam['user_id']                = $model->id;
                 $amReponseParam['first_name']             = $model->first_name;
                 $amReponseParam['last_name']              = $model->last_name;
-                $amReponseParam['address']         = !empty( $model->address ) ? $model->address : "";
-               // $amReponseParam['contact_no']                  = $model->contact_no;
+                $amReponseParam['address']                = !empty( $model->address ) ? $model->address : "";
+                $amReponseParam['contact_no']             = !empty($model->contact_no) ? $model->contact_no : "";
                 $amReponseParam['device_token']           = $device_model->device_tocken;
                 $amReponseParam['auth_token']             = $ssAuthToken;
 
@@ -553,7 +553,7 @@ class UsersController extends \yii\base\Controller
                 $amReponseParam['first_name']             = $model->first_name;
                 $amReponseParam['last_name']              = $model->last_name;
                 $amReponseParam['address']                = !empty( $model->address ) ? $model->address : "";
-                $amReponseParam['contact_no']           = $model->contact_no;
+                $amReponseParam['contact_no']           = !empty($model->contact_no) ? $model->contact_no :"";
                 $amReponseParam['auth_token']             = !empty( $model->auth_token ) ? $model->auth_token : "";
                 $amResponse                               = Common::successResponse( $ssMessage, array_map('strval',$amReponseParam));
             }
@@ -604,8 +604,8 @@ class UsersController extends \yii\base\Controller
             $amReponseParam['user_id']                = $model->id;
             $amReponseParam['first_name']             = $model->first_name;
             $amReponseParam['last_name']              = $model->last_name;
-            $amReponseParam['address']         = $model->address;
-            $amReponseParam['contact_no']           = $model->contact_no;
+            $amReponseParam['address']                = $model->address;
+            $amReponseParam['contact_no']             = $model->contact_no;
 
             $amResponse = Common::successResponse( $ssMessage,array_map('strval',$amReponseParam));
         }else {

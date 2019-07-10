@@ -21,9 +21,9 @@ use yii\widgets\ActiveForm;
 
     <?php // $form->field($model, 'layout_id') ?>
         <div class="row">
-            <div class="span3"><?= $form->field($model, 'table_no') ?></div>
 
             <div class="span3"><?= $form->field($model, 'name') ?></div>
+             <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
             
         </div>
         <div class="row">
@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
            <div class="span3"> <?php  echo $form->field($model, 'max_capacity') ?></div>
         </div>
         <div class="row">
-              <div class="span3"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
+             
         </div>
 
     <?php // echo $form->field($model, 'created_by') ?>

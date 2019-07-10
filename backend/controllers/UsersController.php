@@ -78,7 +78,7 @@ class UsersController extends AdminCoreController
 
     public function actionCreate() {
         $backEndBaseUrl = Yii::$app->urlManager->createAbsoluteUrl( ['/site/index'] );
-      //  $frontEndBaseUrl = str_replace( '/backend/web/dashboard', '/frontend/web/site/login', $backEndBaseUrl );
+        $frontEndBaseUrl = Yii::$app->params['root_url'];
         $backendLoginURL = Yii::$app->params['site_url'].Yii::$app->params['login_url'];
         $model = new Users();
         $Restaurants = Restaurants::RestaurantsDropDown();
@@ -87,17 +87,23 @@ class UsersController extends AdminCoreController
         if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 
             $model->password = md5( $_REQUEST['Users']['password'] );
-            $model->save( false );
+           $model->save( false );
             ///////////////////////////////////////////////////////////
-            //Get email template into database for forgot password
+            //Get email template into database for user registration
             $emailformatemodel = EmailFormat::findOne( ["title"=>'user_registration', "status"=>'1'] );
             if ( $emailformatemodel ) {
-
+                $url = "";
+                if(($model->role_id == Yii::$app->params['userroles']['admin']) || ($model->role_id == Yii::$app->params['userroles']['supervisor'])){
+                    $url = "<strong>URL : </strong><a href=$backendLoginURL>".$backendLoginURL."</a>";
+                }else if($model->role_id == Yii::$app->params['userroles']['manager']){
+                     $url = "<strong>Plase login to your ipad Application using following email and password.</strong>";
+                }else{
+                     $url = "<strong>URL :</strong><a href=$frontEndBaseUrl>".$frontEndBaseUrl."</a>";
+                }
                 //create template file
-                $AreplaceString = array( '{password}' => Yii::$app->request->post( 'Users' )['password'], '{username}' => $model->first_name, '{email}' => $model->email, '{loginurl}'=>$backendLoginURL );
+                $AreplaceString = array( '{password}' => Yii::$app->request->post( 'Users' )['password'], '{username}' => $model->first_name, '{email}' => $model->email, '{loginurl}'=>$url);
 
                 $body = Common::MailTemplate( $AreplaceString, $emailformatemodel->body );
-
                 //send email for new generated password
                 Common::sendMailToUser( $model->email, Yii::$app->params['adminEmail'] , $emailformatemodel->subject, $body );
 

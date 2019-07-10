@@ -23,11 +23,12 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
     public function rules()
     {
     return [
-            [['role_id', 'status'], 'integer'],
-            [['role_id','email', 'password', 'first_name','last_name','address','status','restaurant_id'], 'required','on'=>'create'],
-            [['role_id','email','first_name','last_name','address','status'], 'required','on'=>'update'],
+            [['role_id', 'status','contact_no'], 'integer'],
+            [['role_id','email', 'password', 'first_name','last_name','address','status','restaurant_id','contact_no'], 'required','on'=>'create'],
+            [['role_id','email','first_name','last_name','address','status','contact_no'], 'required','on'=>'update'],
             [['created_at', 'updated_at','name','contact_no','walkin_note','birthdate','anniversary'], 'safe'],
             [['email'],'email'],
+             ['contact_no', 'is10NumbersOnly'],
             ['email','validateEmail'],
             [['email','password', 'first_name', 'last_name'], 'string', 'max' => 255],
         ];
@@ -38,6 +39,13 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
         if (!empty($ASvalidateemail)) {
             $this->addError('email', 'This email address already registered.');
             return true;
+        }
+    }
+
+    public function is10NumbersOnly($attribute)
+    {
+        if (!preg_match('/^[0-9]{10}$/', $this->$attribute)) {
+            $this->addError($attribute, 'Invalid contact Number.');
         }
     }
 

@@ -29,6 +29,7 @@ use yii\jui\DatePicker;
             </div>
             <div class="row">
                 <div class="span3 style_input_width"><?= $form->field($model, 'address')->textArea(['maxlength' => 255]) ?></div>
+                <div class="span3 style_input_width"><?= $form->field($model, 'contact_no')->textInput(); ?></div>
                 <div class="span3 style_input_width"><?= $form->field($model, 'status')->dropDownList(Yii::$app->params['user_status']);?></div>
             </div>
             <div class="form-group form-actions">

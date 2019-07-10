@@ -38,10 +38,9 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
         <div class="muted pull-left">
             <?php echo Html::encode($this->title).' - '.$snLayoutName ?>
         </div>
-        <div class="pull-right">
-            <?= Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Table'), Yii::$app->urlManager->createUrl(['restaurant-tables/create', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0,'lid'=>( $_GET['lid'] > 0 ) ? $_GET['lid'] : 0]), ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox(420,580);']) ?>
-            <?php  // echo Html::a(Yii::t('app', '<i class="icon-refresh"></i> Reset'), Yii::$app->urlManager->createUrl(['restaurant-tables/index', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0,'lid'=>( $_GET['lid'] > 0 ) ? $_GET['lid'] : 0]), ['class' => 'btn btn-primary']) ?>
-        </div>
+      <!--   <div class="pull-right">
+            <?php //Html::a(Yii::t('app', '<i class="icon-plus"></i> Add Table'), Yii::$app->urlManager->createUrl(['restaurant-tables/create', 'rid' => ( $_GET['rid'] > 0 ) ? $_GET['rid'] : 0,'lid'=>( $_GET['lid'] > 0 ) ? $_GET['lid'] : 0]), ['class' => 'btn btn-success colorbox_popup','onclick' => 'javascript:openColorBox(420,580);']) ?>
+        </div> -->
     </div>
     <div class="block-content">
     
@@ -58,10 +57,10 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
            // 'id',
            // 'restaurant_id',
            // 'layout_id',
-            'table_no',
             'name',
             'min_capacity',
             'max_capacity',
+            'shape',
             //'created_by',
             //'updated_by',
             [
@@ -77,7 +76,7 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
             //'created_at',
             //'updated_at',
 
-            [
+            /*[
                 'header' => 'Actions',
                 'class' => 'yii\grid\ActionColumn',
                 'headerOptions' => ["style" => "width:40%;"],
@@ -94,7 +93,7 @@ $this->params['breadcrumbs'][] = ['label' => $snRestaurantName];
                         return Common::template_delete_button($url, $model,$confirmmessage, $flag);
                     },
                 ]
-            ],
+            ],*/
         ],
     ]); ?>
 
