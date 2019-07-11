@@ -47,7 +47,24 @@ class FloorController extends \yii\base\Controller
             $amResponse = Common::errorResponse( $amParamsResult['error'] );
             Common::encodeResponseJSON( $amResponse );
         }
+        $amRequiredParamsFloor = array("name","status");
+        $amParamsResultFloor   = Common::checkRequestParameterKeyArray( $amData['request_param']['floor_data'], $amRequiredParamsFloor );
+        if ( !empty( $amParamsResultFloor['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResultFloor['error'] );
+            $amResponse['message'] = $amResponse['message']." in floor_data's array.";
+            Common::encodeResponseJSON( $amResponse );
+        }
 
+        $amRequiredParamsTable = array("name","width","height","min_cap","max_cap","x_cordinate","y_cordinate","shape","status");
+        
+        foreach ($amData['request_param']['table_data'] as $key => $table_data) {
+            $amParamsResultTable   = Common::checkRequestParameterKeyArray( $table_data, $amRequiredParamsTable );
+            if ( !empty( $amParamsResultTable['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResultTable['error'] );
+            $amResponse['message'] = $amResponse['message']." in ".$key." table_data's array.";
+            Common::encodeResponseJSON( $amResponse );
+        }
+        }
         $requestParam     = $amData['request_param'];
        
         //Check User Status//
@@ -141,6 +158,24 @@ class FloorController extends \yii\base\Controller
             $amResponse = Common::errorResponse( $amParamsResult['error'] );
             Common::encodeResponseJSON( $amResponse );
         }
+        $amRequiredParamsFloor = array("name","status","id");
+        $amParamsResultFloor   = Common::checkRequestParameterKeyArray( $amData['request_param']['floor_data'], $amRequiredParamsFloor );
+        if ( !empty( $amParamsResultFloor['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResultFloor['error'] );
+            $amResponse['message'] = $amResponse['message']." in floor_data's array.";
+            Common::encodeResponseJSON( $amResponse );
+        }
+
+        $amRequiredParamsTable = array("name","width","height","min_cap","max_cap","x_cordinate","y_cordinate","shape","status");
+        
+        foreach ($amData['request_param']['table_data'] as $key => $table_data) {
+            $amParamsResultTable   = Common::checkRequestParameterKeyArray( $table_data, $amRequiredParamsTable );
+            if ( !empty( $amParamsResultTable['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResultTable['error'] );
+            $amResponse['message'] = $amResponse['message']." in ".$key." table_data's array.";
+            Common::encodeResponseJSON( $amResponse );
+        }
+        }
 
         $requestParam     = $amData['request_param'];
        
@@ -171,30 +206,58 @@ class FloorController extends \yii\base\Controller
                             $floorModel->updated_by = "$snUserId";
 
                         foreach ($requestParam['table_data'] as $key => $table) {
-                            $tableModel = RestaurantTables::findOne(['id'=>$table['id']]);
-                            $tableModel->restaurant_id = $restaurant_id;
-                            $tableModel->floor_id = !empty($table['floor_id']) ? $table['floor_id'] : $tableModel->floor_id;
-                            $tableModel->name = !empty($table['name']) ? $table['name'] : $tableModel->name;
-                            $tableModel->width =!empty($table['width']) ? $table['width'] : $tableModel->width;
-                            $tableModel->height = !empty($table['height']) ? $table['height'] : $tableModel->height;
-                            $tableModel->x_cordinate = !empty($table['x_cordinate']) ? $table['x_cordinate'] : $tableModel->x_cordinate;
-                            $tableModel->y_cordinate = !empty($table['y_cordinate']) ? $table['y_cordinate'] : $tableModel->y_cordinate;
-                            $tableModel->shape = !empty($table['shape']) ? $table['shape'] : $tableModel->shape;
-                            $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : $tableModel->min_cap;
-                            $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : $tableModel->max_cap;
-                            $tableModel->status = $table['status'];
-                            $tableModel->updated_by = $snUserId;
-                            $tableModel->updated_at = date('Y-m-d H:i:s');
-                            $tableModel->save(false);  
+                            $tableModelsObj = "";
+                            if(!empty($table['id'])){
+                                $tableModel = RestaurantTables::findOne(['id'=>$table['id'],"floor_id"=>$floorModel->id]);
+                               
+                                if(!empty($tableModel)){
 
-                            $tableModel->id = "$tableModel->id";
-                            $tableModel->restaurant_id = "$restaurant_id";
-                            $floor_id = !empty($table['floor_id']) ? $table['floor_id'] : "$tableModel->floor_id";
-                            $tableModel->floor_id = "$floor_id";
-                            $tableModel->created_by = "$tableModel->created_by";
-                            $tableModel->updated_by = "$snUserId";
+                                    $tableModel->name = !empty($table['name']) ? $table['name'] : $tableModel->name;
+                                    $tableModel->width =!empty($table['width']) ? $table['width'] : $tableModel->width;
+                                    $tableModel->height = !empty($table['height']) ? $table['height'] : $tableModel->height;
+                                    $tableModel->x_cordinate = !empty($table['x_cordinate']) ? $table['x_cordinate'] : $tableModel->x_cordinate;
+                                    $tableModel->y_cordinate = !empty($table['y_cordinate']) ? $table['y_cordinate'] : $tableModel->y_cordinate;
+                                    $tableModel->shape = !empty($table['shape']) ? $table['shape'] : $tableModel->shape;
+                                    $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : $tableModel->min_cap;
+                                    $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : $tableModel->max_cap;
+                                    $tableModel->status = $table['status'];
+                                    $tableModel->updated_by = $snUserId;
+                                    $tableModel->updated_at = date('Y-m-d H:i:s');
+                                    $tableModel->save(false); 
+                                    $tableModelsObj = $tableModel;        
+                                }else{
+                                     $ssMessage  = "table's id is invalid in ".$key." table_data array or this id is belongs to some other floor.";
+                                     $amResponse = Common::errorResponse( $ssMessage );
+                                     Common::encodeResponseJSON( $amResponse );
+                                }
+                            }else{
+                                $tableModel = new RestaurantTables();
+                                $tableModel->restaurant_id = $restaurant_id;
+                                $tableModel->floor_id = $floorModel->id;
+                                $tableModel->name = !empty($table['name']) ? $table['name'] : "";
+                                $tableModel->width =!empty($table['width']) ? $table['width'] : "";
+                                $tableModel->height = !empty($table['height']) ? $table['height'] : "";
+                                $tableModel->x_cordinate = !empty($table['x_cordinate']) ? $table['x_cordinate'] : "";
+                                $tableModel->y_cordinate = !empty($table['y_cordinate']) ? $table['y_cordinate'] : "";
+                                $tableModel->shape = !empty($table['shape']) ? $table['shape'] : "";
+                                $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : "";
+                                $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : "";
+                                $tableModel->status = !empty($table['status']) ? $table['status'] : Yii::$app->params['user_status_value']['active'];
+                                $tableModel->created_by = $snUserId;
+                                $tableModel->created_at = date('Y-m-d H:i:s');
+                                $tableModel->save(false); 
+                                $tableModelsObj = $tableModel;        
 
-                            $amReponseParamTable[]  = $tableModel;
+                            }
+                           
+                            $tableModelsObj->id = "$tableModelsObj->id";
+                            $tableModelsObj->restaurant_id = "$restaurant_id";
+                            $floor_id = !empty($table['floor_id']) ? $table['floor_id'] : "$tableModelsObj->floor_id";
+                            $tableModelsObj->floor_id = "$floor_id";
+                            $tableModelsObj->created_by = "$tableModelsObj->created_by";
+                            $tableModelsObj->updated_by = "$snUserId";
+
+                            $amReponseParamTable[]  = $tableModelsObj;
                         }
 
                         $amReponseParam['floor_data'] = $floorModel;
@@ -204,7 +267,7 @@ class FloorController extends \yii\base\Controller
 
                     }
                     }else{
-                        $ssMessage  = 'Please pass valid floor id';
+                        $ssMessage  = "Floor's id is invalid please pass valid foor id";
                         $amResponse = Common::errorResponse( $ssMessage );
                     }
                 }
