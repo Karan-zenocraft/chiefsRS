@@ -21,15 +21,6 @@ use common\models\Tags;
         ],
     ]); ?>
 
-    <?php //$form->field($model, 'id') ?>
-
-    <?php // $form->field($model, 'first_name') ?>
-
-    <?php // $form->field($model, 'last_name') ?>
-
-    <?php // $form->field($model, 'email') ?>
-
-    <?php // $form->field($model, 'contact_no') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
 <div class="row">

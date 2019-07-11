@@ -33,22 +33,22 @@ use kartik\widgets\SwitchInput;
                         ?>
                     </div>
                   </div>
-                   <div class="row">
+               <!--     <div class="row">
                     <div class="col-md-6">
-                      <?php echo $form->field($model, 'first_name')->textInput() ?>
+                      <?php //echo $form->field($model, 'first_name')->textInput() ?>
                     </div>
                     <div class="col-md-6">
-                        <?php echo $form->field($model, 'last_name')->textInput() ?>
+                        <?php //echo $form->field($model, 'last_name')->textInput() ?>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <?php echo $form->field($model, 'email')->textInput() ?>
+                      <?php //echo $form->field($model, 'email')->textInput() ?>
                     </div>
                      <div class="col-md-6">
-                      <?php echo $form->field($model, 'contact_no')->textInput() ?>
+                      <?php //echo $form->field($model, 'contact_no')->textInput() ?>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="row">
                     <div class="col-md-6">
                        <?= $form->field($model, 'date')->widget(DatePicker::className(), ['dateFormat' => 'yyyy-MM-dd','clientOptions' => ['minDate'=>'0'],'options' => ['readonly'=>'readonly','class'=>'reservation_date']/*, 'clientOptions' => ['minDate'=>'0']*/]) ?>

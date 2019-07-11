@@ -63,10 +63,10 @@ if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
             ['class' => 'yii\grid\SerialColumn'],
 
           //  'id',
-            'first_name',
+           /* 'first_name',
             'last_name',
             'email:email',
-            'contact_no',
+            'contact_no',*/
             //'user_id',
             [
                         'attribute' => 'restaurant_id',

@@ -31,14 +31,7 @@ use common\models\Tags;
     }
     ?>
     <?php //$form->field($model, 'id') ?>
-    <div class="row">
-        <div class="span3"><?= $form->field($model, 'first_name') ?></div>
-        <div class="span3"><?= $form->field($model, 'last_name') ?></div>
-    </div>
-    <div class="row">
-        <div class="span3"><?= $form->field($model, 'email') ?></div>
-        <div class="span3"><?= $form->field($model, 'contact_no') ?></div>
-    </div>
+
     <?php // echo $form->field($model, 'user_id') ?>
     <div class="row">
         <div class="span3"><?php  echo $form->field($model, 'restaurant_id')->dropDownList(array(''=>'')+Restaurants::RestaurantsDropDown()); ?></div>

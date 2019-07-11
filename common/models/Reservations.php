@@ -25,7 +25,7 @@ public function beforeSave($insert) {
 public function rules()
 {
         return [
-            [['first_name','last_name','email','contact_no','date', 'booking_start_time','no_of_guests','total_stay_time','pickup_drop'], 'required'],
+            [['date', 'booking_start_time','no_of_guests','total_stay_time','pickup_drop'], 'required'],
             [['pickup_location', 'drop_location','pickup_time', 'drop_time'],'required', 'when' => function($model) {
                     return $model->pickup_drop == "1";
             },'whenClient' => "function (attribute, value) {
@@ -86,10 +86,6 @@ return [
     'restaurant_id' => 'Restaurant',
     'floor_id' => 'Layout ID',
     'table_id' => 'Table ID',
-    'first_name' => 'First Name',
-    'last_name' => 'Last Name',
-    'email' => 'Email',
-    'contact_no' => 'Contact Number',
     'date' => 'Date',
     'booking_start_time' => 'Booking Time',
     'booking_end_time' => 'Booking End Time',
