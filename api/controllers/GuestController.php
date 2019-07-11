@@ -51,8 +51,6 @@ class GuestController extends \yii\base\Controller
         }
 
         $requestParam     = $amData['request_param'];
-        $floorModel = RestaurantFloors::findOne(['id'=>$requestParam['floor_id']]);
-
         //Check User Status//
         Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
@@ -82,14 +80,20 @@ class GuestController extends \yii\base\Controller
                       $amResponse = Common::errorResponse( $ssMessage );
                      Common::encodeResponseJSON( $amResponse );
                 }else if(!empty($requestParam['floor_id']) && !empty(RestaurantFloors::findOne(['id'=>$requestParam['floor_id'],"is_deleted"=>"1"]))){
-                      $ssMessage  = "You can not assign ";
+                      $ssMessage  = "This floor is deleted please pass valid floor_id";
                       $amResponse = Common::errorResponse( $ssMessage );
                      Common::encodeResponseJSON( $amResponse );
-                }else if(!empty($requestParam['floor_id']) && empty(RestaurantFloors::findOne(['id'=>$requestParam['floor_id']]))){
-                      $ssMessage  = "There is no floor exist with this floor_id";
+                }else if(!empty($requestParam['table_id']) && !empty(RestaurantTables::findOne(['id'=>$requestParam['table_id'],"is_deleted"=>"1"]))){
+                      $ssMessage  = "This table is deleted please pass valid table_id";
                       $amResponse = Common::errorResponse( $ssMessage );
                      Common::encodeResponseJSON( $amResponse );
                 }else{
+                  $tableModel = RestaurantTables::find()->where(['id'=>$requestParam['table_id']])->one();
+                      if($tableModel['floor_id'] != $requestParam['floor_id']){
+                        $ssMessage  = "This table is from another floor. Please pass this floor's table id";
+                        $amResponse = Common::errorResponse( $ssMessage );
+                        Common::encodeResponseJSON( $amResponse );
+                    }
                     $guestModel = new Users();
                     $guestModel->first_name = !empty($requestParam['first_name']) ? $requestParam['first_name'] : "";
                     $guestModel->last_name = !empty($requestParam['last_name']) ? $requestParam['last_name'] : "";
