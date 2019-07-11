@@ -21,6 +21,7 @@ use common\models\EmailFormat;
 use common\models\Reservations;
 use common\models\Guests;
 use common\models\RestaurantFloors;
+use common\models\RestaurantTables;
 /**
  * MainController implements the CRUD actions for APIs.
  */
@@ -50,6 +51,8 @@ class GuestController extends \yii\base\Controller
         }
 
         $requestParam     = $amData['request_param'];
+        $floorModel = RestaurantFloors::findOne(['id'=>$requestParam['floor_id']]);
+
         //Check User Status//
         Common::matchUserStatus( $requestParam['user_id'] );
         //VERIFY AUTH TOKEN
@@ -70,12 +73,20 @@ class GuestController extends \yii\base\Controller
                      $ssMessage  = 'This Contact Number is already in user list. Please try another Contact Number';
                      $amResponse = Common::errorResponse( $ssMessage );
                      Common::encodeResponseJSON( $amResponse );
-                }else if((!empty($requestParam['floor_id'])) && (($floorModel = RestaurantFloors::findOne(['id'=>$requestParam['floor_id']])) !== "")){
-                      $ssMessage  = "You can not assigned deleted floor to guest";
+                }else if(!empty($requestParam['floor_id']) && empty(RestaurantFloors::findOne(['id'=>$requestParam['floor_id']]))){
+                      $ssMessage  = "There is no floor exist with this floor_id";
                       $amResponse = Common::errorResponse( $ssMessage );
                      Common::encodeResponseJSON( $amResponse );
-                }else if((!empty($requestParam['table_id'])) && (($floorModel = RestaurantTables::findOne(['id'=>$requestParam['table_id']])) !== "")){
-                      $ssMessage  = "You can not assigned deleted table to guest";
+                }else if(!empty($requestParam['table_id']) && empty(RestaurantTables::findOne(['id'=>$requestParam['table_id']]))){
+                      $ssMessage  = "There is no table exist with this table_id";
+                      $amResponse = Common::errorResponse( $ssMessage );
+                     Common::encodeResponseJSON( $amResponse );
+                }else if(!empty($requestParam['floor_id']) && !empty(RestaurantFloors::findOne(['id'=>$requestParam['floor_id'],"is_deleted"=>"1"]))){
+                      $ssMessage  = "You can not assign ";
+                      $amResponse = Common::errorResponse( $ssMessage );
+                     Common::encodeResponseJSON( $amResponse );
+                }else if(!empty($requestParam['floor_id']) && empty(RestaurantFloors::findOne(['id'=>$requestParam['floor_id']]))){
+                      $ssMessage  = "There is no floor exist with this floor_id";
                       $amResponse = Common::errorResponse( $ssMessage );
                      Common::encodeResponseJSON( $amResponse );
                 }else{

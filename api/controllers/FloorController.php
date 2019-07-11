@@ -482,14 +482,14 @@ class FloorController extends \yii\base\Controller
                        unset($floor['updated_at']);
                         unset($floor['created_by']);
                        unset($floor['created_at']);
-                        $floor['table_data'] = !empty($arrTables) ? $arrTables : "";
-                        $floor_data['floor_data'][] = $floor;
+                        $floor['table_data'] = !empty($arrTables) ? $arrTables : [];
+                        $floor_data[] = $floor;
                     }
                     $ssMessage                                = 'User Floors Details.';
 
-                    $amReponseParam             = $floor_data;
+                    //$amReponseParam             = $floor_data;
 
-                    $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+                    $amResponse = Common::successResponse( $ssMessage, $floor_data );
                 }else{
                     $ssMessage  = 'There is no any floors added to your restaurant';
                     $amResponse = Common::errorResponse( $ssMessage );
