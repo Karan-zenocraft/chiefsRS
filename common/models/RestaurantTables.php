@@ -32,7 +32,7 @@ return 'restaurant_tables';
         return [
             [['name', 'min_capacity', 'max_capacity','status'], 'required'],
             [['restaurant_id', 'floor_id','min_capacity', 'max_capacity', 'created_by', 'updated_by', 'status'], 'integer'],
-            [['restaurant_id', 'floor_id','width','height','x_cordinate','y_cordinate','shape','created_at', 'updated_at','created_by', 'updated_by','status'], 'safe'],
+            [['restaurant_id', 'floor_id','width','height','x_cordinate','y_cordinate','shape','created_at', 'updated_at','created_by', 'updated_by','status','is_deleted'], 'safe'],
             [['name'], 'string', 'max' => 250],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['floor_id'], 'exist', 'skipOnError' => true, 'targetClass' => RestaurantFloors::className(), 'targetAttribute' => ['floor_id' => 'id']],
@@ -61,6 +61,7 @@ return [
     'created_by' => 'Created By',
     'updated_by' => 'Updated By',
     'status' => 'Status',
+    "is_deleted" => "Delete Status",
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
 ];

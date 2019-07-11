@@ -29,7 +29,7 @@ public function rules()
         return [
             [['name','status'], 'required'],
             [['restaurant_id', 'created_by', 'updated_by', 'status'], 'integer'],
-            [['restaurant_id','created_at', 'updated_at', 'created_by', 'updated_by'], 'safe'],
+            [['restaurant_id','created_at', 'updated_at', 'created_by', 'updated_by','is_deleted'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['created_by' => 'id']],
             [['restaurant_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurants::className(), 'targetAttribute' => ['restaurant_id' => 'id']],
@@ -49,6 +49,7 @@ return [
     'created_by' => 'Created By',
     'updated_by' => 'Updated By',
     'status' => 'Status',
+    "is_deleted" => "Delete Status",
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
 ];

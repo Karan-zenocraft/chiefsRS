@@ -140,7 +140,7 @@ class FloorController extends \yii\base\Controller
      * Function :
      * Description : Update Floor
      * Request Params :'user_id','auth_token'
-     * Response Params : Updated floor_data array and tables data array
+     * Response Params : Update floor_data array and tables data array
      * Author :Rutusha Joshi
      */
        public function actionUpdateFloor(){
@@ -194,6 +194,12 @@ class FloorController extends \yii\base\Controller
                     
                     $floorModel = RestaurantFloors::findOne(["id"=>$requestParam['floor_data']['id']]);
                     if(!empty($floorModel)){
+                          if($floorModel->is_deleted == "1"){
+
+                                        $ssMessage  = "This floor is deleted. You can not update this table";
+                                        $amResponse = Common::errorResponse( $ssMessage );
+                                        Common::encodeResponseJSON( $amResponse );
+                        }else{
                         $floorModel->restaurant_id = $restaurant_id;
                         $floorModel->name = !empty($requestParam['floor_data']['name']) ? $requestParam['floor_data']['name'] : $floorModel->name;
                         $floorModel->status = $requestParam['floor_data']['status'];
@@ -211,20 +217,26 @@ class FloorController extends \yii\base\Controller
                                 $tableModel = RestaurantTables::findOne(['id'=>$table['id'],"floor_id"=>$floorModel->id]);
                                
                                 if(!empty($tableModel)){
-
-                                    $tableModel->name = !empty($table['name']) ? $table['name'] : $tableModel->name;
-                                    $tableModel->width =!empty($table['width']) ? $table['width'] : $tableModel->width;
-                                    $tableModel->height = !empty($table['height']) ? $table['height'] : $tableModel->height;
-                                    $tableModel->x_cordinate = !empty($table['x_cordinate']) ? $table['x_cordinate'] : $tableModel->x_cordinate;
-                                    $tableModel->y_cordinate = !empty($table['y_cordinate']) ? $table['y_cordinate'] : $tableModel->y_cordinate;
-                                    $tableModel->shape = !empty($table['shape']) ? $table['shape'] : $tableModel->shape;
-                                    $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : $tableModel->min_cap;
-                                    $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : $tableModel->max_cap;
-                                    $tableModel->status = $table['status'];
-                                    $tableModel->updated_by = $snUserId;
-                                    $tableModel->updated_at = date('Y-m-d H:i:s');
-                                    $tableModel->save(false); 
-                                    $tableModelsObj = $tableModel;        
+                                    if($tableModel->is_deleted == "1"){
+                                        $ssMessage  = "Table of ".$key." table_data is deleted. You can not update this table";
+                                        $amResponse = Common::errorResponse( $ssMessage );
+                                        Common::encodeResponseJSON( $amResponse );
+                                    }
+                                        $tableModel->name = !empty($table['name']) ? $table['name'] : $tableModel->name;
+                                        $tableModel->width =!empty($table['width']) ? $table['width'] : $tableModel->width;
+                                        $tableModel->height = !empty($table['height']) ? $table['height'] : $tableModel->height;
+                                        $tableModel->x_cordinate = !empty($table['x_cordinate']) ? $table['x_cordinate'] : $tableModel->x_cordinate;
+                                        $tableModel->y_cordinate = !empty($table['y_cordinate']) ? $table['y_cordinate'] : $tableModel->y_cordinate;
+                                        $tableModel->shape = !empty($table['shape']) ? $table['shape'] : $tableModel->shape;
+                                        $tableModel->min_capacity = !empty($table['min_cap']) ? $table['min_cap'] : $tableModel->min_cap;
+                                        $tableModel->max_capacity = !empty($table['max_cap']) ? $table['max_cap'] : $tableModel->max_cap;
+                                        $tableModel->status = $table['status'];
+                                        $tableModel->updated_by = $snUserId;
+                                        $tableModel->updated_at = date('Y-m-d H:i:s');
+                                        $tableModel->save(false); 
+                                        $tableModelsObj = $tableModel; 
+                                        $tableModelsObj->updated_by = "$snUserId";
+                                           
                                 }else{
                                      $ssMessage  = "table's id is invalid in ".$key." table_data array or this id is belongs to some other floor.";
                                      $amResponse = Common::errorResponse( $ssMessage );
@@ -247,15 +259,14 @@ class FloorController extends \yii\base\Controller
                                 $tableModel->created_at = date('Y-m-d H:i:s');
                                 $tableModel->save(false); 
                                 $tableModelsObj = $tableModel;        
+                                $tableModelsObj->created_by = "$tableModelsObj->created_by";
 
                             }
-                           
+
                             $tableModelsObj->id = "$tableModelsObj->id";
                             $tableModelsObj->restaurant_id = "$restaurant_id";
                             $floor_id = !empty($table['floor_id']) ? $table['floor_id'] : "$tableModelsObj->floor_id";
                             $tableModelsObj->floor_id = "$floor_id";
-                            $tableModelsObj->created_by = "$tableModelsObj->created_by";
-                            $tableModelsObj->updated_by = "$snUserId";
 
                             $amReponseParamTable[]  = $tableModelsObj;
                         }
@@ -264,7 +275,7 @@ class FloorController extends \yii\base\Controller
                         $amReponseParam['table_data'] = $amReponseParamTable;
                         $ssMessage                  = 'Floor is successfully Updated.';
                         $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
-
+                    }
                     }
                     }else{
                         $ssMessage  = "Floor's id is invalid please pass valid foor id";
@@ -323,12 +334,24 @@ class FloorController extends \yii\base\Controller
                     
                     $floorModel = RestaurantFloors::findOne(["id"=>$requestParam['floor_id']]);
                     if(!empty($floorModel)){
-
-                        $floorModel->delete();
-                        $ssMessage                  = 'Floor is deleted successfully.';
-                        $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
-                    }
-                    else{
+                        if($floorModel->is_deleted == "1"){
+                             $ssMessage  = 'This floor is already deleted';
+                             $amResponse = Common::errorResponse( $ssMessage );
+                        }else{
+                            $floorModel->is_deleted = "1";
+                            $floorModel->save(false);
+                            $tableModel = RestaurantTables::find()->where(['floor_id'=>$floorModel->id])->all();
+                            if(!empty($tableModel)){
+                                foreach ($tableModel as $key => $table) {
+                                    $table->is_deleted = "1";
+                                    $table->save(false);
+                                }
+                            }
+                            $ssMessage                  = 'Floor is deleted successfully.';
+                            $amReponseParam = "";
+                            $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
+                        }
+                    }else{
                         $ssMessage  = 'Please pass valid floor id';
                         $amResponse = Common::errorResponse( $ssMessage );
                     }
@@ -386,10 +409,16 @@ class FloorController extends \yii\base\Controller
                     
                     $tableModel = RestaurantTables::findOne(["id"=>$requestParam['table_id']]);
                     if(!empty($tableModel)){
-
-                        $tableModel->delete();
-                        $ssMessage                  = 'Table is deleted successfully.';
-                        $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
+                        if($tableModel->is_deleted == "1"){
+                             $ssMessage  = 'This table is already deleted';
+                             $amResponse = Common::errorResponse( $ssMessage );
+                        }else{
+                            $tableModel->is_deleted = "1";
+                            $tableModel->save(false);
+                            $ssMessage                  = 'Table is deleted successfully.';
+                            $amReponseParam = "";
+                            $amResponse = Common::successResponse( $ssMessage, $amReponseParam );      
+                        }    
                     
                     }else{
                         $ssMessage  = 'Please pass valid table id';
