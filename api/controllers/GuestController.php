@@ -20,6 +20,7 @@ use common\models\DeviceDetails;
 use common\models\EmailFormat;
 use common\models\Reservations;
 use common\models\Guests;
+use common\models\RestaurantFloors;
 /**
  * MainController implements the CRUD actions for APIs.
  */
@@ -63,10 +64,20 @@ class GuestController extends \yii\base\Controller
                      
                      $ssMessage  = 'This Email is already in user list. Please try another email';
                      $amResponse = Common::errorResponse( $ssMessage );
+                     Common::encodeResponseJSON( $amResponse );
                 }else if(($gModel = Users::findOne(['contact_no'=>$requestParam['contact_no']])) !== null){
 
-                     $ssMessage  = 'This Contact Number is already in user list. Please try another Contact Number.';
+                     $ssMessage  = 'This Contact Number is already in user list. Please try another Contact Number';
                      $amResponse = Common::errorResponse( $ssMessage );
+                     Common::encodeResponseJSON( $amResponse );
+                }else if((!empty($requestParam['floor_id'])) && (($floorModel = RestaurantFloors::findOne(['id'=>$requestParam['floor_id']])) !== "")){
+                      $ssMessage  = "You can not assigned deleted floor to guest";
+                      $amResponse = Common::errorResponse( $ssMessage );
+                     Common::encodeResponseJSON( $amResponse );
+                }else if((!empty($requestParam['table_id'])) && (($floorModel = RestaurantTables::findOne(['id'=>$requestParam['table_id']])) !== "")){
+                      $ssMessage  = "You can not assigned deleted table to guest";
+                      $amResponse = Common::errorResponse( $ssMessage );
+                     Common::encodeResponseJSON( $amResponse );
                 }else{
                     $guestModel = new Users();
                     $guestModel->first_name = !empty($requestParam['first_name']) ? $requestParam['first_name'] : "";

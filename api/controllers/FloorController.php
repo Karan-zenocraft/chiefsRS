@@ -337,6 +337,7 @@ class FloorController extends \yii\base\Controller
                         if($floorModel->is_deleted == "1"){
                              $ssMessage  = 'This floor is already deleted';
                              $amResponse = Common::errorResponse( $ssMessage );
+                             Common::encodeResponseJSON( $amResponse );
                         }else{
                             $floorModel->is_deleted = "1";
                             $floorModel->save(false);
@@ -412,6 +413,7 @@ class FloorController extends \yii\base\Controller
                         if($tableModel->is_deleted == "1"){
                              $ssMessage  = 'This table is already deleted';
                              $amResponse = Common::errorResponse( $ssMessage );
+                             Common::encodeResponseJSON( $amResponse );
                         }else{
                             $tableModel->is_deleted = "1";
                             $tableModel->save(false);
@@ -471,16 +473,16 @@ class FloorController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-                $floors = RestaurantFloors::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
+                $floors = RestaurantFloors::find()->where(['restaurant_id'=>$restaurant_id,'status'=>Yii::$app->params['user_status_value']['active'],"is_deleted"=>"0"])->asArray()->all();
 
                 if(!empty($floors)){
                     foreach ($floors as $key => $floor) {
-                       $arrTables = RestaurantTables::find()->select("id,restaurant_id,floor_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['floor_id'=>$floor['id'],"status"=>Yii::$app->params['user_status_value']['active']])->asArray()->all();
+                       $arrTables = RestaurantTables::find()->select("id,restaurant_id,floor_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['floor_id'=>$floor['id'],"status"=>Yii::$app->params['user_status_value']['active'],"is_deleted"=>"0"])->asArray()->all();
                        unset($floor['updated_by']);
                        unset($floor['updated_at']);
                         unset($floor['created_by']);
                        unset($floor['created_at']);
-                        $floor['table_data'] = !empty($arrTables) ? $arrTables : "No table added.";
+                        $floor['table_data'] = !empty($arrTables) ? $arrTables : "";
                         $floor_data['floor_data'][] = $floor;
                     }
                     $ssMessage                                = 'User Floors Details.';

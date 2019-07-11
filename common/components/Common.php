@@ -1595,7 +1595,7 @@ class Common {
         if ($valid != 1)
         {
             // FOR GENERATE ERROR RESPONSE IF TOKEN NOT VALID
-            $errormessage['error']   = '-2';
+            $errormessage['success']   = '401';
             $errormessage['message'] = 'Auth token not valid.';
             $errormessage['data']    = array();
             Common::encodeResponseJSON($errormessage);
