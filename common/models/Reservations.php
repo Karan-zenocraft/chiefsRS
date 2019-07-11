@@ -10,6 +10,7 @@ class Reservations extends \common\models\base\ReservationsBase
 {
 return 'reservations';
 }
+
 public function beforeSave($insert) {
         $user_id = Yii::$app->user->id;
         if ($this->isNewRecord) {

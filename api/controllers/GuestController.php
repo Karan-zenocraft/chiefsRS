@@ -141,4 +141,79 @@ class GuestController extends \yii\base\Controller
         Common::encodeResponseJSON( $amResponse );
     }
 
+     /*
+     * Function :
+     * Description : Get List of Floors and tables
+     * Request Params :'user_id','auth_token'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+       public function actionGetGuestsList(){
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array( 'user_id' );
+        $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
+
+        // If any getting error in request paramter then set error message.
+        if ( !empty( $amParamsResult['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResult['error'] );
+            Common::encodeResponseJSON( $amResponse );
+        }
+
+        $requestParam     = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus( $requestParam['user_id'] );
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header( 'auth_token' );
+        Common::checkAuthentication( $authToken );
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne( ["id" => $snUserId] );
+        if ( !empty( $model ) ) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if(!empty($restaurant_id)){
+              $arrUserIds = Reservations::find()->select("user_id")->where(["restaurant_id"=>$restaurant_id,"status"=>Yii::$app->params['reservation_status_value']['completed']])->distinct()->all();
+             if(!empty($arrUserIds)){
+               foreach ($arrUserIds as $key => $user_id) {
+                  $user_data = $user_id->user;
+                  $user_data->id = "$user_data->id";
+                  unset($user_data->password);
+                  unset($user_data->restaurant_id);
+                  unset($user_data->is_code_verified);
+                  unset($user_data->password_reset_token);
+                  unset($user_data->badge_count);
+                  unset($user_data->auth_token);
+                  unset($user_data->badge_count);
+                  unset($user_data->verification_code);
+                  unset($user_data->role_id);  
+                  $user_data->address = !empty($user_data->address) ? $user_data->address : "";
+                  $user_data->contact_no = !empty($user_data->contact_no) ? $user_data->contact_no : "";
+                  $user_data->walkin_note = !empty($user_data->walkin_note) ? $user_data->walkin_note : "";
+                  $user_data->birthdate = !empty($user_data->birthdate) ? $user_data->birthdate : "";
+                  $user_data->anniversary = !empty($user_data->anniversary) ? $user_data->anniversary : "";
+                  $user_data->status = !empty($user_data->status) ? Yii::$app->params['user_status'][$user_data->status] : "";
+                  $usersDataArr[] = $user_data;
+               }
+               $amReponseParam = $usersDataArr;
+                $ssMessage                                = 'Guest List';
+                $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+
+             }else{
+                 $ssMessage  = 'No guests found for your restaurant';
+                 $amResponse = Common::errorResponse( $ssMessage );
+             }
+            }else{
+                 $ssMessage  = 'You have not assigned any restaurant yet.';
+                 $amResponse = Common::errorResponse( $ssMessage );
+            }
+        }else {
+            $ssMessage  = 'Invalid User.';
+            $amResponse = Common::errorResponse( $ssMessage );
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON( $amResponse );
+    }
+
 }

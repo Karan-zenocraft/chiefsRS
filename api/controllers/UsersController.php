@@ -481,14 +481,27 @@ class UsersController extends \yii\base\Controller
             Common::encodeResponseJSON( $amResponse );
         }
         $requestParam = $amData['request_param'];
-        if ( ( $device_model = Devicedetails::findOne( ['device_tocken' => $amData['request_param']['device_id'],'userid' => $requestParam['user_id']] ) ) !== NULL ) {
-            $device_model->delete();
-            $ssMessage      = 'Logout successfully';
-            $amResponse     = Common::successResponse( $ssMessage, $amReponseParam = '' );
-        }
-        else {
-            $ssMessage  = 'Your deivce token is invalid.';
-            $amResponse = Common::errorResponse( $ssMessage );
+         // Check User Status
+        Common::matchUserStatus( $requestParam['user_id'] );
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header( 'auth_token' );
+        Common::checkAuthentication( $authToken );
+
+        $userModel = Users::findOne(['id'=>$requestParam['user_id']]);
+        if(!empty($userModel)){
+            if ( ( $device_model = Devicedetails::findOne( ['device_tocken' => $amData['request_param']['device_id'],'user_id' => $requestParam['user_id']] ) ) !== NULL ) {
+                $device_model->delete();
+                $userModel->auth_token = "";
+                $userModel->save(false);
+                $ssMessage      = 'Logout successfully';
+                $amResponse     = Common::successResponse( $ssMessage, $amReponseParam = '' );
+            }else {
+                $ssMessage  = 'Your deivce token is invalid.';
+                $amResponse = Common::errorResponse( $ssMessage );
+            }   
+        }else{
+             $ssMessage  = 'Invalid user_id';
+             $amResponse = Common::errorResponse( $ssMessage );
         }
         Common::encodeResponseJSON( $amResponse );
     }
@@ -500,7 +513,7 @@ class UsersController extends \yii\base\Controller
      * Author : Rutusha Joshi
      */
 
-    public function actionEditProfile() {
+    public function actionEditProfile(){
         //Get all request parameter
         $amData = Common::checkRequestType();
         $amResponse = $amReponseParam = [];

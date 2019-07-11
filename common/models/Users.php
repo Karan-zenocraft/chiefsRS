@@ -70,7 +70,7 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface {
     {
         return [
             'id' => 'ID',
-            'role_id' => 'Select Role',
+            'role_id' => 'Role',
             'email' => 'Email',
             'password' => 'Password',
             'first_name' => 'First Name',

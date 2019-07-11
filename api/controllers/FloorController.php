@@ -477,7 +477,7 @@ class FloorController extends \yii\base\Controller
 
                 if(!empty($floors)){
                     foreach ($floors as $key => $floor) {
-                       $arrTables = RestaurantTables::find()->select("id,restaurant_id,floor_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['floor_id'=>$floor['id'],"status"=>Yii::$app->params['user_status_value']['active'],"is_deleted"=>"0"])->asArray()->all();
+                       $arrTables = RestaurantTables::find()->select("id,name,restaurant_id,floor_id,width,height,x_cordinate,y_cordinate,max_capacity,min_capacity,shape,status")->where(['floor_id'=>$floor['id'],"status"=>Yii::$app->params['user_status_value']['active'],"is_deleted"=>"0"])->asArray()->all();
                        unset($floor['updated_by']);
                        unset($floor['updated_at']);
                         unset($floor['created_by']);
