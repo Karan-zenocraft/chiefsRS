@@ -175,7 +175,7 @@ class GuestController extends \yii\base\Controller
              ->leftJoin('users', 'reservations.user_id=users.id') 
              ->where("reservations.restaurant_id = '".$restaurant_id."'")
              ->groupBy('reservations.user_id')
-             ->orderBy('reservations.first_name,reservations.last_name')
+             ->orderBy('users.first_name,users.last_name')
              ->asArray()
              ->all();
             
@@ -236,18 +236,18 @@ class GuestController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-              $arrGuestsList = Reservations::find()->where("restaurant_id = '".$restaurant_id."' AND status != '".Yii::$app->params['reservation_status_value']['requested']."' AND user_id = '".$requestParam['guest_id']."'")->orderBy('created_at DESC')->asArray()->all();
+              $arrGuestsReservations = Reservations::find()->where("restaurant_id = '".$restaurant_id."' AND status != '".Yii::$app->params['reservation_status_value']['requested']."' AND user_id = '".$requestParam['guest_id']."'")->orderBy('created_at DESC')->asArray()->all();
             
-             if(!empty($arrGuestsList)){
-              foreach ($arrGuestsList as $key => $guest) {
-               $result[] = array_map('strval', $guest);
+             if(!empty($arrGuestsReservations)){
+              foreach ($arrGuestsReservations as $key => $reservations) {
+               $result[] = array_map('strval', $reservations);
               }
                 $amReponseParam = $result;
                 $ssMessage                                = 'Guest Reservations History';
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
              }else{
-                 $ssMessage  = 'No guests found for your restaurant';
+                 $ssMessage  = 'No reservations found for this guest';
                  $amResponse = Common::errorResponse( $ssMessage );
              }
             }else{
