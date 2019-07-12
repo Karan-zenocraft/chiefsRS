@@ -171,9 +171,9 @@ class GuestController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
               $arrGuestsList = Reservations::find()
-             ->select(["users.id","users.first_name","users.last_name","users.email","users.address","users.walkin_note","users.birthdate","users.anniversary","users.status","users.created_at","COUNT(reservations.user_id) AS guest_booking_count"])
-             -> leftJoin('users', 'reservations.user_id=users.id') 
-             ->where("reservations.restaurant_id = '".$restaurant_id."' AND reservations.status = '".Yii::$app->params['reservation_status_value']['booked']."'")
+             ->select(["users.id","users.first_name","users.last_name","users.email","users.address","users.walkin_note","users.birthdate","users.anniversary","users.status","users.created_at","total_visits" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = ".$restaurant_id." AND reservations.status = '".Yii::$app->params['reservation_status_value']['completed']."'"),"total_cancellations" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = ".$restaurant_id." AND reservations.status = '".Yii::$app->params['reservation_status_value']['cancelled']."'")])
+             ->leftJoin('users', 'reservations.user_id=users.id') 
+             ->where("reservations.restaurant_id = '".$restaurant_id."'")
              ->groupBy('reservations.user_id')
              ->asArray()
              ->all();
