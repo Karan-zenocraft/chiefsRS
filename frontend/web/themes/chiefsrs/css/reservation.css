@@ -1,6 +1,7 @@
 body > section > div {
     min-height: 100vh;
     background-color: #ffffff;
+    margin:0 !important;
 }
 
 /* body > section > div > div {

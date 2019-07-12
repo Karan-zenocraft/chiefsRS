@@ -171,7 +171,7 @@ class GuestController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
               $arrGuestsList = Reservations::find()
-             ->select("users.id,users.first_name,users.last_name,users.email,users.address,users.walkin_note,users.birthdate,users.anniversary,users.status,users.created_at,COUNT(reservations.user_id) AS guest_visit")
+             ->select(["users.id","users.first_name","users.last_name","users.email","users.address","users.walkin_note","users.birthdate","users.anniversary","users.status","users.created_at","COUNT(reservations.user_id) AS guest_booking_count"])
              -> leftJoin('users', 'reservations.user_id=users.id') 
              ->where("reservations.restaurant_id = '".$restaurant_id."' AND reservations.status = '".Yii::$app->params['reservation_status_value']['booked']."'")
              ->groupBy('reservations.user_id')

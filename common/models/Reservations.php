@@ -10,6 +10,9 @@ class Reservations extends \common\models\base\ReservationsBase
 {
 return 'reservations';
 }
+public $total_visits;
+public $total_bookings;
+public $total_cancellations;
 
 public function beforeSave($insert) {
         $user_id = Yii::$app->user->id;
