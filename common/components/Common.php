@@ -1460,9 +1460,11 @@ class Common {
      */
     public static function encodeResponseJSON($amResponse)
     {
+         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON; 
+        \Yii::$app->response->data  =  $amResponse;
 
-        header('Content-type:application/json');
-        echo Json::encode($amResponse);
+       /* header('Content-type:application/json');
+        echo Json::encode($amResponse);*/
         Yii::$app->end();
     }
  public static function checkRequestType($ssFlag = 'AES', $ssStatus = 200, $ssBody = '', $ssContentType = 'text/json')
