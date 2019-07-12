@@ -474,7 +474,7 @@ class FloorController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
                 $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables'=>function($q){
-                    return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
+                    return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
                     ->where(['restaurant_tables.status'=>Yii::$app->params['user_status_value']['active'],"restaurant_tables.is_deleted"=>"0"]);}])
                         ->where(['restaurant_id'=>$restaurant_id,'restaurant_floors.status'=>Yii::$app->params['user_status_value']['active'],"restaurant_floors.is_deleted"=>"0"])->asArray()->all();
                         
