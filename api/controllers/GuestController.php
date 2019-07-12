@@ -106,10 +106,6 @@ class GuestController extends \yii\base\Controller
                     $guestModel->status = Yii::$app->params['user_status_value']['active'];
                     if($guestModel->save(false)){
                         $reserveationModel = new Reservations();
-                        $reserveationModel->first_name = $guestModel->first_name;
-                        $reserveationModel->last_name = $guestModel->last_name;
-                        $reserveationModel->email = $guestModel->email;
-                        $reserveationModel->contact_no = $guestModel->contact_no;
                         $reserveationModel->user_id = $guestModel->id;
                         $reserveationModel->restaurant_id = $restaurant_id;
                         $reserveationModel->floor_id = !empty($requestParam['floor_id']) ? $requestParam['floor_id'] : ""; 
@@ -174,29 +170,19 @@ class GuestController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-              $arrUserIds = Reservations::find()->select("user_id")->where(["restaurant_id"=>$restaurant_id,"status"=>Yii::$app->params['reservation_status_value']['completed']])->distinct()->all();
-             if(!empty($arrUserIds)){
-               foreach ($arrUserIds as $key => $user_id) {
-                  $user_data = $user_id->user;
-                  $user_data->id = "$user_data->id";
-                  unset($user_data->password);
-                  unset($user_data->restaurant_id);
-                  unset($user_data->is_code_verified);
-                  unset($user_data->password_reset_token);
-                  unset($user_data->badge_count);
-                  unset($user_data->auth_token);
-                  unset($user_data->badge_count);
-                  unset($user_data->verification_code);
-                  unset($user_data->role_id);  
-                  $user_data->address = !empty($user_data->address) ? $user_data->address : "";
-                  $user_data->contact_no = !empty($user_data->contact_no) ? $user_data->contact_no : "";
-                  $user_data->walkin_note = !empty($user_data->walkin_note) ? $user_data->walkin_note : "";
-                  $user_data->birthdate = !empty($user_data->birthdate) ? $user_data->birthdate : "";
-                  $user_data->anniversary = !empty($user_data->anniversary) ? $user_data->anniversary : "";
-                  $user_data->status = !empty($user_data->status) ? Yii::$app->params['user_status'][$user_data->status] : "";
-                  $usersDataArr[] = $user_data;
-               }
-               $amReponseParam = $usersDataArr;
+              $arrGuestsList = Reservations::find()
+             ->select("users.id,users.first_name,users.last_name,users.email,users.address,users.walkin_note,users.birthdate,users.anniversary,users.status,users.created_at,COUNT(reservations.user_id) AS guest_visit")
+             -> leftJoin('users', 'reservations.user_id=users.id') 
+             ->where("reservations.restaurant_id = '".$restaurant_id."' AND reservations.status = '".Yii::$app->params['reservation_status_value']['booked']."'")
+             ->groupBy('reservations.user_id')
+             ->asArray()
+             ->all();
+            
+             if(!empty($arrGuestsList)){
+              foreach ($arrGuestsList as $key => $guest) {
+               $result[] = array_map('strval', $guest);
+              }
+                $amReponseParam = $result;
                 $ssMessage                                = 'Guest List';
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
