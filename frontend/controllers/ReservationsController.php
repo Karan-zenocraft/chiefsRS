@@ -176,7 +176,7 @@ class ReservationsController extends FrontCoreController
     {
         $model = $this->findModel($id);
         if(!empty($model)){
-            $model->status = "4";
+            $model->status = "3";
             $model->save(false);
         }
         Yii::$app->session->setFlash( 'success', Yii::getAlias( '@delete_booking_message' ) );
@@ -187,7 +187,7 @@ class ReservationsController extends FrontCoreController
     {
         $model = $this->findModel($id);
         if(!empty($model)){
-            $model->status = "3";
+            $model->status = "2";
             $model->save(false);
         }
         Yii::$app->session->setFlash( 'success', Yii::getAlias( '@cancel_booking_message' ) );
