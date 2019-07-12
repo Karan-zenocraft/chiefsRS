@@ -20,6 +20,8 @@ use common\models\DeviceDetails;
 use common\models\EmailFormat;
 use common\models\RestaurantTables;
 use common\models\RestaurantFloors;
+use yii\data\Pagination;
+use yii\widgets\LinkPager;
 /**
  * MainController implements the CRUD actions for APIs.
  */
@@ -476,12 +478,23 @@ class FloorController extends \yii\base\Controller
                 $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables'=>function($q){
                     return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
                     ->where(['restaurant_tables.status'=>Yii::$app->params['user_status_value']['active'],"restaurant_tables.is_deleted"=>"0"]);}])
-                        ->where(['restaurant_id'=>$restaurant_id,'restaurant_floors.status'=>Yii::$app->params['user_status_value']['active'],"restaurant_floors.is_deleted"=>"0"])->asArray()->all();
-                        
-                if(!empty($floors)){
-                    $ssMessage                                = 'User Floors Details.';
+                        ->where(['restaurant_id'=>$restaurant_id,'restaurant_floors.status'=>Yii::$app->params['user_status_value']['active'],"restaurant_floors.is_deleted"=>"0"]);/*->asArray()->all();*/
+                  $countQuery = clone $floors;  
+                $pages = new Pagination(['totalCount' => $countQuery->count(),'defaultPageSize'=>1]);
+                $totalCount = $pages->totalCount;
+               for($i=0;$i<$totalCount;$i++){
+                $links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
+               }
+        
+                $models = $floors->offset((isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : $pages->offset)
+                ->limit($pages->limit)
+                ->asArray()
+                ->all();   
+                $amReponseParam = $models;
+                $amReponseParam['links'] = $links;
 
-                    $amReponseParam             = $floors;
+                if(!empty($models)){
+                    $ssMessage                                = 'User Floors Details.';
 
                     $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
                 }else{
