@@ -108,6 +108,7 @@ class ReservationsController extends FrontCoreController
             $model->drop_time = !empty($model->pickup_time) ? date("H:i:s", strtotime($postData['Reservations']['drop_time'])) : "";
         }
             $model->status = Yii::$app->params['reservation_status_value']['requested'];
+            $model->role_id = Yii::$app->params['userroles']['customer'];
             $model->save(false);
             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@create_booking_message' ) );
             return $this->redirect(['index']);

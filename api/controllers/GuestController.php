@@ -175,6 +175,7 @@ class GuestController extends \yii\base\Controller
              ->leftJoin('users', 'reservations.user_id=users.id') 
              ->where("reservations.restaurant_id = '".$restaurant_id."'")
              ->groupBy('reservations.user_id')
+             ->orderBy('reservations.first_name,reservations.last_name')
              ->asArray()
              ->all();
             
@@ -184,6 +185,65 @@ class GuestController extends \yii\base\Controller
               }
                 $amReponseParam = $result;
                 $ssMessage                                = 'Guest List';
+                $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
+
+             }else{
+                 $ssMessage  = 'No guests found for your restaurant';
+                 $amResponse = Common::errorResponse( $ssMessage );
+             }
+            }else{
+                 $ssMessage  = 'You have not assigned any restaurant yet.';
+                 $amResponse = Common::errorResponse( $ssMessage );
+            }
+        }else {
+            $ssMessage  = 'Invalid User.';
+            $amResponse = Common::errorResponse( $ssMessage );
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON( $amResponse );
+    }
+
+      /*
+     * Function :
+     * Description : Get List of reservations of guest
+     * Request Params :'user_id','auth_token',guest_id
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+       public function actionGetGuestReservationsHistory(){
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array( 'user_id','guest_id' );
+        $amParamsResult   = Common::checkRequestParameterKey( $amData['request_param'], $amRequiredParams );
+
+        // If any getting error in request paramter then set error message.
+        if ( !empty( $amParamsResult['error'] ) ) {
+            $amResponse = Common::errorResponse( $amParamsResult['error'] );
+            Common::encodeResponseJSON( $amResponse );
+        }
+
+        $requestParam     = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus( $requestParam['user_id'] );
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header( 'auth_token' );
+        Common::checkAuthentication( $authToken );
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne( ["id" => $snUserId] );
+        if ( !empty( $model ) ) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if(!empty($restaurant_id)){
+              $arrGuestsList = Reservations::find()->where("restaurant_id = '".$restaurant_id."' AND status != '".Yii::$app->params['reservation_status_value']['requested']."' AND user_id = '".$requestParam['guest_id']."'")->orderBy('created_at DESC')->asArray()->all();
+            
+             if(!empty($arrGuestsList)){
+              foreach ($arrGuestsList as $key => $guest) {
+               $result[] = array_map('strval', $guest);
+              }
+                $amReponseParam = $result;
+                $ssMessage                                = 'Guest Reservations History';
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
              }else{
