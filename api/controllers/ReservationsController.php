@@ -59,21 +59,20 @@ class ReservationsController extends \yii\base\Controller
         if ( !empty( $model ) ) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if(!empty($restaurant_id)){
-                $reservations = Reservations::find()->where(['restaurant_id'=>$restaurant_id,"status"=>Yii::$app->params['reservation_status_value']['requested'],"date"=>$requestParam['date']])->asArray()->all();
-                    if(!empty($reservations)){
-                        foreach ($reservations as $key => $reservation){
-                          $reservation['floor_id'] = !empty($reservation['floor_id']) ? $reservation['floor_id'] : "null";
-                           $reservation['table_id'] = !empty($reservation['table_id']) ? $reservation['table_id'] : "null";
-                            $reservation['pickup_location'] = !empty($reservation['pickup_location']) ? $reservation['pickup_location'] : "null";
-                            $reservation['pickup_time'] = !empty($reservation['pickup_time']) ? $reservation['pickup_time'] : "null";
-                            $reservation['drop_location'] = !empty($reservation['drop_location']) ? $reservation['drop_location'] : "null";
-                            $reservation['drop_time'] = !empty($reservation['drop_time']) ? $reservation['drop_time'] : "null";
-                            $reservation['updated_at'] = !empty($reservation['updated_at']) ? $reservation['updated_at'] : "null";
+              $arrReservationsList = Reservations::find()
+             ->select(["users.id","users.first_name","users.last_name","users.email","users.address","users.contact_no","users.status","users.created_at","reservations.id as reservation_id","reservations.floor_id","reservations.table_id","reservations.date","reservations.booking_start_time","reservations.booking_end_time","reservations.total_stay_time","reservations.no_of_guests","reservations.pickup_drop","reservations.pickup_location","reservations.pickup_time","reservations.drop_location","reservations.drop_time","reservations.tag_id","reservations.special_comment","reservations.role_id"])
+             ->leftJoin('users','reservations.user_id=users.id')
+             ->where(["reservations.restaurant_id"=>$restaurant_id,"reservations.status"=>Yii::$app->params['reservation_status_value']['requested'],"reservations.date"=>$requestParam['date']]) 
+             ->orderBy('reservations.created_at')
+             ->asArray()
+             ->all();
+                    if(!empty($arrReservationsList)){
+                        foreach ($arrReservationsList as $key => $reservation){
                             unset($reservation['pickup_lat']);
                             unset($reservation['pickup_long']);
                             unset($reservation['drop_lat']);
                             unset($reservation['drop_long']);
-                           $arrReservation[] = $reservation;
+                             $arrReservation[] = array_map('strval', $reservation);
                         }
                     $ssMessage                                = 'User Reservations Details.';
 
