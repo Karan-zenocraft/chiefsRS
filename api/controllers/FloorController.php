@@ -122,6 +122,12 @@ class FloorController extends \yii\base\Controller
                        // $amReponseParam             = $amReponseParam;
                         $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
+                    }else{
+                         $amReponseParam['floor_data'] = $floorModel;
+                        $amReponseParam['table_data'] = [];
+                        $ssMessage                  = 'Floor is successfully created.';
+                       // $amReponseParam             = $amReponseParam;
+                        $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
                     }
                 }
 

@@ -22,6 +22,7 @@ use common\models\Reservations;
 use common\models\Guests;
 use common\models\RestaurantFloors;
 use common\models\RestaurantTables;
+use yii\data\Pagination;
 /**
  * MainController implements the CRUD actions for APIs.
  */
@@ -175,15 +176,27 @@ class GuestController extends \yii\base\Controller
              ->leftJoin('users', 'reservations.user_id=users.id') 
              ->where("reservations.restaurant_id = '".$restaurant_id."'")
              ->groupBy('reservations.user_id')
-             ->orderBy('users.first_name,users.last_name')
-             ->asArray()
-             ->all();
-            
-             if(!empty($arrGuestsList)){
-              foreach ($arrGuestsList as $key => $guest) {
+             ->orderBy('users.first_name,users.last_name');
+             /*->asArray()
+             ->all();*/
+                $countQuery = clone $arrGuestsList;  
+                $pages = new Pagination(['totalCount' => $countQuery->count(),'defaultPageSize'=>1]);
+                $totalCount = $pages->totalCount;
+               for($i=0;$i<$totalCount;$i++){
+                //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
+                $page_no[] = $i;
+               }
+        
+                $models = $arrGuestsList->offset((isset($requestParam['page_no']) && !empty($requestParam['page_no'])) ? $requestParam['page_no'] : $pages->offset)
+                ->limit($pages->limit)
+                ->asArray()
+                ->all(); 
+             if(!empty($models)){
+              foreach ($models as $key => $guest) {
                $result[] = array_map('strval', $guest);
               }
-                $amReponseParam = $result;
+                $amReponseParam['guest_list'] = $result;
+                $amReponseParam['pages'] = $page_no;
                 $ssMessage                                = 'Guest List';
                 $amResponse = Common::successResponse( $ssMessage, $amReponseParam );
 
