@@ -149,13 +149,25 @@ class ReservationsController extends \yii\base\Controller
                     if (!empty($matchReservationValues)) {
                         $ssMessage = 'You can not book this table as this table is already booked by another customer.';
                         $amResponse = Common::errorResponse($ssMessage);
+                        Common::encodeResponseJSON($amResponse);
                     } else {
-                        $reservation->floor_id = $requestParam['floor_id'];
-                        $reservation->table_id = $requestParam['table_id'];
-                        $reservation->save();
-                        $amReponseParam = ArrayHelper::toArray($reservation);
-                        $ssMessage = 'Table booked successfully.';
-                        $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
+                        $tableDetails = $reservation->table;
+                        if ($tableDetails['max_capacity'] < $reservation->no_of_guests) {
+
+                            $ssMessage = 'You can not book this table as table capacity is less than your total guests.';
+                            $amResponse = Common::errorResponse($ssMessage);
+                            Common::encodeResponseJSON($amResponse);
+
+                        } else {
+                            $reservation->floor_id = $requestParam['floor_id'];
+                            $reservation->table_id = $requestParam['table_id'];
+                            $reservation->status = Yii::$app->params['reservation_value_status']['booked'];
+                            $reservation->save();
+                            $amReponseParam = ArrayHelper::toArray($reservation);
+                            $ssMessage = 'Table booked successfully.';
+                            $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
+                        }
+
                     }
                 } else {
                     $ssMessage = 'Please pass valid reservation_id';

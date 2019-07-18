@@ -508,4 +508,65 @@ class FloorController extends \yii\base\Controller
         Common::encodeResponseJSON($amResponse);
     }
 
+    /*
+     * Function :
+     * Description : Get floor's reservation details
+     * Request Params :'user_id','auth_token'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+    public function actionGetFloorReservationDetails()
+    {
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+
+        $requestParam = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        Common::checkAuthentication($authToken);
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne(["id" => $snUserId]);
+        if (!empty($model)) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if (!empty($restaurant_id)) {
+                $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables' => function ($q) {
+                    return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
+                        ->where(['restaurant_tables.status' => Yii::$app->params['user_status_value']['active'], "restaurant_tables.is_deleted" => "0"]);}])
+                    ->where(['restaurant_id' => $restaurant_id, 'restaurant_floors.status' => Yii::$app->params['user_status_value']['active'], "restaurant_floors.is_deleted" => "0"])->asArray()->all();
+
+                if (!empty($floors)) {
+                    $ssMessage = 'User Floors Details.';
+
+                    $amReponseParam = $floors;
+
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                } else {
+                    $ssMessage = 'There is no any floors added to your restaurant';
+                    $amResponse = Common::errorResponse($ssMessage);
+                }
+            } else {
+                $ssMessage = 'You have not assigned any restaurant yet.';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid User.';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON($amResponse);
+    }
+
 }
