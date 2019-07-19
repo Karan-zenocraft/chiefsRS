@@ -178,6 +178,7 @@ class GuestController extends \yii\base\Controller
                 $guestModel->anniversary = !empty($requestParam['anniversary']) ? $requestParam['anniversary'] : "";
                 $guestModel->role_id = Yii::$app->params['userroles']['walk_in'];
                 $guestModel->status = Yii::$app->params['user_status_value']['active'];
+                $guestModel->restaurant_id = $restaurant_id;
                 $guestModel->save(false);
                 $amReponseParam = $guestModel;
                 $model_id = $guestModel->id;
