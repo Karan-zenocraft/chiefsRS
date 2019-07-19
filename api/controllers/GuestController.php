@@ -205,6 +205,84 @@ class GuestController extends \yii\base\Controller
      * Response Params :
      * Author :Rutusha Joshi
      */
+    /*  public function actionGetGuestsList()
+    {
+    //Get all request parameter
+    $amData = Common::checkRequestType();
+    $amResponse = $amReponseParam = [];
+
+    // Check required validation for request parameter.
+    $amRequiredParams = array('user_id');
+    $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+
+    // If any getting error in request paramter then set error message.
+    if (!empty($amParamsResult['error'])) {
+    $amResponse = Common::errorResponse($amParamsResult['error']);
+    Common::encodeResponseJSON($amResponse);
+    }
+
+    $requestParam = $amData['request_param'];
+    //Check User Status//
+    Common::matchUserStatus($requestParam['user_id']);
+    //VERIFY AUTH TOKEN
+    $authToken = Common::get_header('auth_token');
+    Common::checkAuthentication($authToken);
+    $snUserId = $requestParam['user_id'];
+    $model = Users::findOne(["id" => $snUserId]);
+    if (!empty($model)) {
+    $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+    if (!empty($restaurant_id)) {
+    $arrGuestsList = Reservations::find()
+    ->select(["users.id", "users.first_name", "users.last_name", "users.email", "users.address", "users.walkin_note", "users.birthdate", "users.anniversary", "users.status", "users.created_at", "total_visits" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['completed'] . "'"), "total_cancellations" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['cancelled'] . "'")])
+    ->leftJoin('users', 'reservations.user_id=users.id')
+    ->where("reservations.restaurant_id = '" . $restaurant_id . "'")
+    ->groupBy('reservations.user_id')
+    ->orderBy('users.first_name,users.last_name');
+
+    $countQuery = clone $arrGuestsList;
+    $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 1]);
+    $totalCount = $pages->totalCount;
+    for ($i = 0; $i < $totalCount; $i++) {
+    //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
+    $page_no[] = $i;
+    }
+
+    $models = $arrGuestsList->offset((isset($requestParam['page_no']) && !empty($requestParam['page_no'])) ? $requestParam['page_no'] : $pages->offset)
+    ->limit($pages->limit)
+    ->asArray()
+    ->all();
+    if (!empty($models)) {
+    foreach ($models as $key => $guest) {
+    $result[] = array_map('strval', $guest);
+    }
+    $amReponseParam['guest_list'] = $result;
+    $amReponseParam['pages'] = $page_no;
+    $ssMessage = 'Guest List';
+    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+    } else {
+    $ssMessage = 'No guests found for your restaurant';
+    $amResponse = Common::errorResponse($ssMessage);
+    }
+    } else {
+    $ssMessage = 'You have not assigned any restaurant yet.';
+    $amResponse = Common::errorResponse($ssMessage);
+    }
+    } else {
+    $ssMessage = 'Invalid User.';
+    $amResponse = Common::errorResponse($ssMessage);
+    }
+    // FOR ENCODE RESPONSE INTO JSON //
+    Common::encodeResponseJSON($amResponse);
+    }*/
+
+    /*
+     * Function :
+     * Description : Get List of Floors and tables
+     * Request Params :'user_id','auth_token'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
     public function actionGetGuestsList()
     {
         //Get all request parameter
@@ -232,22 +310,20 @@ class GuestController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-                $arrGuestsList = Reservations::find()
-                    ->select(["users.id", "users.first_name", "users.last_name", "users.email", "users.address", "users.walkin_note", "users.birthdate", "users.anniversary", "users.status", "users.created_at", "total_visits" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['completed'] . "'"), "total_cancellations" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['cancelled'] . "'")])
-                    ->leftJoin('users', 'reservations.user_id=users.id')
-                    ->where("reservations.restaurant_id = '" . $restaurant_id . "'")
-                    ->groupBy('reservations.user_id')
-                    ->orderBy('users.first_name,users.last_name');
+                $arrGuestsList = Users::find()
+                    ->where("role_id = '" . Yii::$app->params['userroles']['walk_in'] . "' AND status = '" . Yii::$app->params['user_status_value']['active'] . "'")
+                    ->orderBy('first_name,last_name');
                 /*->asArray()
                 ->all();*/
                 $countQuery = clone $arrGuestsList;
-                $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 1]);
-                $totalCount = $pages->totalCount;
-                for ($i = 0; $i < $totalCount; $i++) {
-                    //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
-                    $page_no[] = $i;
-                }
+                $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 20]);
 
+                /* $totalCount = $pages->totalCount;
+                for ($i = 0; $i < $totalCount; $i++) {
+                //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
+                $page_no[] = $i;
+                }
+                 */
                 $models = $arrGuestsList->offset((isset($requestParam['page_no']) && !empty($requestParam['page_no'])) ? $requestParam['page_no'] : $pages->offset)
                     ->limit($pages->limit)
                     ->asArray()
@@ -257,7 +333,7 @@ class GuestController extends \yii\base\Controller
                         $result[] = array_map('strval', $guest);
                     }
                     $amReponseParam['guest_list'] = $result;
-                    $amReponseParam['pages'] = $page_no;
+                    // $amReponseParam['pages'] = $page_no;
                     $ssMessage = 'Guest List';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
