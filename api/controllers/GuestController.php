@@ -310,8 +310,10 @@ class GuestController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-                $arrGuestsList = Users::find()
-                    ->where("role_id = '" . Yii::$app->params['userroles']['walk_in'] . "' AND status = '" . Yii::$app->params['user_status_value']['active'] . "'")
+                $arrGuestsList = Users::find()->select(["users.*",
+                    "total_visits" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['completed'] . "'"),
+                    "total_cancellations" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['cancelled'] . "'")])
+                    ->where("role_id = '" . Yii::$app->params['userroles']['walk_in'] . "' AND status = '" . Yii::$app->params['user_status_value']['active'] . "' AND restaurant_id = '" . $restaurant_id . "'")
                     ->orderBy('first_name,last_name');
                 /*->asArray()
                 ->all();*/
@@ -328,6 +330,7 @@ class GuestController extends \yii\base\Controller
                     ->limit($pages->limit)
                     ->asArray()
                     ->all();
+
                 if (!empty($models)) {
                     foreach ($models as $key => $guest) {
                         $result[] = array_map('strval', $guest);
