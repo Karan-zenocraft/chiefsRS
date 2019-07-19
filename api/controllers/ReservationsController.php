@@ -60,7 +60,7 @@ class ReservationsController extends \yii\base\Controller
                 /*     ->asArray()
                 ->all();*/
                 $countQuery = clone $arrReservationsList;
-                $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 1]);
+                $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 20]);
                 $totalCount = $pages->totalCount;
                 for ($i = 0; $i < $totalCount; $i++) {
                     //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
@@ -79,8 +79,8 @@ class ReservationsController extends \yii\base\Controller
                         unset($reservation['drop_long']);
                         $arrReservation[] = array_map('strval', $reservation);
                     }
-                    $amReponseParam['reservations'] = $models;
-                    $amReponseParam['pages'] = $page_no;
+                    $amReponseParam['reservations'] = $arrReservation;
+                    //$amReponseParam['pages'] = $page_no;
                     $ssMessage = 'User Reservations Details.';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
