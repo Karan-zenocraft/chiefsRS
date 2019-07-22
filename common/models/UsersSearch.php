@@ -2,10 +2,10 @@
 
 namespace common\models;
 
+use common\models\Users;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Users;
 
 /**
  * UsersSearch represents the model behind the search form about `common\models\Users`.
@@ -20,7 +20,7 @@ class UsersSearch extends Users
     {
         return [
             [['id', 'role_id', 'status'], 'integer'],
-            [['email', 'password', 'first_name', 'last_name', 'address', 'created_at', 'updated_at','fullName'], 'safe'],
+            [['email', 'password', 'first_name', 'last_name', 'address', 'created_at', 'updated_at', 'fullName'], 'safe'],
         ];
     }
 
@@ -42,12 +42,11 @@ class UsersSearch extends Users
      */
     public function search($params)
     {
-        $query = Users::find()->where("id !=".Yii::$app->user->id ." AND role_id != ".Yii::$app->params['super_admin_role_id']);
-
+        $query = Users::find()->where("id !=" . Yii::$app->user->id . " AND role_id != " . Yii::$app->params['super_admin_role_id'] . " AND role_id !=" . Yii::$app->params['userroles']['walk_in']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]],
+            'sort' => ['defaultOrder' => ['id' => SORT_DESC]],
         ]);
 
         $this->load($params);
@@ -70,10 +69,10 @@ class UsersSearch extends Users
             ->andFilterWhere(['like', 'password', $this->password])
             ->andFilterWhere(['like', 'address', $this->address]);
 
-              $query->andWhere('first_name LIKE "%' . $this->fullName . '%" ' .
-        'OR last_name LIKE "%' . $this->fullName . '%"'. //This will filter when only last name is searched.
-        'OR CONCAT(first_name, " ", last_name) LIKE "%' . $this->fullName . '%"'
-    );
+        $query->andWhere('first_name LIKE "%' . $this->fullName . '%" ' .
+            'OR last_name LIKE "%' . $this->fullName . '%"' . //This will filter when only last name is searched.
+            'OR CONCAT(first_name, " ", last_name) LIKE "%' . $this->fullName . '%"'
+        );
 
         return $dataProvider;
     }

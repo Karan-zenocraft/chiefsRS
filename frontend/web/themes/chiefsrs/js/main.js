@@ -1,6 +1,6 @@
 $(document).ready(function($) {
 	//fadeout flash message
-//$(".flash_message").delay(3000).slideUp(500);
+$(".flash_message").delay(3000).slideUp(500);
 
 
 	"use strict";
