@@ -1,18 +1,18 @@
 <?php
-if (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")){
-	
-	Yii::setAlias('@common_base', '/chiefsRS/common/');
+if (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) {
 
-}else{
+    Yii::setAlias('@common_base', '/chiefsRS/common/');
 
-	Yii::setAlias('@common_base', '/common/');
+} else {
+
+    Yii::setAlias('@common_base', '/common/');
 }
 Yii::setAlias('common', dirname(__DIR__));
 Yii::setAlias('api', dirname(dirname(__DIR__)) . '/api'); // add api alias
 Yii::setAlias('frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('console', dirname(dirname(__DIR__)) . '/console');
-Yii::setAlias('@root', realpath(dirname(__FILE__).'/../../'));
+Yii::setAlias('@root', realpath(dirname(__FILE__) . '/../../'));
 
 //START: site configuration
 Yii::setAlias('site_title', 'Chiefs RS');
@@ -21,7 +21,7 @@ Yii::setAlias('site_footer', 'Chiefs RS');
 
 //START: BACK-END message
 
-//START: Admin users 
+//START: Admin users
 Yii::setAlias('admin_user_change_password_msg', 'Your password has been changed successfully !');
 Yii::setAlias('admin_user_forget_password_msg', 'E-Mail has been sent with new password successfully !');
 //END: Admin user
@@ -86,14 +86,13 @@ Yii::setAlias('restaurant_layout_update_message', 'Layout has been updated succe
 Yii::setAlias('restaurant_layout_delete_message', 'Layout has been deleted successfully !');
 //END:  Restaurant layout message
 
-
 //START: Restaurant table message
 Yii::setAlias('restaurant_table_add_message', 'Table has been added successfully !');
 Yii::setAlias('restaurant_table_update_message', 'Table has been updated successfully !');
 Yii::setAlias('restaurant_table_delete_message', 'Table has been deleted successfully !');
 //END:  Restaurant table message
 
-//START: Admin users 
+//START: Admin users
 Yii::setAlias('reset_password_message', 'Your password has been sent successfully !');
 //Yii::setAlias('admin_user_forget_password_msg', 'E-Mail has been sent with new password successfully !');
 //END: Admin user
@@ -104,4 +103,4 @@ Yii::setAlias('create_booking_message', 'Your Booking has been done successfully
 Yii::setAlias('update_booking_message', 'Your Booking has been updated successfully !');
 Yii::setAlias('cancel_booking_message', 'Your Booking has been canceled successfully !');
 Yii::setAlias('delete_booking_message', 'Your Booking has been deleted successfully !');
-
+Yii::setAlias('signup_success', 'You are registered successfully. Please check your email and verify your Email.');

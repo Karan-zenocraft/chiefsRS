@@ -8,7 +8,8 @@ use yii\base\Model;
 /**
  * Login form
  */
-class LoginForm extends Model {
+class LoginForm extends Model
+{
 
     public $username, $email;
     public $password;
@@ -21,12 +22,13 @@ class LoginForm extends Model {
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
             // username and password are both required
             [['email', 'password'], 'required'],
             // Email Validation
-            [['email'],'email'],
+            [['email'], 'email'],
             // rememberMe must be a boolean value
             ['rememberMe', 'safe'],
             // password is validated by validatePassword()
@@ -41,19 +43,22 @@ class LoginForm extends Model {
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params) {
+    public function validatePassword($attribute, $params)
+    {
         if (!$this->hasErrors()) {
-            $user = $this->getUser();            
+            $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Incorrect email or password.');
                 //}else if (!$user || ($user->role_id != Yii::$app->params['userroles']['teachers'] && $user->role_id != Yii::$app->params['userroles']['student'])) {
             } else if (!$user) {
-                $this->addError($attribute, Yii::t('app', 'Incorrect email or password.'));                        
-            }else if (!$user || $user->status != self::ACTIVE_STATUS) {
-                $this->addError($attribute, Yii::t('app','Your account has been deactivated, please contact to administrator.'));
-            }else if($user->role_id != Yii::$app->params['userroles']['customer']){
-                    $this->addError($attribute, Yii::t('app','You are not authorize to login here'));
-            }else{
+                $this->addError($attribute, Yii::t('app', 'Incorrect email or password.'));
+            } else if (!$user || $user->status != self::ACTIVE_STATUS) {
+                $this->addError($attribute, Yii::t('app', 'Your account has been deactivated, please contact to administrator.'));
+            } else if ($user->role_id != Yii::$app->params['userroles']['customer']) {
+                $this->addError($attribute, Yii::t('app', 'You are not authorize to login here'));
+            } else if (!$user || $user->is_code_verified != "1") {
+                $this->addError($attribute, Yii::t('app', 'Your email is not verfied. Please verify Your Email.'));
+            } else {
                 //$user->last_login = date('Y-m-d H:i:s');
                 //$user->is_logged_in = '1';
                 //$user->save();
@@ -66,7 +71,8 @@ class LoginForm extends Model {
      *
      * @return boolean whether the user is logged in successfully
      */
-    public function login() {
+    public function login()
+    {
 
         $duration = $this->rememberMe ? 3600 * 24 * 30 : 0;
         if ($this->validate()) {
@@ -77,20 +83,21 @@ class LoginForm extends Model {
             } else {
                 setcookie(\Yii::getAlias('site_title') . "_front_email", false);
                 setcookie(\Yii::getAlias('site_title') . "_front_password", false);
-            }            
+            }
             return Yii::$app->user->login($this->getUser(), $duration);
         } else {
             return false;
         }
 
         /* if ($this->validate()) {
-          return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
-          } else {
-          return false;
-          } */
+    return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+    } else {
+    return false;
+    } */
     }
 
-    public function studentlogin() {
+    public function studentlogin()
+    {
         return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
     }
 
@@ -99,7 +106,8 @@ class LoginForm extends Model {
      *
      * @return User|null
      */
-    public function getUser() {
+    public function getUser()
+    {
         if ($this->_user === false) {
             $this->_user = Users::findByUsername($this->email);
         }

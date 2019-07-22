@@ -2,7 +2,6 @@
 namespace common\models;
 
 use Yii;
-use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
@@ -19,13 +18,13 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at
- * 
+ *
  */
 
 class AdminIdentity extends ActiveRecord implements IdentityInterface
 {
     const STATUS_INACTIVE = 0;
-    const STATUS_ACTIVE = 1;    
+    const STATUS_ACTIVE = 1;
 
     /**
      * @inheritdoc
@@ -46,8 +45,8 @@ class AdminIdentity extends ActiveRecord implements IdentityInterface
     }
 
     /**
-      * @inheritdoc
-      */
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -91,17 +90,17 @@ class AdminIdentity extends ActiveRecord implements IdentityInterface
     public static function findByPasswordResetToken($token)
     {
         /*$expire = Yii::$app->params['user.passwordResetTokenExpire'];
-        $parts = explode('_', $token);
-        $timestamp = (int) end($parts);
-        if ($timestamp + $expire < time()) {
-            // token expired
-            return null;
-        }
+    $parts = explode('_', $token);
+    $timestamp = (int) end($parts);
+    if ($timestamp + $expire < time()) {
+    // token expired
+    return null;
+    }
 
-        return Users::findOne([
-            'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
-        ]);*/
+    return Users::findOne([
+    'password_reset_token' => $token,
+    'status' => self::STATUS_ACTIVE,
+    ]);*/
     }
 
     /**
@@ -138,20 +137,21 @@ class AdminIdentity extends ActiveRecord implements IdentityInterface
     {
         //return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
-    
+
     /**
      * Validates password
      *
      * @param string $password password to validate
      * @return boolean if password provided is valid for current user
      */
-    public function validatePassword($password, $user) {
-        
-        if (md5($password) !== $user->password) {            
+    public function validatePassword($password, $user)
+    {
+
+        if (md5($password) !== $user->password) {
             return false;
-        } else {            
+        } else {
             return true;
-        }        
+        }
     }
 
     /**
@@ -169,7 +169,7 @@ class AdminIdentity extends ActiveRecord implements IdentityInterface
      */
     public function generateAuthKey()
     {
-        //$this->auth_key = Yii::$app->security->generateRandomString();
+        $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
     /**
