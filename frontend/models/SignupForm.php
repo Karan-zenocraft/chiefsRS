@@ -73,7 +73,7 @@ class SignupForm extends Model
                 //Get email template into database for forgot password
                 $emailformatemodel = EmailFormat::findOne(["title" => 'user_registration', "status" => '1']);
                 if ($emailformatemodel) {
-                    $frontendLoginURL = Yii::$app->params['site_url'] . Yii::$app->params['frontend_login_url'];
+                    $frontendLoginURL = Url::to(['site/index', true);
                     //create template file
                     $AreplaceString = array('{password}' => $this->password, '{username}' => $this->first_name . " " . $this->last_name, '{email}' => $this->email, '{loginurl}' => $frontendLoginURL, '{email_verify_link}' => $email_verify_link);
 
