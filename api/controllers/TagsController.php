@@ -55,6 +55,11 @@ class TagsController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
                 $tagslist = Tags::find()->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at > '" . $requestParam['date'] . "' ")->asArray()->all();
+                foreach ($tagslist as $key => $tag) {
+                    $image = Yii::$app->params['root_url'] . "uploads/" . $tag['image'];
+                    $tagslist[$key]['image'] = $image;
+                }
+
                 $ssMessage = 'Tags List';
                 $amResponse = Common::successResponse($ssMessage, $tagslist);
             } else {
