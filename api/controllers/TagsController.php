@@ -55,7 +55,8 @@ class TagsController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
                 $tagslist = Tags::find()->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at > '" . $requestParam['date'] . "' ")->asArray()->all();
-                p($tagslist);
+                $ssMessage = 'Tags List';
+                $amResponse = Common::successResponse($ssMessage, $tagslist);
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';
                 $amResponse = Common::errorResponse($ssMessage);
