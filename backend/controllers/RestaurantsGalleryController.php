@@ -2,14 +2,13 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\RestaurantsGallery;
-use common\models\RestaurantsGallerySearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use backend\components\AdminCoreController;
 use common\components\Common;
+use common\models\RestaurantsGallery;
+use common\models\RestaurantsGallerySearch;
+use Yii;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * RestaurantsGalleryController implements the CRUD actions for RestaurantsGallery model.
@@ -19,16 +18,16 @@ class RestaurantsGalleryController extends AdminCoreController
     /**
      * {@inheritdoc}
      */
-   /* public function behaviors()
+    /* public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+    return [
+    'verbs' => [
+    'class' => VerbFilter::className(),
+    'actions' => [
+    'delete' => ['POST'],
+    ],
+    ],
+    ];
     }*/
 
     /**
@@ -38,9 +37,9 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionIndex()
     {
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
         $searchModel = new RestaurantsGallerySearch();
-        $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams );
+        $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -71,25 +70,25 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionCreate()
     {
         $model = new RestaurantsGallery();
-       // $model->scenario = 'insert';
+        // $model->scenario = 'insert';
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
         $model->restaurant_id = $_GET['rid'];
 
         if ($model->load(Yii::$app->request->post())) {
-             $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
-            if (!empty($file)){   
-                $file_name = $file->basename."_".uniqid().".".$file->extension;
+            $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
+            if (!empty($file)) {
+                $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
                 $model->image_name = $file_name;
-                if($model->validate()){
+                if ($model->validate()) {
                     $model->save();
-                    $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name);
+                    $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name);
 
                 }
-                Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_add_message' ) );
+                Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_add_message'));
                 return $this->redirect(['index', 'rid' => $model->restaurant_id]);
-            }else{
-                return $this->render('create', ['model' => $model,'snRestaurantName' => $snRestaurantName,'MenuCategoriesDropdown'=>$MenuCategoriesDropdown]);
+            } else {
+                return $this->render('create', ['model' => $model, 'snRestaurantName' => $snRestaurantName, 'MenuCategoriesDropdown' => $MenuCategoriesDropdown]);
             }
         }
 
@@ -109,37 +108,36 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-       // $model->scenario = 'update';
+        // $model->scenario = 'update';
         $old_image = $model->image_name;
-         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId,$flag = "Restaurants");
-            if ($model->load(Yii::$app->request->post())) {
-             $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
-      
-           if (!empty($file)){
-                 $delete = $model->oldAttributes['image_name'];
-                 $file_name = $file->basename."_".uniqid().".".$file->extension;
+        $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
+        $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
+        if ($model->load(Yii::$app->request->post())) {
+            $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
 
-                 $model->image_name = $file_name; 
-                 if(!empty($old_image) && file_exists(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image)){
-                    unlink(Yii::getAlias('@root') .'/frontend/web/uploads/'.$old_image);
-                 }
-                 $file->saveAs( Yii::getAlias('@root') .'/frontend/web/uploads/' . $file_name,false);
-                 $model->image_name = $file_name;
-                 $model->save();
-            }
-            else{
-                $model->image_name  = $old_image;
+            if (!empty($file)) {
+                $delete = $model->oldAttributes['image_name'];
+                $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
+
+                $model->image_name = $file_name;
+                if (!empty($old_image) && file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image)) {
+                    unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image);
+                }
+                $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name, false);
+                $model->image_name = $file_name;
+                $model->save();
+            } else {
+                $model->image_name = $old_image;
                 $model->save(false);
             }
-            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_update_message' ) );
-            return $this->redirect(['index','rid' => $model->restaurant_id]);
-        }else{
-            return $this->render('update', ['model' => $model,'snRestaurantName' => $snRestaurantName]);
+            Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_update_message'));
+            return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+        } else {
+            return $this->render('update', ['model' => $model, 'snRestaurantName' => $snRestaurantName]);
         }
         return $this->render('update', [
             'model' => $model,
-            'snRestaurantName' => $snRestaurantName
+            'snRestaurantName' => $snRestaurantName,
         ]);
     }
 
@@ -154,11 +152,13 @@ class RestaurantsGalleryController extends AdminCoreController
     {
         $model = $this->findModel($id);
         $this->findModel($id)->delete();
-        if(file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/'. $model->image_name))
-            unlink(Yii::getAlias('@root') . '/frontend/web/uploads/'. $model->image_name);
-            $model->delete(); 
-        Yii::$app->session->setFlash( 'success', Yii::getAlias( '@restaurant_gallery_delete_message' ) );
-        return $this->redirect(['index','rid' => $model->restaurant_id]);
+        if (file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $model->image_name)) {
+            unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $model->image_name);
+        }
+
+        $model->delete();
+        Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_delete_message'));
+        return $this->redirect(['index', 'rid' => $model->restaurant_id]);
     }
 
     /**

@@ -2,14 +2,13 @@
 
 namespace backend\controllers;
 
-use Yii;
+use backend\components\AdminCoreController;
 use common\models\Tags;
 use common\models\TagsSearch;
+use Yii;
 use yii\web\Controller;
-use backend\components\AdminCoreController;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use common\components\Common;
+
 /**
  * TagsController implements the CRUD actions for Tags model.
  */
@@ -18,16 +17,16 @@ class TagsController extends AdminCoreController
     /**
      * {@inheritdoc}
      */
-   /* public function behaviors()
+    /* public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+    return [
+    'verbs' => [
+    'class' => VerbFilter::className(),
+    'actions' => [
+    'delete' => ['POST'],
+    ],
+    ],
+    ];
     }*/
 
     /**
@@ -36,10 +35,9 @@ class TagsController extends AdminCoreController
      */
     public function actionIndex()
     {
-           $searchModel = new TagsSearch();
+        $searchModel = new TagsSearch();
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
 
         if (Yii::$app->request->isPjax) {
 
@@ -85,16 +83,25 @@ class TagsController extends AdminCoreController
      */
     public function actionCreate()
     {
-         $this->layout = 'popup';
         $model = new Tags();
+        if ($model->load(Yii::$app->request->post())) {
+            $file = \yii\web\UploadedFile::getInstance($model, 'image');
+            if (!empty($file)) {
+                $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
+                $model->image = $file_name;
+                if ($model->validate()) {
+                    $model->save();
+                    $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@tag_add_message' ) );
-             return Common::closeColorBox();
-            return $this->redirect( ['tags/index'] );
+                }
+                Yii::$app->session->setFlash('success', Yii::getAlias('@tag_add_message'));
+                return $this->redirect(['tags/index']);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -109,13 +116,33 @@ class TagsController extends AdminCoreController
      */
     public function actionUpdate($id)
     {
-         $this->layout = 'popup';
+        // $this->layout = 'popup';
         $model = $this->findModel($id);
+        $old_image = $model->image;
+        if ($model->load(Yii::$app->request->post())) {
+            $file = \yii\web\UploadedFile::getInstance($model, 'image');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@tag_update_message' ) );
-            return Common::closeColorBox();
-            return $this->redirect( ['tags/index'] );
+            if (!empty($file)) {
+                $delete = $model->oldAttributes['image'];
+                $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
+
+                $model->image = $file_name;
+                if (!empty($old_image) && file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image)) {
+                    unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image);
+                }
+                $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name, false);
+                $model->image = $file_name;
+                $model->save();
+            } else {
+                $model->image = $old_image;
+                $model->save(false);
+            }
+            Yii::$app->session->setFlash('success', Yii::getAlias('@tag_update_message'));
+            return $this->redirect(['tags/index']);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
 
         return $this->render('update', [
@@ -132,9 +159,9 @@ class TagsController extends AdminCoreController
      */
     public function actionDelete($id)
     {
-        $snDeleteStatus = $this->findModel( $id )->delete();
-        if ( !empty( $snDeleteStatus ) && $snDeleteStatus=='1' ) {
-            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@tag_delete_message' ) );
+        $snDeleteStatus = $this->findModel($id)->delete();
+        if (!empty($snDeleteStatus) && $snDeleteStatus == '1') {
+            Yii::$app->session->setFlash('success', Yii::getAlias('@tag_delete_message'));
         }
 
         return $this->redirect(['index']);
