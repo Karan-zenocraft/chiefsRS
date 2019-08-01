@@ -3,7 +3,7 @@
 namespace api\controllers;
 
 use common\components\Common;
-use common\models\Tags;
+use common\models\Restaurants;
 use common\models\Users;
 use Yii;
 
@@ -13,7 +13,7 @@ use yii\web\Controller;
 /**
  * MainController implements the CRUD actions for APIs.
  */
-class TagsController extends \yii\base\Controller
+class RestaurantController extends \yii\base\Controller
 {
     /*
      * Function :
@@ -23,14 +23,14 @@ class TagsController extends \yii\base\Controller
      * Author :Rutusha Joshi
      */
 
-    public function actionGetTagsList()
+    public function actionTurnOffRestaurant()
     {
         //Get all request parameter
         $amData = Common::checkRequestType();
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array('user_id', 'date');
+        $amRequiredParams = array('user_id');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
 
         // If any getting error in request paramter then set error message.
@@ -49,16 +49,19 @@ class TagsController extends \yii\base\Controller
         $model = Users::findOne(["id" => $snUserId]);
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
-            if (!empty($restaurant_id)) {
-                Common::checkRestaurantStatus($restaurant_id);
-                $tagslist = Tags::find()->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at > '" . $requestParam['date'] . "' ")->asArray()->all();
-                foreach ($tagslist as $key => $tag) {
-                    $image = Yii::$app->params['root_url'] . "uploads/" . $tag['image'];
-                    $tagslist[$key]['image'] = $image;
-                }
 
-                $ssMessage = 'Tags List';
-                $amResponse = Common::successResponse($ssMessage, $tagslist);
+            if (!empty($restaurant_id)) {
+                $restaurant = Restaurants::findOne($restaurant_id);
+                if (!empty($restaurant)) {
+                    $restaurant->status = Yii::$app->params['user_status_value']['in_active'];
+                    $restaurant->save(false);
+                    $amReponseParam = [];
+                    $ssMessage = 'Your Restaurant is turn off successfully.';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                } else {
+                    $ssMessage = 'This restaurant does not exist';
+                    $amResponse = Common::errorResponse($ssMessage);
+                }
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';
                 $amResponse = Common::errorResponse($ssMessage);

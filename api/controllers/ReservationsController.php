@@ -55,6 +55,7 @@ class ReservationsController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantStatus($restaurant_id);
                 $arrReservationsList = Reservations::find()
                     ->select(["users.id", "users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.status", "users.created_at", "reservations.id as reservation_id", "reservations.floor_id", "reservations.table_id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.role_id"])
                     ->leftJoin('users', 'reservations.user_id=users.id')
@@ -138,6 +139,7 @@ class ReservationsController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantStatus($restaurant_id);
                 $reservation = Reservations::findOne($requestParam['reservation_id']);
                 if (!empty($reservation)) {
                     $matchReservationValues = Reservations::find()

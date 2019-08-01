@@ -196,7 +196,6 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-
                 $floorModel = RestaurantFloors::findOne(["id" => $requestParam['floor_data']['id']]);
                 if (!empty($floorModel)) {
                     if ($floorModel->is_deleted == "1") {
@@ -335,7 +334,6 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-
                 if (!empty($requestParam['floor_id'])) {
 
                     $floorModel = RestaurantFloors::findOne(["id" => $requestParam['floor_id']]);
