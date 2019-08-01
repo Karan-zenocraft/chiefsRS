@@ -312,8 +312,8 @@ class GuestController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
                 $arrGuestsList = Users::find()->select(["users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.walkin_note", "users.birthdate", "users.anniversary", "users.status",
-                    "total_visits" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['completed'] . "'"),
-                    "total_cancellations" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['cancelled'] . "'")])
+                    /* "total_visits" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['completed'] . "'"),
+                "total_cancellations" => Reservations::find()->select(["COUNT(reservations.id)"])->where("reservations.user_id = users.id AND reservations.restaurant_id = " . $restaurant_id . " AND reservations.status = '" . Yii::$app->params['reservation_status_value']['cancelled'] . "'")*/])
                     ->where("role_id = '" . Yii::$app->params['userroles']['walk_in'] . "' AND status = '" . Yii::$app->params['user_status_value']['active'] . "' AND restaurant_id = '" . $restaurant_id . "' AND users.updated_at > '" . $requestParam['date'] . "'")
                     ->orderBy('first_name,last_name');
                 /*->asArray()
