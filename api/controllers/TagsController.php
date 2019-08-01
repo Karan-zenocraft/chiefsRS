@@ -50,15 +50,17 @@ class TagsController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-                Common::checkRestaurantStatus($restaurant_id);
-                $tagslist = Tags::find()->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at > '" . $requestParam['date'] . "' ")->asArray()->all();
+                $tagslist = Tags::find()->select(["*", "NOW() AS sink_datetime"])->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at BETWEEN '" . $requestParam['date'] . "' AND NOW()")->asArray()->all();
+                $amReponseParam['sink_datetime'] = $tagslist[0]['sink_datetime'];
+
                 foreach ($tagslist as $key => $tag) {
                     $image = Yii::$app->params['root_url'] . "uploads/" . $tag['image'];
                     $tagslist[$key]['image'] = $image;
+                    unset($tag['sink_datetime']);
                 }
-
+                $amReponseParam['tags_list'] = $tagslist;
                 $ssMessage = 'Tags List';
-                $amResponse = Common::successResponse($ssMessage, $tagslist);
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';
                 $amResponse = Common::errorResponse($ssMessage);
