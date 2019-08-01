@@ -5,6 +5,7 @@ namespace api\controllers;
 use common\components\Common;
 use common\models\BookReservations;
 use common\models\Reservations;
+use common\models\RestaurantFloors;
 use common\models\RestaurantTables;
 use common\models\Users;
 use Yii;
@@ -240,67 +241,101 @@ class ReservationsController extends \yii\base\Controller
         $model = Users::findOne(["id" => $snUserId]);
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
-            if (!empty($restaurant_id)) {
-                $booking_end_time = date("H:i:s", strtotime('+' . $requestParam['total_stay_time'] . ' minutes', strtotime($requestParam['booking_time'])));
 
-                $matchReservationValues = Reservations::find()
-                    ->where("date = '" . $requestParam['date'] . "'
+            if (!empty($restaurant_id)) {
+                Common::checkRestaurantStatus($restaurant_id);
+                $floorModel = RestaurantFloors::findOne(["id" => $requestParam['floor_id'], "status" => Yii::$app->params['user_status_value']['active']]);
+                if (!empty($floorModel)) {
+                    if ($floorModel->is_deleted == "1") {
+                        $ssMessage = "This floor is deleted. You can not assign this table.";
+                        $amResponse = Common::errorResponse($ssMessage);
+                        Common::encodeResponseJSON($amResponse);
+                    } else {
+
+                        foreach (array($requestParam['table_id']) as $key => $value) {
+                            $tableModel = RestaurantTables::findOne(['id' => $value, "floor_id" => $floorModel->id, "status" => Yii::$app->params['user_status_value']['active']]);
+
+                            if (!empty($tableModel)) {
+                                if ($tableModel->is_deleted == "1") {
+                                    $ssMessage = "Table is deleted. You can not assign this table";
+                                    $amResponse = Common::errorResponse($ssMessage);
+                                    Common::encodeResponseJSON($amResponse);
+                                }
+
+                            } else {
+                                $ssMessage = "table's id is invalid or this id is belongs to some other floor.";
+                                $amResponse = Common::errorResponse($ssMessage);
+                                Common::encodeResponseJSON($amResponse);
+                            }
+
+                            # code...
+                        }
+
+                        $booking_end_time = date("H:i:s", strtotime('+' . $requestParam['total_stay_time'] . ' minutes', strtotime($requestParam['booking_time'])));
+
+                        $matchReservationValues = Reservations::find()
+                            ->where("date = '" . $requestParam['date'] . "'
                                 AND status = '" . Yii::$app->params['reservation_status_value']['booked'] . "' AND (
                                         (booking_start_time >= '" . $requestParam['booking_time'] . "'
                                             AND booking_end_time <= '" . $booking_end_time . "')
                                         OR (('" . $requestParam['booking_time'] . "' > booking_start_time) AND ('" . $requestParam['booking_time'] . "' < booking_end_time))
                                         OR (('" . $booking_end_time . "' > booking_start_time) AND ('" . $booking_end_time . "' < booking_end_time)))")->asArray()->all();
+                        if (!empty($matchReservationValues)) {
+                            foreach ($matchReservationValues as $match) {
+                                $match_tables[] = BookReservations::find()->where("reservation_id = '" . $match['id'] . "' AND floor_id = '" . $requestParam['floor_id'] . "' AND table_id IN ('" . $requestParam['table_id'] . "')")->asArray()->all();
+                            }
+                            if (!empty($match_tables) && count($match_tables) > 0) {
+                                $ssMessage = 'You can not book this table as this table is already booked by another customer.';
+                                $amResponse = Common::errorResponse($ssMessage);
+                                Common::encodeResponseJSON($amResponse);
 
-                if (!empty($matchReservationValues)) {
-                    foreach ($matchReservationValues as $match) {
-                        $match_tables[] = BookReservations::find()->where("reservation_id = '" . $match['id'] . "' AND floor_id = '" . $requestParam['floor_id'] . "' AND table_id IN ('" . $requestParam['table_id'] . "')")->asArray()->all();
-                    }
-                    if (!empty($match_tables) && count($match_tables) > 0) {
-                        $ssMessage = 'You can not book this table as this table is already booked by another customer.';
-                        $amResponse = Common::errorResponse($ssMessage);
-                        Common::encodeResponseJSON($amResponse);
+                            }
+                        } else {
+                            $capacity = RestaurantTables::find()->select(["SUM(max_capacity) as max_capacity"])->where("id IN (" . $requestParam['table_id'] . ")")->asArray()->all();
 
+                            if ($capacity[0]['max_capacity'] < $requestParam['no_of_guests']) {
+
+                                $ssMessage = 'You can not book this table as table capacity is less than your total guests.';
+                                $amResponse = Common::errorResponse($ssMessage);
+                                Common::encodeResponseJSON($amResponse);
+
+                            } else {
+                                $reservation = new Reservations();
+                                $reservation->user_id = $requestParam['guest_id'];
+                                $reservation->restaurant_id = $restaurant_id;
+                                $reservation->date = $requestParam['date'];
+                                $reservation->booking_start_time = $requestParam['booking_time'];
+                                $reservation->booking_end_time = $booking_end_time;
+                                $reservation->total_stay_time = $requestParam['total_stay_time'];
+                                $reservation->no_of_guests = $requestParam['no_of_guests'];
+                                $reservation->special_comment = $requestParam['special_comment'];
+                                $reservation->status = Yii::$app->params['reservation_status_value']['booked'];
+                                $reservation->role_id = Yii::$app->params['userroles']['walk_in'];
+                                $reservation->save(false);
+
+                                $table_array = explode(",", $requestParam['table_id']);
+                                foreach ($table_array as $key => $oneTable) {
+                                    $bookReservation = new BookReservations;
+                                    $bookReservation->reservation_id = $reservation['id'];
+                                    $bookReservation->floor_id = $requestParam['floor_id'];
+                                    $bookReservation->table_id = $oneTable;
+                                    $bookReservation->created_at = date('Y-m-d H:i:s');
+                                    $bookReservation->created_at = date('Y-m-d H:i:s');
+                                    $bookReservation->save(false);
+                                }
+                                $reservation->floor_id = $requestParam['floor_id'];
+                                $reservation->table_id = $requestParam['table_id'];
+                                $amReponseParam = ArrayHelper::toArray($reservation);
+                                $ssMessage = 'Table booked successfully.';
+                                $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
+                                /*}*/
+
+                            }
+                        }
                     }
                 } else {
-                    $capacity = RestaurantTables::find()->select(["SUM(max_capacity) as max_capacity"])->where("id IN (" . $requestParam['table_id'] . ")")->asArray()->all();
-
-                    if ($capacity[0]['max_capacity'] < $requestParam['no_of_guests']) {
-
-                        $ssMessage = 'You can not book this table as table capacity is less than your total guests.';
-                        $amResponse = Common::errorResponse($ssMessage);
-                        Common::encodeResponseJSON($amResponse);
-
-                    } else {
-                        $reservation = new Reservations();
-                        $reservation->user_id = $requestParam['guest_id'];
-                        $reservation->restaurant_id = $restaurant_id;
-                        $reservation->date = $requestParam['date'];
-                        $reservation->booking_start_time = $requestParam['booking_time'];
-                        $reservation->booking_end_time = $booking_end_time;
-                        $reservation->total_stay_time = $requestParam['total_stay_time'];
-                        $reservation->no_of_guests = $requestParam['no_of_guests'];
-                        $reservation->special_comment = $requestParam['special_comment'];
-                        $reservation->status = Yii::$app->params['reservation_status_value']['booked'];
-                        $reservation->save(false);
-
-                        $table_array = explode(",", $requestParam['table_id']);
-                        foreach ($table_array as $key => $oneTable) {
-                            $bookReservation = new BookReservations;
-                            $bookReservation->reservation_id = $reservation['id'];
-                            $bookReservation->floor_id = $requestParam['floor_id'];
-                            $bookReservation->table_id = $oneTable;
-                            $bookReservation->created_at = date('Y-m-d H:i:s');
-                            $bookReservation->created_at = date('Y-m-d H:i:s');
-                            $bookReservation->save(false);
-                        }
-                        $reservation->floor_id = $requestParam['floor_id'];
-                        $reservation->table_id = $requestParam['table_id'];
-                        $amReponseParam = ArrayHelper::toArray($reservation);
-                        $ssMessage = 'Table booked successfully.';
-                        $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
-                        /*}*/
-
-                    }
+                    $ssMessage = 'Invalid floor_id Or Floor is not active';
+                    $amResponse = Common::errorResponse($ssMessage);
                 }
 
             } else {
