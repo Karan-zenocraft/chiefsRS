@@ -253,8 +253,8 @@ class ReservationsController extends \yii\base\Controller
                         $amResponse = Common::errorResponse($ssMessage);
                         Common::encodeResponseJSON($amResponse);
                     } else {
-
-                        foreach (array($requestParam['table_id']) as $key => $value) {
+                        $table_array = explode(",", $requestParam['table_id']);
+                        foreach ($table_array as $key => $value) {
                             $tableModel = RestaurantTables::findOne(['id' => $value, "floor_id" => $floorModel->id, "status" => Yii::$app->params['user_status_value']['active']]);
 
                             if (!empty($tableModel)) {
