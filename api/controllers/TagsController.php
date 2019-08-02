@@ -50,18 +50,18 @@ class TagsController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-                $tagslist = Tags::find()->select(["*", "NOW() AS sync_datetime"])->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at BETWEEN '" . $requestParam['date'] . "' AND NOW()")->asArray()->all();
+                $date = date("Y-m-d H:i:s");
+                $tagslist = Tags::find()->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at BETWEEN '" . $requestParam['date'] . "' AND '" . $date . "'")->asArray()->all();
+                $amReponseParam['sync_datetime'] = $date;
                 if (!empty($tagslist)) {
 
-                    $amReponseParam['sync_datetime'] = $tagslist[0]['sync_datetime'];
                     $amReponseParam['tags_list'] = [];
                     foreach ($tagslist as $key => $tag) {
-                        unset($tag['sync_datetime']);
                         unset($tag['created_at']);
                         unset($tag['updated_at']);
-                        $amReponseParam['tags_list'][] = $tag;
                         $image = Yii::$app->params['root_url'] . "uploads/" . $tag['image'];
                         $tagslist[$key]['image'] = $image;
+                        $amReponseParam['tags_list'][] = $tag;
                     }
                     $ssMessage = 'Tags List';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
