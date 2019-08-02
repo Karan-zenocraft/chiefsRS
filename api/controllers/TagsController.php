@@ -54,13 +54,15 @@ class TagsController extends \yii\base\Controller
                 if (!empty($tagslist)) {
 
                     $amReponseParam['sync_datetime'] = $tagslist[0]['sync_datetime'];
-
+                    $amReponseParam['tags_list'] = [];
                     foreach ($tagslist as $key => $tag) {
                         unset($tag['sync_datetime']);
+                        unset($tag['created_at']);
+                        unset($tag['updated_at']);
+                        $amReponseParam['tags_list'][] = $tag;
                         $image = Yii::$app->params['root_url'] . "uploads/" . $tag['image'];
                         $tagslist[$key]['image'] = $image;
                     }
-                    $amReponseParam['tags_list'] = $tagslist;
                     $ssMessage = 'Tags List';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
                 } else {
