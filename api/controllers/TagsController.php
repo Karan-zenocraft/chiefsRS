@@ -53,9 +53,9 @@ class TagsController extends \yii\base\Controller
                 $date = date("Y-m-d H:i:s");
                 $tagslist = Tags::find()->where("status = '" . Yii::$app->params['user_status_value']['active'] . "' AND updated_at BETWEEN '" . $requestParam['date'] . "' AND '" . $date . "'")->asArray()->all();
                 $amReponseParam['sync_datetime'] = $date;
+                $amReponseParam['tags_list'] = [];
                 if (!empty($tagslist)) {
 
-                    $amReponseParam['tags_list'] = [];
                     foreach ($tagslist as $key => $tag) {
                         unset($tag['created_at']);
                         unset($tag['updated_at']);
@@ -66,7 +66,6 @@ class TagsController extends \yii\base\Controller
                     $ssMessage = 'Tags List';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
                 } else {
-                    $amReponseParam['tags_list'] = [];
                     $ssMessage = 'Tags List';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
                 }
