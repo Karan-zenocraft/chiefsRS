@@ -61,11 +61,12 @@ class ReservationsController extends \yii\base\Controller
                     ->leftJoin('users', 'reservations.user_id=users.id')
                     ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.status" => Yii::$app->params['reservation_status_value']['requested'], "reservations.date" => $requestParam['date']])
                     ->orderBy('reservations.created_at');
-                /*     ->asArray()
+                /*->asArray()
                 ->all();*/
                 $countQuery = clone $arrReservationsList;
                 $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 20]);
                 $totalCount = $pages->totalCount;
+
                 for ($i = 0; $i < $totalCount; $i++) {
                     //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
                     $page_no[] = $i + 1;
@@ -75,6 +76,7 @@ class ReservationsController extends \yii\base\Controller
                     ->limit($pages->limit)
                     ->asArray()
                     ->all();
+
                 if (!empty($models)) {
                     foreach ($models as $key => $reservation) {
                         unset($reservation['pickup_lat']);
@@ -83,6 +85,7 @@ class ReservationsController extends \yii\base\Controller
                         unset($reservation['drop_long']);
                         $arrReservation[] = array_map('strval', $reservation);
                     }
+                    p($arrReservation);
                     $amReponseParam['reservations'] = $arrReservation;
                     //$amReponseParam['pages'] = $page_no;
                     $ssMessage = 'User Reservations Details.';

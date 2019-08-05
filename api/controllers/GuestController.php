@@ -384,6 +384,7 @@ class GuestController extends \yii\base\Controller
         }
 
         $requestParam = $amData['request_param'];
+
         //Check User Status//
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
@@ -394,19 +395,31 @@ class GuestController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
-                $arrGuestsReservations = Reservations::find()->where("restaurant_id = '" . $restaurant_id . "' AND status != '" . Yii::$app->params['reservation_status_value']['requested'] . "' AND user_id = '" . $requestParam['guest_id'] . "'")->orderBy('created_at DESC')->asArray()->all();
-
+                $arrGuestsReservations = Reservations::find()->select(["reservations.id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.status", "reservations.role_id", "reservations.created_at", "reservations.updated_at"])->where("restaurant_id = '" . $restaurant_id . "'   AND user_id = '" . $requestParam['guest_id'] . "'")->orderBy('created_at DESC')->asArray()->all();
+                $amReponseParam['total_visits'] = "";
+                $amReponseParam['total_cancellations'] = "";
                 if (!empty($arrGuestsReservations)) {
+                    $i = $j = 0;
                     foreach ($arrGuestsReservations as $key => $reservations) {
+                        if ($reservations['status'] == Yii::$app->params['reservation_status_value']['booked']) {
+                            $i++;
+
+                        } else if ($reservations['status'] == Yii::$app->params['reservation_status_value']['cancelled']) {
+                            $j++;
+                        }
                         $result[] = array_map('strval', $reservations);
                     }
-                    $amReponseParam = $result;
+                    $amReponseParam['total_visits'] = $i;
+                    $amReponseParam['total_cancellations'] = $j;
+
+                    $amReponseParam['reservations_history'] = $result;
                     $ssMessage = 'Guest Reservations History';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
                 } else {
-                    $ssMessage = 'No reservations found for this guest';
-                    $amResponse = Common::errorResponse($ssMessage);
+                    $amReponseParam['reservations_history'] = [];
+                    $ssMessage = 'Guest Reservations History';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
                 }
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';
