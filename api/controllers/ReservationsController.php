@@ -90,7 +90,7 @@ class ReservationsController extends \yii\base\Controller
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
                 } else {
-                    $ssMessage = 'No reservations found.';
+                    $ssMessage = 'No Reservation found.';
                     $amResponse = Common::successResponseBlank($ssMessage, $amReponseParam);
                 }
             } else {

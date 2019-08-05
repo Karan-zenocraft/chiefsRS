@@ -396,8 +396,8 @@ class GuestController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
                 $arrGuestsReservations = Reservations::find()->select(["reservations.id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.status", "reservations.role_id", "reservations.created_at", "reservations.updated_at"])->where("restaurant_id = '" . $restaurant_id . "'   AND user_id = '" . $requestParam['guest_id'] . "'")->orderBy('created_at DESC')->asArray()->all();
-                $amReponseParam['total_visits'] = "";
-                $amReponseParam['total_cancellations'] = "";
+                $amReponseParam['total_visits'] = 0;
+                $amReponseParam['total_cancellations'] = 0;
                 if (!empty($arrGuestsReservations)) {
                     $i = $j = 0;
                     foreach ($arrGuestsReservations as $key => $reservations) {
