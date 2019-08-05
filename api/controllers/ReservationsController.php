@@ -75,7 +75,7 @@ class ReservationsController extends \yii\base\Controller
                 ->limit($pages->limit)
                 ->asArray()
                 ->all();*/
-
+                $amReponseParam['reservations'] = [];
                 if (!empty($arrReservationsList)) {
                     foreach ($arrReservationsList as $key => $reservation) {
                         unset($reservation['pickup_lat']);
@@ -91,7 +91,7 @@ class ReservationsController extends \yii\base\Controller
 
                 } else {
                     $ssMessage = 'No reservations found.';
-                    $amResponse = Common::errorResponse($ssMessage);
+                    $amResponse = Common::successResponseBlank($ssMessage, $amReponseParam);
                 }
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';
