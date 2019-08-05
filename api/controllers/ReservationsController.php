@@ -9,7 +9,6 @@ use common\models\RestaurantFloors;
 use common\models\RestaurantTables;
 use common\models\Users;
 use Yii;
-use yii\data\Pagination;
 
 /* USE COMMON MODELS */
 use yii\helpers\ArrayHelper;
@@ -57,35 +56,34 @@ class ReservationsController extends \yii\base\Controller
             if (!empty($restaurant_id)) {
                 Common::checkRestaurantStatus($restaurant_id);
                 $arrReservationsList = Reservations::find()
-                    ->select(["users.id", "users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.status", "users.created_at", "reservations.id as reservation_id", "reservations.floor_id", "reservations.table_id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.role_id"])
+                    ->select(["reservations.id AS reservation_id", "users.id AS user_id", "users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.status", "users.created_at", "reservations.id as reservation_id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.role_id", "reservations.status", "table_id" => BookReservations::find()->select(["GROUP_CONCAT(book_reservations.table_id)"])->where("book_reservations.reservation_id = reservations.id"), "floor_id" => BookReservations::find()->select(["GROUP_CONCAT(DISTINCT book_reservations.floor_id)"])->where("book_reservations.reservation_id = reservations.id")])
                     ->leftJoin('users', 'reservations.user_id=users.id')
-                    ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.status" => Yii::$app->params['reservation_status_value']['requested'], "reservations.date" => $requestParam['date']])
-                    ->orderBy('reservations.created_at');
-                /*->asArray()
-                ->all();*/
-                $countQuery = clone $arrReservationsList;
+                    ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.date" => $requestParam['date']])
+                    ->orderBy('reservations.created_at')
+                    ->asArray()
+                    ->all();
+                /*  $countQuery = clone $arrReservationsList;
                 $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 20]);
                 $totalCount = $pages->totalCount;
 
                 for ($i = 0; $i < $totalCount; $i++) {
-                    //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
-                    $page_no[] = $i + 1;
+                //$links[] = "http://".$_SERVER['HTTP_HOST'].$pages->createUrl($i-1);
+                $page_no[] = $i + 1;
                 }
 
                 $models = $arrReservationsList->offset((isset($requestParam['page_no']) && !empty($requestParam['page_no'])) ? $requestParam['page_no'] : $pages->offset)
-                    ->limit($pages->limit)
-                    ->asArray()
-                    ->all();
+                ->limit($pages->limit)
+                ->asArray()
+                ->all();*/
 
-                if (!empty($models)) {
-                    foreach ($models as $key => $reservation) {
+                if (!empty($arrReservationsList)) {
+                    foreach ($arrReservationsList as $key => $reservation) {
                         unset($reservation['pickup_lat']);
                         unset($reservation['pickup_long']);
                         unset($reservation['drop_lat']);
                         unset($reservation['drop_long']);
                         $arrReservation[] = array_map('strval', $reservation);
                     }
-                    p($arrReservation);
                     $amReponseParam['reservations'] = $arrReservation;
                     //$amReponseParam['pages'] = $page_no;
                     $ssMessage = 'User Reservations Details.';

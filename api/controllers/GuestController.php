@@ -419,7 +419,7 @@ class GuestController extends \yii\base\Controller
                 } else {
                     $amReponseParam['reservations_history'] = [];
                     $ssMessage = 'Guest Reservations History';
-                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                    $amResponse = Common::successResponseBlank($ssMessage, $amReponseParam);
                 }
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';

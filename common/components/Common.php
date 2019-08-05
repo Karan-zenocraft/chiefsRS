@@ -1603,6 +1603,11 @@ class Common
         $amResponse = ['success' => "200", 'message' => $ssSuccessMessage, 'data' => $amReponseParam];
         return $amResponse;
     }
+    public static function successResponseBlank($ssSuccessMessage, $amReponseParam = [])
+    {
+        $amResponse = ['success' => "0", 'message' => $ssSuccessMessage, 'data' => $amReponseParam];
+        return $amResponse;
+    }
 
     public static function checkAuthentication($authToken)
     {
