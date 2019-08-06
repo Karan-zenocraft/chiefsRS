@@ -1,10 +1,10 @@
 <?php
 
 $params = array_merge(
-        require(__DIR__ . '/../../common/config/params.php'),
-        //require(__DIR__ . '/../../common/config/params-local.php'),
-        require(__DIR__ . '/params.php')
-        //require(__DIR__ . '/params-local.php')
+    require (__DIR__ . '/../../common/config/params.php'),
+    //require(__DIR__ . '/../../common/config/params-local.php'),
+    require (__DIR__ . '/params.php')
+    //require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -23,12 +23,12 @@ return [
         ],
     ],
     'controllerNamespace' => 'frontend\controllers',
-    'components' => [        
+    'components' => [
         'user' => [
             'identityClass' => 'common\models\Users',
             'enableAutoLogin' => false,
-            'authTimeout'=>300,
-             'loginUrl'=>['site/index'],
+            'authTimeout' => 300,
+            'loginUrl' => ['site/index'],
             'idParam' => '_frontend',
         ],
         'log' => [
@@ -41,38 +41,38 @@ return [
             ],
         ],
         'errorHandler' => [
-          //  'errorAction' => 'site/error',
+            //  'errorAction' => 'site/error',
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'baseUrl'=> (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) ? '/chiefsRS' : '',
+            'baseUrl' => (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) ? '/chiefsRS' : '',
             'cookieValidationKey' => 'iAIsGHwD4Yy9srwnOWoF1BnvESKAYI63',
         ],
-         'assetManager' => [
+        'assetManager' => [
             'bundles' => [
                 /* 'yii\bootstrap\BootstrapAsset' => [
-                  'css' => [],
-                  ], */
+                'css' => [],
+                ], */
                 'yii\web\JqueryAsset' => ['jsOptions' => ['position' => \yii\web\View::POS_HEAD]],
             ],
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl'=>(($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) ? '/chiefsRS' : '',
+            'scriptUrl' => (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "localhost:8012") || ($_SERVER['HTTP_HOST'] == "121.55.237.213:8012")) ? '/chiefsRS' : '',
             'rules' => [
-                'home/<rid>'=>'site/index',
-                'home'=>'site/index',
+                'home/<rid>' => 'site/index',
+                'home' => 'site/index',
                 'restaurants' => 'site/restaurants',
-                'restaurant-details/<rid>'=>'site/restaurant-details',
+                'restaurant-details/<rid>' => 'site/restaurant-details',
                 'book-restaurant/<rid>' => 'reservations/create',
                 'book-restaurant' => 'reservations/create',
                 'update-booking/<id>' => 'reservations/update',
                 'cancel-booking/<id>' => 'reservations/cancel',
                 'delete-booking/<id>' => 'reservations/delete',
                 'manage-reservations' => 'reservations/index',
-            ]
-        ]
+            ],
+        ],
     ],
     'params' => $params,
 ];

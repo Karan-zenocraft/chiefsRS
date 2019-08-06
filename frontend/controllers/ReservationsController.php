@@ -67,6 +67,8 @@ class ReservationsController extends FrontCoreController
      */
     public function actionView($id)
     {
+        $this->layout = "popup";
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
