@@ -1,39 +1,31 @@
 <?php
 
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+use frontend\assets\StatusAsset;
 //use frontend\assets\StatusAsset;
-use common\assets\CommonAppAsset;
-use frontend\widgets\Alert;
-use common\components\Common;
-use yii\bootstrap\ActiveForm;
-use common\models\LoginForm;
-use frontend\models\SignupForm;
+use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
-use frontend\assets\StatusAsset;
+use yii\widgets\Breadcrumbs;
 StatusAsset::register($this);
-$this->registerCssFile('@web/themes/chiefsrs/css/restaurant_details.css', ['depends'=> [yii\web\JqueryAsset::className()]]);
+$this->registerCssFile('@web/themes/chiefsrs/css/restaurant_details.css', ['depends' => [yii\web\JqueryAsset::className()]]);
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage()?>
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
     <head>
       <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
         <title>
-            <?php echo Html::encode( $this->title ) ?>
+            <?php echo Html::encode($this->title) ?>
         </title>
         <meta charset="<?php echo Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><?php echo Html::csrfMetaTags() ?>
     <!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700|Raleway" rel="stylesheet"> -->
      <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
-        <?php $this->head(); ?>
+        <?php $this->head();?>
 
     </head>
     <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
-      <?php $this->beginBody() ?>
+      <?php $this->beginBody()?>
           <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
           <?php //NavBar::begin(); ?>
       <div class="container">
@@ -43,39 +35,39 @@ $this->registerCssFile('@web/themes/chiefsrs/css/restaurant_details.css', ['depe
 
         <div class="collapse navbar-collapse" id="site-nav">
           <ul class="navbar-nav ml-auto">
-            <?php if ( !Yii::$app->user->isGuest ) { ?>
-               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
-            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['reservations/index']);?>" class="nav-link list_rest">My Reservations</a></li>
-            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']);?>" class="nav-link">Logout(<?= Yii::$app->user->identity->first_name ?>)</a></li>
+            <?php if (!Yii::$app->user->isGuest) {?>
+               <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']); ?>" class="nav-link">Restaurants</a></li>
+            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['reservations/index']); ?>" class="nav-link list_rest">My Reservations</a></li>
+            <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/logout']); ?>" class="nav-link">Logout(<?=Yii::$app->user->identity->first_name?>)</a></li>
             <!-- <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="#section-news" class="nav-link">News</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li> -->
             <!-- <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li> -->
-          <?php }else{?>
-          <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']);?>" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']);?>" class="nav-link">Restaurants</a></li>
+          <?php } else {?>
+          <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="<?php echo Yii::$app->urlManager->createUrl(['site/restaurants']); ?>" class="nav-link">Restaurants</a></li>
 
-           <?php } ?>
+           <?php }?>
           </ul>
         </div>
       </div>
-        <?php //NavBar::end(); ?>    
+        <?php //NavBar::end(); ?>
     </nav>
-       <?php 
-        $url_bg = Yii::getAlias('@web')."/themes/chiefsrs/images/rdetails2.jpg";
-        ?>
-      <section class="site-cover" style="background-image: url(<?php echo $url_bg;?>);" id="section-home">
+       <?php
+$url_bg = Yii::getAlias('@web') . "/themes/chiefsrs/images/rdetails2.jpg";
+?>
+      <section class="site-cover" style="background-image: url(<?php echo $url_bg; ?>);" id="section-home">
 
                 <div class="flash_message">
-                    <?php include_once 'flash_message.php'; ?>
+                    <?php include_once 'flash_message.php';?>
                 </div><?php echo
-                Breadcrumbs::widget( [
-                  'links' => isset( $this->params['breadcrumbs'] ) ? $this->params['breadcrumbs'] : [],
-                  ] )
-                ?><?php //echo Alert::widget() ?><?php echo $content ?>
-          
-    
+Breadcrumbs::widget([
+    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+])
+?><?php //echo Alert::widget() ?><?php echo $content ?>
+
+
 <footer class="site-footer site-bg-dark site-section">
       <div class="container">
         <div class="row site-animate">
@@ -97,8 +89,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       </div>
     </footer>
 
-    
-    
+
+
 
     <!-- Modal -->
     <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
@@ -113,7 +105,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <small>CLOSE </small><span aria-hidden="true">&times;</span>
                 </button>
-                <h1 class="mb-4">Reserve A Table</h1>  
+                <h1 class="mb-4">Reserve A Table</h1>
                 <form action="#" method="post">
                   <div class="row">
                     <div class="col-md-6 form-group">
@@ -164,7 +156,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                       <textarea class="form-control" id="m_message" cols="30" rows="7"></textarea>
                     </div>
                   </div>
-                  
+
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <input type="submit" class="btn btn-primary btn-lg btn-block" value="Reserve Now">
@@ -174,7 +166,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </form>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -184,7 +176,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-      <?php $this->endBody(); ?>
-      <?php $this->endPage() ?>
+      <?php $this->endBody();?>
+      <?php $this->endPage()?>
         </body>
 </html>

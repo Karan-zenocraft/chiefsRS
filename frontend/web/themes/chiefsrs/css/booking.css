@@ -173,5 +173,8 @@ label {
 .site-navbar-light.scrolled .nav-link {
     color: rgba(0, 0, 0) !important;
 }
+#reservations-tag_id{
+    height: 9vmax !important;
+}
 
 /*# sourceMappingURL=booking.css.map */
