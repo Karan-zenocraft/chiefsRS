@@ -7,6 +7,7 @@ use common\components\Common;
 use common\models\RestaurantsGallery;
 use common\models\RestaurantsGallerySearch;
 use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -37,15 +38,21 @@ class RestaurantsGalleryController extends AdminCoreController
     public function actionIndex()
     {
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
-        $searchModel = new RestaurantsGallerySearch();
-        $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
+        $user = Common::get_user_role(Yii::$app->user->id, $flag = "1");
+        if ((($user->role_id == Yii::$app->params['userroles']['manager']) && ($user->restaurant_id == $snRestaurantId)) || (($user->role_id == Yii::$app->params['userroles']['admin']) || ($user->role_id == Yii::$app->params['userroles']['super_admin']))) {
+            $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
+            $searchModel = new RestaurantsGallerySearch();
+            $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'snRestaurantName' => $snRestaurantName,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+                'snRestaurantName' => $snRestaurantName,
+            ]);
+        } else {
+            throw new BadRequestHttpException('The requested page does not exist.');
+
+        }
     }
 
     /**
@@ -69,33 +76,39 @@ class RestaurantsGalleryController extends AdminCoreController
      */
     public function actionCreate()
     {
+
         $model = new RestaurantsGallery();
         // $model->scenario = 'insert';
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
-        $model->restaurant_id = $_GET['rid'];
+        $user = Common::get_user_role(Yii::$app->user->id, $flag = "1");
+        if ((($user->role_id == Yii::$app->params['userroles']['manager']) && ($user->restaurant_id == $snRestaurantId)) || (($user->role_id == Yii::$app->params['userroles']['admin']) || ($user->role_id == Yii::$app->params['userroles']['super_admin']))) {
+            $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
+            $model->restaurant_id = $_GET['rid'];
 
-        if ($model->load(Yii::$app->request->post())) {
-            $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
-            if (!empty($file)) {
-                $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
-                $model->image_name = $file_name;
-                if ($model->validate()) {
-                    $model->save();
-                    $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name);
+            if ($model->load(Yii::$app->request->post())) {
+                $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
+                if (!empty($file)) {
+                    $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
+                    $model->image_name = $file_name;
+                    if ($model->validate()) {
+                        $model->save();
+                        $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name);
 
+                    }
+                    Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_add_message'));
+                    return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+                } else {
+                    return $this->render('create', ['model' => $model, 'snRestaurantName' => $snRestaurantName, 'MenuCategoriesDropdown' => $MenuCategoriesDropdown]);
                 }
-                Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_add_message'));
-                return $this->redirect(['index', 'rid' => $model->restaurant_id]);
-            } else {
-                return $this->render('create', ['model' => $model, 'snRestaurantName' => $snRestaurantName, 'MenuCategoriesDropdown' => $MenuCategoriesDropdown]);
             }
-        }
 
-        return $this->render('create', [
-            'model' => $model,
-            'snRestaurantName' => $snRestaurantName,
-        ]);
+            return $this->render('create', [
+                'model' => $model,
+                'snRestaurantName' => $snRestaurantName,
+            ]);
+        } else {
+            throw new BadRequestHttpException('The requested page does not exist.');
+        }
     }
 
     /**
@@ -111,34 +124,39 @@ class RestaurantsGalleryController extends AdminCoreController
         // $model->scenario = 'update';
         $old_image = $model->image_name;
         $snRestaurantId = ($_GET['rid'] > 0) ? $_GET['rid'] : 0;
-        $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
-        if ($model->load(Yii::$app->request->post())) {
-            $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
+        $user = Common::get_user_role(Yii::$app->user->id, $flag = "1");
+        if ((($user->role_id == Yii::$app->params['userroles']['manager']) && ($user->restaurant_id == $snRestaurantId)) || (($user->role_id == Yii::$app->params['userroles']['admin']) || ($user->role_id == Yii::$app->params['userroles']['super_admin']))) {
+            $snRestaurantName = Common::get_name_by_id($snRestaurantId, $flag = "Restaurants");
+            if ($model->load(Yii::$app->request->post())) {
+                $file = \yii\web\UploadedFile::getInstance($model, 'image_name');
 
-            if (!empty($file)) {
-                $delete = $model->oldAttributes['image_name'];
-                $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
+                if (!empty($file)) {
+                    $delete = $model->oldAttributes['image_name'];
+                    $file_name = $file->basename . "_" . uniqid() . "." . $file->extension;
 
-                $model->image_name = $file_name;
-                if (!empty($old_image) && file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image)) {
-                    unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image);
+                    $model->image_name = $file_name;
+                    if (!empty($old_image) && file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image)) {
+                        unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $old_image);
+                    }
+                    $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name, false);
+                    $model->image_name = $file_name;
+                    $model->save();
+                } else {
+                    $model->image_name = $old_image;
+                    $model->save(false);
                 }
-                $file->saveAs(Yii::getAlias('@root') . '/frontend/web/uploads/' . $file_name, false);
-                $model->image_name = $file_name;
-                $model->save();
+                Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_update_message'));
+                return $this->redirect(['index', 'rid' => $model->restaurant_id]);
             } else {
-                $model->image_name = $old_image;
-                $model->save(false);
+                return $this->render('update', ['model' => $model, 'snRestaurantName' => $snRestaurantName]);
             }
-            Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_update_message'));
-            return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+            return $this->render('update', [
+                'model' => $model,
+                'snRestaurantName' => $snRestaurantName,
+            ]);
         } else {
-            return $this->render('update', ['model' => $model, 'snRestaurantName' => $snRestaurantName]);
+            throw new BadRequestHttpException('The requested page does not exist.');
         }
-        return $this->render('update', [
-            'model' => $model,
-            'snRestaurantName' => $snRestaurantName,
-        ]);
     }
 
     /**
@@ -152,13 +170,20 @@ class RestaurantsGalleryController extends AdminCoreController
     {
         $model = $this->findModel($id);
         $this->findModel($id)->delete();
-        if (file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $model->image_name)) {
-            unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $model->image_name);
-        }
+        $user = Common::get_user_role(Yii::$app->user->id, $flag = "1");
+        if ((($user->role_id == Yii::$app->params['userroles']['manager']) && ($user->restaurant_id == $model->restaurant_id)) || (($user->role_id == Yii::$app->params['userroles']['admin']) || ($user->role_id == Yii::$app->params['userroles']['super_admin']))) {
 
-        $model->delete();
-        Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_delete_message'));
-        return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+            if (file_exists(Yii::getAlias('@root') . '/frontend/web/uploads/' . $model->image_name)) {
+                unlink(Yii::getAlias('@root') . '/frontend/web/uploads/' . $model->image_name);
+            }
+
+            $model->delete();
+            Yii::$app->session->setFlash('success', Yii::getAlias('@restaurant_gallery_delete_message'));
+            return $this->redirect(['index', 'rid' => $model->restaurant_id]);
+        } else {
+            throw new BadRequestHttpException('The requested page does not exist.');
+
+        }
     }
 
     /**

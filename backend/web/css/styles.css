@@ -567,3 +567,6 @@ table.table_class tbody {  }
 #cboxClose {
     top: 0 !important;
 } */
+.restaurants-form input, textarea, .uneditable-input {
+    width: 91%;
+}

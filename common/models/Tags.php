@@ -32,9 +32,10 @@ class Tags extends \common\models\base\TagsBase
     public function rules()
     {
         return [
-            [['name', 'description', 'status', 'image'], 'required'],
+            [['name', 'description', 'status'], 'required'],
+            [['image'], 'required', 'on' => "create"],
             [['status'], 'integer'],
-            [['image'], 'image', 'extensions' => 'jpg, jpeg, gif, png'],
+            [['image'], 'image', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, gif, png'],
             [['description'], 'string', 'max' => 100],
             // [['description'], 'string'],
             [['name'], 'string', 'max' => 255],

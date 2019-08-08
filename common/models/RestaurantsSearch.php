@@ -2,9 +2,11 @@
 
 namespace common\models;
 
+use common\components\Common;
+use common\models\Restaurants;
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Restaurants;
 
 /**
  * RestaurantsSearch represents the model behind the search form of `common\models\Restaurants`.
@@ -41,7 +43,12 @@ class RestaurantsSearch extends Restaurants
      */
     public function search($params)
     {
-        $query = Restaurants::find();
+        $user = Common::get_user_role(Yii::$app->user->id, $flag = "1");
+        if ($user->role_id == Yii::$app->params['userroles']['manager']) {
+            $query = Restaurants::find()->where("is_deleted != '" . Yii::$app->params['delete_status']['yes'] . "' AND id = '" . $user->restaurant_id . "'");
+        } else {
+            $query = Restaurants::find()->where("is_deleted != '" . Yii::$app->params['delete_status']['yes'] . "'");
+        }
 
         // add conditions that should always apply here
 

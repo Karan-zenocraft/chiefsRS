@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php
-$UserRolesDropdown = ArrayHelper::map(UserRoles::find()->where("id !=" . Yii::$app->params['super_admin_role_id'] . " AND id !=" . Yii::$app->params['administrator_role_id'] . " AND id !=" . Yii::$app->params['userroles']['walk_in'])->asArray()->all(), 'id', 'role_name');
+$UserRolesDropdown = ArrayHelper::map(array("" => "") + UserRoles::find()->where("id !=" . Yii::$app->params['super_admin_role_id'] . " AND id !=" . Yii::$app->params['administrator_role_id'] . " AND id !=" . Yii::$app->params['userroles']['walk_in'])->asArray()->all(), 'id', 'role_name');
 //$form->field($model, 'last_name')
 ?>
     <?php //echo $form->field($model, 'address') ?>

@@ -40,5 +40,7 @@ return [
     'reservation_status_value' => ["requested" => "0", "booked" => "1", "cancelled" => "2", "deleted" => "3", "completed" => "4", "seated" => "5"],
     'pickup_drop_status' => ['1' => 'Yes', '0' => 'No'],
     'timezone' => 'Asia/Kolkata',
+    'delete_status' => ["yes" => "1", "no" => "0"],
+    'delete_status_value' => ["1" => "Yes", "0" => "No"],
     //  'pickup_drop_status_value' => ['yes'=>'1','no'=>'1'],
 ];

@@ -1126,10 +1126,15 @@ class Common
         return !empty($omUsers) ? $omUsers->first_name . ' ' . $omUsers->last_name : '-';
     }
     //THIS FUNCTION RETURNS USER ROLE OF USER//
-    public static function get_user_role($id)
+    public static function get_user_role($id, $flag)
     {
         $omUsers = Users::find()->where(['id' => $id])->one();
-        return !empty($omUsers) ? $omUsers->role_id : '-';
+        if (!empty($flag) && $flag = "1") {
+            return !empty($omUsers) ? $omUsers : '-';
+        } else {
+            return !empty($omUsers) ? $omUsers->role_id : '-';
+
+        }
     }
 
     //THIS FUNCTION RETURNS TEAM LEADERS ARRAY//

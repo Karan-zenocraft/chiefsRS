@@ -2,14 +2,13 @@
 
 namespace backend\controllers;
 
-use Yii;
+use backend\components\AdminCoreController;
+use common\components\Common;
 use common\models\MenuCategories;
 use common\models\MenuCategoriesSearch;
+use Yii;
 use yii\web\Controller;
-use backend\components\AdminCoreController;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use common\components\Common;
 
 /**
  * MenuCategoriesController implements the CRUD actions for MenuCategories model.
@@ -19,16 +18,16 @@ class MenuCategoriesController extends AdminCoreController
     /**
      * {@inheritdoc}
      */
-  /*  public function behaviors()
+    /*  public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+    return [
+    'verbs' => [
+    'class' => VerbFilter::className(),
+    'actions' => [
+    'delete' => ['POST'],
+    ],
+    ],
+    ];
     }*/
 
     /**
@@ -71,9 +70,9 @@ class MenuCategoriesController extends AdminCoreController
         $model = new MenuCategories();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@menu_category_add_message' ) );
+            Yii::$app->session->setFlash('success', Yii::getAlias('@menu_category_add_message'));
             return Common::closeColorBox();
-            return $this->redirect( ['menu-categories/index'] );
+            return $this->redirect(['menu-categories/index']);
         }
         return $this->render('create', [
             'model' => $model,
@@ -94,9 +93,9 @@ class MenuCategoriesController extends AdminCoreController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-             Yii::$app->session->setFlash( 'success', Yii::getAlias( '@menu_category_update_message' ) );
+            Yii::$app->session->setFlash('success', Yii::getAlias('@menu_category_update_message'));
             return Common::closeColorBox();
-            return $this->redirect( ['menu-categories/index'] );
+            return $this->redirect(['menu-categories/index']);
         }
 
         return $this->render('update', [
@@ -111,14 +110,14 @@ class MenuCategoriesController extends AdminCoreController
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
-    {
-        $snDeleteStatus = $this->findModel( $id )->delete();
-        if ( !empty( $snDeleteStatus ) && $snDeleteStatus=='1' ) {
-            Yii::$app->session->setFlash( 'success', Yii::getAlias( '@menu_category_delete_message' ) );
-        }
-        return $this->redirect(['index']);
-    }
+/*    public function actionDelete($id)
+{
+$snDeleteStatus = $this->findModel( $id )->delete();
+if ( !empty( $snDeleteStatus ) && $snDeleteStatus=='1' ) {
+Yii::$app->session->setFlash( 'success', Yii::getAlias( '@menu_category_delete_message' ) );
+}
+return $this->redirect(['index']);
+}*/
 
     /**
      * Finds the MenuCategories model based on its primary key value.

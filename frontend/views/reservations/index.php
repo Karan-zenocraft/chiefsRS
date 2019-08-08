@@ -51,7 +51,6 @@ $this->title = 'Reservations';
         //'user_id',
         [
             'attribute' => 'restaurant_id',
-            'filter' => $snRestaurantDropDown,
             'filterOptions' => ["style" => "width:13%;"],
             'headerOptions' => ["style" => "width:13%;"],
             'contentOptions' => ["style" => "width:13%;"],

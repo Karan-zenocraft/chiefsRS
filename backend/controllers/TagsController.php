@@ -84,6 +84,7 @@ class TagsController extends AdminCoreController
     public function actionCreate()
     {
         $model = new Tags();
+        $model->scenario = "create";
         if ($model->load(Yii::$app->request->post())) {
             $file = \yii\web\UploadedFile::getInstance($model, 'image');
             if (!empty($file)) {

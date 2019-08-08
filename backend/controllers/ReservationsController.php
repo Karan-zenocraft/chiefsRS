@@ -2,13 +2,14 @@
 
 namespace backend\controllers;
 
-use Yii;
+use backend\components\AdminCoreController;
+use common\components\Common;
 use common\models\Reservations;
 use common\models\ReservationsSearch;
+use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use backend\components\AdminCoreController;
 
 /**
  * ReservationsController implements the CRUD actions for Reservations model.
@@ -18,34 +19,40 @@ class ReservationsController extends AdminCoreController
     /**
      * {@inheritdoc}
      */
-   /* public function behaviors()
+    /* public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+    return [
+    'verbs' => [
+    'class' => VerbFilter::className(),
+    'actions' => [
+    'delete' => ['POST'],
+    ],
+    ],
+    ];
     }
-*/
+     */
     /**
      * Lists all Reservations models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ReservationsSearch();
-        if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
-            $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
-        }else{
-            $dataProvider = $searchModel->RestaurantWiseSearch(Yii::$app->request->queryParams);
+        $user = Common::get_user_role(Yii::$app->user->id, $flag = "1");
+        $snRestaurantId = !empty($_GET['restaurant_id']) ? $_GET['restaurant_id'] : 0;
+        if ((($user->role_id == Yii::$app->params['userroles']['manager']) && ($user->restaurant_id == $snRestaurantId)) || (($user->role_id == Yii::$app->params['userroles']['admin']) || ($user->role_id == Yii::$app->params['userroles']['super_admin']))) {
+            $searchModel = new ReservationsSearch();
+            if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
+                $dataProvider = $searchModel->backendSearch(Yii::$app->request->queryParams);
+            } else {
+                $dataProvider = $searchModel->RestaurantWiseSearch(Yii::$app->request->queryParams);
+            }
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else {
+            throw new BadRequestHttpException('The requested page does not exist.');
         }
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
     }
 
     /**
@@ -56,6 +63,7 @@ class ReservationsController extends AdminCoreController
      */
     public function actionView($id)
     {
+        $this->layout = "popup";
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -66,19 +74,19 @@ class ReservationsController extends AdminCoreController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    /*   public function actionCreate()
     {
-        $model = new Reservations();
+    $model = new Reservations();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    return $this->redirect(['view', 'id' => $model->id]);
     }
 
+    return $this->render('create', [
+    'model' => $model,
+    ]);
+    }
+     */
     /**
      * Updates an existing Reservations model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -86,18 +94,18 @@ class ReservationsController extends AdminCoreController
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    /*   public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+    $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    return $this->redirect(['view', 'id' => $model->id]);
     }
+
+    return $this->render('update', [
+    'model' => $model,
+    ]);
+    }*/
 
     /**
      * Deletes an existing Reservations model.
@@ -106,13 +114,13 @@ class ReservationsController extends AdminCoreController
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    /*   public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+    $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+    return $this->redirect(['index']);
     }
-
+     */
     /**
      * Finds the Reservations model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
