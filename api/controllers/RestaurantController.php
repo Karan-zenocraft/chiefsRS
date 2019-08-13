@@ -51,6 +51,7 @@ class RestaurantController extends \yii\base\Controller
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
 
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
                 $restaurant = Restaurants::findOne($restaurant_id);
                 if (!empty($restaurant)) {
                     $restaurant->status = Yii::$app->params['user_status_value']['in_active'];

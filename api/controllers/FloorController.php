@@ -75,6 +75,7 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
                 $floorModel = new RestaurantFloors();
                 $floorModel->restaurant_id = $restaurant_id;
                 $floorModel->name = $requestParam['floor_data']['name'];
@@ -196,6 +197,7 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
                 $floorModel = RestaurantFloors::findOne(["id" => $requestParam['floor_data']['id']]);
                 if (!empty($floorModel)) {
                     if ($floorModel->is_deleted == "1") {
@@ -334,6 +336,8 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
+
                 if (!empty($requestParam['floor_id'])) {
 
                     $floorModel = RestaurantFloors::findOne(["id" => $requestParam['floor_id']]);
@@ -479,6 +483,8 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
+
                 $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables' => function ($q) {
                     return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
                         ->where(['restaurant_tables.status' => Yii::$app->params['user_status_value']['active'], "restaurant_tables.is_deleted" => "0"]);}])
@@ -540,6 +546,8 @@ class FloorController extends \yii\base\Controller
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
             if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
+
                 $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables' => function ($q) {
                     return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
                         ->where(['restaurant_tables.status' => Yii::$app->params['user_status_value']['active'], "restaurant_tables.is_deleted" => "0"]);}])

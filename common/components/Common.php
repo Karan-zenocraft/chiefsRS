@@ -1726,4 +1726,26 @@ class Common
 
         return;
     }
+    public static function checkRestaurantIsDeleted($restaurant_id)
+    {
+        $valid = 0;
+
+        $restaurant = Restaurants::findOne($restaurant_id);
+
+        if ($restaurant->is_deleted == Yii::$app->params['delete_status']['no']) {
+            $valid = 1;
+        } else {
+            $valid = 0;
+        }
+
+        if ($valid != 1) {
+            // FOR GENERATE ERROR RESPONSE IF TOKEN NOT VALID
+            $errormessage['success'] = '401';
+            $errormessage['message'] = 'Restaurant is deleted.';
+            $errormessage['data'] = array();
+            Common::encodeResponseJSON($errormessage);
+        }
+
+        return;
+    }
 }
