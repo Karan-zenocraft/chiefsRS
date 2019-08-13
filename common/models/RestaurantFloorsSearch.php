@@ -2,9 +2,9 @@
 
 namespace common\models;
 
+use common\models\RestaurantFloors;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\RestaurantFloors;
 
 /**
  * RestaurantFloorsSearch represents the model behind the search form of `common\models\RestaurantFloors`.
@@ -74,13 +74,13 @@ class RestaurantFloorsSearch extends RestaurantFloors
 
     public function backendSearch($params)
     {
-        $query = RestaurantFloors::find()->where(['restaurant_id'=>$_GET['rid']]);
+        $query = RestaurantFloors::find()->where(['restaurant_id' => $_GET['rid']]);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]],
+            'sort' => ['defaultOrder' => ['id' => SORT_DESC]],
         ]);
 
         $this->load($params);

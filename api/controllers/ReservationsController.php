@@ -35,7 +35,7 @@ class ReservationsController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array('user_id', 'date');
+        $amRequiredParams = array('user_id', 'date', 'status');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
 
         // If any getting error in request paramter then set error message.
@@ -57,13 +57,14 @@ class ReservationsController extends \yii\base\Controller
             if (!empty($restaurant_id)) {
                 Common::checkRestaurantIsDeleted($restaurant_id);
                 Common::checkRestaurantStatus($restaurant_id);
-                $arrReservationsList = Reservations::find()
+                $query = Reservations::find()
                     ->select(["reservations.id AS reservation_id", "users.id AS user_id", "users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.status", "users.created_at", "reservations.id as reservation_id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.role_id", "reservations.status", "table_id" => BookReservations::find()->select(["GROUP_CONCAT(book_reservations.table_id)"])->where("book_reservations.reservation_id = reservations.id"), "floor_id" => BookReservations::find()->select(["GROUP_CONCAT(DISTINCT book_reservations.floor_id)"])->where("book_reservations.reservation_id = reservations.id")])
                     ->leftJoin('users', 'reservations.user_id=users.id')
-                    ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.date" => $requestParam['date']])
-                    ->orderBy('reservations.created_at')
-                    ->asArray()
-                    ->all();
+                    ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.date" => $requestParam['date']]);
+                if (($requestParam['status'] != "") || ($requestParam['status'] == "0")) {
+                    $query->andWhere(['reservations.status' => $requestParam['status']]);
+                }
+                $arrReservationsList = $query->orderBy('reservations.created_at')->asArray()->all();
                 /*  $countQuery = clone $arrReservationsList;
                 $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 20]);
                 $totalCount = $pages->totalCount;
