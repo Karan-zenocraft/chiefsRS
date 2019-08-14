@@ -159,7 +159,7 @@ class ReservationsController extends \yii\base\Controller
 
                     if (!empty($matchReservationValues)) {
                         foreach ($matchReservationValues as $match) {
-                            $match_tables[] = BookReservations::find()->where("reservation_id = '" . $match['id'] . "' AND floor_id = '" . $requestParam['floor_id'] . "' AND table_id IN ('" . $requestParam['table_id'] . "')")->asArray()->all();
+                            $match_tables[] = BookReservations::find()->where("reservation_id = " . $match['id'] . " AND floor_id = " . $requestParam['floor_id'] . " AND table_id IN (" . $requestParam['table_id'] . ")")->asArray()->all();
                         }
                         if (!empty($match_tables) && count($match_tables) > 1) {
                             $ssMessage = 'You can not book this table as this table is already booked by another customer.';
@@ -495,7 +495,6 @@ class ReservationsController extends \yii\base\Controller
                         } else {
                             $valid1 = 1;
                         }
-
                     } else {
                         $valid1 = 1;
                     }
@@ -512,52 +511,51 @@ class ReservationsController extends \yii\base\Controller
                         $valid2 = 3;
                     }
                     if (($valid1 == "1") && ($valid2 == "3")) {
-                        $booking = BookReservations::find()->where(['reservation_id' => $requestParam['reservation_id',"table_id"=>$requestParam['old_table_id']]])->one();
-                            $booking->delete();
-                            $bookReservation = new BookReservations;
-                            $bookReservation->reservation_id = $requestParam['reservation_id'];
-                            $bookReservation->floor_id = $requestParam['floor_id'];
-                            $bookReservation->table_id = $requestParam['table_id'];
-                            $bookReservation->created_at = date('Y-m-d H:i:s');
-                            $bookReservation->updated_at = date('Y-m-d H:i:s');
-                            $bookReservation->save(false);
-                        }
-                        if (!empty($user_details)) {
-                            $emailformatemodel = EmailFormat::findOne(["title" => 'welcome', "status" => '1']);
-                            if ($emailformatemodel) {
-                                $message = "Your tables '" . $requestParam['table_id'] . "' in the floor '" . $requestParam['floor_id'] . "' is booked successfully.";
-                                //create template file
-                                $AreplaceString = array('{username}' => $user_details->first_name . " " . $user_details->last_name, '{message}' => $message);
-
-                                $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
-                                $ssSubject = $emailformatemodel->subject;
-                                //send email for new generated password
-                                $ssResponse = Common::sendMail($model->email, Yii::$app->params['adminEmail'], $ssSubject, $body);
-
-                            }
-                        }
-                        /*        $device_details = DeviceDetails::find()->where(["user_id" => $snUserId])->one();
-                        $device_token = $device_details['device_tocken'];
-                        $restaurantName = Common::get_name_by_id($restaurant_id, "Restaurants");
-                        $floorName = Common::get_name_by_id($requestParam['floor_id'], "RestaurantFloors");
-
-                        $notificationArray = [
-                        "device_token" => $device_token,
-                        "message" => "Your table '" . $requestParam['table_id'] . "' of the floor '" . $floorName . "' in the '" . $restaurantName . "' restaurant is booked successfully.",
-                        "notification_type" => 'Restaurant Booking',
-                        "user_id" => $snUserId,
-                        ];
-                        if ($device_token != '') {
-                        Common::SendNotification($notificationArray);
-                        }*/
-                        $reservation->floor_id = $requestParam['floor_id'];
-                        $reservation->table_id = $requestParam['table_id'];
-                        $amReponseParam = ArrayHelper::toArray($reservation);
-                        $ssMessage = 'Table booked successfully.';
-                        $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
-                        /*}*/
-
+                        $booking = BookReservations::find()->where(['reservation_id' => $requestParam['reservation_id'], "table_id" => $requestParam['old_table_id']])->one();
+                        $booking->delete();
+                        $bookReservation = new BookReservations;
+                        $bookReservation->reservation_id = $requestParam['reservation_id'];
+                        $bookReservation->floor_id = $requestParam['floor_id'];
+                        $bookReservation->table_id = $requestParam['table_id'];
+                        $bookReservation->created_at = date('Y-m-d H:i:s');
+                        $bookReservation->updated_at = date('Y-m-d H:i:s');
+                        $bookReservation->save(false);
                     }
+                    if (!empty($user_details)) {
+                        $emailformatemodel = EmailFormat::findOne(["title" => 'welcome', "status" => '1']);
+                        if ($emailformatemodel) {
+                            $message = "Your tables '" . $requestParam['table_id'] . "' in the floor '" . $requestParam['floor_id'] . "' is booked successfully.";
+                            //create template file
+                            $AreplaceString = array('{username}' => $user_details->first_name . " " . $user_details->last_name, '{message}' => $message);
+
+                            $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
+                            $ssSubject = $emailformatemodel->subject;
+                            //send email for new generated password
+                            $ssResponse = Common::sendMail($model->email, Yii::$app->params['adminEmail'], $ssSubject, $body);
+
+                        }
+                    }
+                    /*        $device_details = DeviceDetails::find()->where(["user_id" => $snUserId])->one();
+                    $device_token = $device_details['device_tocken'];
+                    $restaurantName = Common::get_name_by_id($restaurant_id, "Restaurants");
+                    $floorName = Common::get_name_by_id($requestParam['floor_id'], "RestaurantFloors");
+
+                    $notificationArray = [
+                    "device_token" => $device_token,
+                    "message" => "Your table '" . $requestParam['table_id'] . "' of the floor '" . $floorName . "' in the '" . $restaurantName . "' restaurant is booked successfully.",
+                    "notification_type" => 'Restaurant Booking',
+                    "user_id" => $snUserId,
+                    ];
+                    if ($device_token != '') {
+                    Common::SendNotification($notificationArray);
+                    }*/
+                    $reservation->floor_id = $requestParam['floor_id'];
+                    $reservation->table_id = $requestParam['table_id'];
+                    $amReponseParam = ArrayHelper::toArray($reservation);
+                    $ssMessage = 'Table booked successfully.';
+                    $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
+                    /*}*/
+
                     // }
                 } else {
                     $ssMessage = 'Please pass valid reservation_id';
