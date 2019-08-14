@@ -582,4 +582,75 @@ class ReservationsController extends \yii\base\Controller
         // FOR ENCODE RESPONSE INTO JSON //
         Common::encodeResponseJSON($amResponse);
     }
+
+    /*
+     * Function :
+     * Description : Book table for requested reservations
+     * Request Params :'user_id','date'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+
+    public function actionTableHistory()
+    {
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = $list = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array('user_id', "table_id", "date");
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+
+        $requestParam = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        Common::checkAuthentication($authToken);
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne(["id" => $snUserId]);
+        if (!empty($model)) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if (!empty($restaurant_id)) {
+                //Common::checkRestaurantIsDeleted($restaurant_id);
+                //Common::checkRestaurantStatus($restaurant_id);
+                $validateTable = RestaurantTables::findOne(['id' => $requestParam['table_id']]);
+                if (!empty($validateTable)) {
+
+                    $query = Reservations::find()
+                        ->select("reservations.id as reservation_id,users.first_name,users.last_name,users.role_id,reservations.date,reservations.booking_start_time,reservations.total_stay_time,reservations.no_of_guests,reservations.pickup_drop,reservations.pickup_location,reservations.pickup_time,reservations.drop_location,reservations.drop_time,reservations.tag_id,reservations.special_comment,reservations.status,book_reservations.floor_id,book_reservations.floor_id,book_reservations.table_id,reservations.created_at,reservations.updated_at")
+                        ->leftjoin("book_reservations", "book_reservations.reservation_id = reservations.id")
+                        ->leftjoin("users", "users.id = reservations.user_id")
+                        ->where(["book_reservations.table_id" => $requestParam['table_id']]);
+                    if (($requestParam['date'] != "")) {
+                        $query->andWhere(['reservations.date' => $requestParam['date']]);
+                    }
+                    $tableReservationHistory = $query->orderBy('reservations.created_at')->asArray()->all();
+                    foreach ($tableReservationHistory as $key => $value) {
+                        $list[] = array_map("strval", $value);
+                    }
+                    $amReponseParam = $list;
+                    $ssMessage = 'Table History';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                } else {
+                    $ssMessage = 'Please pass valid table id';
+                    $amResponse = Common::errorResponse($ssMessage);
+                }
+            } else {
+                $ssMessage = 'You have not assigned any restaurant yet.';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid User.';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON($amResponse);
+    }
 }
