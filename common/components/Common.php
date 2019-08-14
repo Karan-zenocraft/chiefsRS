@@ -1748,4 +1748,74 @@ class Common
 
         return;
     }
+
+    // Send Push Notification to Members - using iphone
+    public static function SendNotification($arr)
+    {
+        $deviceid = $arr['device_token'];
+        //$pemfielname        = 'apns-dev-minime.pem';
+        $pemfielname = Yii::$app->params['push_notification_pem_file'];
+        $snbadge_count_user = Users::find()->where('id = "' . $arr['user_id'] . '"')->one();
+        if (!empty($snbadge_count_user)) {
+            if ($snbadge_count_user) {
+                $badge_count = $snbadge_count_user->badge_count + 1;
+                $snbadge_count_user->badge_count = $badge_count;
+                $snbadge_count_user->save(false);
+            } else {
+                $badge_count = 0;
+            }
+            $snbadge_count_user->save(false);
+        }
+        $amAPNSRequest = array('apns_host' => /* 'ssl://gateway.push.apple.com:2195', */'ssl://gateway.sandbox.push.apple.com:2195',
+            'apsn_certificate' => $pemfielname,
+            'apns_pass_pharse' => '',
+            'ssMessage' => $arr['message'],
+            'Badge' => $badge_count,
+            'notification_type' => $arr['notification_type'],
+            'sound' => 'default',
+        );
+
+        Common::sendAPNS($deviceid, $amAPNSRequest);
+    }
+
+    public static function sendAPNS($ssDeviceToken, $amAPNSReques, $ssTags = 201)
+    {
+
+        //p($amAPNSReques);
+        $ssApnsHost = $amAPNSReques['apns_host'];
+        $ssApnsCert = $amAPNSReques['apsn_certificate'];
+        $ssPassPhrase = $amAPNSReques['apns_pass_pharse'];
+        $ssBadgeCount = $amAPNSReques['Badge'];
+        $passphrase = '';
+        $ssCertifiateFilePath = Yii::getAlias('@webroot') . "/" . $ssApnsCert;
+        //p($ssCertifiateFilePath);
+        if (file_exists($ssCertifiateFilePath)) {
+            $ctx = stream_context_create();
+            stream_context_set_option($ctx, 'ssl', 'local_cert', $ssCertifiateFilePath);
+            // Open a connection to the APNS server
+            $oFp = stream_socket_client(
+                'ssl://gateway.sandbox.push.apple.com:2195' /* 'ssl://gateway.push.apple.com:2195' */, $err, $errstr, 60, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $ctx);
+            if ($oFp) {
+                try
+                {
+                    // Create the payload body
+                    $amBody['aps'] = array(
+                        'alert' => $amAPNSReques['ssMessage'],
+                        'tag' => $ssTags,
+                        'badge' => $amAPNSReques['Badge'],
+                        'notification_type' => $amAPNSReques['notification_type'],
+                        'sound' => $amAPNSReques['sound']);
+                    // Encode the payload as JSON
+                    $amEncodePayload = json_encode($amBody);
+                    // Build the binary notification
+                    $smEncodeMsg = chr(0) . pack('n', 32) . pack('H*', $ssDeviceToken) . pack('n', strlen($amEncodePayload)) . $amEncodePayload;
+                    // Send it to the server
+                    $oResult = fwrite($oFp, $smEncodeMsg, strlen($smEncodeMsg));
+                    fclose($oFp);
+                } catch (Exception $e) {
+                    //echo 'Caught exception: '.  $e->getMessage(). "\n";
+                }
+            }
+        }
+    }
 }

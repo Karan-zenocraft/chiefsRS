@@ -42,5 +42,7 @@ return [
     'timezone' => 'Asia/Kolkata',
     'delete_status' => ["yes" => "1", "no" => "0"],
     'delete_status_value' => ["1" => "Yes", "0" => "No"],
+    'push_notification_pem_file' => 'apns-dev.pem',
+
     //  'pickup_drop_status_value' => ['yes'=>'1','no'=>'1'],
 ];
