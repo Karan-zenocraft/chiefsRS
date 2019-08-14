@@ -512,14 +512,8 @@ class ReservationsController extends \yii\base\Controller
                     }
                     if (($valid1 == "1") && ($valid2 == "3")) {
                         $booking = BookReservations::find()->where(['reservation_id' => $requestParam['reservation_id'], "table_id" => $requestParam['old_table_id']])->one();
-                        $booking->delete();
-                        $bookReservation = new BookReservations;
-                        $bookReservation->reservation_id = $requestParam['reservation_id'];
-                        $bookReservation->floor_id = $requestParam['floor_id'];
-                        $bookReservation->table_id = $requestParam['table_id'];
-                        $bookReservation->created_at = date('Y-m-d H:i:s');
-                        $bookReservation->updated_at = date('Y-m-d H:i:s');
-                        $bookReservation->save(false);
+                        $booking->table_id = $requestParam['table_id'];
+                        $booking->save(false);
                     }
                     if (!empty($user_details)) {
                         $emailformatemodel = EmailFormat::findOne(["title" => 'welcome', "status" => '1']);
