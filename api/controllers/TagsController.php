@@ -63,8 +63,9 @@ class TagsController extends \yii\base\Controller
                         $tagslist[$key]['image'] = $image;
                         $amReponseParam['tags_list'][] = $tag;
                     }
+
                     $ssMessage = 'Tags List';
-                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                    $amResponse = Common::successResponse($ssMessage, $tagslist);
                 } else {
                     $ssMessage = 'Tags List';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
