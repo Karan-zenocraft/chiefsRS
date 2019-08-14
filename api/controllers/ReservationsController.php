@@ -450,7 +450,7 @@ class ReservationsController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array('user_id', 'reservation_id', "floor_id", "table_id");
+        $amRequiredParams = array('user_id', 'reservation_id', "floor_id", "old_table_id", "table_id");
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
 
         // If any getting error in request paramter then set error message.
@@ -512,22 +512,15 @@ class ReservationsController extends \yii\base\Controller
                         $valid2 = 3;
                     }
                     if (($valid1 == "1") && ($valid2 == "3")) {
-                        $bookings = BookReservations::find()->where(['reservation_id' => $requestParam['reservation_id']])->all();
-                        foreach ($bookings as $key => $booking) {
+                        $booking = BookReservations::find()->where(['reservation_id' => $requestParam['reservation_id',"table_id"=>$requestParam['old_table_id']]])->one();
                             $booking->delete();
-                        }
-                        $table_array = explode(",", $requestParam['table_id']);
-                        foreach ($table_array as $key => $oneTable) {
                             $bookReservation = new BookReservations;
                             $bookReservation->reservation_id = $requestParam['reservation_id'];
                             $bookReservation->floor_id = $requestParam['floor_id'];
-                            $bookReservation->table_id = $oneTable;
+                            $bookReservation->table_id = $requestParam['table_id'];
                             $bookReservation->created_at = date('Y-m-d H:i:s');
-                            $bookReservation->created_at = date('Y-m-d H:i:s');
+                            $bookReservation->updated_at = date('Y-m-d H:i:s');
                             $bookReservation->save(false);
-
-                            $reservation->status = Yii::$app->params['reservation_status_value']['booked'];
-                            $reservation->save();
                         }
                         if (!empty($user_details)) {
                             $emailformatemodel = EmailFormat::findOne(["title" => 'welcome', "status" => '1']);
