@@ -437,7 +437,7 @@ class ReservationsController extends \yii\base\Controller
 
     /*
      * Function :
-     * Description : Book table for requested reservations
+     * Description : Update reservation table means assign reservation to another table.
      * Request Params :'user_id','date'
      * Response Params :
      * Author :Rutusha Joshi
@@ -585,7 +585,7 @@ class ReservationsController extends \yii\base\Controller
 
     /*
      * Function :
-     * Description : Book table for requested reservations
+     * Description : Get reservation history of table
      * Request Params :'user_id','date'
      * Response Params :
      * Author :Rutusha Joshi
@@ -640,6 +640,98 @@ class ReservationsController extends \yii\base\Controller
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
                 } else {
                     $ssMessage = 'Please pass valid table id';
+                    $amResponse = Common::errorResponse($ssMessage);
+                }
+            } else {
+                $ssMessage = 'You have not assigned any restaurant yet.';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid User.';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    /*
+     * Function :
+     * Description :Update details of reservation
+     * Request Params :'user_id','date'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+
+    public function actionUpdateReservationDetails()
+    {
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = $list = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array("user_id", "reservation_id", "date", "booking_start_time", "total_stay_time", "no_of_guests", "pickup_drop", "pickup_location", "pickup_time", "drop_location", "drop_time", "tag_id", "special_comment");
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+
+        $requestParam = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        Common::checkAuthentication($authToken);
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne(["id" => $snUserId]);
+        if (!empty($model)) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if (!empty($restaurant_id)) {
+                //Common::checkRestaurantIsDeleted($restaurant_id);
+                //Common::checkRestaurantStatus($restaurant_id);
+                $validateReservation = Reservations::findOne(['id' => $requestParam['reservation_id']]);
+                if (!empty($validateReservation)) {
+                    if ($validateReservation->status == Yii::$app->params['reservation_status_value']['requested']) {
+                        $validateReservation->date = !empty($requestParam['date']) ? $requestParam['date'] : $validateReservation->date;
+
+                        $validateReservation->booking_start_time = !empty($requestParam['booking_start_time']) ? $requestParam['booking_start_time'] : $validateReservation->booking_start_time;
+
+                        $validateReservation->total_stay_time = !empty($requestParam['total_stay_time']) ? $requestParam['total_stay_time'] : $validateReservation->total_stay_time;
+
+                        $validateReservation->booking_end_time = date("H:i:s", strtotime('+' . $validateReservation->total_stay_time . ' minutes', strtotime($validateReservation->booking_start_time)));
+
+                        $validateReservation->no_of_guests = !empty($requestParam['no_of_guests']) ? $requestParam['no_of_guests'] : $validateReservation->no_of_guests;
+
+                        $validateReservation->pickup_drop = !empty($requestParam['pickup_drop']) ? $requestParam['pickup_drop'] : $validateReservation->pickup_drop;
+
+                        $validateReservation->special_comment = !empty($requestParam['special_comment']) ? $requestParam['special_comment'] : $validateReservation->special_comment;
+                        if ($validateReservation->pickup_drop == 1) {
+
+                            $validateReservation->pickup_location = !empty($requestParam['pickup_location']) ? $requestParam['pickup_location'] : $validateReservation->pickup_location;
+
+                            $validateReservation->pickup_time = !empty($requestParam['pickup_time']) ? $requestParam['pickup_time'] : $validateReservation->pickup_time;
+
+                            $validateReservation->drop_location = !empty($requestParam['drop_location']) ? $requestParam['drop_location'] : $validateReservation->drop_location;
+
+                            $validateReservation->drop_time = !empty($requestParam['drop_time']) ? $requestParam['drop_time'] : $validateReservation->drop_time;
+
+                            $validateReservation->tag_id = !empty($requestParam['tag_id']) ? $requestParam['tag_id'] : $validateReservation->tag_id;
+
+                        } else {
+                            $validateReservation->pickup_location = $validateReservation->pickup_time = $validateReservation->drop_location = $validateReservation->drop_time = "";
+                        }
+                        $validateReservation->save();
+                        $amReponseParam = array_map("strval", ArrayHelper::toArray($validateReservation));
+                        $ssMessage = 'Reservation has been updated successfully';
+                        $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                    } else {
+                        $ssMessage = 'You can not update this reservation because this reservation is' . $validateReservation->status . '';
+                        $amResponse = Common::errorResponse($ssMessage);
+                    }
+                } else {
+                    $ssMessage = 'Please pass valid reservation id';
                     $amResponse = Common::errorResponse($ssMessage);
                 }
             } else {
