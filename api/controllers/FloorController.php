@@ -526,7 +526,7 @@ class FloorController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array('user_id');
+        $amRequiredParams = array('user_id', 'date');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
 
         // If any getting error in request paramter then set error message.
@@ -548,8 +548,10 @@ class FloorController extends \yii\base\Controller
             if (!empty($restaurant_id)) {
                 Common::checkRestaurantIsDeleted($restaurant_id);
 
-                $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables' => function ($q) {
-                    return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")
+                $floors = RestaurantFloors::find()->select("restaurant_floors.id,restaurant_floors.restaurant_id,restaurant_floors.name,restaurant_floors.status,restaurant_floors.is_deleted")->with(['restaurantTables' => function ($q) use ($requestParam) {
+                    return $q->select("restaurant_tables.id,restaurant_tables.name,restaurant_tables.restaurant_id,restaurant_tables.floor_id,restaurant_tables.width,restaurant_tables.height,restaurant_tables.x_cordinate,restaurant_tables.y_cordinate,restaurant_tables.min_capacity,restaurant_tables.max_capacity,restaurant_tables.shape,restaurant_tables.status")->with(['bookReservations' => function ($qu) use ($requestParam) {
+                        return $qu->select("book_reservations.reservation_id,book_reservations.floor_id,book_reservations.table_id,reservations.status,reservations.date,reservations.booking_start_time,reservations.total_stay_time,reservations.no_of_guests,reservations.special_comment,reservations.tag_id")->leftjoin("reservations", "reservations.id=book_reservations.reservation_id")->where(["reservations.date" => $requestParam['date']]);
+                    }])
                         ->where(['restaurant_tables.status' => Yii::$app->params['user_status_value']['active'], "restaurant_tables.is_deleted" => "0"]);}])
                     ->where(['restaurant_id' => $restaurant_id, 'restaurant_floors.status' => Yii::$app->params['user_status_value']['active'], "restaurant_floors.is_deleted" => "0"])->asArray()->all();
 
