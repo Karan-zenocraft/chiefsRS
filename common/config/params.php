@@ -43,6 +43,7 @@ return [
     'delete_status' => ["yes" => "1", "no" => "0"],
     'delete_status_value' => ["1" => "Yes", "0" => "No"],
     'push_notification_pem_file' => 'apns-dev.pem',
+    'reservation_status_frontend' => ["0" => "requested", "1" => "Booked", "2" => "Cancelled", "4" => "Completed", "5" => "Seated"],
 
     //  'pickup_drop_status_value' => ['yes'=>'1','no'=>'1'],
 ];

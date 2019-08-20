@@ -108,25 +108,25 @@ $this->title = 'Reservations';
             'class' => 'yii\grid\ActionColumn',
             'headerOptions' => ["style" => "width:22%;color:#FDA403"],
             'contentOptions' => ["style" => "width:22%;"],
-            'template' => '{update}{cancel}{delete}',
+            'template' => '{update}{cancel}',
             'buttons' => [
                 'update' => function ($url, $model) {
                     $flag = 2;
-                    return Common::template_update_button($url, $model, $flag);
+                    return ($model->status == Yii::$app->params['reservation_status_value']['requested']) ? Common::template_update_button($url, $model, $flag) : "";
                 },
                 'cancel' => function ($url, $model) {
                     $flag = 1;
                     $confirmmessage = "Are you sure you want to cancel this booking?";
                     $url = Yii::$app->urlManager->createUrl(['reservations/cancel', 'id' => $model->id]);
-                    return ($model->status == "2") ? "" : Common::template_cancel_button($url, $model, $confirmmessage, $flag);
+                    return (($model->status == Yii::$app->params['reservation_status_value']['completed']) || ($model->status == Yii::$app->params['reservation_status_value']['cancelled'])) ? "" : Common::template_cancel_button($url, $model, $confirmmessage, $flag);
                 },
-                'delete' => function ($url, $model) {
-                    $flag = 2;
-                    $confirmmessage = "Are you sure you want to delete this booking?";
-                    $url = Yii::$app->urlManager->createUrl(['reservations/delete', 'id' => $model->id]);
+                /* 'delete' => function ($url, $model) {
+            $flag = 2;
+            $confirmmessage = "Are you sure you want to delete this booking?";
+            $url = Yii::$app->urlManager->createUrl(['reservations/delete', 'id' => $model->id]);
 
-                    return Common::template_cancel_button($url, $model, $confirmmessage, $flag);
-                },
+            return Common::template_cancel_button($url, $model, $confirmmessage, $flag);
+            },*/
             ],
         ],
     ],

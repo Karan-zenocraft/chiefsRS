@@ -74,7 +74,7 @@ use yii\widgets\ActiveForm;
    <?=$form->field($model, 'tag_id')->dropDownList(array("" => "") + $tagsArr);?>
      </div>
     <div class="col-md-6">
-    <?php echo $form->field($model, 'status')->dropDownList(array_merge(array('' => ''), Yii::$app->params['reservation_status'])); ?>
+    <?php echo $form->field($model, 'status')->dropDownList(array_merge(array('' => ''), Yii::$app->params['reservation_status_frontend'])); ?>
      </div>
 </div>
 
