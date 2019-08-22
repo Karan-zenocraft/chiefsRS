@@ -97,7 +97,7 @@ $url = Yii::getAlias('@web') . "/themes/chiefsrs/images/logo.png";
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 
             <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-            <p><a href="#" class="btn btn-secondary btn-lg">Learn More About Us</a></p>
+            <!-- <p><a href="#" class="btn btn-secondary btn-lg">Learn More About Us</a></p> -->
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-6 site-animate img" data-animate-effect="fadeInRight">
