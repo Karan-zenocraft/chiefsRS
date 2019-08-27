@@ -81,8 +81,8 @@ class ReservationsController extends \yii\base\Controller
                 $amReponseParam['reservations'] = [];
                 if (!empty($arrReservationsList)) {
                     foreach ($arrReservationsList as $key => $reservation) {
-                        $reservation['created_at'] = date('h:i A', strtotime($reservation['created_at']));
-                        $reservation['updated_at'] = date('h:i A', strtotime($reservation['updated_at']));
+                        $reservation['created_at'] = date('Y-m-d h:i A', strtotime($reservation['created_at']));
+                        $reservation['updated_at'] = date('Y-m-d h:i A', strtotime($reservation['updated_at']));
                         unset($reservation['pickup_lat']);
                         unset($reservation['pickup_long']);
                         unset($reservation['drop_lat']);
@@ -686,7 +686,7 @@ class ReservationsController extends \yii\base\Controller
                 //Common::checkRestaurantStatus($restaurant_id);
                 $validateReservation = Reservations::findOne(['id' => $requestParam['reservation_id']]);
                 if (!empty($validateReservation)) {
-                    if ($validateReservation->status == Yii::$app->params['reservation_status_value']['requested']) {
+                    if ($validateReservation->status == Yii::$app->params['reservation_status_value']['booked']) {
                         $validateReservation->date = !empty($requestParam['date']) ? $requestParam['date'] : $validateReservation->date;
 
                         $validateReservation->booking_start_time = !empty($requestParam['booking_start_time']) ? $requestParam['booking_start_time'] : $validateReservation->booking_start_time;
@@ -711,6 +711,7 @@ class ReservationsController extends \yii\base\Controller
                             $validateReservation->drop_time = !empty($requestParam['drop_time']) ? $requestParam['drop_time'] : $validateReservation->drop_time;
 
                             $validateReservation->tag_id = !empty($requestParam['tag_id']) ? $requestParam['tag_id'] : $validateReservation->tag_id;
+                            $validateReservation->status = !empty($requestParam['status']) ? $requestParam['status'] : $validateReservation->status;
 
                         } else {
                             $validateReservation->pickup_location = $validateReservation->pickup_time = $validateReservation->drop_location = $validateReservation->drop_time = "";
