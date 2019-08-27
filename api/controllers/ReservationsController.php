@@ -58,7 +58,7 @@ class ReservationsController extends \yii\base\Controller
                 Common::checkRestaurantIsDeleted($restaurant_id);
                 Common::checkRestaurantStatus($restaurant_id);
                 $query = Reservations::find()
-                    ->select(["reservations.id AS reservation_id", "users.id AS user_id", "users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.status", "users.created_at", "reservations.id as reservation_id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.role_id", "reservations.status", "table_id" => BookReservations::find()->select(["GROUP_CONCAT(book_reservations.table_id)"])->where("book_reservations.reservation_id = reservations.id"), "floor_id" => BookReservations::find()->select(["GROUP_CONCAT(DISTINCT book_reservations.floor_id)"])->where("book_reservations.reservation_id = reservations.id")])
+                    ->select(["reservations.id AS reservation_id", "users.id AS user_id", "users.first_name", "users.last_name", "users.email", "users.address", "users.contact_no", "users.status", "users.created_at", "reservations.id as reservation_id", "reservations.date", "reservations.booking_start_time", "reservations.booking_end_time", "reservations.total_stay_time", "reservations.no_of_guests", "reservations.pickup_drop", "reservations.pickup_location", "reservations.pickup_time", "reservations.drop_location", "reservations.drop_time", "reservations.tag_id", "reservations.special_comment", "reservations.role_id", "reservations.status", "reservations.created_at", "reservations.updated_at", "table_id" => BookReservations::find()->select(["GROUP_CONCAT(book_reservations.table_id)"])->where("book_reservations.reservation_id = reservations.id"), "floor_id" => BookReservations::find()->select(["GROUP_CONCAT(DISTINCT book_reservations.floor_id)"])->where("book_reservations.reservation_id = reservations.id")])
                     ->leftJoin('users', 'reservations.user_id=users.id')
                     ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.date" => $requestParam['date']]);
                 if (($requestParam['status'] != "") || ($requestParam['status'] == "0")) {
@@ -81,10 +81,18 @@ class ReservationsController extends \yii\base\Controller
                 $amReponseParam['reservations'] = [];
                 if (!empty($arrReservationsList)) {
                     foreach ($arrReservationsList as $key => $reservation) {
+                        $reservation['created_at'] = date('h:i A', strtotime($reservation['created_at']));
+                        $reservation['updated_at'] = date('h:i A', strtotime($reservation['updated_at']));
                         unset($reservation['pickup_lat']);
                         unset($reservation['pickup_long']);
                         unset($reservation['drop_lat']);
                         unset($reservation['drop_long']);
+                        if (!empty($reservation['table_id'])) {
+                            $tableNames = RestaurantTables::find()->select(["GROUP_CONCAT(name) AS table_name"])->where("id IN (" . $reservation['table_id'] . ")")->asArray()->all();
+                        }
+                        $reservation['table_names'] = !empty($tableNames) ? $tableNames[0]['table_name'] : "";
+                        //$arrReservation[] = $reservation;
+
                         $arrReservation[] = array_map('strval', $reservation);
                     }
                     $amReponseParam['reservations'] = $arrReservation;
