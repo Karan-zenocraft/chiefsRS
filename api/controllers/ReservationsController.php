@@ -686,7 +686,7 @@ class ReservationsController extends \yii\base\Controller
                 //Common::checkRestaurantStatus($restaurant_id);
                 $validateReservation = Reservations::findOne(['id' => $requestParam['reservation_id']]);
                 if (!empty($validateReservation)) {
-                    if ($validateReservation->status == Yii::$app->params['reservation_status_value']['booked']) {
+                    if ($validateReservation->status != Yii::$app->params['reservation_status_value']['requested']) {
                         $validateReservation->date = !empty($requestParam['date']) ? $requestParam['date'] : $validateReservation->date;
 
                         $validateReservation->booking_start_time = !empty($requestParam['booking_start_time']) ? $requestParam['booking_start_time'] : $validateReservation->booking_start_time;
