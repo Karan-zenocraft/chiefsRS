@@ -681,6 +681,7 @@ class ReservationsController extends \yii\base\Controller
         $model = Users::findOne(["id" => $snUserId]);
         if (!empty($model)) {
             $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            p($restaurant_id);
             if (!empty($restaurant_id)) {
                 //Common::checkRestaurantIsDeleted($restaurant_id);
                 //Common::checkRestaurantStatus($restaurant_id);
