@@ -803,4 +803,67 @@ class ReservationsController extends \yii\base\Controller
         // FOR ENCODE RESPONSE INTO JSON //
         Common::encodeResponseJSON($amResponse);
     }
+    /*
+     * Function :
+     * Description :Get list of status
+     * Request Params :'user_id'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+
+    public function actionUpdateReservationStatus()
+    {
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = $list = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array("user_id", "reservation_id", "status");
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+
+        $requestParam = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        Common::checkAuthentication($authToken);
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne(["id" => $snUserId]);
+        if (!empty($model)) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+            if (!empty($restaurant_id)) {
+                //Common::checkRestaurantIsDeleted($restaurant_id);
+                //Common::checkRestaurantStatus($restaurant_id);
+                $validateReservation = Reservations::findOne(['id' => $requestParam['reservation_id']]);
+                if (!empty($validateReservation)) {
+                    if ($validateReservation->restaurant_id == $restaurant_id) {
+                        $validateReservation->status = $requestParam['status'];
+                        $validateReservation->save(false);
+                        $ssMessage = 'Reservation status has been updated successfully';
+                        $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                    } else {
+                        $ssMessage = 'You can not delete this reservation because this reservation is not for your restaurant';
+                        $amResponse = Common::errorResponse($ssMessage);
+                    }
+                } else {
+                    $ssMessage = 'Please pass valid reservation id';
+                    $amResponse = Common::errorResponse($ssMessage);
+                }
+            } else {
+                $ssMessage = 'You have not assigned any restaurant yet.';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid User.';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON($amResponse);
+    }
 }
