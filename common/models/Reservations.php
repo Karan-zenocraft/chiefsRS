@@ -37,6 +37,7 @@ class Reservations extends \common\models\base\ReservationsBase
             ['restaurant_id', 'required', 'when' => function ($model) {
                 return (!isset($_GET['rid']) && empty($_GET['rid']));
             }, 'enableClientValidation' => true],
+            ['restaurant_id', "validate_restaurant"],
             ['booking_start_time', "validate_start_time"],
             [['user_id', 'restaurant_id', 'floor_id', 'table_id', 'no_of_guests', 'status'], 'integer'],
             [['user_id', 'restaurant_id', 'floor_id', 'date', 'booking_start_time', 'booking_end_time', 'total_stay_time', 'pickup_time', 'drop_time', 'tag_id', 'created_at', 'updated_at', 'role_id'], 'safe'],
@@ -78,6 +79,14 @@ class Reservations extends \common\models\base\ReservationsBase
             return "success";
         } else {
             return "fail";
+        }
+    }
+    public function validate_restaurant($attribute, $params)
+    {
+        $restaurant_id = $this->restaurant_id;
+        $restaurant_status = Restaurants::find()->where(['id' => $restaurant_id])->one();
+        if ((!empty($restaurant_status)) && ($restaurant_status->status == 0)) {
+            $this->addError($attribute, Yii::t('app', 'This restaurant is closed for reservations.'));
         }
     }
 /**

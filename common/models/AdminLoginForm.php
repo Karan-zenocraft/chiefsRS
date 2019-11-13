@@ -8,19 +8,21 @@ use yii\base\Model;
 /**
  * Login form
  */
-class AdminLoginForm extends Model {
+class AdminLoginForm extends Model
+{
 
     public $username;
     public $password;
     public $rememberMe = true;
-    
+
     private $_user = false;
     const ACTIVE_STATUS = '1';
 
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
             // username and password are both required
             [['username', 'password'], 'required'],
@@ -34,7 +36,8 @@ class AdminLoginForm extends Model {
     /**
      * Declares attribute labels.
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return array(
             'username' => 'Email',
             'password' => 'Password',
@@ -49,15 +52,16 @@ class AdminLoginForm extends Model {
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params) {
+    public function validatePassword($attribute, $params)
+    {
         if (!$this->hasErrors()) {
-            $user = $this->getUser();    
+            $user = $this->getUser();
             if (!$user || $user->password !== md5($this->password)) {
-                $this->addError($attribute, Yii::t('app','Incorrect username or password.'));
-            }else if (!$user || $user->status != self::ACTIVE_STATUS) {
-                $this->addError($attribute, Yii::t('app','Your Acount has been in active so please contact to administrator.'));
-            }else if($user->role_id != Yii::$app->params['userroles']['super_admin'] && $user->role_id != Yii::$app->params['userroles']['admin'] && $user->role_id != Yii::$app->params['userroles']['manager'] && $user->role_id != Yii::$app->params['userroles']['supervisor']){
-                $this->addError($attribute, Yii::t('app','You are not authourize to login.'));
+                $this->addError($attribute, Yii::t('app', 'Incorrect username or password.'));
+            } else if (!$user || $user->status != self::ACTIVE_STATUS) {
+                $this->addError($attribute, Yii::t('app', 'Your Acount has been in active so please contact to administrator.'));
+            } else if ($user->role_id != Yii::$app->params['userroles']['super_admin'] && $user->role_id != Yii::$app->params['userroles']['admin'] && $user->role_id != Yii::$app->params['userroles']['manager'] && $user->role_id != Yii::$app->params['userroles']['supervisor']) {
+                $this->addError($attribute, Yii::t('app', 'You are not authourize to login.'));
             }
         }
     }
@@ -67,22 +71,23 @@ class AdminLoginForm extends Model {
      *
      * @return boolean whether the user is logged in successfully
      */
-    public function login() {     
-         $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; 
-           if ($this->validate()) {
-               
-                if($this->rememberMe == 1){ 
-                     setcookie (\Yii::getAlias('site_title')."_admin_email", $this->username, time()+3600*24*4);
-                     setcookie (\Yii::getAlias('site_title')."_admin_password", $this->password, time()+3600*24*4);
-                }else{
-                     setcookie (\Yii::getAlias('site_title')."_admin_email", '');
-                     setcookie (\Yii::getAlias('site_title')."_admin_password", '');
-                }
-                return Yii::$app->user->login($this->getUser(), $duration);
-                
+    public function login()
+    {
+        $duration = $this->rememberMe ? 3600 * 24 * 30 : 0;
+        if ($this->validate()) {
+
+            if ($this->rememberMe == 1) {
+                setcookie(\Yii::getAlias('site_title') . "_admin_email", $this->username, time() + 3600 * 24 * 4);
+                setcookie(\Yii::getAlias('site_title') . "_admin_password", $this->password, time() + 3600 * 24 * 4);
             } else {
-                return false;
+                setcookie(\Yii::getAlias('site_title') . "_admin_email", '');
+                setcookie(\Yii::getAlias('site_title') . "_admin_password", '');
             }
+            return Yii::$app->user->login($this->getUser(), $duration);
+
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -90,10 +95,11 @@ class AdminLoginForm extends Model {
      *
      * @return User|null
      */
-    public function getUser() {
+    public function getUser()
+    {
         if ($this->_user === false) {
             $this->_user = Users::findByUsername($this->username);
-        }        
+        }
         return $this->_user;
     }
 

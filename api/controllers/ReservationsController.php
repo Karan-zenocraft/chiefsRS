@@ -196,7 +196,7 @@ class ReservationsController extends \yii\base\Controller
 
                         $table_array = explode(",", $requestParam['table_id']);
                         foreach ($table_array as $key => $oneTable) {
-                            $bookReservation = new BookReservations;
+                            $bookReservation = new BookReservations();
                             $bookReservation->reservation_id = $requestParam['reservation_id'];
                             $bookReservation->floor_id = $requestParam['floor_id'];
                             $bookReservation->table_id = $oneTable;
@@ -332,10 +332,10 @@ class ReservationsController extends \yii\base\Controller
                         $matchReservationValues = Reservations::find()
                             ->where("date = '" . $requestParam['date'] . "'
                                 AND status = '" . Yii::$app->params['reservation_status_value']['booked'] . "' AND (
-                                        (booking_start_time >= '" . $requestParam['booking_time'] . "'
-                                            AND booking_end_time <= '" . $booking_end_time . "')
-                                        OR (('" . $requestParam['booking_time'] . "' > booking_start_time) AND ('" . $requestParam['booking_time'] . "' < booking_end_time))
-                                        OR (('" . $booking_end_time . "' > booking_start_time) AND ('" . $booking_end_time . "' < booking_end_time)))")->asArray()->all();
+                                        (binary booking_start_time >= 'binary " . $requestParam['booking_time'] . "'
+                                            AND binary booking_end_time <= 'binary " . $booking_end_time . "')
+                                        OR (('" . $requestParam['booking_time'] . "' > binary booking_start_time) AND ('binary " . $requestParam['booking_time'] . "' < binary booking_end_time))
+                                        OR ((' binary" . $booking_end_time . "' > binary booking_start_time) AND ('binary " . $booking_end_time . "' < binary booking_end_time)))")->asArray()->all();
                         if (!empty($matchReservationValues)) {
                             $matchValues = array_column($matchReservationValues, "id");
                             $matchingsId = implode(",", $matchValues);
@@ -379,7 +379,7 @@ class ReservationsController extends \yii\base\Controller
 
                             $table_array = explode(",", $requestParam['table_id']);
                             foreach ($table_array as $key => $oneTable) {
-                                $bookReservation = new BookReservations;
+                                $bookReservation = new BookReservations();
                                 $bookReservation->reservation_id = $reservation['id'];
                                 $bookReservation->floor_id = $requestParam['floor_id'];
                                 $bookReservation->table_id = $oneTable;

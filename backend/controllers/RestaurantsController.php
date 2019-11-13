@@ -195,7 +195,7 @@ class RestaurantsController extends AdminCoreController
                 if (!empty($days)) {
                     $week_days_hours_details[$key] = $days;
                 } else {
-                    $week_days_hours_details[$key] = new RestaurantWorkingHours;
+                    $week_days_hours_details[$key] = new RestaurantWorkingHours();
                 }
             }
             if (Yii::$app->request->post()) {
@@ -241,5 +241,20 @@ class RestaurantsController extends AdminCoreController
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionSwitchoffRestaurant()
+    {
+        if (!empty($_POST)) {
+            $restaurant = Restaurants::find()->where(['id' => $_POST['restaurant_id']])->one();
+            if (!empty($restaurant)) {
+                $status = ($_POST['checked'] == "true") ? Yii::$app->params['user_status_value']['active'] : Yii::$app->params['user_status_value']['in_active'];
+                $restaurant->status = $status;
+                $restaurant->save(false);
+                return json_encode("success");
+            } else {
+                return json_encode("error");
+            }
+        }
     }
 }
