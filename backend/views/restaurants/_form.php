@@ -42,14 +42,14 @@ use yii\widgets\ActiveForm;
  <div class="row">
    <div class="span3"> <?=$form->field($model, 'address')->textInput(['maxlength' => true, 'id' => "autocomplete"])?></div>
 
-        <div class="span3"><?=$form->field($model, 'city')->textInput(['maxlength' => true, 'id' => "city", 'disabled' => "true"])?></div>
-        <div class="span3"><?=$form->field($model, 'country')->textInput(['maxlength' => true, 'id' => "country", 'disabled' => "true"])?></div>
-         <div class="span3"><?=$form->field($model, 'state')->textInput(['maxlength' => true, 'id' => "state", 'disabled' => "true"])?></div>
+        <div class="span3"><?=$form->field($model, 'city')->textInput(['maxlength' => true, 'id' => "city"])?></div>
+        <div class="span3"><?=$form->field($model, 'country')->textInput(['maxlength' => true, 'id' => "country"])?></div>
+         <div class="span3"><?=$form->field($model, 'state')->textInput(['maxlength' => true, 'id' => "state"])?></div>
      </div>
       <div class="row">
-         <div class="span3"><?=$form->field($model, 'pincode')->textInput(['id' => "postal_code", 'disabled' => "true"])?></div>
-          <div class="span3"> <?=$form->field($model, 'lattitude')->textInput(['id' => "lattitude", 'disabled' => "true"])?></div>
-          <div class="span3"> <?=$form->field($model, 'longitude')->textInput(['id' => "longitude", 'disabled' => "true"])?></div>
+         <div class="span3"><?=$form->field($model, 'pincode')->textInput(['id' => "postal_code"])?></div>
+          <div class="span3"> <?=$form->field($model, 'lattitude')->textInput(['id' => "lattitude"])?></div>
+          <div class="span3"> <?=$form->field($model, 'longitude')->textInput(['id' => "longitude"])?></div>
      </div>
       <div class="row">
         <div class="span3"> <?=$form->field($model, 'max_stay_time_after_reservation')->textInput(['placeholder' => 'Enter in minutes'])?></div>

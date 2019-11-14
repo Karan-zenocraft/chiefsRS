@@ -63,6 +63,8 @@ class ReservationsController extends \yii\base\Controller
                     ->where(["reservations.restaurant_id" => $restaurant_id, "reservations.date" => $requestParam['date']]);
                 if (($requestParam['status'] != "") || ($requestParam['status'] == "0")) {
                     $query->andWhere(['reservations.status' => $requestParam['status']]);
+                } else {
+                    $query->andWhere("reservations.status != '" . Yii::$app->params['reservation_status_value']['requested'] . "'");
                 }
                 $arrReservationsList = $query->orderBy('reservations.created_at')->asArray()->all();
                 /*  $countQuery = clone $arrReservationsList;
@@ -167,16 +169,19 @@ class ReservationsController extends \yii\base\Controller
 
                     if (!empty($matchReservationValues)) {
                         foreach ($matchReservationValues as $match) {
-                            $match_tables[] = BookReservations::find()->where("reservation_id = " . $match['id'] . " AND floor_id = " . $requestParam['floor_id'] . " AND table_id IN (" . $requestParam['table_id'] . ")")->asArray()->all();
-                        }
-                        if (!empty($match_tables) && count($match_tables) > 1) {
-                            $ssMessage = 'You can not book this table as this table is already booked by another customer.';
-                            $amResponse = Common::errorResponse($ssMessage);
-                            Common::encodeResponseJSON($amResponse);
+                            $match_tables = BookReservations::find()->where("reservation_id = " . $match['id'] . " AND floor_id = " . $requestParam['floor_id'] . " AND table_id IN (" . $requestParam['table_id'] . ")")->one();
+                            if (!empty($match_tables)) {
 
-                        } else {
-                            $valid1 = 1;
+                                $ssMessage = 'You can not book this table as this table is already booked by another customer.';
+                                $amResponse = Common::errorResponse($ssMessage);
+                                Common::encodeResponseJSON($amResponse);
+
+                            } else {
+
+                                $valid1 = 1;
+                            }
                         }
+
                     } else {
                         $valid1 = 1;
                     }
@@ -270,7 +275,7 @@ class ReservationsController extends \yii\base\Controller
      * Author :Rutusha Joshi
      */
 
-    public function actionBookTableForGuest()
+    public function actionBookTableForGuest_old()
     {
         //Get all request parameter
         $amData = Common::checkRequestType();
@@ -855,6 +860,105 @@ class ReservationsController extends \yii\base\Controller
                     $ssMessage = 'Please pass valid reservation id';
                     $amResponse = Common::errorResponse($ssMessage);
                 }
+            } else {
+                $ssMessage = 'You have not assigned any restaurant yet.';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid User.';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        // FOR ENCODE RESPONSE INTO JSON //
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    /*
+     * Function :
+     * Description : Book table for requested reservations
+     * Request Params :'user_id','date'
+     * Response Params :
+     * Author :Rutusha Joshi
+     */
+
+    public function actionBookTableForGuest()
+    {
+        //Get all request parameter
+        $amData = Common::checkRequestType();
+        $amResponse = $amReponseParam = [];
+
+        // Check required validation for request parameter.
+        $amRequiredParams = array('user_id', 'guest_id', "floor_id", "table_id", "date", "booking_time", "total_stay_time", "tags", "special_comment", "no_of_guests");
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+
+        $requestParam = $amData['request_param'];
+        //Check User Status//
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        Common::checkAuthentication($authToken);
+        $snUserId = $requestParam['user_id'];
+        $model = Users::findOne(["id" => $snUserId]);
+        if (!empty($model)) {
+            $restaurant_id = !empty($model->restaurant_id) ? $model->restaurant_id : "";
+
+            if (!empty($restaurant_id)) {
+                Common::checkRestaurantIsDeleted($restaurant_id);
+                Common::checkRestaurantStatus($restaurant_id);
+                $booking_end_time = date("H:i:s", strtotime('+' . $requestParam['total_stay_time'] . ' minutes', strtotime($requestParam['booking_time'])));
+                $reservation = new Reservations();
+                $reservation->user_id = $requestParam['guest_id'];
+                $reservation->restaurant_id = $restaurant_id;
+                $reservation->date = $requestParam['date'];
+                $reservation->booking_start_time = $requestParam['booking_time'];
+                $reservation->booking_end_time = $booking_end_time;
+                $reservation->total_stay_time = $requestParam['total_stay_time'];
+                $reservation->no_of_guests = $requestParam['no_of_guests'];
+                $reservation->special_comment = $requestParam['special_comment'];
+                $reservation->status = Yii::$app->params['reservation_status_value']['requested'];
+                $reservation->role_id = Yii::$app->params['userroles']['walk_in'];
+                $reservation->save(false);
+
+                $user_details = Users::findOne($requestParam['guest_id']);
+                if (!empty($user_details)) {
+                    $emailformatemodel = EmailFormat::findOne(["title" => 'welcome', "status" => '1']);
+                    if ($emailformatemodel) {
+                        $message = "Your tables '" . $requestParam['table_id'] . "' in the floor '" . $requestParam['floor_id'] . "' is booked successfully.";
+                        //create template file
+                        $AreplaceString = array('{username}' => $user_details->first_name . " " . $user_details->last_name, '{message}' => $message);
+
+                        $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
+                        $ssSubject = $emailformatemodel->subject;
+                        //send email for new generated password
+                        $ssResponse = Common::sendMail($model->email, Yii::$app->params['adminEmail'], $ssSubject, $body);
+
+                    }
+                }
+                /*        $device_details = DeviceDetails::find()->where(["user_id" => $snUserId])->one();
+                $device_token = $device_details['device_tocken'];
+                $restaurantName = Common::get_name_by_id($restaurant_id, "Restaurants");
+                $floorName = Common::get_name_by_id($requestParam['floor_id'], "RestaurantFloors");
+
+                $notificationArray = [
+                "device_token" => $device_token,
+                "message" => "Your table '" . $requestParam['table_id'] . "' of the floor '" . $floorName . "' in the '" . $restaurantName . "' restaurant is booked successfully.",
+                "notification_type" => 'Restaurant Booking',
+                "user_id" => $snUserId,
+                ];
+                if ($device_token != '') {
+                Common::SendNotification($notificationArray);
+                }*/
+                $reservation->floor_id = $requestParam['floor_id'];
+                $reservation->table_id = $requestParam['table_id'];
+                $amReponseParam = ArrayHelper::toArray($reservation);
+                $ssMessage = 'Guest reservation added successfully.';
+                $amResponse = Common::successResponse($ssMessage, array_map("strval", $amReponseParam));
+
             } else {
                 $ssMessage = 'You have not assigned any restaurant yet.';
                 $amResponse = Common::errorResponse($ssMessage);

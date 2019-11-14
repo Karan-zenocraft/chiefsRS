@@ -124,6 +124,20 @@ if ($user_role != Yii::$app->params['userroles']['manager']) {?>
                 return Yii::$app->params['status'][$data->status];
             },
         ],
+        [
+            'attribute' => 'status',
+            'filter' => Yii::$app->params['status'],
+            'format' => 'raw',
+            'filterOptions' => ["style" => "width:13%;"],
+            'headerOptions' => ["style" => "width:13%;"],
+            'contentOptions' => ["style" => "width:13%;"],
+            'value' => function ($data) {
+                $url = "#";
+                $status = ($data->status == 1) ? "true" : "false";
+                $class = ($data->status == 1) ? "switch2" : "";
+                return Html::a('<label class="switch"><input type="checkbox" value="' . $status . '" onclick="switchoff_restaurant(' . $data->id . ');" id="' . $data->id . '" class="' . $class . '"><span class="slider round"></span></label>', $url);
+            },
+        ],
 
         //'created_at',
         //'updated_at',
@@ -194,5 +208,117 @@ $( document ).ready(function() {
             $('.restaurants-serach').toggle();
         });
     });
+/*function switchoff_restaurant(id){
+      $("#"+id).toggleClass("switch2");
+   if ($("#"+id).is(':checked')) {
+   $("#"+id).attr('value', 'true');
+      $.ajax({
+     url: "restaurants/switchoff-restaurant",
+     type: 'post',
+     dataType: 'json',
+     data: {
+               checked: true,
+               restaurant_id:id,
+           },
+     success: function (data) {
+      if(data == "success"){
+       alert("success");
+       return false;
+      }else if(data=="reported"){
+        alert("You have already reported this question");
+        location.reload();
+      }else{
+        alert("something went wrong");
+      }
+     }
+  });
+ } else {
+   $("#"+id).attr('value', 'false');
+         $.ajax({
+     url: "restaurants/switchoff-restaurant",
+     type: 'post',
+     dataType: 'json',
+     data: {
+               checked: false,
+               restaurant_id:id,
+           },
+     success: function (data) {
+      if(data == "success"){
+       alert("success");
+        location.reload();
+      }else if(data=="error"){
+        alert("Something went wrong");
+         location.reload();
+      }
+     }
+  });
+ }
+//document.getElementById(id).checked = false;
+}*/
 
+
+
+
+/*   $(document).ready(function(){
+ $("input").click(function(){
+   $("input").toggleClass("switch2");
+   if ($(this).is(':checked')) {
+   $(this).attr('value', 'true');
+ } else {
+   $(this).attr('value', 'false');
+ }
+//      if ($(this).hasClass('switch2')) {
+//    $(this).attr('value', 'true');
+//  } else {
+//    $(this).attr('value', 'false');
+//  }
+ });
+});*/
+function switchoff_restaurant(id){
+      $("#"+id).toggleClass("switch2");
+   if ($("#"+id).val() == "true") {
+   $("#"+id).attr('value', 'false');
+      $.ajax({
+     url: "restaurants/switchoff-restaurant",
+     type: 'post',
+     dataType: 'json',
+     data: {
+               checked: false,
+               restaurant_id:id,
+           },
+     success: function (data) {
+      if(data == "success"){
+         alert("Restaurant is inactive for reservations.");
+        location.reload();
+      }else if(data=="error"){
+        alert("Something went wrong");
+         location.reload();
+      }
+     }
+  });
+ } else {
+   $("#"+id).attr('value', 'true');
+         $.ajax({
+     url: "restaurants/switchoff-restaurant",
+     type: 'post',
+     dataType: 'json',
+     data: {
+               checked: true,
+               restaurant_id:id,
+           },
+     success: function (data) {
+      if(data == "success"){
+       alert("Restaurant is active for the reservations now");
+        location.reload();
+      }else if(data=="error"){
+        alert("Something went wrong");
+         location.reload();
+      }
+     }
+  });
+ }
+//document.getElementById(id).checked = false;
+}
 </script>
+
+

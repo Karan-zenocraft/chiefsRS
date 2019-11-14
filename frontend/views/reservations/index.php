@@ -3,7 +3,6 @@
 use common\components\Common;
 use yii\grid\GridView;
 use yii\helpers\Html;
-use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ReservationsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -37,7 +36,7 @@ $this->title = 'Reservations';
                 <?php echo $this->render('_search', ['model' => $searchModel]); ?>
             </div>
         <?php }?>
-    <?php Pjax::begin();?>
+    <?php //Pjax::begin();?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?=GridView::widget([
@@ -132,7 +131,7 @@ $this->title = 'Reservations';
     ],
 ]);?>
 
-    <?php Pjax::end();?>
+    <?php//Pjax::end();?>
 </div>
 </div>
 </div>
