@@ -73,7 +73,7 @@ $url = Yii::getAlias('@web') . "/img/chiefs-rs-text.png";
                <div class="col-md-12">
         <div style="overflow-x:auto;" class="working_times">
             <table class="table_times">
-                <?php //p($snRestaurantWorkingHoursArr,0);
+                <?php
 echo "<tr><th>Time</th>";
 foreach ($snRestaurantWorkingHoursArr as $key => $value) {
     echo "<th>" . Yii::$app->params['week_days'][$value->weekday] . "</th>";
