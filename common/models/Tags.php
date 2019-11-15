@@ -41,7 +41,7 @@ class Tags extends \common\models\base\TagsBase
             [['name'], 'string', 'max' => 255],
         ];
     }
-    public function get_tags($tag_id)
+    public static function get_tags($tag_id)
     {
         $tags = explode(",", $tag_id);
         foreach ($tags as $key => $value) {
