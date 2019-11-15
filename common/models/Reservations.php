@@ -28,15 +28,15 @@ class Reservations extends \common\models\base\ReservationsBase
     public function rules()
     {
         return [
-            [['date', 'booking_start_time', 'no_of_guests', 'total_stay_time', 'pickup_drop'], 'required'],
+            [['date', 'booking_start_time', 'no_of_guests', 'total_stay_time', 'pickup_drop', 'restaurant_id'], 'required'],
             [['pickup_location', 'drop_location', 'pickup_time', 'drop_time'], 'required', 'when' => function ($model) {
                 return $model->pickup_drop == "1";
             }, 'whenClient' => "function (attribute, value) {
                 return $('#switch_active').val() == '1';
-            }", ],
-            ['restaurant_id', 'required', 'when' => function ($model) {
-                return (!isset($_GET['rid']) && empty($_GET['rid']));
-            }, 'enableClientValidation' => true],
+            }"],
+            /*['restaurant_id', 'required', 'when' => function ($model) {
+            return (!isset($_GET['rid']) && empty($_GET['rid']));
+            }, 'enableClientValidation' => true],*/
             ['restaurant_id', "validate_restaurant"],
             ['booking_start_time', "validate_start_time"],
             [['user_id', 'restaurant_id', 'floor_id', 'table_id', 'no_of_guests', 'status'], 'integer'],

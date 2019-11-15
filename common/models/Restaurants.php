@@ -35,7 +35,7 @@ class Restaurants extends \common\models\base\RestaurantsBase
     public static function RestaurantsDropDown()
     {
         //->where(['status'=>Yii::$app->params['department_active_status']])
-        return ArrayHelper::map(Restaurants::find()->where(['status' => '1'])->orderBy('name')->asArray()->all(), 'id', 'name');
+        return ArrayHelper::map(Restaurants::find()->orderBy('name')->asArray()->all(), 'id', 'name');
     }
     public function rules()
     {

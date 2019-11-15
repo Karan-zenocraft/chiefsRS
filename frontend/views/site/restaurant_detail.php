@@ -1,5 +1,6 @@
 <?php
 use common\models\RestaurantMenu;
+use common\models\Restaurants;
 use yii\data\Pagination;
 use yii\widgets\Pjax;
 ?>
@@ -14,8 +15,15 @@ $url = Yii::getAlias('@web') . "/img/chiefs-rs-text.png";
       <h2 class="h5 site-subheading mb-5 site-animate style_book_h2">Please book our restaurant now</h2>
       <?php if (Yii::$app->user->isGuest) {?>
       <p class="style_p">For Booking Restaurant <a href="<?=Yii::$app->urlManager->createUrl(['site/index', 'rid' => $_GET['rid']])?>" class="btn btn-secondary btn-lg book_restaurant">Register Now</a></p>
-    <?php } else {?>
+    <?php } else {
+    $RestaurantStatus = Restaurants::find()->where(['id' => $rid])->one();
+    if (!empty($RestaurantStatus) && ($RestaurantStatus->status == Yii::$app->params['user_status_value']['active'])) {?>
+
        <p class="style_p"><a href="<?=Yii::$app->urlManager->createUrl(['reservations/create', 'rid' => $rid])?>" class="btn btn-secondary btn-lg book_restaurant">Book Now</a></p>
+   <?php } else {
+        echo "Restaurant Currently Unavailable";
+    }
+    ?>
     <?php }?>
     </div>
    <!--  <div class="col-md-8">

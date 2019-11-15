@@ -27,7 +27,7 @@ return [
         'user' => [
             'identityClass' => 'common\models\Users',
             'enableAutoLogin' => false,
-            'authTimeout' => 300,
+            'authTimeout' => 1200,
             'loginUrl' => ['site/index'],
             'idParam' => '_frontend',
         ],

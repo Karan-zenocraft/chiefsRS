@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 if ($model->isNewRecord) {
     if ((isset($_GET['rid']) && !empty($_GET['rid']))) {
         $restaurant_id = $_GET['rid'];
-        echo $form->field($model, 'restaurant_id')->dropDownList($snRestaurantDropDown, ['value' => $restaurant_id, 'disabled' => "true"]);
+        echo $form->field($model, 'restaurant_id')->dropDownList($snRestaurantDropDown, ['value' => $restaurant_id, 'readonly' => "readonly"]);
     } else {
 
         $restaurant_id = "";

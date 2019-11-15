@@ -134,11 +134,11 @@ class SiteController extends FrontCoreController
 
         if (isset($_REQUEST['search_restaurant']) && !empty($_REQUEST['search_restaurant'])) {
 
-            $query = Restaurants::find()->where("name LIKE '" . $_REQUEST['search_restaurant'] . "%' AND status = '" . Yii::$app->params['user_status_value']['active'] . "'");
-            $snRestaurantsArr = Restaurants::find()->where("name LIKE '" . $_REQUEST['search_restaurant'] . "%' AND status = '" . Yii::$app->params['user_status_value']['active'] . "'")->all();
+            $query = Restaurants::find()->where("name LIKE '" . $_REQUEST['search_restaurant'] . "%'");
+            $snRestaurantsArr = Restaurants::find()->where("name LIKE '" . $_REQUEST['search_restaurant'] . "%'")->all();
         } else {
-            $query = Restaurants::find()->where(["status" => Yii::$app->params['user_status_value']['active']]);
-            $snRestaurantsArr = Restaurants::find()->where(["status" => Yii::$app->params['user_status_value']['active']])->all();
+            $query = Restaurants::find();
+            $snRestaurantsArr = Restaurants::find()->all();
         }
         $pagination = new Pagination(['totalCount' => $query->count(), 'pageSize' => 9]);
         $models = $query->offset($pagination->offset)

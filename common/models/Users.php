@@ -58,6 +58,11 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface
     {
         return $this->hasMany(UserProjects::className(), ['user_id' => 'id']);
     }
+
+    public function getRestaurant()
+    {
+        return $this->hasOne(Restaurants::className(), ['id' => 'restaurant_id']);
+    }
     public function getFullName()
     {
         return $this->first_name . ' ' . $this->last_name;
@@ -192,7 +197,7 @@ class Users extends \common\models\base\UsersBase implements IdentityInterface
      */
     public function generatePasswordResetToken()
     {
-        $user = new \common\models\Users;
+        $user = new \common\models\Users();
         $user->password_reset_token = Security::generateRandomString() . '_' . time();
         return $user->password_reset_token;
     }
