@@ -220,17 +220,3 @@ class ReservationsSearch extends Reservations
 
     }
 }
-/*if (!empty($params['ReservationsSearch']) && !empty($params['ReservationsSearch']['tag_id'])) {
-// $condition = "['OR',['>',LOCATE('," . $this->tag_id . ",', CONCAT(',',tag_id,',')),'0'],['>',LOCATE('," . $this->tag_id . ",', CONCAT(',',tag_id,',')),0]]";
-//eval("\$condition = $condition;");
-//$get_string = "(etag_id LIKE '%," . $this->tag_id . ",%') OR (tag_id LIKE '" . $this->tag_id . ",%') OR (tag_id LIKE '%," . $this->tag_id . "') OR (tag_id = " . $this->tag_id . ")";
-// parse_str($get_string, $get_array);
-// p($get_array);
-$like1 = addslashes("%," . $this->tag_id . ",%");
-$like2 = addslashes($this->tag_id . ",%");
-$like3 = addslashes("%," . $this->tag_id);
-
-//  $dataProvider->query->andFilterWhere(["OR", ["LIKE", "tsag_id", $like1], ["LIKE", "tag_id", $like2], ["LIKE", "tag_id", $like3], ["=", "tag_id", $this->tag_id]]);
-//["(LOCATE(','" . $this->tag_id . "','", "CONCAT(',',tag_id, ',')) > 0 OR LOCATE(','" . $this->tag_id . "','", "CONCAT(',', tag_id, ',')) > 0)"];
-}/*
-return $dataProvider;
