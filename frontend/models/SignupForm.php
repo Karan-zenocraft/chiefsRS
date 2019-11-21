@@ -40,9 +40,11 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['confirm_password', 'required'],
+            ['contact_no', 'required'],
             ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => "Passwords don't match"],
             ['password', 'string', 'min' => 6],
             [['contact_no'], 'integer'],
+            ['contact_no', 'is10NumbersOnly'],
             ['contact_no', 'unique', 'targetClass' => '\common\models\Users', 'message' => 'This Contact No. address has already been taken.'],
         ];
     }
@@ -98,4 +100,11 @@ class SignupForm extends Model
 
         return null;
     }
+    public function is10NumbersOnly($attribute)
+    {
+        if (!preg_match('/^[0-9]{10}$/', $this->$attribute)) {
+            $this->addError($attribute, 'Invalid contact Number.');
+        }
+    }
+
 }

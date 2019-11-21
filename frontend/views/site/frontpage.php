@@ -58,7 +58,7 @@ $url = Yii::getAlias('@web') . "/img/logo.png";
     <div id="signup-agile">
 
        <?php //  $model2 = new SignupForm();
-    $form2 = ActiveForm::begin(['id' => 'form-signup']);?>
+    $form2 = ActiveForm::begin(['id' => 'form-signup', 'method' => 'post']);?>
      <?=$form2->field($model2, 'first_name')->textInput(['class' => 'form-control input_field_design', 'placeholder' => 'First Name'])->label(false);?>
                     <?=$form2->field($model2, 'last_name')->textInput(['class' => 'form-control input_field_design', 'placeholder' => 'Last Name'])->label(false);?>
                     <?=$form2->field($model2, 'email')->textInput(['class' => 'form-control input_field_design', 'placeholder' => 'Email'])->label(false);?>
