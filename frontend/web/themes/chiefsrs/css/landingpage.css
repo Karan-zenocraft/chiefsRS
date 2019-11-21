@@ -940,9 +940,10 @@ html {
     justify-content: flex-start;
     max-width: 100% !important;
     width: 100% !important;
-    margin: 10% 0 0 0 !important;
+    margin: 10% 0 10% 0 !important;
     padding: 0 !important;
-    height: 100vmax;
+    height: auto;
+    min-height: unset!important;
   }
 
   #section-home>div>div>div.form-w3ls.col-md-3 {
@@ -1398,8 +1399,9 @@ html {
     justify-content: flex-start;
     max-width: 100% !important;
     width: 100% !important;
-    margin: 5% 0 0 0 !important;
+    margin: 5% 0 5% 0 !important;
     padding: 0 !important;
+      height: auto;
   }
 
   #section-home>div>div>div.form-w3ls.col-md-3 {
