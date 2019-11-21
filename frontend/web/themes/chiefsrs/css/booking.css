@@ -1,3 +1,6 @@
+
+
+
 body>div.reservations-create,
 body > div.reservations-update {
     background-image: url("../images/rdetails1.jpg");
@@ -178,3 +181,12 @@ label {
 }
 
 /*# sourceMappingURL=booking.css.map */
+
+@media(max-width:767px){
+body>div.reservations-create>h1, body > div.reservations-update > h1{font-size: 2rem!important;}
+    
+    }
+@media(max-width:480px){
+    body>div.reservations-create>div, body > div.reservations-update > div{margin-bottom: 0px!important}
+    
+}

@@ -28,7 +28,7 @@ CommonAppAsset::register($this);
         <?php $this->head();?>
 
     </head>
-    <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
+    <body data-spy="scroll" data-target="#site-navbar" data-offset="200" class="example-1  scrollbar-dusty-grass square thin">
       <?php $this->beginBody()?>
     <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light nav_list" id="site-navbar">
           <?php //NavBar::begin(); ?>

@@ -18,7 +18,7 @@ CommonAppAsset::register($this);
     <title><?=Yii::getAlias('@site_title');?>&nbsp; - &nbsp;<?=Html::encode($this->title)?></title>
     <?php $this->head()?>
 </head>
-<body class="popup_bod">
+<body class="popup_bod example-1  scrollbar-dusty-grass square thin">
     <?php $this->beginBody()?>
 
     <div class="container-fluid">

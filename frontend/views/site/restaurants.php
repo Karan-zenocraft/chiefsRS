@@ -15,7 +15,7 @@ $this->title = 'Chiefs RS';
           <div class="col-md-12 text-center mb-5 site-animate">
             <h2 class="display-4">Restaurants</h2>
             <div class="row justify-content-center">
-              <div class="col-md-7">
+              <div class="col-lg-7 col-md-10">
                 <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               </div>
             </div>

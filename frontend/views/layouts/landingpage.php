@@ -25,8 +25,24 @@ $this->registerCssFile('@web/themes/chiefsrs/css/landingpage.css', ['depends' =>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <?php $this->head();?>
 
+<!--
+        <style>
+        
+        #scroll {position:fixed;right:40px;bottom:20px;cursor:pointer;width:40px;height:40px;background-color:transparent;text-indent:-9999px;display:none;-webkit-border-radius:60px;-moz-border-radius:60px;border-radius:6px;border: 1px solid #10303F; }
+#scroll:hover{}
+#scroll span {position:absolute;top:50%;left:50%;margin-left:-8px;margin-top:-12px;height:0;width:0;border:8px solid transparent;border-bottom-color:#10303F;}
+#scroll:hover {background-color:transparent;border-color:#D17C0D;transition: 0.25s ease; opacity:1;filter:"alpha(opacity=100)";-ms-filter:"alpha(opacity=100)";}
+#scroll:hover span{border-bottom-color:#D17C0D;transition: 0.25s ease;}
+
+.scrollbar-dusty-grass::-webkit-scrollbar-thumb {border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-image: -webkit-linear-gradient(330deg, #FDA403 0%, #020000 100%);background-image: linear-gradient(120deg, #FDA403 0%, #020000 100%); }
+.thin::-webkit-scrollbar {width: 6px; }
+
+        </style>
+-->
+        
     </head>
-    <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
+    <body data-spy="scroll" data-target="#site-navbar" data-offset="200" class="example-1  scrollbar-dusty-grass square thin">
       <?php $this->beginBody()?>
     <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
           <?php //NavBar::begin(); ?>
@@ -100,5 +116,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
       <?php $this->endBody();?>
       <?php $this->endPage()?>
+            
+            
+            
         </body>
 </html>

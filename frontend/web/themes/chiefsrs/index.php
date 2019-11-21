@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css"> -->
   </head>
-  <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
+  <body data-spy="scroll" data-target="#site-navbar" data-offset="200" class="example-1  scrollbar-dusty-grass square thin">
     
     <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
       <div class="container">

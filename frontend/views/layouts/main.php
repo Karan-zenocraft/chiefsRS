@@ -23,7 +23,7 @@ CommonAppAsset::register($this);
         </title><?php $this->head()?>
          <script src="<?php echo Yii::$app->getUrlManager()->getBaseUrl(); ?>/js/jquery-1.11.2.min.js"></script>
     </head>
-    <body>
+    <body class="example-1  scrollbar-dusty-grass square thin">
         <?php $this->beginBody()?>
         <div class="wrap">
             <?php
