@@ -1603,6 +1603,7 @@ html {
   #search>p>input {
     width: 60%;
     height: 6vmax;
+      font-size: 12px;
     margin: 0 !important;
     padding: 0 0 0 3% !important;
   }
