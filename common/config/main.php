@@ -11,7 +11,7 @@ if ($_SERVER['HTTP_HOST'] == "localhost") {
                 'class' => 'yii\db\Connection',
                 'dsn' => 'mysql:host=localhost;dbname=ChiefsRS',
                 'username' => 'root',
-                'password' => 'rutusha@123',
+                'password' => '',
                 'charset' => 'utf8',
             ],
             'assetManager' => [
